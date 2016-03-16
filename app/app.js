@@ -52,7 +52,6 @@ angular.module('app', [
 			$stateProvider
 				.state('app', {
 					abstract: true,
-					//controller: 'AppCtrl',
 					template: require('./index.html'),
 					data: {
 						access: {}
