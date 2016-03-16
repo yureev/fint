@@ -7,6 +7,7 @@
                 <div class="form-group card-input" ct-input-container>
                     <input type="text" name="number" class="form-control" ct-tabindex="checkNumber" tabindex="1"
                            ng-model="number" required placeholder="Card Number" autocomplete="off"
+                           ct-payments-main-card
                            ct-payments-format-number
                            ct-payments-validate-number
                            ng-class="c2cForm.number.$card.type"/>

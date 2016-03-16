@@ -9,70 +9,9 @@ $fa-font-path: "~font-awesome/fonts"
 // Import Mixins'
 @import "mixins/index"
 
-@import "old/send"
+@import "layout/send"
 
 // Misc
 a
     cursor: pointer
 
-//form
-	position: relative
-	top: 0
-	padding: 20px
-
-
-.ct-payments
-	&.visa
-		.card-logo
-			background-image: url('~payment-icons/min/flat/visa.svg')
-
-	&.mastercard
-		.card-logo
-			background-image: url('~payment-icons/min/flat/mastercard.svg')
-
-	&.maestro
-		.card-logo
-			background-image: url('~payment-icons/min/flat/maestro.svg')
-
-.card-logo
-	width: 53px
-	height: 33px
-	background-size: cover
-	background-repeat: no-repeat
-	position: absolute
-	top: 105px
-	left: 275px
-	margin-bottom: 14px
-	opacity: 0.6
-
-//.card-image
-	background-image: url('./images/card_bg.svg')
-	background-repeat: no-repeat
-	width: 492px
-	height: 240px
-
-.ct-input
-	border-radius: 5px
-	width: 313px
-	clear: both
-
-.cvc-input
-	width: 120px
-
-	input
-		width: 60px
-
-.button
-	position: absolute
-	top: 166px
-	left: 261px
-
-.error
-	font-size: 12px
-	color: #d9534f
-
-.small-input
-	width: 60px !important
-	clear: right
-	float: left
-	margin: 0 10px 15px 0
