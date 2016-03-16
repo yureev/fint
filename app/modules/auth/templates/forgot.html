@@ -1,0 +1,28 @@
+<div class="forgot">
+    <div class="login-logo">
+        <img src="/static/app/images/logo_small.png" alt="Bond Real Estate">
+    </div>
+    <p class="login-box-msg">Welcome to Bentley</p>
+    <form name="forgot_frm" ng-submit="restore()" autocomplete="off">
+        <div class="form-group has-feedback" ng-hide="emailSent" ng-class="{'has-error': errors}">
+            <label for="user_name" class="control-label glyphicon glyphicon-envelope form-control-feedback"></label>
+            <input type="email" class="form-control" id="user_name" data-ng-model="userName" required="required">
+            <span class="label label-danger" ng-show="checkError(2)" style="top: -1px;">Such user doesn't exist</span>
+            <span class="label label-danger" ng-show="checkError(4)" style="top: -1px;">You can reset your password only once in 15 minutes.</span>
+        </div>
+        <div class="form-group has-feedback" ng-show="emailSent">
+            <div class="message">Instructions have been sent to your email. Check out your mailbox.</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-8">
+                <a ui-sref="auth.login">Back to Log in</a>
+            </div>
+            <div class="col-xs-4">
+                <div class="form-group has-feedback" ng-hide="emailSent">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Restore</button>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </form>
+</div>

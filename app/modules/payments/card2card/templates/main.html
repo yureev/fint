@@ -1,0 +1,101 @@
+<div class="card2card">
+    <form name="c2cForm" ct-payments>
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>Source card</h3>
+                <div class="form-group" ct-input-container>
+                    <input type="text" name="number" class="form-control"
+                           ng-model="number" required placeholder="Card Number"
+                           ct-payments-format-number
+                           ct-payments-validate-number/>
+                    <div ng-messages="c2cForm.number.$error" class="error">
+                        <div ng-message="required">Card number is required field</div>
+                        <div ng-message="invalidNumber">Card number is invalid</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-inline">
+                        <select class="form-control"
+                                ng-model="viewExpire.month" name="month"
+                                ct-payments-format-expire-month>
+                        </select>
+                        <select class="form-control" name="year"
+                                ng-model="viewExpire.year"
+                                ct-payments-format-expire-year>
+                        </select>
+                    </div>
+                    <div ct-input-container>
+                        <input type="hidden" name="expire"
+                               ng-model="expire" required
+                               ct-payments-validate-expire="viewExpire"/>
+                    </div>
+                    <div ng-messages="c2cForm.expire.$error" class="error">
+                        <div ng-message="invalidExpire">Card is expired</div>
+                    </div>
+                </div>
+                <div class="form-group" ct-input-container>
+                    <input type="text" id="cvc" name="cvc" class="form-control"
+                           ng-model="cvc" required placeholder="CVC"
+                           ct-payments-format-cvc
+                           ct-payments-validate-cvc/>
+                    <div ng-messages="c2cForm.cvc.$error" class="cvc-error">
+                        <div ng-message="required">This is required field</div>
+                        <div ng-message="invalidCvc">CVC is invalid</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <h3>Amount</h3>
+                <div class="form-group" ct-input-container>
+                    <input type="text" name="amount" class="form-control" ct-currency
+                           ng-model="amount" min="1" max="25000" required/>
+                    <div ng-messages="c2cForm.amount.$error" class="error">
+                        <div ng-message="required">Amount is required field</div>
+                        <div ng-message="min">Amount should be bigger</div>
+                        <div ng-message="max">Amount should be smaller</div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-4">
+                <h3>Target Card</h3>
+                <div class="form-group" ct-input-container>
+                    <input type="text" name="numberTarget" class="form-control"
+                           ng-model="numberTarget" required placeholder="Card Number"
+                           ct-payments-format-number
+                           ct-payments-validate-number/>
+                    <div ng-messages="c2cForm.numberTarget.$error" class="error">
+                        <div ng-message="required">Card number is required field</div>
+                        <div ng-message="invalidNumber">Card number is invalid</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group" ct-input-container>
+                    <input type="text" name="phone" class="form-control" ui-mask="+380 (99) 999 99 99"
+                           ng-model="phone" required placeholder="+380 (__) ___-__-__"/>
+                    <div ng-messages="c2cForm.phone.$error" class="error">
+                        <div ng-message="required">Phone number is required field</div>
+                        <div ng-message="mask">Phone number is not correct</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8 form-inline">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="agreed"> Cогласен с условиями
+                    </label>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-large"
+                            ng-disabled="c2cForm.$invalid || c2cForm.$pristine">
+                        Send
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </form>
+</div>

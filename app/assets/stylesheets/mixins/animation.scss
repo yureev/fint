@@ -1,0 +1,41 @@
+/**
+ * @description
+ * Generates keyframe animations
+ *
+ * @author drublic
+ *
+ * @link caniuse http://caniuse.com/#feat=css-animation
+ * @link spec http://www.w3.org/TR/css3-animations/
+ *
+ * @param values
+ * @returns
+ *   -webkit-animation: <values>;
+ *           animation: <values>;
+ *
+ * @example
+ *   .selector {
+ *     @include animation(jump 1s ease-out);
+ *   }
+ */
+
+@mixin animation ($values) {
+	-webkit-animation: $values;
+	        animation: $values;
+}
+
+/*
+ * @example
+ *    @include keyframes(jump) {
+ *      from { top: 0; }
+ *      to { top: -10px; }
+ *   }
+ */
+@mixin keyframes ($name) {
+	@-webkit-keyframes #{$name} {
+		@content;
+	}
+
+	@keyframes #{$name} {
+		@content;
+	}
+}

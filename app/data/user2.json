@@ -1,0 +1,6 @@
+{
+  "id": 1,
+  "name": "Manager Manager",
+  "role": "Manager",
+  "permissions": ["DASHBOARD_READ", "PROFILE_READ"]
+}

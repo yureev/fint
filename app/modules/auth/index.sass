@@ -1,0 +1,17 @@
+@import "app/assets/stylesheets/mixins/index"
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/variables"
+
+.auth
+    position: absolute
+    width: 340px
+    top: 50%
+    left: 50%
+    margin-top: -10px
+    @include transform(translate(-50%, -50%))
+
+    @media (max-width: $screen-sm)
+        width: 90%
+        margin-top: 20px
+
+    button
+        appearance: none

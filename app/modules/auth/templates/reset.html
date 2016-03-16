@@ -1,0 +1,57 @@
+<div class="reset">
+    <div class="login-logo">
+        <img src="/static/app/images/logo_small.png" alt="Bond Real Estate">
+    </div>
+    <p class="login-box-msg">Welcome to Bentley</p>
+
+    <div class="form-group has-feedback" ng-show="checkError(2)">
+        <div class="col-sm-12">
+            <p class="message">Hash {{hash}} not found.</p>
+        </div>
+    </div>
+
+    <div class="form-group has-feedback" ng-show="checkError(4)">
+        <div class="col-sm-12">
+            <p class="message">Hash {{hash}} has expired.</p>
+        </div>
+    </div>
+
+    <div class="form-group has-feedback" ng-show="passwordChanged">
+        <div class="col-sm-12">
+            <p class="message">Password has been changed.</p>
+        </div>
+    </div>
+
+    <div class="form-group has-feedback" ng-show="user.email && !passwordChanged">
+        <div class="col-sm-12">
+            <p class="message">Hello, {{user.email}}.</p>
+        </div>
+    </div>
+
+    <form name="reset_frm" ng-submit="reset()" autocomplete="off" ng-show="showForm">
+        <label for="new_password" class="control-label">New password</label>
+        <div class="form-group has-feedback" ng-class="{'has-error': checkError(8)}">
+            <input type="password" class="form-control" id="new_password" data-ng-model="newPassword" required="required">
+            <span class="label label-danger" ng-show="checkError(8)" style="top: -1px;">Passwords do not match</span>
+        </div>
+        <label for="confirm_password" class="control-label">Confirm password</label>
+        <div class="form-group has-feedback" ng-class="{'has-error': checkError(8)}">
+            <input type="password" class="form-control" id="confirm_password" data-ng-model="confirmPassword" required="required">
+        </div>
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="form-group has-feedback">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Reset</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="form-group has-feedback">
+        <div class="col-sm-12">
+            <a ui-sref="auth.login">Back to Log in</a>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+</div>
