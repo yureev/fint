@@ -44,7 +44,7 @@
             <div class="col-sm-4">
                 <h3>Amount</h3>
                 <div class="form-group" ct-input-container>
-                    <input type="text" name="amount" class="form-control" ct-currency
+                    <input type="text" name="amount" class="form-control" tabindex="6" ct-currency
                            ng-model="amount" min="1" max="25000" required/>
                     <div ng-messages="c2cForm.amount.$error" class="error">
                         <div ng-message="required">Amount is required field</div>
@@ -70,8 +70,9 @@
         <div class="row">
             <div class="col-sm-4">
                 <div class="form-group" ct-input-container>
-                    <input type="text" name="phone" class="form-control" ui-mask="+380 (99) 999 99 99"
-                           ng-model="phone" tabindex="5" required placeholder="+380 (__) ___-__-__"/>
+                    <input type="text" name="phone" class="form-control" ui-mask="+380 (99) 999 99 99" tabindex="5"
+                           ct-tabindex="checkPhone" ng-model="phone" tabindex="5"
+                           required placeholder="+380 (__) ___-__-__"/>
                 </div>
                 <div class="error-block">
                     <div ng-messages="c2cForm.number.$error" ng-show="c2cForm.number.$touched" class="error">

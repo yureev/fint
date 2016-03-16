@@ -52,7 +52,7 @@ angular.module('app', [
 			$stateProvider
 				.state('app', {
 					abstract: true,
-					controller: 'AppCtrl',
+					//controller: 'AppCtrl',
 					template: require('./index.html'),
 					data: {
 						access: {}
@@ -61,32 +61,7 @@ angular.module('app', [
 
 			RestangularProvider.setBaseUrl('/api');
 		}
-	])
-	.controller('AppCtrl', AppCtrl);
-		AppCtrl.$inject = ['$scope'];
-		function AppCtrl($scope) {
-			$scope.checkNumber = function (ctrl) {
-				if (ctrl.$valid && ctrl.$modelValue.length == 16) {
-					return true;
-				}
-			}
-			$scope.checkMonth = function (ctrl) {
-				if (ctrl.$valid && ctrl.$modelValue.length == 2) {
-					return true;
-				}
-			}
-			$scope.checkYear = function (ctrl) {
-				if (ctrl.$valid && ctrl.$modelValue.length == 2) {
-					return true;
-				}
-			}
-			$scope.checkCvc = function (ctrl) {
-				if (ctrl.$valid && ctrl.$modelValue.length == 3) {
-					return true;
-				}
-			}
-		}
-
+	]);
 
 $(document).ready(function () {
 	require('_data/permissions.json');
