@@ -10,6 +10,8 @@ angular.module('app', [
 	'restangular',
 
 	require('component-input'),
+	require('component-tabindex'),
+	require('component-utils'),
 
 	require('_modules/auth'),
 	require('_modules/main')
@@ -60,8 +62,31 @@ angular.module('app', [
 			RestangularProvider.setBaseUrl('/api');
 		}
 	])
-	.controller('AppCtrl', function () {
-	});
+	.controller('AppCtrl', AppCtrl);
+		AppCtrl.$inject = ['$scope'];
+		function AppCtrl($scope) {
+			$scope.checkNumber = function (ctrl) {
+				if (ctrl.$valid && ctrl.$modelValue.length == 16) {
+					return true;
+				}
+			}
+			$scope.checkMonth = function (ctrl) {
+				if (ctrl.$valid && ctrl.$modelValue.length == 2) {
+					return true;
+				}
+			}
+			$scope.checkYear = function (ctrl) {
+				if (ctrl.$valid && ctrl.$modelValue.length == 2) {
+					return true;
+				}
+			}
+			$scope.checkCvc = function (ctrl) {
+				if (ctrl.$valid && ctrl.$modelValue.length == 3) {
+					return true;
+				}
+			}
+		}
+
 
 $(document).ready(function () {
 	require('_data/permissions.json');
