@@ -3,45 +3,42 @@
         <div class="row">
             <div class="col-sm-4">
                 <h3>Source card</h3>
-                <div class="form-group" ct-input-container>
-                    <input type="text" name="number" class="form-control"
-                           ng-model="number" required placeholder="Card Number"
+                <div class="card-logo"></div>
+                <div class="form-group card-input" ct-input-container>
+                    <input type="text" name="number" class="form-control" ct-tabindex="checkNumber" tabindex="1"
+                           ng-model="number" required placeholder="Card Number" autocomplete="off"
                            ct-payments-format-number
-                           ct-payments-validate-number/>
-                    <div ng-messages="c2cForm.number.$error" class="error">
-                        <div ng-message="required">Card number is required field</div>
-                        <div ng-message="invalidNumber">Card number is invalid</div>
-                    </div>
+                           ct-payments-validate-number
+                           ng-class="c2cForm.number.$card.type"/>
                 </div>
                 <div class="form-group">
-                    <div class="form-inline">
-                        <select class="form-control"
-                                ng-model="viewExpire.month" name="month"
-                                ct-payments-format-expire-month>
-                        </select>
-                        <select class="form-control" name="year"
-                                ng-model="viewExpire.year"
-                                ct-payments-format-expire-year>
-                        </select>
+                    <div ct-input-container>
+                        <input type="text" class="form-control small-input" ct-tabindex="checkMonth" required
+                               maxlength="2"
+                               placeholder="MM" tabindex="2"
+                               ng-model="viewExpire.month" name="month" autocomplete="off"
+                               ct-payments-format-expire-month-text
+                               ct-payments-validate-month/>
                     </div>
                     <div ct-input-container>
+                        <input type="text" class="form-control small-input" ct-tabindex="checkYear" required
+                               maxlength="2"
+                               placeholder="YY" tabindex="3"
+                               ng-model="viewExpire.year" name="year" autocomplete="off"
+                               ct-payments-format-expire-year-text
+                               ct-payments-validate-year/>
+                    </div>
+                    <div ct-input-container class="card-input">
                         <input type="hidden" name="expire"
                                ng-model="expire" required
                                ct-payments-validate-expire="viewExpire"/>
                     </div>
-                    <div ng-messages="c2cForm.expire.$error" class="error">
-                        <div ng-message="invalidExpire">Card is expired</div>
-                    </div>
                 </div>
-                <div class="form-group" ct-input-container>
-                    <input type="text" id="cvc" name="cvc" class="form-control"
-                           ng-model="cvc" required placeholder="CVC"
+                <div class="form-group cvc-input" ct-input-container>
+                    <input type="text" maxlength="3" id="cvc" name="cvc" class="form-control"
+                           ng-model="cvc" required placeholder="CVC" tabindex="4" ct-tabindex="checkCvc"
                            ct-payments-format-cvc
                            ct-payments-validate-cvc/>
-                    <div ng-messages="c2cForm.cvc.$error" class="cvc-error">
-                        <div ng-message="required">This is required field</div>
-                        <div ng-message="invalidCvc">CVC is invalid</div>
-                    </div>
                 </div>
             </div>
             <div class="col-sm-4">
@@ -55,7 +52,6 @@
                         <div ng-message="max">Amount should be smaller</div>
                     </div>
                 </div>
-
             </div>
             <div class="col-sm-4">
                 <h3>Target Card</h3>
@@ -75,8 +71,21 @@
             <div class="col-sm-4">
                 <div class="form-group" ct-input-container>
                     <input type="text" name="phone" class="form-control" ui-mask="+380 (99) 999 99 99"
-                           ng-model="phone" required placeholder="+380 (__) ___-__-__"/>
-                    <div ng-messages="c2cForm.phone.$error" class="error">
+                           ng-model="phone" tabindex="5" required placeholder="+380 (__) ___-__-__"/>
+                </div>
+                <div class="error-block">
+                    <div ng-messages="c2cForm.number.$error" ng-show="c2cForm.number.$touched" class="error">
+                        <div ng-message="required">Card number is required field</div>
+                        <div ng-message="invalidNumber">Card number is invalid</div>
+                    </div>
+                    <div ng-messages="c2cForm.expire.$error" class="error">
+                        <div ng-message="invalidExpire">Card is expired</div>
+                    </div>
+                    <div ng-messages="c2cForm.cvc.$error" ng-show="c2cForm.cvc.$touched" class="error">
+                        <div ng-message="required">This is required field</div>
+                        <div ng-message="invalidCvc">CVC is invalid</div>
+                    </div>
+                    <div ng-messages="c2cForm.phone.$error" ng-show="c2cForm.phone.$touched" class="error">
                         <div ng-message="required">Phone number is required field</div>
                         <div ng-message="mask">Phone number is not correct</div>
                     </div>
