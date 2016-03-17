@@ -2,105 +2,77 @@
     <header>
         <div class="row menu navbar" role="navigation">
             <div class="col-md-2 col-sm-2 col-xs-9">
-                <a data-ng-href="#/"><img class="logo" src="./assets/images/old/logo_sendua.png" alt=""></a>
+                <a href="#/"><img class="logo" src="./assets/images/logo_sendua.png" alt=""></a>
             </div>
             <div class="col-md-9 col-sm-9 col-xs-3  container">
-                <div class="lang-box" data-ng-if="device == 'mob'">
-                    <div class="lang {{lang}}" data-ng-click="changeLang()"></div>
-                </div>
-                <div class="navbar-header">
-                    <!--<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
-                        <span class="sr-only"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>-->
-                </div>
                 <div id="navbarCollapse" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav tabs">
-                        <li class="item about-services ng-binding" scroll-to="services">Про сервіс</li>
-                        <li class="item tarif ng-binding" scroll-to="tarif">Тарифи і правила</li>
-                        <li class="item faq ng-binding"  scroll-to="qaa">Питання-відповіді</li>
-                        <li class="item contacts ng-binding" scroll-to="contacts">Контакти</li>
-                        <li class="item login ng-binding" ng-click="Base.toggleModal()">Особистий кабінет</li>
-
+                        <li class="item about-services ng-binding">О сервисе</li>
+                        <li class="item tarif ng-binding">Тарифы и правила</li>
+                        <li class="item faq ng-binding">Вопросы-ответы</li>
+                        <li class="item contact ng-binding">Контакты</li>
+                        <li class="item login ng-binding">Личный кабинет</li>
                     </ul>
                 </div>
             </div>
-
-            <div class="col-md-1 col-xs-1 lang-box" data-ng-if="device != 'mob'">
-                <div class="lang {{lang}}" data-ng-click="changeLang()"></div>
+            <div class="col-md-1 col-xs-1 lang-box ng-scope">
+                <div class="lang ua"></div>
             </div>
         </div>
     </header>
-
-    <div class="dd-menu" data-ng-if="showDropMenu && device == 'mob'">
-        <ul class="nav  ">
-            <li class="item about-services" data-ng-bind-html="trustHtml(word.services)"></li>
-            <li class="item tarif" data-ng-bind-html="trustHtml(word.tarif)"></li>
-            <li class="item faq" data-ng-bind-html="trustHtml(word.faq)"></li>
-            <li class="item contacts" data-ng-bind-html="trustHtml(word.contacts)"></li>
-        </ul>
-    </div>
-
     <div class="clearfix"></div>
 
-    <div data-ng-view="" class="wrapper" data-ng-style="resizeHeight(300)" data-resizer-body=""
-         style="min-height: 500px;">
+    <div class="wrapper" style="min-height: 500px;">
         <div class="container" ui-view="main"></div>
     </div>
-
     <div class="clearfix"></div>
-
-    <div class="form-footer" data-ng-hide="getClassForLocation() === 'registry'">
+    <div class="form-footer">
         <div class="button-block">
-            <div class="button p2p" data-ng-click="changeLocation('/')">
-                <div class="pic p2p-pic"><img ng-class="{'active': getClassForLocation() === 'main'}"
-                                              src="./assets/images/old/Cards_bottom.png"></div>
-                <div class="button-desc" data-ng-bind-html="trustHtml(word.btnSendMoney)"
-                     ng-class="{'active': getClassForLocation() === 'main'}">Перевод с карты<br>на карту
+            <div class="button p2p">
+                <div class="pic p2p-pic"><img src="./assets/images/old/Cards_bottom.png"></div>
+                <div>
+                    Перевод с карты<br>на карту
                 </div>
             </div>
-            <div class="button registry" data-ng-click="registerChangeLocation('/registry')">
-                <div class="pic registry-pic"><img ng-class="{'active': getClassForLocation() === 'registry'}"
-                                                   src="./assets/images/old/masspay_bottom.png"></div>
-                <div class="button-desc" data-ng-bind-html="trustHtml(word.btnRegistry)"
-                     ng-class="{'active': getClassForLocation() === 'registry'}">Реестровые <br>платежи
+            <div class="button registry">
+                <div class="pic registry-pic"><img src="./assets/images/old/masspay_bottom.png"></div>
+                <div class="button-desc">Реестровые <br>платежи
                 </div>
             </div>
-            <div class="button mobile" data-ng-click="changeLocation('/mobile')">
-                <div class="pic mobile-pic"><img ng-class="{'active': getClassForLocation() === 'mobile'}"
-                                                 src="./assets/images/old/mobiles_bottom.png"></div>
-                <div class="button-desc" data-ng-bind-html="trustHtml(word.btnMobile)"
-                     ng-class="{'active': getClassForLocation() === 'mobile'}">Мобильный <br>Send.UA
+            <div class="button mobile">
+                <div class="pic mobile-pic"><img src="./assets/images/old/mobiles_bottom.png"></div>
+                <div class="button-desc">Мобильный <br>Send.UA
                 </div>
             </div>
         </div>
         <div class="button-down" scroll-to="services"></div>
     </div>
     <div class="clearfix"></div>
-
-    <div class="about" id="services" data-ng-hide="getClassForLocation() === 'registry'">
-        <div class="about-title" data-ng-bind-html="trustHtml(word.services)">О сервисе</div>
+    <div class="about" id="services">
+        <div class="about-title">О сервисе</div>
         <div class="about-desc">
-            <div class="about-content" data-ng-bind-html="trustHtml(word.aboutSend)">
-            </div>
+            <div class="about-content ng-binding"><p>«Send.ua» - новый
+                сертифицированный платежный сервис p2p переводов и online расчетов.</p>
+                <p>Наши клиенты могут переводить средства между картами украинских банков за считанные секунды с
+                    минимальной комиссией.</p>
+                <p>Используя <span class="bold">Send.ua</span>, Вы сможете перевести средства, зная только номер
+                    мобильного телефона, email или аккаунт в Facebook получателя.</p>
+                <p>Все операции осуществляются с использованием протокола безопасности 3-D Secure для платежных карт
+                    (Verified by Visa и MasterCard SecureCode)</p>
+                <p>Деньги, которые переводятся через <span class="bold">Send.ua</span>, надежно защищены.</p></div>
         </div>
         <img src="./assets/images/old/gear.jpg" class="image-setting">
         <div class="clearfix"></div>
-        <div class="button-down" scroll-to="tarif"></div>
-
+        <div class="button-down"></div>
     </div>
     <div class="clearfix"></div>
-
-    <div class="about tariff" id="tarif" data-ng-hide="getClassForLocation() === 'registry'">
+    <div class="about tariff" id="tarif">
         <div class="wrap">
-            <div class="about-title" data-ng-bind-html="trustHtml(word.tarif)">Тарифы и правила</div>
+            <div class="about-title">Тарифы и правила</div>
             <div class="about-desc">
-                <div class="about-content" data-ng-bind-html="trustHtml(word.aboutQaA)"><h3>Тарифи:</h3>
+                <div class="about-content"><h3>Тарифи:</h3>
                     <p>Комісія за переказ на карту будь-якого українського банку становить
                         <span class="bold">1 % + 5 грн.</span></p>
-
                     <h3>Ліміти:</h3>
                     <ul>
                         <li><p><span class="bold">25 000 грн</span> – максимальна сума однієї операції, без врахування
@@ -121,57 +93,139 @@
                     </ul>
                     <p><span class="bold">Важливо! Банк-емітент картки отримувача може стягувати комісію за зарахування переказу та
                         встановлювати ліміти на проведення операцій по карткам.</span></p>
-
                 </div>
                 <img class="calc" src="./assets/images/old/Calc_illustr.jpg" width="350" height="310">
                 <div class="clearfix"></div>
             </div>
-            <div class="button-down" scroll-to="qaa"></div>
+            <div class="button-down"></div>
         </div>
     </div>
     <div class="clearfix"></div>
-
-    <div class="questions {{lang}}" id="qaa" data-ng-hide="getClassForLocation() === 'registry'">
-        <div class="title" data-ng-bind-html="trustHtml(word.faq)">Вопросы и ответы</div>
+    <div class="questions {{lang}}" id="qaa">
+        <div class="title">Вопросы и ответы</div>
         <div class="block">
             <div class="tablet">
-                <div class="ask-block scroll" scrollbar="{autoUpdate: true, wheel: true}">
-                    <div ng-repeat="item in questAndAnswers[lang]" class="item">
-                        <div class="question" ng-click="Base.currentOpenAnswer = $index">
-                            <div class="block1">
-                                <div class="icon icon-ask"
-                                     ng-class="{'active': Base.currentOpenAnswer === $index}"></div>
-                                <div class="num" ng-class="{'active': Base.currentOpenAnswer === $index}">№
-                                    00{{$index+1}}
-                                </div>
+                <div class="ask-block scroll">
+                    <div class="question">
+                        <div class="block1">
+                            <div class="icon icon-ask active"></div>
+                            <div class="num ng-binding active">№
+                                001
                             </div>
-                            <div class="block2">
-                                <div class="ask" ng-bind-html="Base.trustHtml(item.question)"></div>
-                            </div>
-                            <div class="clearfix"></div>
                         </div>
-                        <div class="answer" ng-if="Base.currentOpenAnswer === $index">
-
-                            <div class="block2">
-                                <div class="answer" ng-bind-html="Base.trustHtml(item.answer)"></div>
+                        <div class="block2">
+                            <div class="ask ng-binding">Как перевести
+                                деньги с карты на карту?
                             </div>
                         </div>
                         <div class="clearfix"></div>
                     </div>
+                    <div class="answer ng-scope">
+                        <div class="block2">
+                            <div class="answer ng-binding"><p>Send.ua позволяет перевести деньги online между
+                                картами Visa, Visa Electron, MasterCard и Maestro украинских банков.</p>
+                                <p>Переводы можно осуществыить online на нашей странице или через мобильное
+                                    приложение Send.ua в Вашем смартфоне.</p>
+                                <div>Для совершения перевода необходимо указать:
+                                    <ul>
+                                        <li>номер банковской карты отправителя (16 цифр на лицевой стороне карты);
+                                        </li>
+                                        <li>срок действия карты - месяц и год (два двузначных числа на лицевой
+                                            стороне карты);
+                                        </li>
+                                        <li>CVV - код карты отправителя (3-значное число на обороте карты);</li>
+                                        <li>номер телефона отправителя;</li>
+                                        <li>сумму перевода;</li>
+                                        <li>номер карты получателя.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <!-- second question -->
+                    <div class="question">
+                        <div class="block1">
+                            <div class="icon icon-ask active"></div>
+                            <div class="num ng-binding active">№
+                                002
+                            </div>
+                        </div>
+                        <div class="block2">
+                            <div class="ask ng-binding">Забыли номер карты
+                                получателя? Не проблема.
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="answer ng-scope">
+                        <div class="block2">
+                            <div class="answer ng-binding"><p>Вы можете
+                                осуществить перевод, зная только номер мобильного телефона получателя или его учетную
+                                запись в Facebook.</p>
+                                <div>Все просто:
+                                    <ul>
+                                        <li>при переводе по номеру телефона, получателю отправляется sms с уникальным
+                                            кодом перевода и ссылкой на сайт Send.ua;
+                                        </li>
+                                        <li>перейдя по ссылке, получатель указывает код и номер карты, на которую желает
+                                            получить перевод.
+                                        </li>
+                                    </ul>
+                                    <span class="bold">Помните, что уникальный код перевода действителен в течение 7 календарных дней.<br>
+                                        После завершения срока действия кода, средства возвращаются на карту отправителя.</span>
+                                </div>
+                                <br>
+                                <div>Для перевода через аккаунт в Facebook необходимо:
+                                    <ul>
+                                        <li>зайти в приложение Send.ua;</li>
+                                        <li>ввести данные своей карты и выбрать получателя из списка друзей;</li>
+                                        <li>получателю придет уведомление о входящем перевод в Facebook Messenger;</li>
+                                        <li>получателю нужно зайти в приложение Send.ua, нажать кнопку «Получить» и
+                                            выбрать карту, на которую будут зачислены средства.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <!-- third question -->
+                    <div class="question">
+                        <div class="block1">
+                            <div class="icon icon-ask active"></div>
+                            <div class="num ng-binding active">№
+                                003
+                            </div>
+                        </div>
+                        <div class="block2">
+                            <div class="ask ng-binding">Перевод выполнен успешно, но деньги так и не поступили на
+                                карту.
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="answer ng-scope">
+                        <div class="block2">
+                            <div class="answer ng-binding"><p>Прежде всего, проверьте введенные данные - реквизиты карты
+                                или номер телефона получателя.</p>
+                                <p>Если Вы уверены, что реквизиты были введены корректно, а деньги так и не поступили, -
+                                    обратитесь за помощью в службу поддержки Send.ua:</p>
+                                <p>тел. : 044 390-08-85,</p>
+                                <p>e-mail: <a href="mailto:support@send.ua">support@send.ua</a></p>
+                                <p>Специалисты службы поддержки решат ваш вопрос максимально быстро.</p></div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
                 </div>
-                <div class="clearfix"></div>
             </div>
-
-
+            <div class="clearfix"></div>
         </div>
-
-        <div class="button-down" scroll-to="contacts"></div>
+        <div class="button-down"></div>
     </div>
-
     <div class="clearfix"></div>
-
     <div class="about-contacts">
-        <div class="contacts-title" id="contacts" data-ng-bind-html="trustHtml(word.contacts)">Контакты</div>
+        <div class="contacts-title">Контакты</div>
         <div class="row contacts">
             <div class="facebook-pic"></div>
             <div class="twitter-pic"></div>
@@ -188,48 +242,50 @@
             </div>
         </div>
     </div>
-
-    <footer>
-        <div class="footer-wrap">
-            <a href="http://www.visa.com.ua/ua/uk-ua/personal/security/onlineshopping.shtml" target="_blank">
-                <div class="veri-visa banner"></div>
-            </a>
-            <div class="master banner"></div>
-            <div class="money-send banner"></div>
-            <div class="master2 banner"></div>
-            <a href="http://www.mastercard.com/ua/consumer/secure-code.html" target="_blank">
-                <div class="secure banner"></div>
-            </a>
-        </div>
-    </footer>
-
-    <modal-dialog show='Base.modalShown'>
-        <div class="login-card">
-            <div class="close" ng-click="hideModal()"></div>
-            <form ng-submit="Base.login(username, password)">
-                <div><input type="text" ng-model="username" placeholder="Логин (ваш e-mail)" required></div>
-                <div><input type="password" ng-model="password" placeholder="Пароль" required></div>
-                <p class="remind">Забыли пароль?</p>
-                <input type="submit" name="login" class="login login-submit" value="Войти">
-                <p class="registration">Регистрация</p>
-            </form>
-        </div>
-
-        <div class="registration-card" ng-if="Registry.registration === 1">
-            <div class="close"></div>
-            <h1>Регистрация</h1><br>
-            <form>
-                <div class="name-field"><span>Имя пользователя: </span><input type="text" ng-model="username" required>
-                </div>
-                <div class="login-field"><span>Логин: </span><input type="text" ng-model="text" required></div>
-                <div class="password-field"><span>Пароль: </span><input type="text" ng-model="text" required></div>
-                <div class="mail-field"><span>Адрес электронной почты: </span><input type="text" ng-model="text"
-                                                                                     required></div>
-                <div class="phone-field"><span>Телефон: </span><input type="text" ng-model="text" required></div>
-                <div class=""><span>Согласен с <span>условиями</span></span></div>
-                <input type="submit" ng-click="" name="login" class="login login-submit" value="Продолжить">
-            </form>
-
-        </div>
-    </modal-dialog>
 </div>
+<footer>
+    <div class="footer-wrap">
+        <a href="http://www.visa.com.ua/ua/uk-ua/personal/security/onlineshopping.shtml" target="_blank">
+            <div class="veri-visa banner"></div>
+        </a>
+        <div class="master banner"></div>
+        <div class="money-send banner"></div>
+        <div class="master2 banner"></div>
+        <a href="http://www.mastercard.com/ua/consumer/secure-code.html" target="_blank">
+            <div class="secure banner"></div>
+        </a>
+    </div>
+</footer>
+<!-- ////////////////////////////////////////////Registration Form /////////////////////////////////////////
+
+<modal-dialog show='Base.modalShown'>
+    <div class="login-card">
+        <div class="close" ng-click="hideModal()"></div>
+        <form ng-submit="Base.login(username, password)">
+            <div><input type="text" ng-model="username" placeholder="Логин (ваш e-mail)" required></div>
+            <div><input type="password" ng-model="password" placeholder="Пароль" required></div>
+            <p class="remind">Забыли пароль?</p>
+            <input type="submit" name="login" class="login login-submit" value="Войти">
+            <p class="registration">Регистрация</p>
+        </form>
+    </div>
+
+    <div class="registration-card" ng-if="Registry.registration === 1">
+        <div class="close"></div>
+        <h1>Регистрация</h1><br>
+        <form>
+            <div class="name-field"><span>Имя пользователя: </span><input type="text" ng-model="username" required>
+            </div>
+            <div class="login-field"><span>Логин: </span><input type="text" ng-model="text" required></div>
+            <div class="password-field"><span>Пароль: </span><input type="text" ng-model="text" required></div>
+            <div class="mail-field"><span>Адрес электронной почты: </span><input type="text" ng-model="text"
+                                                                                 required></div>
+            <div class="phone-field"><span>Телефон: </span><input type="text" ng-model="text" required></div>
+            <div class=""><span>Согласен с <span>условиями</span></span></div>
+            <input type="submit" ng-click="" name="login" class="login login-submit" value="Продолжить">
+        </form>
+
+    </div>
+</modal-dialog>
+-->
+
