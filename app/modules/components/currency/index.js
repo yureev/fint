@@ -29,7 +29,7 @@ function ctCurrencyDirective() {
 			}
 		}
 
-		element.on('focus', onFocus);
+		element.on('focus click', onFocus);
 
 		element.on('keydown', onKeyDown);
 
@@ -62,15 +62,10 @@ function ctCurrencyDirective() {
 				pos = elemDOM.selectionStart;
 
 				//selectint
-				if (pos < dotPos && ngModelCtrl.$untouched) {
+				if (pos <= dotPos && !ngModelCtrl.$modelValue) {
 					elemDOM.setSelectionRange(0, dotPos);
 
 					return;
-				}
-
-				//select decimal
-				if (pos == dotPos) {
-					pos++;
 				}
 
 				if (pos > dotPos) {
