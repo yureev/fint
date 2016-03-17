@@ -1,0 +1,11 @@
+{
+  "formRules": {
+    "limits":[1, 25000],
+    "phone": {
+      "isShow": true
+    },
+    "acceptedAgreement": {
+      "isShow": true
+    }
+  }
+}

@@ -14,18 +14,19 @@ function ctCurrencyDirective() {
 		if (!ngModelCtrl)
 			throw new Error("ct-currency should have ng-model!");
 
+
 		ngModelCtrl.$parsers.push(parser);
 		ngModelCtrl.$formatters.push(formatter);
 
 		if (attrs.min) {
 			ngModelCtrl.$validators.min = function(value) {
-				return parseFloat(attrs.min) < value;
+				return parseFloat(attrs.min) <= value;
 			}
 		}
 
 		if (attrs.max) {
 			ngModelCtrl.$validators.max = function(value) {
-				return parseFloat(attrs.max) > value;
+				return parseFloat(attrs.max) >= value;
 			}
 		}
 

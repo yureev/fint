@@ -1,4 +1,5 @@
 <div class="card2card">
+    <h1>Name: {{ vm.name }}</h1>
     <form name="c2cForm" ct-payments>
         <div class="row">
             <div class="col-sm-4">
@@ -46,13 +47,15 @@
                 <h3>Amount</h3>
                 <div class="form-group" ct-input-container>
                     <input type="text" name="amount" class="form-control" tabindex="6" ct-currency
-                           ng-model="amount" min="1" max="25000" required/>
+                           ng-model="amount" ng-change="vm.calculate()" min="1" max="25000" required autocomplete="off"/>
                     <div ng-messages="c2cForm.amount.$error" class="error">
                         <div ng-message="required">Amount is required field</div>
                         <div ng-message="min">Amount should be bigger</div>
                         <div ng-message="max">Amount should be smaller</div>
                     </div>
                 </div>
+                <div>commiss ({{ config.tariff.comm_percent }}% + {{ config.tariff.total_min/100 }}): {{ commiss }}</div>
+                <div>total: {{ total }}</div>
             </div>
             <div class="col-sm-4">
                 <h3>Target Card</h3>
