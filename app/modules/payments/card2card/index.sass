@@ -1,8 +1,30 @@
+.main
+	position: relative
+	margin-top: 50px
+
 .card2card
+	margin: 0 auto
+	width: 95%
+	min-width: 800px
+	max-width: 930px
+	min-height: 350px
+	max-height: 470px
+	height: 100%
+	background: rgba(255,255,255,.73)
+	box-shadow: -6px 6px 16px 0 rgba(0,0,0,.15)
+	border-radius: 4px
+
+	.form-title
+		font-size: 18px
+		color: #435B8A
+		letter-spacing: 1.85px
+		line-height: 18px
+		text-align: center
+		padding: 40px
+		text-transform: uppercase
+
 	.ct-payments
-		background-color: #F9F9F9
-		padding: 20px
-		border-radius: 5px
+
 		&.visa
 			.card-logo
 				background-image: url('~payment-icons/min/flat/visa.svg')
@@ -26,6 +48,19 @@
 		margin-bottom: 14px
 		opacity: 0.6
 
+	.send-form
+		height: 150px
+		box-shadow: 0 2px 4px 0 rgba(0,0,0,.5)
+		border-radius: 9px
+		padding: 12px
+		color: #e0e8e0
+		background-size: cover
+		&.source
+			background-image: url(./images/card_bg_sender.jpg)
+
+		&.target
+			background-image: url(./images/card_bg_reseiver.jpg)
+
 	//.card-image
 		background-image: url('./images/card_bg.svg')
 		background-repeat: no-repeat
@@ -34,14 +69,7 @@
 
 	.ct-input
 		border-radius: 5px
-		width: 313px
-		clear: both
-
-	.cvc-input
-		width: 120px
-
-		input
-			width: 60px
+		height: 30px
 
 	.button
 		position: absolute
@@ -53,7 +81,23 @@
 		color: #d9534f
 
 	.small-input
-		width: 60px !important
-		clear: right
+		width: 60px
 		float: left
-		margin: 0 10px 15px 0
+		margin-right: 8px
+
+	.phone-number
+		p
+			text-align: center
+			margin: 0 auto
+			margin-top: 12px
+
+	.amount
+		text-align: center
+
+	.submit-check
+		margin: 0
+		margin-top: 10px
+
+	.send-button
+		height: 30px
+		padding: 0 12px
