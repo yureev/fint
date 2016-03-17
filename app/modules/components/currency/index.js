@@ -14,7 +14,6 @@ function ctCurrencyDirective() {
 		if (!ngModelCtrl)
 			throw new Error("ct-currency should have ng-model!");
 
-
 		ngModelCtrl.$parsers.push(parser);
 		ngModelCtrl.$formatters.push(formatter);
 
