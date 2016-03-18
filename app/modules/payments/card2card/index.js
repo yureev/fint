@@ -52,7 +52,7 @@ function card2cardDirective() {
 			} else if (!!$scope.commiss) {
 				$scope.commiss /= 100;
 			} else {
-				$scope.commiss = '0.00';
+				$scope.commiss = 0;
 			}
 
 			$scope.total = $scope.amount + $scope.commiss;

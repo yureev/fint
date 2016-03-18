@@ -101,6 +101,19 @@
         </div>
     </div>
     <div class="clearfix"></div>
+
+    <uib-accordion close-others="true">
+        <uib-accordion-group heading="Static Header, initially expanded">
+            This content is straight in the template.
+        </uib-accordion-group>
+        <uib-accordion-group heading="Title 2">
+            Content 2
+        </uib-accordion-group>
+        <uib-accordion-group heading="Dynamic Body Content">
+            <p>The body of the uib-accordion group grows to fit the contents</p>
+        </uib-accordion-group>
+    </uib-accordion>
+
     <div class="questions {{lang}}" id="qaa">
         <div class="title">Вопросы и ответы</div>
         <div class="block">

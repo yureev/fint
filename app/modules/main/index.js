@@ -1,7 +1,8 @@
 require('./index.sass');
 
 angular.module('main', [
-	require('_modules/payments/card2card')
+	require('_modules/payments/card2card'),
+	require('angular-ui-bootstrap/src/accordion')
 ])
 	.config(['$stateProvider',
 		function($stateProvider) {

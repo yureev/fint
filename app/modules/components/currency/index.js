@@ -99,7 +99,7 @@ function ctCurrencyDirective() {
 			value = element.val();
 			formated = value.replace(/,/g, '').split('.');
 			intVal = formated[0];
-			decVal = formated[1] || '00';
+			decVal = formated[1];
 
 			if (decVal.length > 2) {
 				decVal = decVal.substr(0, 2);
@@ -126,8 +126,8 @@ function ctCurrencyDirective() {
 
 			formated = intVal.join('') + '.' + decVal;
 
-			element.val(formated);
 			ngModelCtrl.$setViewValue(formated);
+			ngModelCtrl.$render();
 
 			pos = updatePosition(value, formated, pos);
 

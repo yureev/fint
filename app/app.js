@@ -5,6 +5,7 @@ require('_stylesheets/app.sass');
 
 angular.module('app', [
 	'ngMessages',
+	'ngAnimate',
 	'ui.router',
 	'ui.mask',
 	'restangular',
