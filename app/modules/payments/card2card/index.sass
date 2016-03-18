@@ -43,20 +43,19 @@
 		background-size: cover
 		background-repeat: no-repeat
 		position: absolute
-		top: 105px
-		left: 275px
+		left: 175px
 		margin-bottom: 14px
-		opacity: 0.6
 
 	.send-form
 		height: 150px
 		box-shadow: 0 2px 4px 0 rgba(0,0,0,.5)
 		border-radius: 9px
 		padding: 12px
-		color: #e0e8e0
+		color: #fff
 		background-size: cover
 		&.source
 			background-image: url(./images/card_bg_sender.jpg)
+			margin-left: 120px
 
 		&.target
 			background-image: url(./images/card_bg_reseiver.jpg)
@@ -76,9 +75,15 @@
 		top: 166px
 		left: 261px
 
-	.error
-		font-size: 12px
-		color: #d9534f
+	//.error
+	//	font-size: 12px
+	//	color: #d9534f
+	//	&.source
+	//		&.number
+	//			background-color: #fff
+	//			border-radius: 3px
+	//			padding: 6px
+	//			float: left
 
 	.small-input
 		width: 60px
@@ -86,6 +91,7 @@
 		margin-right: 8px
 
 	.phone-number
+		margin-left: 120px
 		p
 			text-align: center
 			margin: 0 auto
@@ -93,10 +99,15 @@
 
 	.amount
 		text-align: center
+		input
+			width: 40%
+			text-align: center
+			margin: 0 auto
+			float: none
 
 	.submit-check
-		margin: 0
-		margin-top: 10px
+		margin-top: 30px
+		margin-left: 205px
 
 	.send-button
 		height: 30px

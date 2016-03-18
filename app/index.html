@@ -21,7 +21,6 @@
         </div>
     </header>
     <div class="clearfix"></div>
-
     <div class="wrapper" style="min-height: 500px;">
         <div class="container" ui-view="main"></div>
     </div>
@@ -101,204 +100,140 @@
         </div>
     </div>
     <div class="clearfix"></div>
-
-    <uib-accordion close-others="true">
-        <uib-accordion-group heading="Static Header, initially expanded">
-            This content is straight in the template.
-        </uib-accordion-group>
-        <uib-accordion-group heading="Title 2">
-            Content 2
-        </uib-accordion-group>
-        <uib-accordion-group heading="Dynamic Body Content">
-            <p>The body of the uib-accordion group grows to fit the contents</p>
-        </uib-accordion-group>
-    </uib-accordion>
-
     <div class="questions {{lang}}" id="qaa">
         <div class="title">Вопросы и ответы</div>
         <div class="block">
             <div class="tablet">
                 <div class="ask-block scroll">
-                    <div class="question">
-                        <div class="block1">
-                            <div class="icon icon-ask active"></div>
-                            <div class="num ng-binding active">№
-                                001
-                            </div>
-                        </div>
-                        <div class="block2">
-                            <div class="ask ng-binding">Как перевести
-                                деньги с карты на карту?
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="answer ng-scope">
-                        <div class="block2">
-                            <div class="answer ng-binding"><p>Send.ua позволяет перевести деньги online между
+                    <!-- Start of the accorrdion-->
+                    <uib-accordion close-others="true">
+                        <uib-accordion-group heading="Как перевести деньги с карты на карту?">
+                            <p>Send.ua позволяет перевести деньги online между
                                 картами Visa, Visa Electron, MasterCard и Maestro украинских банков.</p>
-                                <p>Переводы можно осуществыить online на нашей странице или через мобильное
-                                    приложение Send.ua в Вашем смартфоне.</p>
-                                <div>Для совершения перевода необходимо указать:
-                                    <ul>
-                                        <li>номер банковской карты отправителя (16 цифр на лицевой стороне карты);
-                                        </li>
-                                        <li>срок действия карты - месяц и год (два двузначных числа на лицевой
-                                            стороне карты);
-                                        </li>
-                                        <li>CVV - код карты отправителя (3-значное число на обороте карты);</li>
-                                        <li>номер телефона отправителя;</li>
-                                        <li>сумму перевода;</li>
-                                        <li>номер карты получателя.</li>
-                                    </ul>
-                                </div>
+                            <p>Переводы можно осуществыить online на нашей странице или через мобильное
+                                приложение Send.ua в Вашем смартфоне.</p>
+                            <div>Для совершения перевода необходимо указать:
+                                <ul>
+                                    <li>номер банковской карты отправителя (16 цифр на лицевой стороне карты);
+                                    </li>
+                                    <li>срок действия карты - месяц и год (два двузначных числа на лицевой
+                                        стороне карты);
+                                    </li>
+                                    <li>CVV - код карты отправителя (3-значное число на обороте карты);</li>
+                                    <li>номер телефона отправителя;</li>
+                                    <li>сумму перевода;</li>
+                                    <li>номер карты получателя.</li>
+                                </ul>
                             </div>
-                        </div>
-                    </div>
-                    <div class="clearfix"></div>
-                    <!-- second question -->
-                    <div class="question">
-                        <div class="block1">
-                            <div class="icon icon-ask active"></div>
-                            <div class="num ng-binding active">№
-                                002
-                            </div>
-                        </div>
-                        <div class="block2">
-                            <div class="ask ng-binding">Забыли номер карты
-                                получателя? Не проблема.
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="answer ng-scope">
-                        <div class="block2">
-                            <div class="answer ng-binding"><p>Вы можете
+                        </uib-accordion-group>
+                        <uib-accordion-group heading="Забыли номер карты получателя? Не проблема.">
+                            <p>Вы можете
                                 осуществить перевод, зная только номер мобильного телефона получателя или его учетную
                                 запись в Facebook.</p>
-                                <div>Все просто:
-                                    <ul>
-                                        <li>при переводе по номеру телефона, получателю отправляется sms с уникальным
-                                            кодом перевода и ссылкой на сайт Send.ua;
-                                        </li>
-                                        <li>перейдя по ссылке, получатель указывает код и номер карты, на которую желает
-                                            получить перевод.
-                                        </li>
-                                    </ul>
+                            <div>Все просто:
+                                <ul>
+                                    <li>при переводе по номеру телефона, получателю отправляется sms с уникальным
+                                        кодом перевода и ссылкой на сайт Send.ua;
+                                    </li>
+                                    <li>перейдя по ссылке, получатель указывает код и номер карты, на которую желает
+                                        получить перевод.
+                                    </li>
+                                </ul>
                                     <span class="bold">Помните, что уникальный код перевода действителен в течение 7 календарных дней.<br>
                                         После завершения срока действия кода, средства возвращаются на карту отправителя.</span>
-                                </div>
-                                <br>
-                                <div>Для перевода через аккаунт в Facebook необходимо:
-                                    <ul>
-                                        <li>зайти в приложение Send.ua;</li>
-                                        <li>ввести данные своей карты и выбрать получателя из списка друзей;</li>
-                                        <li>получателю придет уведомление о входящем перевод в Facebook Messenger;</li>
-                                        <li>получателю нужно зайти в приложение Send.ua, нажать кнопку «Получить» и
-                                            выбрать карту, на которую будут зачислены средства.
-                                        </li>
-                                    </ul>
-                                </div>
                             </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <!-- third question -->
-                    <div class="question">
-                        <div class="block1">
-                            <div class="icon icon-ask active"></div>
-                            <div class="num ng-binding active">№
-                                003
+                            <br>
+                            <div>Для перевода через аккаунт в Facebook необходимо:
+                                <ul>
+                                    <li>зайти в приложение Send.ua;</li>
+                                    <li>ввести данные своей карты и выбрать получателя из списка друзей;</li>
+                                    <li>получателю придет уведомление о входящем перевод в Facebook Messenger;</li>
+                                    <li>получателю нужно зайти в приложение Send.ua, нажать кнопку «Получить» и
+                                        выбрать карту, на которую будут зачислены средства.
+                                    </li>
+                                </ul>
                             </div>
-                        </div>
-                        <div class="block2">
-                            <div class="ask ng-binding">Перевод выполнен успешно, но деньги так и не поступили на
-                                карту.
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="answer ng-scope">
-                        <div class="block2">
-                            <div class="answer ng-binding"><p>Прежде всего, проверьте введенные данные - реквизиты карты
+                        </uib-accordion-group>
+                        <uib-accordion-group heading="Перевод выполнен успешно, но деньги так и не поступили на
+                                карту.">
+                            <p>
+                            <p>Прежде всего, проверьте введенные данные - реквизиты карты
                                 или номер телефона получателя.</p>
-                                <p>Если Вы уверены, что реквизиты были введены корректно, а деньги так и не поступили, -
-                                    обратитесь за помощью в службу поддержки Send.ua:</p>
-                                <p>тел. : 044 390-08-85,</p>
-                                <p>e-mail: <a href="mailto:support@send.ua">support@send.ua</a></p>
-                                <p>Специалисты службы поддержки решат ваш вопрос максимально быстро.</p></div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
+                            <p>Если Вы уверены, что реквизиты были введены корректно, а деньги так и не поступили, -
+                                обратитесь за помощью в службу поддержки Send.ua:</p>
+                            <p>тел. : 044 390-08-85,</p>
+                            <p>e-mail: <a href="mailto:support@send.ua">support@send.ua</a></p>
+                            <p>Специалисты службы поддержки решат ваш вопрос максимально быстро.</p></p>
+                        </uib-accordion-group>
+                    </uib-accordion>
                 </div>
             </div>
-            <div class="clearfix"></div>
+            <!-- End of the accorrdion-->
+            <div class="button-down"></div>
         </div>
-        <div class="button-down"></div>
-    </div>
-    <div class="clearfix"></div>
-    <div class="about-contacts">
-        <div class="contacts-title">Контакты</div>
-        <div class="row contacts">
-            <div class="facebook-pic"></div>
-            <div class="twitter-pic"></div>
-            <div class="mail">
-                <a href="mailto:support@send.ua">
-                    <div class="mail-pic"></div>
-                    support@send.ua</a>
-            </div>
-            <div class="phone">
-                <a href="tel:380443900885">
-                    <div class="phone-pic"></div>
-                    <div class="phone-number">044 390-08-85</div>
-                </a>
+        <div class="clearfix"></div>
+        <div class="about-contacts">
+            <div class="contacts-title">Контакты</div>
+            <div class="row contacts">
+                <div class="facebook-pic"></div>
+                <div class="twitter-pic"></div>
+                <div class="mail">
+                    <a href="mailto:support@send.ua">
+                        <div class="mail-pic"></div>
+                        support@send.ua</a>
+                </div>
+                <div class="phone">
+                    <a href="tel:380443900885">
+                        <div class="phone-pic"></div>
+                        <div class="phone-number">044 390-08-85</div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<footer>
-    <div class="footer-wrap">
-        <a href="http://www.visa.com.ua/ua/uk-ua/personal/security/onlineshopping.shtml" target="_blank">
-            <div class="veri-visa banner"></div>
-        </a>
-        <div class="master banner"></div>
-        <div class="money-send banner"></div>
-        <div class="master2 banner"></div>
-        <a href="http://www.mastercard.com/ua/consumer/secure-code.html" target="_blank">
-            <div class="secure banner"></div>
-        </a>
-    </div>
-</footer>
-<!-- ////////////////////////////////////////////Registration Form /////////////////////////////////////////
+    <footer>
+        <div class="footer-wrap">
+            <a href="http://www.visa.com.ua/ua/uk-ua/personal/security/onlineshopping.shtml" target="_blank">
+                <div class="veri-visa banner"></div>
+            </a>
+            <div class="master banner"></div>
+            <div class="money-send banner"></div>
+            <div class="master2 banner"></div>
+            <a href="http://www.mastercard.com/ua/consumer/secure-code.html" target="_blank">
+                <div class="secure banner"></div>
+            </a>
+        </div>
+    </footer>
+    <!-- ////////////////////////////////////////////Registration Form /////////////////////////////////////////
 
-<modal-dialog show='Base.modalShown'>
-    <div class="login-card">
-        <div class="close" ng-click="hideModal()"></div>
-        <form ng-submit="Base.login(username, password)">
-            <div><input type="text" ng-model="username" placeholder="Логин (ваш e-mail)" required></div>
-            <div><input type="password" ng-model="password" placeholder="Пароль" required></div>
-            <p class="remind">Забыли пароль?</p>
-            <input type="submit" name="login" class="login login-submit" value="Войти">
-            <p class="registration">Регистрация</p>
-        </form>
-    </div>
+    <modal-dialog show='Base.modalShown'>
+        <div class="login-card">
+            <div class="close" ng-click="hideModal()"></div>
+            <form ng-submit="Base.login(username, password)">
+                <div><input type="text" ng-model="username" placeholder="Логин (ваш e-mail)" required></div>
+                <div><input type="password" ng-model="password" placeholder="Пароль" required></div>
+                <p class="remind">Забыли пароль?</p>
+                <input type="submit" name="login" class="login login-submit" value="Войти">
+                <p class="registration">Регистрация</p>
+            </form>
+        </div>
 
-    <div class="registration-card" ng-if="Registry.registration === 1">
-        <div class="close"></div>
-        <h1>Регистрация</h1><br>
-        <form>
-            <div class="name-field"><span>Имя пользователя: </span><input type="text" ng-model="username" required>
-            </div>
-            <div class="login-field"><span>Логин: </span><input type="text" ng-model="text" required></div>
-            <div class="password-field"><span>Пароль: </span><input type="text" ng-model="text" required></div>
-            <div class="mail-field"><span>Адрес электронной почты: </span><input type="text" ng-model="text"
-                                                                                 required></div>
-            <div class="phone-field"><span>Телефон: </span><input type="text" ng-model="text" required></div>
-            <div class=""><span>Согласен с <span>условиями</span></span></div>
-            <input type="submit" ng-click="" name="login" class="login login-submit" value="Продолжить">
-        </form>
+        <div class="registration-card" ng-if="Registry.registration === 1">
+            <div class="close"></div>
+            <h1>Регистрация</h1><br>
+            <form>
+                <div class="name-field"><span>Имя пользователя: </span><input type="text" ng-model="username" required>
+                </div>
+                <div class="login-field"><span>Логин: </span><input type="text" ng-model="text" required></div>
+                <div class="password-field"><span>Пароль: </span><input type="text" ng-model="text" required></div>
+                <div class="mail-field"><span>Адрес электронной почты: </span><input type="text" ng-model="text"
+                                                                                     required></div>
+                <div class="phone-field"><span>Телефон: </span><input type="text" ng-model="text" required></div>
+                <div class=""><span>Согласен с <span>условиями</span></span></div>
+                <input type="submit" ng-click="" name="login" class="login login-submit" value="Продолжить">
+            </form>
 
-    </div>
-</modal-dialog>
--->
+        </div>
+    </modal-dialog>
+    -->
 
