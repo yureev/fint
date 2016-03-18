@@ -42,24 +42,6 @@
                                ct-payments-validate-expire="viewExpire"/>
                     </div>
                 </div>
-                <div class="error-block">
-                    <div ng-messages="c2cForm.number.$error" ng-show="c2cForm.number.$touched"
-                         class="error source number">
-                        <div ng-message="required">Введите номер карты</div>
-                        <div ng-message="invalidNumber">Неверный номер карты</div>
-                    </div>
-                    <div ng-messages="c2cForm.expire.$error" class="error source expire">
-                        <div ng-message="invalidExpire">Срок действия карты истек</div>
-                    </div>
-                    <div ng-messages="c2cForm.cvc.$error" ng-show="c2cForm.cvc.$touched" class="error source cvc">
-                        <div ng-message="required">Ведите номер CVC</div>
-                        <div ng-message="invalidCvc">Неверный CVC</div>
-                    </div>
-                    <div ng-messages="c2cForm.phone.$error" ng-show="c2cForm.phone.$touched" class="error source phone">
-                        <div ng-message="required">Введите номер телефона</div>
-                        <div ng-message="mask">Неверный номер телефона</div>
-                    </div>
-                </div>
             </div>
             <div class="col-sm-3 amount">
                 <p>Сумма перевода</p>
@@ -67,15 +49,20 @@
                     <input type="text" name="amount" class="form-control" tabindex="6" ct-currency
                            ng-model="amount" ng-change="vm.calculate()" min="1" max="25000" required
                            autocomplete="off"/>
-                    <div ng-messages="c2cForm.amount.$error" class="error">
+                    <div ng-messages="c2cForm.amount.$error">
                         <div ng-message="required">Введите сумму перевода</div>
                         <div ng-message="min">Сумма должна быть больше</div>
                         <div ng-message="max">Сумма должна быть меньше</div>
                     </div>
                 </div>
-                <div>Комиссия ({{ config.tariff.comm_percent }}% + {{ config.tariff.total_min/100 }}): {{ commiss }}
+                <div class="row comission">
+                    <div>Комиссия:<br/>({{ config.tariff.comm_percent }}% + {{ config.tariff.total_min/100 }})</div>
+                    <div>{{ commiss }}</div>
                 </div>
-                <div>К оплате: {{ total }}</div>
+                <div class="row total">
+                    <div>К оплате:</div>
+                    <div>{{ total }}</div>
+                </div>
             </div>
             <div class="col-sm-3 send-form target">
                 <h4>Карта получателя</h4>
@@ -84,15 +71,11 @@
                            ng-model="numberTarget" required placeholder="Номер карты"
                            ct-payments-format-number
                            ct-payments-validate-number/>
-                    <div ng-messages="c2cForm.numberTarget.$error" class="error">
-                        <div ng-message="required">Введите номер карты</div>
-                        <div ng-message="invalidNumber">Неверный номер карты</div>
-                    </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-3 col-sm-offset-2 phone-number">
+            <div class="phone-number">
                 <div class="form-group" ct-input-container>
                     <p>Ваш номер телефона</p>
                     <input type="text" name="phone" class="form-control" ui-mask="+380 (99) 999 99 99" tabindex="5"
@@ -100,7 +83,7 @@
                            required placeholder="+380 (__) ___-__-__"/>
                 </div>
             </div>
-            <div class="col-sm-4 col-sm-offset-3 form-inline submit-check">
+            <div class="submit-check">
                 <div class="checkbox">
                     <label>
                         <input type="checkbox" ng-model="agreed">Cогласен с условиями
@@ -110,6 +93,29 @@
                         ng-disabled="c2cForm.$invalid || c2cForm.$pristine">
                     Перевести
                 </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="error">
+                <div ng-messages="c2cForm.number.$error" ng-show="c2cForm.number.$touched">
+                    <div ng-message="required">Введите номер карты отправителя</div>
+                    <div ng-message="invalidNumber">Неверный номер карты отправителя</div>
+                </div>
+                <div ng-messages="c2cForm.expire.$error">
+                    <div ng-message="invalidExpire">Срок действия карты истек</div>
+                </div>
+                <div ng-messages="c2cForm.cvc.$error" ng-show="c2cForm.cvc.$touched">
+                    <div ng-message="required">Ведите номер CVC</div>
+                    <div ng-message="invalidCvc">Неверный CVC</div>
+                </div>
+                <div ng-messages="c2cForm.phone.$error" ng-show="c2cForm.phone.$touched">
+                    <div ng-message="required">Введите номер телефона</div>
+                    <div ng-message="mask">Неверный номер телефона</div>
+                </div>
+                <div ng-messages="c2cForm.numberTarget.$error" ng-show="c2cForm.numberTarget.$touched">
+                    <div ng-message="required">Введите номер карты получателя</div>
+                    <div ng-message="invalidNumber">Неверный номер карты получателя</div>
+                </div>
             </div>
         </div>
 </div>

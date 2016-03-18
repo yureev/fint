@@ -4,12 +4,12 @@
 
 .card2card
 	margin: 0 auto
+	height: 380px
 	width: 95%
 	min-width: 800px
 	max-width: 930px
 	min-height: 350px
 	max-height: 470px
-	height: 100%
 	background: rgba(255,255,255,.73)
 	box-shadow: -6px 6px 16px 0 rgba(0,0,0,.15)
 	border-radius: 4px
@@ -20,7 +20,7 @@
 		letter-spacing: 1.85px
 		line-height: 18px
 		text-align: center
-		padding: 40px
+		padding: 25px
 		text-transform: uppercase
 
 	.ct-payments
@@ -75,15 +75,10 @@
 		top: 166px
 		left: 261px
 
-	//.error
-	//	font-size: 12px
-	//	color: #d9534f
-	//	&.source
-	//		&.number
-	//			background-color: #fff
-	//			border-radius: 3px
-	//			padding: 6px
-	//			float: left
+	.error
+		font-size: 12px
+		color: #d9534f
+		margin-left: 120px
 
 	.small-input
 		width: 60px
@@ -92,13 +87,39 @@
 
 	.phone-number
 		margin-left: 120px
+		float: left
+		width: 240px
 		p
 			text-align: center
 			margin: 0 auto
 			margin-top: 12px
+		.form-group
+			margin-bottom: 0
 
 	.amount
 		text-align: center
+		padding: 0 40px 0 40px
+
+		.form-group
+			height: 35px
+
+		.row
+			margin-bottom: 10px
+
+		.comission, .total
+
+			div:nth-child(1)
+				float: left
+				font-size: 10pt
+				padding: 4px
+
+			div:nth-child(2)
+				height: 30px
+				width: 60px
+				background-color: white
+				float: right
+				border-radius: 5px
+				padding: 4px
 		input
 			width: 40%
 			text-align: center
@@ -106,8 +127,12 @@
 			float: none
 
 	.submit-check
-		margin-top: 30px
-		margin-left: 205px
+		float: right
+		margin-right: 120px
+		margin-top: 25px
+		.checkbox
+			display: inline-block
+			padding-right: 20px
 
 	.send-button
 		height: 30px
