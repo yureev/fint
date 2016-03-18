@@ -2999,9 +2999,28 @@ footer {
   cursor: pointer;
 }
 
+.icon-ask {
+  position: relative;
+  top: 4px;
+  display: inline-block;
+  width: 22px;
+  height: 20px;
+  background: url("../images/Sprite_sendua.png") -223px -43px;
+  &.active {
+    background-position: -194px -43px;
+  }
+}
+
 .questions {
   clear: both;
   margin-top: 55px;
+
+  a {
+    text-decoration: none;
+    &:focus {
+      outline: none;
+    }
+  }
 
   .item {
     margin-bottom: 15px;
@@ -3010,14 +3029,14 @@ footer {
 
   .title {
     margin: auto auto 45px;
-    width: 1024px;
+      width: 1024px;
     color: #435B8A;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 30px;
     line-height: 18px;
-  }
+    }
 
   .block {
     margin: auto;
@@ -3032,7 +3051,7 @@ footer {
         float: left;
         margin-left: 45px;
       }
-    }
+      }
 
     .desktop {
       margin-bottom: 45px;
@@ -3077,13 +3096,13 @@ footer {
               .block2 {
                 width: 90%;
               }
+              }
             }
           }
         }
-      }
 
       .answer {
-        float: left;
+          float: left;
         margin-left: 3%;
         width: 49%;
         background: #F9F9F9;
@@ -3106,14 +3125,14 @@ footer {
           .answer {
             width: 100%;
           }
+          }
         }
       }
-    }
 
     .ask-block {
       margin: auto auto 45px auto;
       width: 795px;
-      background: #FFFFFF;
+        background: #FFFFFF;
 
       .scroll-bar {
         background: #FFFFFF;
@@ -3121,7 +3140,7 @@ footer {
           width: 6px;
           background: #D8D8D8;
         }
-      }
+        }
 
       .question {
         display: table;
@@ -3134,7 +3153,7 @@ footer {
         }
 
         .block1 {
-          position: relative;
+            position: relative;
           float: left;
           padding-left: 15px;
           width: 120px;
@@ -3149,7 +3168,7 @@ footer {
             &.active {
               color: #9C9EAB;
             }
-          }
+            }
           .icon-ask {
             position: relative;
             top: 4px;
@@ -3160,8 +3179,8 @@ footer {
             &.active {
               background-position: -194px -43px;
             }
+            }
           }
-        }
 
         .block2 {
           display: table-cell;
@@ -3170,7 +3189,7 @@ footer {
           font-weight: bold;
           font-size: 18px;
         }
-      }
+        }
 
       .answer {
         clear: both;
@@ -3190,12 +3209,12 @@ footer {
           width: 100%;
           border: 1px solid #EFEFEF;
         }
-      }
+        }
 
       /*.icon-ask, .icon-answer{
         position: relative;
       }*/
-    }
+      }
   }
 
   .down {
@@ -3203,8 +3222,8 @@ footer {
     width: 100%;
     height: 50px;
     text-align: center;
+    }
   }
-}
 
 .button-down {
   margin: 7px auto;
@@ -3216,4 +3235,4 @@ footer {
     cursor: pointer;
   }
 
-}
+  }
