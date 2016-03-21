@@ -18,6 +18,8 @@ function card2cardDirective() {
 	};
 
 	function postLink(scope, element, attrs) {
+		element.addClass('card2card');
+
 		scope.$watch('c2cForm', function() {
 			window.c2cForm = scope.c2cForm;
 		})

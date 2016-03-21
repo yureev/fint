@@ -32,6 +32,8 @@ module.exports = function (_path) {
 				'angular-animate',
 				'angular-ui-router',
 				'angular-ui-mask',
+				'angular-translate',
+				'angular-translate-loader-static-files',
 				'restangular',
 				'angular-sanitize'
 			]
