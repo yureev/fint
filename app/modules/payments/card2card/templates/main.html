@@ -53,7 +53,7 @@
                             <input type="text" name="amount" class="form-control" tabindex="6" ct-currency
                                    ng-model="amount" ng-change="vm.calculate()" min="1" max="25000" required
                                    autocomplete="off"/>
-                            <span>от 1 грн. до 25000 грн.</span>
+                            <span>(от 1 до 25000 грн)</span>
                             <div ng-messages="c2cForm.amount.$error">
                                 <div ng-message="required">Введите сумму перевода</div>
                                 <div ng-message="min">Сумма должна быть больше</div>
@@ -61,12 +61,12 @@
                             </div>
                         </div>
                         <div class="comission">
-                            <div><p>Комиссия: {{ commiss }}<br/><span>({{ config.tariff.comm_percent }}% + {{
-                                config.tariff.total_min/100 }})</span></p>
+                            <div><p>Комиссия: {{ commiss }} грн<br/><span>({{ config.tariff.comm_percent }}% + {{
+                                config.tariff.total_min/100 }}грн) </span></p>
                             </div>
                         </div>
                         <div class="total">
-                            <div><b>К оплате: {{ total }}</b></div>
+                            <div><b>К оплате: {{ total }} грн</b></div>
                         </div>
                     </div>
                 </div>
