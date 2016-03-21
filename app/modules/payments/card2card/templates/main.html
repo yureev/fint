@@ -55,8 +55,11 @@
                         <div ng-message="max">Сумма должна быть меньше</div>
                     </div>
                 </div>
+                <div>
+                <div>(вiд 1 до 25000 грн)</div>
+                </div>
                 <div class="row comission">
-                    <div>Комиссия:<br/>({{ config.tariff.comm_percent }}% + {{ config.tariff.total_min/100 }})</div>
+                    <div>Комиссия:<br/>({{ config.tariff.comm_percent }}% + {{ config.tariff.total_min / 100 }}) грн</div>
                     <div>{{ commiss }}</div>
                 </div>
                 <div class="row total">
