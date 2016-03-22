@@ -9,15 +9,8 @@ angular.module('main', [
 			$stateProvider
 				.state('app.pay', {
 					url: '/',
-					views: {
-                        main: {
-                            controller: require('./controllers/main'),
-                            template: require('./templates/main.html')
-                        },
-                        title: {
-                            template: require('./templates/title.html')
-                        }
-                    },
+					controller: require('./controllers/main'),
+					template: require('./templates/main.html'),
 					data: {
                         access: {}
                     }
