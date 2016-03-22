@@ -75,8 +75,19 @@ angular.module('app', [
 		}
 	])
 	.controller('AppCtrl', ['$scope', '$translate', function($scope, $translate) {
-		this.changeLanguage = function (langKey) {
-			$translate.use(langKey);
+		var langKey = 'ua';
+		$scope.lang = 'lang ua';
+		this.changeLanguage = function () {
+			if (langKey == 'ua') {
+				langKey = 'ru';
+				$scope.lang = 'lang ru';
+				$translate.use(langKey);
+			}
+			else {
+				langKey = 'ua';
+				$scope.lang = 'lang ua';
+				$translate.use(langKey);
+			}
 		};
 	}]);
 
