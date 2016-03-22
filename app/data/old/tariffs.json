@@ -1,0 +1,29 @@
+[
+  {
+    "card_type": "delta",
+    "comm_fixed": 500,
+    "comm_percent": 1,
+    "comm_type": "web",
+    "id": 4,
+    "total_max": 99999999,
+    "total_min": 500
+  },
+  {
+    "card_type": "phone",
+    "comm_fixed": 500,
+    "comm_percent": 1,
+    "comm_type": "web",
+    "id": 6,
+    "total_max": 99999999,
+    "total_min": 500
+  },
+  {
+    "card_type": "other",
+    "comm_fixed": 500,
+    "comm_percent": 1,
+    "comm_type": "web",
+    "id": 5,
+    "total_max": 99999999,
+    "total_min": 500
+  }
+]

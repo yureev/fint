@@ -1,0 +1,13 @@
+{
+  "cssFile": "diamantpayment.min.css",
+  "htmlFile": "tplSendDiamantPayment.html",
+  "tariff": "web",
+  "formRules": {
+    "phone": {
+      "isShow": false
+    },
+    "acceptedAgreement": {
+      "isShow": false
+    }
+  }
+}

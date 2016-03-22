@@ -19,17 +19,17 @@ function ctCurrencyDirective() {
 
 		if (attrs.min) {
 			ngModelCtrl.$validators.min = function(value) {
-				return parseFloat(attrs.min) < value;
+				return parseFloat(attrs.min) <= value;
 			}
 		}
 
 		if (attrs.max) {
 			ngModelCtrl.$validators.max = function(value) {
-				return parseFloat(attrs.max) > value;
+				return parseFloat(attrs.max) >= value;
 			}
 		}
 
-		element.on('focus', onFocus);
+		element.on('focus click', onFocus);
 
 		element.on('keydown', onKeyDown);
 
@@ -62,15 +62,10 @@ function ctCurrencyDirective() {
 				pos = elemDOM.selectionStart;
 
 				//selectint
-				if (pos < dotPos && ngModelCtrl.$untouched) {
+				if (pos <= dotPos && !ngModelCtrl.$modelValue) {
 					elemDOM.setSelectionRange(0, dotPos);
 
 					return;
-				}
-
-				//select decimal
-				if (pos == dotPos) {
-					pos++;
 				}
 
 				if (pos > dotPos) {
@@ -104,7 +99,7 @@ function ctCurrencyDirective() {
 			value = element.val();
 			formated = value.replace(/,/g, '').split('.');
 			intVal = formated[0];
-			decVal = formated[1] || '00';
+			decVal = formated[1];
 
 			if (decVal.length > 2) {
 				decVal = decVal.substr(0, 2);
@@ -131,8 +126,8 @@ function ctCurrencyDirective() {
 
 			formated = intVal.join('') + '.' + decVal;
 
-			element.val(formated);
 			ngModelCtrl.$setViewValue(formated);
+			ngModelCtrl.$render();
 
 			pos = updatePosition(value, formated, pos);
 

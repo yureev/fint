@@ -5,9 +5,11 @@ require('_stylesheets/app.sass');
 
 angular.module('app', [
 	'ngMessages',
+	'ngAnimate',
 	'ui.router',
 	'ui.mask',
 	'restangular',
+	'pascalprecht.translate',
 
 	require('component-input'),
 	require('component-tabindex'),
@@ -39,8 +41,8 @@ angular.module('app', [
 			});
 		}
 	])
-	.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 'RestangularProvider',
-		function ($stateProvider, $urlRouterProvider, $locationProvider, RestangularProvider) {
+	.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 'RestangularProvider', '$translateProvider',
+		function ($stateProvider, $urlRouterProvider, $locationProvider, RestangularProvider, $translateProvider) {
 			$locationProvider.html5Mode({
 				enabled: true,
 				requireBase: false
@@ -53,14 +55,41 @@ angular.module('app', [
 				.state('app', {
 					abstract: true,
 					template: require('./index.html'),
+					controller: 'AppCtrl',
+					controllerAs: 'ac',
 					data: {
 						access: {}
 					}
 				});
 
 			RestangularProvider.setBaseUrl('/api');
+
+			require('_data/locale-ua.json');
+			require('_data/locale-ru.json');
+
+			$translateProvider.useStaticFilesLoader({
+				prefix: '/data/locale-',
+				suffix: '.json'
+			});
+			$translateProvider.preferredLanguage('ua');
 		}
-	]);
+	])
+	.controller('AppCtrl', ['$scope', '$translate', function($scope, $translate) {
+		var langKey = 'ua';
+		$scope.lang = 'lang ua';
+		this.changeLanguage = function () {
+			if (langKey == 'ua') {
+				langKey = 'ru';
+				$scope.lang = 'lang ru';
+				$translate.use(langKey);
+			}
+			else {
+				langKey = 'ua';
+				$scope.lang = 'lang ua';
+				$translate.use(langKey);
+			}
+		};
+	}]);
 
 $(document).ready(function () {
 	require('_data/permissions.json');

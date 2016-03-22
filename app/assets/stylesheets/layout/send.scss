@@ -1,0 +1,3238 @@
+@mixin doubleBlock {
+  width: 100%;
+  height: 100%;
+  min-height: 20.5em;
+  background-size: 100% auto;
+  margin-bottom: 7%;
+}
+
+@mixin singleBlock {
+  width: 100%;
+  min-height: 9.5em;
+  background-size: 100% auto;
+  margin-bottom: 7%;
+}
+
+@mixin blockTitle {
+  padding-top: 0.566em;
+  text-align: left;
+  border-bottom-right-radius: 15px;
+  font-family: "Roboto Light", Arial, sans-serif;
+  font-size: 1.3em;
+  width: 85%;
+  z-index: 2;
+  padding-left: 1em;
+}
+
+$defaultColor: #435B8A;
+
+@font-face {
+  font-family: "Roboto Black";
+  src: url(/css/fonts/roboto/Roboto-Black.ttf);
+}
+
+@font-face {
+  font-family: 'Roboto Light';
+  src: url('/css/fonts/roboto/roboto_light/RobotoLight.eot');
+  src: url('/css/fonts/roboto/roboto_light/RobotoLight.eot?#iefix') format('embedded-opentype'),
+  url('/css/fonts/roboto/roboto_light/RobotoLight.woff') format('woff'),
+  url('/css/fonts/roboto/roboto_light/RobotoLight.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'Roboto Medium';
+  src: url('/css/fonts/roboto/roboto_medium/RobotoMedium.eot');
+  src: url('/css/fonts/roboto/roboto_medium/RobotoMedium.eot?#iefix') format('embedded-opentype'),
+  url('/css/fonts/roboto/roboto_medium/RobotoMedium.woff') format('woff'),
+  url('/css/fonts/roboto/roboto_medium/RobotoMedium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/css/fonts/roboto/roboto_regular/RobotoRegular.eot');
+  src: url('/css/fonts/roboto/roboto_regular/RobotoRegular.eot?#iefix') format('embedded-opentype'),
+  url('/css/fonts/roboto/roboto_regular/RobotoRegular.woff') format('woff'),
+  url('/css/fonts/roboto/roboto_regular/RobotoRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HelveticaLight";
+  src: url("/css/fonts/HelveticaLight/HelveticaLight.eot");
+  src: url("/css/fonts/HelveticaLight/HelveticaLight.eot?#iefix") format("embedded-opentype"),
+  url("/css/fonts/HelveticaLight/HelveticaLight.woff") format("woff"),
+  url("/css/fonts/HelveticaLight/HelveticaLight.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+body {
+  height: 100%;
+  font-family: "Roboto Light", Arial, sans-serif;
+}
+
+.container-fluid {
+  overflow: hidden;
+  margin: auto;
+  padding-right: 0;
+  padding-left: 0;
+
+  header {
+    background: url("../images/bg_for_header.jpg");
+    /* margin-top: 0.4em;
+    margin-bottom: 0.1em; */
+
+    .user-info {
+      padding-left: 2em;
+      color: #435B8A;
+      font-size: 1.15em;
+
+      span {
+        letter-spacing: 0.1em;
+        font-weight: bold;
+      }
+    }
+    .settings {
+      padding-right: 1em;
+      color: #435B8A;
+      text-align: right;
+      font-size: 1.15em;;
+    }
+
+    .menu {
+      margin: 0 auto;
+      max-width: 1024px;
+      width: 1024px;
+      height: 100px;
+
+      .logo {
+        margin: 20px 0 0 35px;
+      }
+
+      .navbar-toggle .icon-bar + .icon-bar {
+        margin-top: 9px;
+      }
+
+      .navbar-toggle {
+        margin-top: 16px;
+        background-color: #07253F;
+
+        .icon-bar {
+          width: 33px;
+          height: 4px;
+          background-color: white;
+        }
+      }
+
+      .tabs {
+        color: white;
+        list-style: none;
+        font-size: 14px;
+        font-family: "Roboto Medium", Arial, sans-serif;
+
+        li {
+          padding: 1.9em 10px;
+          text-align: center;
+          text-transform: uppercase;
+
+          &.item {
+            position: absolute;
+            margin-top: 10px;
+            text-decoration: none;
+            opacity: 0.7;
+
+            &:hover {
+              opacity: 1;
+              cursor: pointer;
+            }
+
+            &.about-services {
+              top: 0;
+              left: -3%;
+            }
+            &.tarif {
+              top: 0;
+              left: 13%;
+            }
+            &.faq {
+              top: 0;
+              left: 37%;
+            }
+            &.contact {
+              top: 0;
+              left: 62%;
+            }
+            &.login {
+              top: 0;
+              left: 77%;
+            }
+          }
+
+        }
+      }
+
+      .lang-box {
+        padding: 0;
+      }
+
+      .lang {
+        color: white;
+        list-style: none;
+        position: absolute;
+        top: 32px;
+        right: 46px;
+        padding: 0;
+        width: 30px;
+        height: 24px;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        &.ru {
+          background: url("../images/Sprite_sendua.png") no-repeat -30px 0;
+        }
+
+        &.ua {
+          background: url("../images/Sprite_sendua.png") no-repeat 0 0;
+          transform: rotate(180deg);
+        }
+
+        li {
+          display: inline;
+          font-size: 15px;
+
+          .ru, .ua {
+            &:hover {
+              opacity: 0.8;
+              cursor: pointer;
+            }
+            &.active {
+              opacity: 0.8;
+            }
+
+          }
+        }
+
+      }
+    }
+  }
+
+  .wrapper {
+    min-height: 100%;
+    background: url("../images/p2p_main_bg.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    .conatiner {
+      width: 800px;
+    }
+
+    &.registry {
+      background: #EFF3F6;
+    }
+
+    &.login-wrap {
+      padding: 50px 0;
+    }
+
+    .search-box {
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+    .search-left {
+      float: left;
+      margin-left: 0;
+      padding-right: 0;
+    }
+
+    .search-right {
+      float: left;
+      padding-left: 0;
+    }
+
+    .btn-services {
+      width: 100%;
+      height: 38px;
+      outline: 0;
+      border: 0;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      background-color: #435B8A;
+      color: white;
+      font-size: 1.3em;
+    }
+
+    .search {
+      padding-top: 4px;
+      padding-left: 50px;
+      min-width: 475px;
+      width: 100%;
+      height: 38px;
+      outline: 0;
+      border: 2px solid #435B8A;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      background: url("../images/search_icon.png") no-repeat 10px 6px;
+    }
+
+    .registry-wrapper {
+      background: #F0F0F0;
+      background-size: 100%;
+      .registry-container {
+        padding-top: 25px;
+        padding-bottom: 50px;
+        min-height: 680px;
+      }
+    }
+    .registry-header {
+      border: 1px solid $defaultColor;
+      background: white;
+    }
+    .registry-container {
+      margin: auto;
+      max-width: 1024px;
+    }
+  }
+
+  .about-contacts {
+    padding-top: 10px;
+    height: 115px;
+    background: url("../images/bg_for_header.jpg");
+    color: white;
+    font-size: 1.2em;
+    font-family: "Roboto Medium", Arial, sans-serif;
+
+    .contacts-title {
+      margin: auto;
+      width: 1024px;
+      color: white;
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 30px;
+      font-family: "Roboto Light", Arial, sans-serif;
+    }
+
+    .contacts {
+      margin: 5px auto 15px;
+      padding-left: 40px;
+      width: 1002px;
+      color: #F7F7FA;
+      font-size: 13px;
+
+      > div {
+        display: inline-block;
+        margin-right: 25px;
+        vertical-align: middle;
+        > a {
+          color: white;
+          text-decoration: none;
+          font-size: 18px;
+        }
+      }
+
+      .contacts-item {
+        color: #F7F7FA;
+        font-size: 13px;
+        line-height: 40px;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      .facebook-pic {
+        margin-left: 28px;
+        width: 20px;
+        height: 40px;
+        background: url("../images/Sprite_sendua.png") -19px -24px;
+      }
+
+      .twitter-pic {
+        width: 50px;
+        height: 40px;
+        background: url("../images/Sprite_sendua.png") -39px -24px;
+
+      }
+
+      .mail {
+        position: relative;
+        left: 215px;
+        .mail-pic {
+          float: left;
+          width: 30px;
+          height: 20px;
+          background: url("../images/Sprite_sendua.png") -83px 0;
+          margin-right: 13px;
+          margin-top: 4px;
+        }
+      }
+      .phone {
+        float: right;
+        margin-right: 30px;
+        width: 160px;
+        text-align: right;
+        .phone-pic {
+          position: relative;
+          top: 8px;
+          float: left;
+          margin-right: 5px;
+          margin-top: 1px;
+          width: 25px;
+          height: 25px;
+          background: url("../images/Sprite_sendua.png") -112px 0;
+        }
+        .phone-number {
+          position: relative;
+          top: 9px;
+        }
+      }
+
+    }
+
+    .i_phone {
+      position: relative;
+      right: 8px;
+      bottom: -8px;
+    }
+
+    .i_email {
+      position: relative;
+      top: 3px;
+    }
+
+    .footer-content {
+      margin: 0 auto;
+      max-width: 1024px;
+    }
+
+    .footer-contacts {
+      position: relative;
+      bottom: 20px;
+
+      .phone-number {
+        float: left;
+        margin-left: 50px;
+        font-size: 14px;
+      }
+
+      .email {
+        position: relative;
+        top: 2px;
+        left: 15px;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+footer {
+  height: 120px;
+  background-color: #07253F;
+
+  .footer-wrap {
+    margin: 0 auto;
+    padding: 0 0 0 66px;
+    width: 1000px;
+
+    .banner {
+      float: left;
+      margin-top: 24px;
+      height: 60px;
+      background: url("../images/Sprite_sendua.png") no-repeat;
+      text-align: center;
+
+      &.money-send {
+        margin: 33px 0 0 113px;
+        width: 209px;
+        background-position: -442px 0;
+      }
+
+      &.master {
+        margin: 30px 0 0 80px;
+        width: 137px;
+        background: url("../images/logo_VD.png") -2px -23px;
+        background-size: cover;
+      }
+
+      &.veri-visa {
+        width: 100px;
+        background-position: -252px 0;
+      }
+
+      &.secure {
+        margin: 35px 0 0 129px;
+        width: 146px;
+        background-position: -650px -0px;
+      }
+    }
+  }
+}
+
+.navigation-box {
+  margin: auto;
+  padding: 15px 0;
+  max-width: 1024px;
+  font-size: 1.45em;
+
+  img {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  strong {
+    margin: auto 10px;
+    color: #435B8A;
+  }
+  .navigation-title {
+    color: #435B8A;
+  }
+
+  .home {
+    position: relative;
+    top: 2px;
+    display: inline-block;
+    margin-left: 5em;
+    width: 26px;
+    height: 26px;
+    background: url("../images/Sprite_sendua.png") no-repeat -1396px -32px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .bracket {
+    position: relative;
+    top: -1px;
+    display: inline-block;
+    width: 10px;
+    height: 11px;
+    background: url("../images/Sprite_sendua.png") no-repeat -1229px -3px;
+  }
+}
+
+.registry-nav {
+  font-size: 22px;
+
+  .registry-upload, .registry-create, .registry-history {
+    width: 130px;
+    text-align: center;
+
+    &.active-menu {
+      position: relative;
+      top: 1px;
+      border: 1px solid $defaultColor;
+      border-bottom: 1px solid transparent;
+      background-color: #F0F0F0;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .registry-help {
+    position: absolute;
+    top: 135px;
+    right: 425px;
+    float: right;
+    margin-right: 67px;
+    width: 40px;
+    height: 40px;
+    background: url("../images/Sprite_sendua.png") no-repeat -1125px -20px;
+    color: #435B8A;
+    font-size: 40px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.registry-message {
+  margin: 0 auto;
+  padding-top: 25px;
+  width: 960px;
+  height: 330px;
+  border: 1px solid $defaultColor;
+  border-radius: 5px;
+  background-color: white;
+
+  &:before, &:after {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: solid transparent;
+    border-bottom-width: 0;
+    content: "";
+  }
+
+  &:before {
+    top: 192px;
+    left: 1376px;
+    border-width: 16px;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid $defaultColor;
+    border-left: 20px solid transparent;
+  }
+
+  &:after {
+    top: 194px;
+    left: 1377px;
+    border-width: 15px;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid white;
+    border-left: 20px solid transparent;
+  }
+
+  .map-img {
+    position: relative;
+    left: 15px;
+    height: 100%;
+    background-size: 87%;
+    background: url("../images/Icons_01-w1024_FirstCome.png") no-repeat;
+  }
+
+  .message-content {
+    .message-description-1, .message-description-2 {
+      color: $defaultColor;
+      text-indent: 18px;
+      font-size: 20px;
+      line-height: 29px;
+    }
+
+    .message-description-1 {
+      margin-top: 15px;
+    }
+
+    .message-description-2 {
+
+      .list-map {
+        float: right;
+        color: black;
+        text-align: right;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+
+    .message-button {
+      margin-top: 53px;
+      padding-top: 7px;
+      width: 145px;
+      height: 40px;
+      background-color: $defaultColor;
+      color: white;
+      text-align: center;
+      font-size: 20px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .message-show {
+      float: right;
+      margin-top: -30px;
+      margin-right: 30px;
+      color: gray;
+
+      .show {
+        float: left;
+        margin-right: 5px;
+        width: 20px;
+        height: 20px;
+        border: 1px solid #979797;
+        background: #FFFFFF;
+        opacity: 1;
+
+        &.checked {
+          background: url("../images/Sprite_sendua.png") no-repeat -89px -21px;
+        }
+
+        &.error {
+          outline: 1px solid red;
+          border: 0 !important;
+        }
+
+        .show-checkbox {
+          width: 20px;
+          height: 20px;
+          opacity: 0;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+.registry-content {
+  .registry-table {
+    table {
+      margin: 30px auto 50px auto;
+      border: 2px solid $defaultColor !important;
+      border-collapse: collapse;
+      font-size: 16px;
+
+      tr {
+        &.error-row {
+          border: 2px solid red;
+          background-color: #F4DFDE !important;
+        }
+
+        &.warning-row {
+          border: 2px solid orange;
+          background-color: yellow !important;
+        }
+
+        &:nth-child(2n) {
+          background-color: #F9F9F9;
+        }
+
+        td {
+          &.table-delete, &.table-error-sign {
+            background: #F0F0F0;
+          }
+        }
+      }
+
+      th, td {
+        border: 1px solid grey;
+
+        &.table-error-sign, &.table-delete {
+          width: 1px;
+          border: 2px solid #F0F0F0;
+          background-color: #F0F0F0;
+        }
+
+        &.table-error-sign {
+          border-right: 2px solid $defaultColor;
+        }
+
+        &.table-delete {
+          border-left: 2px solid $defaultColor;
+
+        }
+      }
+
+      th {
+        background-color: $defaultColor;
+        color: white;
+
+        &.table-number {
+          padding-right: 13px;
+          width: 77px;
+          height: 40px;
+          border-right: 2px solid white;
+          text-align: right;
+        }
+
+        &.table-card {
+          width: 225px;
+          height: 40px;
+          border-right: 2px solid white;
+          text-align: center;
+
+          input {
+            text-align: center;
+          }
+        }
+
+        &.table-sum {
+          padding-right: 20px;
+          width: 140px;
+          height: 40px;
+          text-align: right;
+        }
+      }
+
+      td {
+
+        input {
+          border: 0;
+          background-color: inherit;
+
+          &:focus {
+            border: 1px solid grey;
+            background-color: white;
+          }
+        }
+
+        &.table-error-sign {
+          .circle {
+            float: left;
+            margin-top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            background: red;
+          }
+        }
+
+        &.table-number {
+          padding-right: 13px;
+          width: 77px;
+          height: 40px;
+          text-align: right;
+        }
+
+        &.table-card {
+          width: 225px;
+          height: 40px;
+          text-align: center;
+
+          input {
+            text-align: center;
+          }
+        }
+
+        &.table-sum {
+          padding-right: 20px;
+          width: 140px;
+          height: 40px;
+          text-align: right;
+          font-weight: bold;
+        }
+
+        &.table-delete {
+          padding: 0;
+          border-left: 2px solid $defaultColor;
+          text-align: center;
+          font-size: 25px;
+
+          .delete-button {
+            margin-top: 10px;
+            margin-left: 5px;
+            width: 20px;
+            height: 20px;
+            background: url("../images/sprite.png") no-repeat -32px -104px;
+
+            &:hover {
+              background: url("../images/sprite.png") no-repeat -51px -104px;
+              cursor: pointer;
+            }
+          }
+        }
+
+        /*&.table-add {
+          border-bottom: 2px solid transparent;
+          border-left: 2px solid transparent;
+          border-right: 2px solid transparent;
+          border-top: 2px solid $defaultColor;
+          background: transparent;
+          padding: 2px 0 0 0;
+
+          .add-row {
+            height: 40px;
+            width: 40px;
+            border: 1px solid $defaultColor;
+            font-size: 50px;
+            color: $defaultColor;
+            text-align: center;
+            background: white;
+            border-radius: 5px;
+            float: right;
+
+            :hover {
+              cursor: pointer;
+            }
+
+            span {
+              position: relative;
+              top: -17px;
+            }
+          }
+        }*/
+      }
+
+    }
+  }
+  .add-row {
+    float: right;
+    margin-top: -47px;
+    margin-right: 47px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid $defaultColor;
+    border-radius: 5px;
+    background: white;
+    color: $defaultColor;
+    text-align: center;
+    font-size: 50px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    span {
+      position: relative;
+      top: -17px;
+    }
+  }
+  .error-block {
+    .info-sheet {
+      margin: 30px auto 0 auto;
+      padding: 10px 7px;
+      width: 265px;
+      height: 243px !important;
+      border-radius: 4px;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+      .title {
+        color: $defaultColor;
+        text-align: center;
+        font-size: 19px;
+
+        &.errors {
+          color: red;
+        }
+      }
+
+      table {
+        width: 100%;
+        background-color: $defaultColor;
+        color: white;
+
+        td {
+          height: 37px;
+          border: 2px solid white;
+
+          &.desc {
+            text-align: center;
+          }
+
+          &.amount {
+            padding-right: 15px;
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+}
+
+.registry-table {
+  &.file-table {
+    table {
+      margin: 30px auto 50px auto;
+      width: 960px;
+      border: 2px solid $defaultColor !important;
+      border-collapse: collapse;
+      font-size: 16px;
+
+      tr {
+        &:nth-child(2n) {
+          background-color: #F9F9F9;
+        }
+      }
+
+      th, td {
+        border: 1px solid grey;
+      }
+
+      th {
+        background-color: $defaultColor;
+        color: white;
+
+        &.table-number {
+          width: 140px;
+          height: 40px;
+          border-right: 2px solid white;
+          text-align: left;
+        }
+
+        &.table-date {
+          width: 130px;
+          height: 40px;
+          border-right: 2px solid white;
+        }
+
+        &.table-sum {
+          padding-right: 20px;
+          width: 140px;
+          height: 40px;
+          text-align: left;
+        }
+        &.table-name {
+          vertical-align: middle;
+          text-align: center;
+        }
+
+        &.table-goal {
+          vertical-align: middle;
+        }
+      }
+
+      td {
+        height: 40px;
+        text-align: center !important;
+
+        &.table-number {
+          width: 130px;
+        }
+        &.table-name {
+          text-align: center;
+        }
+        &.table-card {
+          background-color: black;
+
+          input {
+            text-align: center;
+          }
+        }
+
+      }
+    }
+  }
+
+  .send-button {
+    position: relative;
+    top: -25px;
+    right: 25%;
+    float: right;
+    background-color: #435B8A;
+    color: white;
+    text-transform: CAPITALIZE;
+  }
+}
+
+.registry-upload {
+
+  &.file-upload {
+    margin: 0 auto;
+    width: 500px;
+  }
+
+  .file-path {
+    margin-top: 45px;
+    padding-left: 10px;
+    width: 330px;
+    height: 40px;
+    border: 1px solid $defaultColor;
+    border-radius: 5px 0 0 5px;
+    font-size: 20px;
+  }
+
+  .button {
+    position: relative;
+    top: -40px;
+    left: 330px;
+    padding-top: 7px;
+    width: 150px;
+    height: 40px;
+    background-color: $defaultColor;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .upload-picture {
+      float: left;
+      margin-left: 10px;
+      width: 24px;
+      height: 26px;
+      background: url("../images/sprite.png") no-repeat -76px -79px;
+
+    }
+  }
+
+  .drop-box {
+    padding-top: 50px;
+    width: 480px;
+    height: 210px;
+    border-radius: 5px;
+    background-color: rgba(76, 136, 137, 0.2);
+    color: #435B8A;
+    text-align: center;
+    font-size: 40px;
+  }
+
+  .loader {
+    width: 480px;
+    height: 300px;
+    background: url("../images/loader.gif") 50% 25% no-repeat;
+    background-size: 15%;
+    opacity: 0.2;
+  }
+
+  .info-sheet {
+    margin: 30px auto 0 auto;
+    padding: 10px 7px;
+    width: 265px;
+    height: 265px;
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /*position: fixed;*/
+
+    .sheet-name {
+      margin-top: -4px;
+      padding-left: 5px;
+      width: 100%;
+      font-size: 20px;
+    }
+
+    input {
+      width: 100%;
+      text-align: center;
+    }
+
+    .title {
+      color: $defaultColor;
+      text-align: center;
+      font-size: 19px;
+    }
+
+    table {
+      width: 100%;
+      background-color: $defaultColor;
+      color: white;
+
+      td {
+        height: 37px;
+        border: 2px solid white;
+
+        &.desc {
+          width: 50%;
+          text-align: center;
+        }
+
+        &.amount {
+          padding-right: 15px;
+          text-align: right;
+        }
+
+      }
+    }
+    .errors {
+      margin-top: 10px;
+
+      .circle {
+        float: left;
+        margin: 3px 5px 0 3px;
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        background: grey;
+      }
+
+      .errors-amount {
+        color: gray;
+
+        .errors-show {
+          display: inline-block;
+          float: right;
+          margin-right: 5px;
+          width: 80px;
+          height: 17px;
+          border-radius: 5px;
+          background-color: red;
+          color: white;
+          text-align: center;
+          font-weight: bold;
+          font-size: 12px;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      &.show {
+        color: red;
+        .circle {
+          background: red;
+        }
+      }
+    }
+    .button-line {
+      margin: 15px 0 0 5px;
+
+      .delete {
+        display: none;
+        float: left;
+        padding: 5px;
+        width: 40px;
+        height: 40px;
+        border: 3px solid grey;
+        border-left: 5px solid grey;
+        border-radius: 5px;
+        background: grey url("../images/sprite.png") no-repeat 0 -112px;
+        color: white;
+
+        font-size: 30px;
+
+        /*&:hover {
+          cursor: pointer;
+        }*/
+      }
+
+      .download {
+        display: none;
+        float: left;
+        margin-left: 20px;
+        padding: 5px;
+        width: 40px;
+        height: 40px;
+        border: 7px solid grey;
+        border-left: 9px solid grey;
+        border-radius: 5px;
+        background: grey url("../images/sprite.png") no-repeat -77px -79px;
+        color: white;
+        font-size: 30px;
+
+        /*&:hover {
+          cursor: pointer;
+        }*/
+      }
+
+      .send {
+        float: left;
+        margin-left: -3px;
+        padding: 5% 0 5% 0;
+        /*width: 120px;*/
+        width: 100%;
+        height: 40px;
+        border-radius: 5px;
+        background-color: $defaultColor;
+        color: white;
+        /*margin-left: 20px;*/
+        text-align: center;
+        text-transform: uppercase;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        &.show {
+          background-color: grey;
+        }
+      }
+
+      .back {
+        float: left;
+        margin-right: 20px;
+        margin-left: 0;
+        padding: 0 0 5% 25px;
+        /* text-transform: uppercase; */
+        width: 120px;
+        height: 40px;
+        border-radius: 25px 5px 5px 25px;
+        background-color: #435B8A;
+        color: white;
+        text-align: left;
+        font-weight: bold;
+        font-size: 15px;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+    }
+  }
+
+  /*History*/
+
+  .current-register {
+    margin-top: -25px;
+    width: 100%;
+    height: 40px;
+    background-color: $defaultColor;
+
+    &.error {
+      color: white !important;
+      .content {
+        background-color: $defaultColor !important;
+        color: white;
+      }
+    }
+
+    .content {
+      border: 1px solid $defaultColor;
+      background-color: #B5DEE0;
+      text-align: center;
+
+      &.amount, &.commission {
+        font-weight: bold;
+      }
+
+    }
+
+    .left-arrow, .right-arrow {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .left-arrow {
+      float: right;
+      width: 15px;
+      height: 30px;
+      background: url("../images/sprite.png") no-repeat -122px -79px;
+    }
+
+    .right-arrow {
+      width: 15px;
+      height: 30px;
+      background: url("../images/sprite.png") no-repeat -162px -79px;
+    }
+  }
+}
+
+.registry-error, .registry-success {
+  .error-title, .error-desc {
+
+    text-align: center;
+    font-size: 25px;
+  }
+
+  .error-title {
+    margin-top: 40px;
+    color: red;
+    text-transform: uppercase;
+  }
+
+  .error-desc {
+    margin-top: 50px;
+    color: #555;
+  }
+  .back {
+    position: absolute;
+    right: 46%;
+    /* display: table; */
+    float: left;
+    margin: 37px auto 0;
+    padding: 11px 5% 0;
+    width: 135px;
+    height: 40px;
+    /* margin-left: 20px; */
+    /* margin-left: -3px; */
+    border-radius: 5px;
+    background-color: #435B8A;
+    /* vertical-align: middle; */
+    color: white;
+    /* margin: 0 auto; */
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 15px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.registry-success {
+  .error-title {
+    color: green;
+  }
+
+  .error-desc {
+    color: black !important;
+
+    .sheet, .file {
+      font-weight: bold;
+    }
+  }
+}
+
+.registry-history {
+
+  table {
+    margin: 30px auto 50px auto;
+    width: 960px;
+    border: 2px solid $defaultColor !important;
+    border-collapse: collapse;
+    font-size: 16px;
+
+    tr {
+      &:nth-child(2n) {
+        background-color: #F9F9F9;
+      }
+    }
+
+    th, td {
+      border: 1px solid grey;
+    }
+
+    th {
+      background-color: $defaultColor;
+      color: white;
+      &:hover {
+        cursor: pointer;
+      }
+      .sortorder:after {
+        content: '\25b2';
+      }
+      .sortorder.reverse:after {
+        content: '\25bc';
+      }
+
+      &.table-number {
+        width: 140px;
+        height: 40px;
+        border-right: 2px solid white;
+        text-align: left;
+      }
+
+      &.table-date {
+        width: 130px;
+        height: 40px;
+        border-right: 2px solid white;
+      }
+
+      &.table-sum {
+        padding-right: 20px;
+        width: 140px;
+        height: 40px;
+        text-align: left;
+      }
+      &.table-name {
+        vertical-align: middle;
+        text-align: center;
+      }
+
+      &.table-goal {
+        vertical-align: middle;
+      }
+      &.status {
+        text-align: center;
+      }
+
+    }
+
+    td {
+      height: 40px;
+      text-align: center !important;
+
+      &.table-number {
+        width: 130px;
+      }
+      &.table-name {
+        text-align: center;
+      }
+      &.sum, &.commission {
+        font-weight: bold;
+      }
+
+      .eye {
+        margin: 3px -9px 3px -5px;
+        width: 25px;
+        height: 15px;
+        background: url("../images/sprite.png") no-repeat -57px -123px;
+        &:hover {
+          background-position: -31px -123px;
+          cursor: pointer;
+        }
+      }
+
+      .delete {
+        margin: 3px -6px 3px -5px;
+        width: 20px;
+        height: 20px;
+        background: url("../images/sprite.png") no-repeat -51px -104px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+    }
+  }
+}
+
+.registry-history-cards {
+
+  .cards {
+    th {
+      font-size: 14px;
+
+      &.number-check {
+        min-width: 122px;
+      }
+
+      .sortorder:after {
+        content: '\25b2';
+      }
+      .sortorder.reverse:after {
+        content: '\25bc';
+      }
+
+      &:hover {
+        cursor: pointer !important;
+      }
+
+    }
+
+    td {
+      &.table-number {
+        text-align: right !important;
+        &.left {
+          text-align: left !important;
+        }
+      }
+      .show-extra {
+        &:before {
+          content: 'Cдача на карту:';
+        }
+
+      }
+    }
+  }
+
+  .info-sheet {
+    position: fixed;
+    z-index: 100;
+    height: 300px;
+    .paid, .waiting, .card-errors {
+      .paid-show {
+        display: inline-block;
+        float: right;
+        margin-right: 5px;
+        width: 80px;
+        height: 17px;
+        border-radius: 5px;
+        background-color: green;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        font-size: 12px;
+      }
+
+      .pwaiting-show {
+        display: inline-block;
+        float: right;
+        margin-right: 5px;
+        width: 80px;
+        height: 17px;
+        border-radius: 5px;
+        background-color: orange;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        font-size: 12px;
+      }
+
+      .circle {
+        float: left;
+        margin: 3px 5px 0 3px;
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        background: grey;
+      }
+
+      .errors-amount {
+        color: gray;
+
+        .errors-show {
+          display: inline-block;
+          float: right;
+          margin-right: 5px;
+          width: 80px;
+          height: 17px;
+          border-radius: 5px;
+          background-color: red;
+          color: white;
+          text-align: center;
+          font-weight: bold;
+          font-size: 12px;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .paid {
+      margin-top: 5px;
+    }
+
+    .button-line {
+      margin-top: 10px;
+      .download {
+        margin-left: 0;
+      }
+      .send {
+        width: 100%;
+        /*width: 180px;*/
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-fluid {
+    width: 100% !important;
+    min-width: 1024px !important;
+    height: 100%;
+  }
+
+}
+
+@media (max-width: 767px) {
+  .container-fluid {
+    width: 100% !important;
+    min-width: 1024px !important;
+
+    header .menu .lang {
+      &.ua, &.ru {
+        right: 84px;
+      }
+    }
+
+    .tabs {
+      list-style: none;
+      font-family: "Roboto Light", Arial, sans-serif;
+      font-size: 1.2em;
+
+      li {
+        text-align: center;
+        text-transform: uppercase;
+
+        &.item {
+          position: relative;
+          width: 100%;
+          margin-top: 15px;
+
+          &.about-services {
+            top: 71px !important;
+            left: 39% !important;
+          }
+          &.tarif {
+            top: 144px !important;
+            left: 33% !important;
+          }
+          &.faq {
+            top: 180px !important;
+            left: 34% !important;
+          }
+          &.contacts {
+            top: 108px !important;
+            left: 39% !important;
+          }
+        }
+
+      }
+    }
+
+    .wrapper {
+      .services {
+        min-width: 100%;
+      }
+    }
+
+    footer {
+      height: 300px;
+      max-height: 300px;
+      background-size: 263%;
+      background-position: 25%;
+      padding-top: 15px;
+
+      .footer-content {
+        margin-top: 15px;
+      }
+
+      .phone-number {
+        position: static;
+        margin: 0;
+      }
+      .email {
+        position: static;
+        margin: 0;
+      }
+    }
+
+    .dd-menu {
+      width: 100%;
+
+      .item {
+        color: white;
+        text-align: center;
+        font-size: 1.2em;
+        height: 30px;
+        background-color: #435B8A;
+        padding-top: 4px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .container-fluid {
+    width: 100% !important;
+    min-width: 1024px !important;
+
+    /*header {
+      width: 100%;
+
+      .menu {
+
+        .tabs {
+          font-family: Roboto Light;
+
+          li {
+
+            &.item {
+              padding: 1.5em 10px !important;
+
+              &.about-services {
+                top: -8px;
+                left: 15%;
+              }
+              &.contacts {
+                top: 21px;
+                left: 15%;
+              }
+              &.faq {
+                top: 21px;
+                left: 50%;
+              }
+              &.tarif {
+                top: -8px;
+                left: 50%;
+              }
+
+              &.login {
+                top: 7px;
+              }
+            }
+          }
+        }
+
+        ul {
+          margin-top: -3px;
+          margin-right: 25px;
+        }
+        li {
+          margin-top: 10px;
+          display: block !important;
+        }
+
+        .stick {
+          display: none;
+        }
+      }
+    }*/
+    footer {
+      height: 300px;
+      max-height: 300px;
+      background-size: 263%;
+      background-position: 25%;
+      padding-top: 15px;
+
+      .footer-content {
+        margin-top: 15px;
+      }
+
+      .phone-number {
+        position: static;
+        margin: 0;
+      }
+      .email {
+        position: static;
+        margin: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 1366px) {
+  .login-card, .registration-card {
+    width: 320px;
+
+    input {
+      border-radius: 2px;
+    }
+
+    h1 {
+      margin-top: 5%;
+    }
+
+    input[type=text], input[type=email], input[type=password] {
+      margin-top: 10%;
+      height: 25px;
+
+      &.password-input {
+        margin-top: 11.5%;
+      }
+    }
+
+    .show-password {
+      position: relative;
+      top: -37px;
+      left: 34%;
+      width: 13px;
+      height: 15px;
+      background: url("../images/Sprite_sendua.png") -1293px 0 no-repeat;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &.text {
+        background: url("../images/Sprite_sendua.png") -1308px 0 no-repeat;
+      }
+    }
+
+    input[type=submit] {
+      height: 25px;
+    }
+
+    .registration {
+      font-size: 18px;
+      margin-top: 8%;
+    }
+
+    .help-block {
+      font-family: "Roboto Light", Helvetica, Arial, sans-serif;
+      height: 0;
+      position: absolute;
+      font-size: 12px;
+      left: 50px;
+      color: #fc908c;
+
+      &.password {
+        top: 167px;
+      }
+    }
+
+  }
+
+  .registration-card {
+    h1 {
+      margin-top: -7px;
+    }
+
+    input {
+      border-radius: 2px;
+    }
+
+    input[type=text], input[type=email], input[type=password] {
+      margin-top: 8%;
+      height: 25px;
+      &[name="name"] {
+        margin-top: 23px;
+      }
+    }
+
+    input[type=submit] {
+      margin: 17px auto 7px;
+    }
+
+    .accept {
+      left: 11%;
+    }
+
+    .show-password {
+      position: absolute;
+      top: 150px;
+      left: 79%;
+      width: 13px;
+      height: 15px;
+      background: url("../images/Sprite_sendua.png") -1293px 0 no-repeat;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &.text {
+        background: url("../images/Sprite_sendua.png") -1308px 0 no-repeat;
+      }
+    }
+
+    .help-block {
+      font-family: "Roboto Light", Helvetica, Arial, sans-serif;
+      height: 0;
+      position: absolute;
+      font-size: 12px;
+      color: #fc908c;
+      left: 50px;
+
+      &.password {
+        top: 167px;
+      }
+    }
+
+    .agreement {
+      width: 271px;
+    }
+
+    .accept-block {
+      margin: 26px auto 0;
+    }
+  }
+
+  .change-card {
+    width: 330px;
+
+    h1 {
+      margin-top: 6%;
+    }
+
+    input {
+      border-radius: 2px;
+    }
+
+    input[type=email], input[type=text], input[type=password] {
+      margin-top: 5%;
+      height: 25px;
+      &.password-input {
+        margin-top: 7.5%;
+      }
+
+      &.password2-input {
+        margin-top: 3%;
+      }
+    }
+
+    .show-password {
+      position: relative;
+      top: -21px;
+      left: 30%;
+      width: 13px;
+      height: 15px;
+      background: url("../images/Sprite_sendua.png") -1293px 0 no-repeat;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &.text {
+        background: url("../images/Sprite_sendua.png") -1308px 0 no-repeat;
+      }
+    }
+
+    input[type=submit] {
+      height: 25px;
+      margin-top: 5%;
+      margin-bottom: 52px;
+    }
+
+    .help-block {
+      font-family: "Roboto Light", Helvetica, Arial, sans-serif;
+      height: 0;
+      position: absolute;
+      font-size: 12px;
+      color: #fc908c;
+      left: 50px;
+
+      &.password {
+        margin-top: -13px;
+      }
+      &.password2 {
+        margin-top: -13px;
+      }
+    }
+  }
+
+  .ng-modal-dialog {
+    top: 130px;
+  }
+
+  .mobile-wrapper {
+    position: relative;
+    top: 47%;
+    left: 50%;
+    margin-top: -21px;
+    padding: 0 45px;
+    max-width: 730px;
+    height: 355px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.73);
+    box-shadow: -6px 6px 16px 0 rgba(0, 0, 0, 0.15);
+    font-family: "Roboto Medium", Arial, sans-serif;
+    transform: translate(-50%, -50%);
+
+    h3 {
+      padding-top: 20px;
+      color: #435B8A;
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 19px;
+      font-family: "Roboto Light", Arial, sans-serif;
+    }
+
+    h4 {
+      padding-top: 0;
+      color: #435B8A;
+      text-align: center;
+      font-size: 21px;
+      font-family: "Roboto Light", Arial, sans-serif;
+      margin-top: -3px;
+    }
+
+    .frame {
+      margin: 73px auto 0;
+      width: 540px;
+      height: 180px;
+      border: 1px solid #d3d3d3;
+      border-radius: 5px;
+      background: white;
+
+      .mobile-android {
+        float: left;
+        margin-top: 81px;
+        width: 30%;
+
+        h4 {
+          font-size: 14px;
+          font-family: "Roboto Light", Arial, sans-serif;
+        }
+
+        a.market-box {
+          display: block;
+          margin: 13px 0 0 25px;
+
+          .android-link {
+            margin: 0 auto;
+            width: 117px;
+            height: 25px;
+            background: url("../images/Sprite_sendua.png") -874px -38px no-repeat;
+          }
+        }
+      }
+
+      .pics {
+        position: absolute;
+        top: 100px;
+        left: 273px;
+        background: url("../images/Send_ua_telefonu_1024-1366х768.png") no-repeat;
+        background-size: cover;
+        height: 234px;
+        width: 220px;
+      }
+
+      .mobile-ios {
+        float: right;
+        margin-top: 82px;
+        width: 27%;
+
+        h4 {
+          margin-left: 15px;
+          padding-top: 0;
+          text-align: left;
+          font-size: 14px;
+          font-family: "Roboto Light", Arial, sans-serif;
+        }
+
+        a.market-box {
+          display: block;
+          margin-left: -55px;
+
+          .ios-link {
+            margin: -5px auto 0 68px;
+            width: 120px;
+            height: 40px;
+            background: url("../images/Sprite_sendua.png") -1002px -20px no-repeat;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1367px) {
+  .login-card, .registration-card {
+    width: 380px;
+    input {
+      border-radius: 4px;
+    }
+    h1 {
+      margin-top: 17%;
+    }
+
+    input[type=text], input[type=email], input[type=password] {
+      margin-top: 7%;
+      height: 35px;
+      &.password-input {
+        margin-top: 8.5%;
+      }
+    }
+
+    .show-password {
+      position: relative;
+      top: -42px;
+      left: 28%;
+      width: 15px;
+      height: 15px;
+      background: url("../images/Sprite_sendua.png") -1260px 0 no-repeat;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &.text {
+        background: url("../images/Sprite_sendua.png") -1277px 0 no-repeat;
+      }
+    }
+
+    input[type=submit] {
+      height: 35px;
+      margin-top: 4%;
+    }
+
+    .registration {
+      font-size: 20px;
+      margin-top: 7%;
+      margin-bottom: 17%;
+    }
+
+    .help-block {
+      font-family: "Roboto Light", Helvetica, Arial, sans-serif;
+      height: 0;
+      position: absolute;
+      font-size: 12px;
+      left: 80px;
+      color: #fc908c;
+
+      &.password {
+        top: 223px;
+      }
+    }
+  }
+
+  .registration-card {
+    h1 {
+      margin-top: 4.5%;
+    }
+
+    input {
+      border-radius: 4px;
+    }
+
+    input[type=text], input[type=password] {
+      margin-top: 7%;
+      height: 35px;
+    }
+    input[type=submit] {
+      height: 35px;
+      margin: 15px auto 34px;
+    }
+    .name-field {
+      margin-top: 4%;
+    }
+
+    .show-password {
+      position: absolute;
+      top: 218px;
+      left: 75%;
+      height: 15px;
+      width: 15px;
+      background: url("../images/Sprite_sendua.png") -1260px 0 no-repeat;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &.text {
+        background: url("../images/Sprite_sendua.png") -1277px 0 no-repeat;
+      }
+    }
+
+    .accept-block {
+      margin: 30px auto 0;
+      .accept {
+        left: 18%;
+      }
+    }
+
+    .help-block {
+      font-family: "Roboto Light", Helvetica, Arial, sans-serif;
+      height: 0;
+      position: absolute;
+      font-size: 12px;
+      color: #fc908c;
+      left: 80px;
+
+      &.password {
+        top: 223px;
+      }
+    }
+
+    .agreement {
+      width: 298px;
+    }
+
+  }
+
+  .change-card {
+    width: 380px;
+    input {
+      border-radius: 4px;
+    }
+    h1 {
+      margin-top: 17%;
+    }
+
+    input[type=email], input[type=text], input[type=password] {
+      margin-top: 7%;
+      height: 35px;
+      &.password-input {
+        margin-top: 9.5%;
+      }
+
+      &.password2-input {
+        margin-top: 6%;
+      }
+    }
+
+    .show-password {
+      position: relative;
+      top: -28px;
+      left: 28%;
+      height: 15px;
+      width: 15px;
+      background: url("../images/Sprite_sendua.png") -1260px 0 no-repeat;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &.text {
+        background: url("../images/Sprite_sendua.png") -1277px 0 no-repeat;
+      }
+    }
+
+    input[type=submit] {
+      height: 35px;
+      margin-top: 6%;
+      margin-bottom: 16%;
+    }
+
+    .registration {
+      font-size: 20px;
+      margin-top: 7%;
+      margin-bottom: 17%;
+    }
+
+    .help-block {
+      font-family: "Roboto Light", Helvetica, Arial, sans-serif;
+      height: 0;
+      position: absolute;
+      font-size: 12px;
+      color: #fc908c;
+      left: 80px;
+
+      &.password {
+        margin-top: -13px;
+      }
+      &.password2 {
+        margin-top: -13px;
+      }
+    }
+  }
+
+  .ng-modal-dialog {
+    top: 147px;
+  }
+
+  .mobile-wrapper {
+    position: relative;
+    top: 47%;
+    left: 50%;
+    margin-top: -21px;
+    padding: 0 45px;
+    max-width: 730px;
+    height: 450px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.73);
+    box-shadow: -6px 6px 16px 0 rgba(0, 0, 0, 0.15);
+    font-family: "Roboto Medium", Arial, sans-serif;
+    transform: translate(-50%, -50%);
+
+    h3 {
+      padding-top: 27px;
+      color: #435B8A;
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 22px;
+      font-family: "Roboto Light", Arial, sans-serif;
+    }
+
+    h4 {
+      padding-top: 0;
+      color: #435B8A;
+      text-align: center;
+      font-size: 21px;
+      font-family: "Roboto Light", Arial, sans-serif;
+    }
+
+    .frame {
+      margin: 163px auto 0;
+      width: 530px;
+      height: 175px;
+      border: 1px solid #d3d3d3;
+      border-radius: 5px;
+      background: white;
+
+      .mobile-android {
+        float: left;
+        margin-top: 43px;
+        width: 28%;
+
+        h4 {
+          font-size: 14px;
+          font-family: "Roboto Light", Arial, sans-serif;
+        }
+
+        a.market-box {
+          display: block;
+          margin: 13px 0 0 25px;
+
+          .android-link {
+            margin: 0 auto;
+            width: 117px;
+            height: 25px;
+            background: url("../images/Sprite_sendua.png") -874px -38px no-repeat;
+          }
+        }
+      }
+
+      .pics {
+        position: absolute;
+        top: 105px;
+        left: 233px;
+        background: url("../images/Send_ua_telefonu.png");
+        height: 311px;
+        width: 292px;
+      }
+
+      .mobile-ios {
+        float: right;
+        margin-top: 44px;
+        width: 27%;
+
+        h4 {
+          margin-left: 15px;
+          padding-top: 0;
+          text-align: left;
+          font-size: 14px;
+          font-family: "Roboto Light", Arial, sans-serif;
+        }
+
+        a.market-box {
+          display: block;
+          margin-left: -55px;
+
+          .ios-link {
+            margin: -5px auto 0 68px;
+            width: 120px;
+            height: 40px;
+            background: url("../images/Sprite_sendua.png") -1002px -20px no-repeat;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+.i_phone {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url("../images/tel_icon.png") no-repeat;
+}
+
+.i_email {
+  display: inline-block;
+  width: 20px;
+  height: 15px;
+  background: url("../images/sprite.png") -247px -61px no-repeat;
+}
+
+.form-footer {
+  width: 100%;
+  height: 200px;
+  background: url("../images/bg_for_header.jpg");
+  font-family: "Roboto Light", Arial, sans-serif;;
+  color: white;
+  text-align: center;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 14px;
+
+  .button-block {
+    margin: 0 auto;
+    width: 1000px;
+
+    .button {
+      display: inline-block;
+      margin-top: -25px;
+
+      .button-desc:not(.active) {
+        color: lightgrey;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &.p2p {
+        margin-left: 25px;
+      }
+
+      &.registry {
+        margin-left: 65px;
+      }
+
+      &.mobile {
+        float: right;
+        margin-right: 90px;
+      }
+
+      .pic {
+        width: 200px;
+        height: 150px;
+
+        img {
+          -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.45));
+          filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.45));
+
+          &.active {
+            -webkit-filter: drop-shadow(0px 10px 10px rgba(255, 255, 255, 0.45));
+            filter: drop-shadow(0px 10px 10px rgba(255, 255, 255, 0.45));
+          }
+          &:hover {
+            -webkit-filter: drop-shadow(0px 5px 10px rgba(255, 255, 255, 0.3));
+            filter: drop-shadow(0px 5px 10px rgba(255, 255, 255, 0.3));
+          }
+        }
+
+      }
+    }
+  }
+}
+
+.about {
+  margin: auto;
+  padding: 70px 0;
+  min-width: 1024px;
+  width: 1024px;
+  height: 600px;
+
+  &#qaa {
+    height: 1400px;
+  }
+
+  .image-setting {
+    float: left;
+    margin-top: 70px;
+    margin-left: 4%;
+    width: auto;
+    height: 300px;
+  }
+
+  .about-title {
+    min-width: 1024px;
+    color: #435B8A;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 30px;
+    line-height: 18px;
+  }
+  .about-desc {
+    margin: auto;
+    min-width: 1024px;
+    .about-content {
+      float: left;
+      margin-top: 60px;
+      margin-left: 10%;
+      width: 400px;
+      color: #000000;
+      text-align: left;
+      font-size: 14px;
+      line-height: 16px;
+
+      ul {
+        padding-left: 15px;
+      }
+
+      h3 {
+        color: #435B8A;
+        text-transform: uppercase;
+        font-size: 18px;
+        font-family: "Roboto light", Arial, sans-serif;
+        line-height: 24px;
+      }
+
+      p, div {
+        margin-bottom: 20px;
+
+        .bold {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  .image {
+    position: relative;
+    top: 95px;
+    display: inline-block;
+    float: right;
+    width: 50%;
+  }
+  .button-down {
+    position: relative;
+    top: 110px;
+  }
+
+  &.tariff {
+    max-width: 100%;
+    width: 100%;
+    height: 680px;
+    background-color: #F6F6F6;
+
+    .wrap {
+      margin: auto;
+      max-width: 1024px;
+    }
+    .about-content {
+      float: left;
+      margin-left: 10%;
+      width: 40%;
+
+    }
+    .about-desc {
+      margin: auto;
+      min-width: 1024px;
+
+      .calc {
+        float: right;
+        margin-top: 120px;
+        margin-right: 10%;
+      }
+    }
+    .button-down {
+      top: 30px;
+    }
+  }
+}
+
+.login-submit {
+  background-color: #435B8A;
+}
+
+/*login*/
+
+.login-card {
+  margin: auto;
+
+  h1 {
+    color: #435B8A;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: 1.3em;
+  }
+
+  div {
+    margin: 0 auto;
+
+    &.close {
+      display: none;
+      float: right;
+      width: 20px;
+      height: 26px;
+      background: url("../images/Sprite_sendua.png") -89px -40px no-repeat;
+    }
+    &.reg {
+      text-decoration: underline;
+      font-size: 23px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  p {
+    color: #435B8A;
+
+    &.remind {
+      margin-left: -14em;
+      text-decoration: underline;
+      font-size: 0.8em;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &.registration {
+      text-decoration: underline;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  input[type=submit] {
+    width: 250px;
+    font-family: Roboto, Arial, sans-serif;
+    &[disabled] {
+      border-color: rgba(67, 91, 138, .6);
+      opacity: .6;
+    }
+
+  }
+
+  input[type=email], input[type=text], input[type=password] {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 8px;
+    width: 250px;
+    border: 1px solid #d9d9d9;
+    border-top: 1px solid #c0c0c0;
+    background: #fff;
+    font-size: 15px;
+    -webkit-appearance: none;
+
+    &:hover {
+      border: 1px solid #b9b9b9;
+      border-top: 1px solid #a0a0a0;
+      -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    &:focus {
+      border-color: #66afe9;
+      outline: 0;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+    }
+  }
+
+  .has-error .form-control {
+    border-color: #fc908c !important;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(252, 144, 140, 0.7) !important;
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(252, 144, 140, 0.7) !important;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(252, 144, 140, 0.7) !important;
+  }
+
+  .help-block {
+    margin-top: 2px;
+    font-family: "Roboto Light", Helvetica, Arial, sans-serif;
+  }
+
+  a {
+    display: inline-block;
+    color: #666;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 400;
+    opacity: 0.6;
+    transition: opacity ease 0.5s;
+  }
+
+  a:hover {
+    opacity: 1;
+  }
+}
+
+.login {
+  height: 36px;
+  text-align: center;
+  font-size: 14px;
+  font-family: 'Roboto Medium', 'Arial', sans-serif;
+}
+
+.login-submit {
+  border: 0;
+  border-radius: 4px;
+  background-color: #435B8A;
+  color: #fff;
+  text-transform: uppercase;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    border: 0;
+    background-color: #435B8A;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.registration-card {
+  margin: auto;
+  padding-top: 8px;
+  background-color: white;
+
+  .accept-block {
+    font-size: 11px;
+
+    .accept {
+      position: relative;
+      float: left;
+      padding: 0;
+      width: 15px;
+      height: 15px;
+      border: 1px solid #979797;
+      background: #FFFFFF;
+      opacity: 1;
+
+      &.checked {
+        background: url("../images/Sprite_sendua.png") no-repeat -94px -26px;
+      }
+
+      &.error {
+        outline: 1px solid red;
+        border: 0 !important;
+      }
+
+      .accept-checkbox {
+        margin: 0;
+        width: 15px;
+        height: 15px;
+        opacity: 0;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .agreement {
+      float: right;
+      text-align: left;
+      position: relative;
+      left: 3px;
+    }
+  }
+  h1 {
+    margin-bottom: -10px;
+    color: #435B8A;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: 20px;
+  }
+  div {
+    text-align: center;
+    &.close {
+      float: right;
+      width: 20px;
+      height: 26px;
+      background: url("../images/Sprite_sendua.png") -89px -40px no-repeat;
+    }
+    &.reg {
+      text-decoration: underline;
+      font-size: 23px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  input[type=submit] {
+    width: 250px;
+    border: 1px solid #435B8A;
+    background: #435B8A;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 15px;
+    font-family: Roboto, Arial, sans-serif;
+    &[disabled] {
+      border-color: rgba(67, 91, 138, 0.6);
+      opacity: .6;
+    }
+  }
+  input[type=email], input[type=text], input[type=password] {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 8px;
+    width: 250px;
+    border: 1px solid #d9d9d9;
+    border-top: 1px solid #c0c0c0;
+    background: #fff;
+    font-size: 16px;
+    -webkit-appearance: none;
+    &.error {
+      border-color: #fc908c !important;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(252, 144, 140, 0.7) !important;
+      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(252, 144, 140, 0.7) !important;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(252, 144, 140, 0.7) !important;
+    }
+
+    &:hover {
+      border: 1px solid #b9b9b9;
+      border-top: 1px solid #a0a0a0;
+      -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    &:focus {
+      border-color: #66afe9;
+      outline: 0;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+    }
+  }
+
+  .help-block {
+    margin-top: 1px;
+    font-family: "Roboto Light", Helvetica, Arial, sans-serif;
+  }
+}
+
+.sms-card {
+  margin: auto;
+  width: 475px;
+  height: 288px;
+  background-color: white;
+
+  h1 {
+    margin-top: 25px;
+    color: $defaultColor;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: 20px;
+  }
+  input[type=text] {
+    position: relative;
+    top: 60px;
+    left: 110px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 8px;
+    width: 85px;
+    height: 35px;
+    border: 1px solid #d9d9d9;
+    border-top: 1px solid #c0c0c0;
+    border-radius: 5px;
+    background: #fff;
+    font-size: 15px;
+    -webkit-appearance: none;
+  }
+
+  .sms {
+    height: 36px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 12px;
+  }
+
+  .sms-submit {
+    position: relative;
+    top: 24px;
+    left: 265px;
+    border: 0;
+    border-radius: 4px;
+    background-color: #435B8A;
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+    font-family: Roboto, Arial, sans-serif;
+
+    &:hover {
+      border: 0;
+      background-color: #435B8A;
+      text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+    }
+  }
+  .resend {
+    margin: 85px auto 0;
+    width: 260px;
+  }
+}
+
+.change-card {
+  margin: auto;
+  background-color: white;
+
+  h1 {
+    color: #435B8A;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: 1.3em;
+  }
+
+  div {
+    margin: 0 auto;
+
+    &.close {
+      display: none;
+      float: right;
+      width: 20px;
+      height: 26px;
+      background: url("../images/Sprite_sendua.png") -89px -40px no-repeat;
+    }
+  }
+
+  input[type=submit] {
+    width: 250px;
+    font-family: Roboto, Arial, sans-serif;
+    &[disabled] {
+      border-color: rgba(67, 91, 138, 0.6);
+      opacity: .6;
+    }
+  }
+
+  input[type=email], input[type=text], input[type=password] {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 8px;
+    width: 250px;
+    border: 1px solid #d9d9d9;
+    border-top: 1px solid #c0c0c0;
+    background: #fff;
+    font-size: 15px;
+    -webkit-appearance: none;
+
+    &.error {
+      border-color: #fc908c !important;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(252, 144, 140, 0.7) !important;
+      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(252, 144, 140, 0.7) !important;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(252, 144, 140, 0.7) !important;
+    }
+
+    &:hover {
+      border: 1px solid #b9b9b9;
+      border-top: 1px solid #a0a0a0;
+      -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    &:focus {
+      border-color: #66afe9;
+      outline: 0;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+    }
+  }
+
+  .help-block {
+    margin-top: 2px;
+    font-family: "Roboto Light", Helvetica, Arial, sans-serif;
+  }
+}
+
+.yellow {
+  color: orange;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+.disabled {
+  background: grey !important;
+}
+
+.ng-modal-overlay {
+  /* A dark translucent div that covers the whole screen */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 0.45;
+}
+
+.ng-modal-dialog {
+  position: fixed;
+  left: 50%;
+  z-index: 10000;
+  border-radius: 4px;
+  background: rgb(255, 255, 255);
+  box-shadow: 2px 2px 20px #4c4c4c;
+  -webkit-transform: translate(-50%, 0);
+  -moz-transform: translate(-50%, -0);
+  transform: translate(-50%, 0);
+}
+
+.ng-modal-dialog-content {
+  padding: 10px;
+  text-align: center;
+}
+
+.ng-modal-close {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  z-index: 10;
+  display: inline-block;
+  padding: 5px;
+  width: 20px;
+  height: 26px;
+  background: url("../images/Sprite_sendua.png") -89px -40px no-repeat;
+  font-weight: bold;
+  font-size: 120%;
+  font-family: 'arial', 'sans-serif';
+  cursor: pointer;
+}
+
+.icon-ask {
+  position: relative;
+  top: 4px;
+  display: inline-block;
+  width: 22px;
+  height: 20px;
+  background: url("../images/Sprite_sendua.png") -223px -43px;
+  &.active {
+    background-position: -194px -43px;
+  }
+}
+
+.questions {
+  clear: both;
+  margin-top: 55px;
+
+  a {
+    text-decoration: none;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .item {
+    margin-bottom: 15px;
+    min-width: 830px;
+  }
+
+  .title {
+    margin: auto auto 45px;
+      width: 1024px;
+    color: #435B8A;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 30px;
+    line-height: 18px;
+    }
+
+  .block {
+    margin: auto;
+    max-width: 1300px;
+    color: #626B72;
+
+    .tablet {
+      margin: auto;
+      width: 1024px;
+
+      .image-block {
+        float: left;
+        margin-left: 45px;
+      }
+      }
+
+    .desktop {
+      margin-bottom: 45px;
+
+      .title1, .title2 {
+        float: left;
+        padding: 20px 0 10px 2%;
+        width: 48%;
+        background: #FFFFFF;
+        text-align: left;
+        font-weight: bold;
+        font-size: 1.4em;
+      }
+
+      .title1 {
+        width: 46%;
+      }
+
+      .title2 {
+        margin-left: 3%;
+        width: 47%;
+      }
+
+      .image-block {
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .ask-block {
+        margin: 0;
+        width: 48%;
+
+        .scroll-viewport {
+          width: 100%;
+
+          .scroll-overview {
+            width: inherit;
+
+            .question {
+              width: 94%;
+
+              .block2 {
+                width: 90%;
+              }
+              }
+            }
+          }
+        }
+
+      .answer {
+          float: left;
+        margin-left: 3%;
+        width: 49%;
+        background: #F9F9F9;
+
+        .block1, .block2 {
+          position: relative;
+          float: left;
+        }
+
+        .block1 {
+          padding: 10px 10px 0 20px;
+          min-width: 30px;
+          width: 5%;
+        }
+
+        .block2 {
+          padding: 20px 0;
+          width: 80%;
+
+          .answer {
+            width: 100%;
+          }
+          }
+        }
+      }
+
+    .ask-block {
+      margin: auto auto 45px auto;
+      width: 795px;
+        background: #FFFFFF;
+
+      .scroll-bar {
+        background: #FFFFFF;
+        .scroll-thumb {
+          width: 6px;
+          background: #D8D8D8;
+        }
+        }
+
+      .question {
+        display: table;
+        clear: both;
+        padding: 5px;
+        min-height: 35px;
+        background-color: #EFEFEF;
+        &:hover {
+          cursor: pointer;
+        }
+
+        .block1 {
+            position: relative;
+          float: left;
+          padding-left: 15px;
+          width: 120px;
+          .num {
+            position: relative;
+            left: 10px;
+            display: inline-block;
+            color: #626B72;
+            font-weight: bold;
+            font-size: 17px;
+
+            &.active {
+              color: #9C9EAB;
+            }
+            }
+          .icon-ask {
+            position: relative;
+            top: 4px;
+            display: inline-block;
+            width: 22px;
+            height: 20px;
+            background: url("../images/Sprite_sendua.png") -223px -43px;
+            &.active {
+              background-position: -194px -43px;
+            }
+            }
+          }
+
+        .block2 {
+          display: table-cell;
+          width: 100%;
+          vertical-align: middle;
+          font-weight: bold;
+          font-size: 18px;
+        }
+        }
+
+      .answer {
+        clear: both;
+        .block1, .block2 {
+          position: relative;
+          float: left;
+        }
+
+        .block1 {
+          padding: 10px 20px;
+          width: 50px;
+        }
+
+        .block2 {
+          padding: 20px;
+          min-height: 200px;
+          width: 100%;
+          border: 1px solid #EFEFEF;
+        }
+        }
+
+      /*.icon-ask, .icon-answer{
+        position: relative;
+      }*/
+      }
+  }
+
+  .down {
+    padding-bottom: 45px;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    }
+  }
+
+.button-down {
+  margin: 7px auto;
+  width: 44px;
+  height: 16px;
+  background: url("../images/Sprite_sendua.png") no-repeat -148px -45px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  }

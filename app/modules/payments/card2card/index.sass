@@ -1,2 +1,144 @@
+.main
+	margin-top: 50px
 .card2card
-    .ct-payments
+	margin: 0 auto
+	height: 390px
+	width: 95%
+	min-width: 800px
+	max-width: 930px
+	min-height: 350px
+	max-height: 470px
+	background: rgba(255,255,255,.73)
+	box-shadow: -6px 6px 16px 0 rgba(0,0,0,.15)
+	border-radius: 4px
+
+	.form-container
+		width: 715px
+		margin: 0 auto
+
+	.form-title
+		font-size: 18px
+		color: #435B8A
+		letter-spacing: 1.85px
+		line-height: 18px
+		text-align: center
+		padding: 35px
+		text-transform: uppercase
+
+	.ct-payments
+
+		&.visa
+			.card-logo
+				background-image: url('~payment-icons/min/flat/visa.svg')
+
+		&.mastercard
+			.card-logo
+				background-image: url('~payment-icons/min/flat/mastercard.svg')
+
+		&.maestro
+			.card-logo
+				background-image: url('~payment-icons/min/flat/maestro.svg')
+
+	.card-logo
+		width: 46px
+		height: 28px
+		background-size: cover
+		background-repeat: no-repeat
+		position: absolute
+		left: 187px
+		top: 17px
+
+	.cards
+		width: 230px
+		height: 150px
+		box-shadow: 0 2px 4px 0 rgba(0,0,0,.5)
+		border-radius: 9px
+		padding: 12px
+		color: #fff
+		background-size: cover
+		margin: 0 auto
+
+		&.source
+			background-image: url(./images/card_bg_sender.jpg)
+
+		&.target
+			background-image: url(./images/card_bg_reseiver.jpg)
+
+	//.card-image
+		background-image: url('./images/card_bg.svg')
+		background-repeat: no-repeat
+		width: 492px
+		height: 240px
+
+	.ct-input
+		border-radius: 5px
+		height: 30px
+
+	.button
+		position: absolute
+		top: 166px
+		left: 261px
+
+	.error
+		font-size: 12px
+		color: #d9534f
+		margin: 0 auto
+
+	.small-input
+		width: 60px
+		float: left
+		margin-right: 8px
+
+	.phone-number
+		margin: 0 auto
+		width: 230px
+		p
+			text-align: center
+			margin: 0 auto
+			margin-top: 6px
+			font-size: 10pt
+		.form-group
+			margin-bottom: 0
+
+	.amount
+		text-align: center
+		span
+			font-size: 12px
+			margin-top: 2px
+		p
+			margin: 0 0 5px
+
+		.form-group
+			height: 35px
+
+		.comission
+			margin-top: 34px
+
+		.comission, .total
+			text-align: center
+			div:nth-child(1)
+				font-size: 10pt
+
+			div:nth-child(2)
+				float: left
+		input
+			width: 50%
+			text-align: center
+			margin: 0 auto
+			float: none
+
+	.submit-check
+		margin: 25px 3px 0 0
+		float: right
+
+		.checkbox
+			font-size: 10pt
+			margin: 5px 30px
+			float: left
+
+		button
+			float: right
+
+	.send-button
+		height: 30px
+		padding: 0 12px

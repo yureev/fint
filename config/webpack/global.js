@@ -29,8 +29,11 @@ module.exports = function (_path) {
 			vendors: ['jquery', 'lodash',
 				'angular',
 				'angular-messages',
+				'angular-animate',
 				'angular-ui-router',
 				'angular-ui-mask',
+				'angular-translate',
+				'angular-translate-loader-static-files',
 				'restangular',
 				'angular-sanitize'
 			]
