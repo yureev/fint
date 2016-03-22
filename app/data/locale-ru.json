@@ -43,7 +43,7 @@
   },
   "CARD2CARD": {
     "TITLE": "ПЕРЕВОД С КАРТЫ НА КАРТУ",
-    "AGREEMENT": "Согласен с <a href='#'>Условиями</a>",
+    "AGREEMENT": "Согласен с <a href='https://send.ua/agreement_ua.html' target='_blank'>Условиями</a>",
     "SEND": "ПЕРЕВЕСТИ",
     "SOURCE": {
       "TITLE": "Карта-отправитель",
@@ -52,6 +52,26 @@
       "YEAR": "Год",
       "CVC": "CVC",
       "PHONE_NUMBER": "Ваш номер телефона"
+    },
+    "ERRORS": {
+      "SOURCE": {
+        "NUMBER_REQUIRED": "Введите номер карты отправителя",
+        "NUMBER_INVALID": "Неверный номер карты отправителя",
+        "DATE_EXPIRE": "Срок действия карты истек",
+        "CVC_REQUIRED": "Введите номер CVC",
+        "CVC_INVALID": "Неверный номер CVC",
+        "PHONE_REQUIRED": "Введите номер телефона",
+        "PHONE_INVALID": "Неверный номер телефона"
+      },
+      "TARGET": {
+        "NUMBER_REQUIRED": "Введите номер карты получателя",
+        "NUMBER_INVALID": "Неверный номер карты получателя"
+      },
+      "AMOUNT": {
+        "AMOUNT_REQUIRED": "Введите сумму перевода",
+        "BIGGER_SUM": "Сумма должна быть больше",
+        "SMALLER_SUM": "Сумма должна быть меньше"
+      }
     },
     "TARGET": {
       "TITLE": "Карта-получатель",
