@@ -7,6 +7,7 @@
                 <div class="cards source">
                     <div class="card-logo"></div>
                     <h4 translate="CARD2CARD.SOURCE.TITLE"></h4>
+                    {{$ct-payments.viewValue.viewExpire.month}}
                     <div class="form-group card-input" ct-input-container>
                         <input type="text" name="number" class="form-control" ct-tabindex="checkNumber" tabindex="1"
                                ng-model="number" required translate translate-attr-placeholder="CARD2CARD.SOURCE.NUMBER"
@@ -25,6 +26,11 @@
                                    ct-payments-format-expire-month-text
                                    ct-payments-validate-month/>
                         </div>
+                        <div ct-input-container class="card-input">
+                            <input type="hidden" name="expire"
+                                   ng-model="expire" required
+                                   ct-payments-validate-expire="viewExpire"/>
+                        </div>
                         <div ct-input-container>
                             <input type="text" class="form-control small-input" ct-tabindex="checkYear" required
                                    maxlength="2" tabindex="3"
@@ -39,11 +45,6 @@
                                    translate translate-attr-placeholder="CARD2CARD.SOURCE.CVC"
                                    ct-payments-format-cvc
                                    ct-payments-validate-cvc/>
-                        </div>
-                        <div ct-input-container class="card-input">
-                            <input type="hidden" name="expire"
-                                   ng-model="expire" required
-                                   ct-payments-validate-expire="viewExpire"/>
                         </div>
                     </div>
                 </div>
