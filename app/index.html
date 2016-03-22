@@ -7,10 +7,10 @@
             <div class="col-md-9 col-sm-9 col-xs-3  container">
                 <div id="navbarCollapse" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav tabs">
-                        <li class="item about-services ng-binding" translate="APP.MENU.ABOUT"></li>
-                        <li class="item tarif ng-binding" translate="APP.MENU.TARIFFS"></li>
-                        <li class="item faq ng-binding" translate="APP.MENU.FAQ"></li>
-                        <li class="item contact ng-binding" translate="APP.MENU.CONTACTS"></li>
+                        <li class="item about-services" scroll-to="services" translate="APP.MENU.ABOUT"></li>
+                        <li class="item tarif ng-binding" scroll-to="tarif" translate="APP.MENU.TARIFFS"></li>
+                        <li class="item faq ng-binding" scroll-to="qaa" translate="APP.MENU.FAQ"></li>
+                        <li class="item contact ng-binding" scroll-to="contacts" translate="APP.MENU.CONTACTS"></li>
                         <li class="item login ng-binding" translate="APP.MENU.DASHBOARD"></li>
                     </ul>
                 </div>
@@ -28,19 +28,26 @@
     <div class="form-footer">
         <div class="button-block">
             <div class="button p2p">
-                <div class="pic p2p-pic"><img src="./assets/images/Cards_bottom.png"></div>
+                <div class="pic p2p-pic">
+                    <img src="./assets/images/Cards_bottom.png">
+                </div>
                 <div>
-                    <span translate="APP.BUTTONS.SEND_MONEY"><span>
+                    <span translate="APP.BUTTONS.SEND_MONEY"></span>
                 </div>
             </div>
             <div class="button registry">
-                <div class="pic registry-pic"><img src="./assets/images/masspay_bottom.png"></div>
-                <div class="button-desc"><span translate="APP.BUTTONS.ROSTER_PAYMENT"><span>
+                <div class="pic registry-pic">
+                    <img src="./assets/images/masspay_bottom.png">
+                </div>
+                <div class="button-desc">
+                    <span translate="APP.BUTTONS.ROSTER_PAYMENT"></span>
                 </div>
             </div>
             <div class="button mobile">
-                <div class="pic mobile-pic"><img src="./assets/images/mobiles_bottom.png"></div>
-                <div class="button-desc"><span translate="APP.BUTTONS.MOBILE_SEND"><span>
+                <div class="pic mobile-pic">
+                    <img src="./assets/images/mobiles_bottom.png">
+                </div>
+                <div class="button-desc"><span translate="APP.BUTTONS.MOBILE_SEND"></span>
                 </div>
             </div>
         </div>
@@ -50,11 +57,11 @@
     <div class="about" id="services">
         <div class="about-title" translate="APP.CONTENT.SERVICE.TITLE"></div>
         <div class="about-desc">
-            <div class="about-content ng-binding" translate="APP.CONTENT.SERVICE.TEXT"></div>
+            <div class="about-content" translate="APP.CONTENT.SERVICE.TEXT"></div>
         </div>
         <img src="./assets/images/old/gear.jpg" class="image-setting">
         <div class="clearfix"></div>
-        <div class="button-down"></div>
+        <div class="button-down" scroll-to="tarif"></div>
     </div>
     <div class="clearfix"></div>
     <div class="about tariff" id="tarif">
@@ -65,16 +72,15 @@
                 <img class="calc" src="./assets/images/old/Calc_illustr.jpg" width="350" height="310">
                 <div class="clearfix"></div>
             </div>
-            <div class="button-down"></div>
+            <div class="button-down" scroll-to="qaa"></div>
         </div>
     </div>
     <div class="clearfix"></div>
-    <div class="questions {{lang}}" id="qaa">
+    <div class="questions" id="qaa">
         <div class="title" translate="APP.CONTENT.FAQ.TITLE"></div>
         <div class="block">
             <div class="tablet">
                 <div class="ask-block scroll">
-                    <!-- Start of the accorrdion-->
                     <uib-accordion close-others="true">
                         <uib-accordion-group is-open="true">
                             <uib-accordion-heading>
@@ -99,13 +105,12 @@
                         </uib-accordion-group>
                     </uib-accordion>
                 </div>
+                <div class="button-down" scroll-to="contacts"></div>
             </div>
-            <!-- End of the accorrdion-->
-            <div class="button-down"></div>
         </div>
         <div class="clearfix"></div>
         <div class="about-contacts">
-            <div class="contacts-title" translate="APP.CONTENT.CONTACTS.TITLE"></div>
+            <div class="contacts-title" id="contacts" translate="APP.CONTENT.CONTACTS.TITLE"></div>
             <div class="row contacts">
                 <div class="facebook-pic"></div>
                 <div class="twitter-pic"></div>
@@ -136,36 +141,37 @@
             </a>
         </div>
     </footer>
-    <!-- ////////////////////////////////////////////Registration Form /////////////////////////////////////////
+</div>
 
-    <modal-dialog show='Base.modalShown'>
-        <div class="login-card">
-            <div class="close" ng-click="hideModal()"></div>
-            <form ng-submit="Base.login(username, password)">
-                <div><input type="text" ng-model="username" placeholder="Логин (ваш e-mail)" required></div>
-                <div><input type="password" ng-model="password" placeholder="Пароль" required></div>
-                <p class="remind">Забыли пароль?</p>
-                <input type="submit" name="login" class="login login-submit" value="Войти">
-                <p class="registration">Регистрация</p>
-            </form>
-        </div>
 
-        <div class="registration-card" ng-if="Registry.registration === 1">
-            <div class="close"></div>
-            <h1>Регистрация</h1><br>
-            <form>
-                <div class="name-field"><span>Имя пользователя: </span><input type="text" ng-model="username" required>
-                </div>
-                <div class="login-field"><span>Логин: </span><input type="text" ng-model="text" required></div>
-                <div class="password-field"><span>Пароль: </span><input type="text" ng-model="text" required></div>
-                <div class="mail-field"><span>Адрес электронной почты: </span><input type="text" ng-model="text"
-                                                                                     required></div>
-                <div class="phone-field"><span>Телефон: </span><input type="text" ng-model="text" required></div>
-                <div class=""><span>Согласен с <span>условиями</span></span></div>
-                <input type="submit" ng-click="" name="login" class="login login-submit" value="Продолжить">
-            </form>
+<!-- ////////////////////////////////////////////Registration Form /////////////////////////////////////////>>
 
-        </div>
-    </modal-dialog>
-    -->
+<modal-dialog show='Base.modalShown'>
+    <div class="login-card">
+        <div class="close" ng-click="hideModal()"></div>
+        <form ng-submit="Base.login(username, password)">
+            <div><input type="text" ng-model="username" placeholder="Логин (ваш e-mail)" required></div>
+            <div><input type="password" ng-model="password" placeholder="Пароль" required></div>
+            <p class="remind">Забыли пароль?</p>
+            <input type="submit" name="login" class="login login-submit" value="Войти">
+            <p class="registration">Регистрация</p>
+        </form>
+    </div>
 
+    <div class="registration-card" ng-if="Registry.registration === 1">
+        <div class="close"></div>
+        <h1>Регистрация</h1><br>
+        <form>
+            <div class="name-field"><span>Имя пользователя: </span><input type="text" ng-model="username" required>
+            </div>
+            <div class="login-field"><span>Логин: </span><input type="text" ng-model="text" required></div>
+            <div class="password-field"><span>Пароль: </span><input type="text" ng-model="text" required></div>
+            <div class="mail-field"><span>Адрес электронной почты: </span><input type="text" ng-model="text"
+                                                                                 required></div>
+            <div class="phone-field"><span>Телефон: </span><input type="text" ng-model="text" required></div>
+            <div class=""><span>Согласен с <span>условиями</span></span></div>
+            <input type="submit" ng-click="" name="login" class="login login-submit" value="Продолжить">
+        </form>
+
+    </div>
+</modal-dialog>    ///////////////////////////-->
