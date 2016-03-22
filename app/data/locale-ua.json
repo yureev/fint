@@ -66,5 +66,11 @@
       "CURRENCY": "грн"
     }
   },
+  "MOBILE": {
+    "BE_MOBILE": "Будь мобильним!",
+    "DOWNLOAD": "Скачай SendUA!",
+    "ANDROID": "для Android",
+    "IOS": "для iOS"
+  },
   "HEADLINE": "Head Line UA {{ name }}"
 }

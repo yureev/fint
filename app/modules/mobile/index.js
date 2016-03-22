@@ -1,15 +1,14 @@
 require('./index.sass');
 
-angular.module('main', [
+angular.module('mobile', [
 	require('_modules/payments/card2card'),
 	require('angular-ui-bootstrap/src/accordion')
 ])
 	.config(['$stateProvider',
 		function($stateProvider) {
 			$stateProvider
-				.state('app.main', {
-					url: '/',
-					controller: require('./controllers/main'),
+				.state('app.mobile', {
+					url: '/mobile',
 					template: require('./templates/main.html'),
 					data: {
                         access: {}
@@ -18,4 +17,4 @@ angular.module('main', [
 		}
 	]);
 
-module.exports = 'main';
+module.exports = 'mobile';
