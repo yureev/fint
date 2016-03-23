@@ -21,10 +21,6 @@ function card2cardDirective() {
 
 	function postLink(scope, element, attrs) {
 		element.addClass('card2card');
-
-		scope.$watch('c2cForm', function() {
-			window.c2cForm = scope.c2cForm;
-		});
 	}
 
 	function Ctrl($scope, $http) {
@@ -33,25 +29,23 @@ function card2cardDirective() {
 			tariffType: 'other'
 		};
 
-		$http({
-			method: 'JSONP',
-			url: require('_data/old/tariffs.json')
-		}).then(function (response) {
-			var data = response.data;
+		$http.jsonp('https://send.ua/sendua-external/Info/GetTariffs?tarifftype=web&callback=JSON_CALLBACK')
+			.then(function(response) {
+				var data = response.data;
 
-			angular.forEach(data, function (tariff) {
-				if (tariff.card_type == config.tariffType) {
-					config.tariff = tariff;
-				}
+				angular.forEach(data, function (tariff) {
+					if (tariff.card_type == config.tariffType) {
+						config.tariff = tariff;
+					}
+				});
 			});
-		});
 
-		this.STATES = {
+		$scope.STATES = {
 			INPUT: "INPUT",
 			ERROR: "ERROR"
 		};
 
-		this.state = this.STATES.INPUT;
+		$scope.state = $scope.STATES.INPUT;
 	}
 }
 
@@ -65,9 +59,14 @@ function card2cardInputDirective() {
 	};
 
 	function postLink(scope, element, attrs) {
+		scope.$watch('c2cForm', function() {
+			window.error = scope.c2cForm.$error;
+		});
 	}
 	
 	function Ctrl($scope) {
+		var config = $scope.config;
+
 		this.calculate = function () {
 			$scope.commiss = Math.round($scope.amount * config.tariff.comm_percent + config.tariff.comm_fixed);
 
@@ -84,7 +83,10 @@ function card2cardInputDirective() {
 			$scope.total = $scope.amount + $scope.commiss;
 		};
 		
-		this.submit = function() {}
+		this.submit = function() {
+			$scope.state = $scope.STATES.ERROR;
+			console.log('SUBMIT');
+		};
 	}
 }
 function card2cardErrorDirective() {
