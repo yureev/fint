@@ -43,7 +43,7 @@
   },
   "CARD2CARD": {
     "TITLE": "ПЕРЕКАЗ З КАРТКИ НА КАРТКУ",
-    "AGREEMENT": "Згідний з <a href='#'>Умовами</a>",
+    "AGREEMENT": "Згідний з <a href='https://send.ua/agreement_ua.html' target='_blank'>Умовами</a>",
     "SEND": "ПЕРЕКАЗАТИ",
     "SOURCE": {
       "TITLE": "Картка-відправник",
@@ -52,6 +52,26 @@
       "YEAR": "Рік",
       "CVC": "CVC",
       "PHONE_NUMBER": "Ваш номер телефону"
+    },
+    "ERRORS": {
+      "SOURCE": {
+        "NUMBER_REQUIRED": "Введіть номер картки відправника",
+        "NUMBER_INVALID": "Невірний номер картки відправника",
+        "DATE_EXPIRE": "Строк дії картки вичерпано",
+        "CVC_REQUIRED": "Введіть номер CVC",
+        "CVC_INVALID": "Невірний номер CVC",
+        "PHONE_REQUIRED": "Введіть номер телефону",
+        "PHONE_INVALID": "Невірний номер телефону"
+      },
+      "TARGET": {
+        "NUMBER_REQUIRED": "Введіть номер картки отримувача",
+        "NUMBER_INVALID": "Невірний номер картки отримувача"
+      },
+      "AMOUNT": {
+        "AMOUNT_REQUIRED": "Введіть суму переказу",
+        "BIGGER_SUM": "Сума повинна бути більшою",
+        "SMALLER_SUM": "Сума повинна бути меншою"
+      }
     },
     "TARGET": {
       "TITLE": "Картка-отримувач",
@@ -65,6 +85,12 @@
       "TOTAL": "До сплати",
       "CURRENCY": "грн"
     }
+  },
+  "MOBILE": {
+    "BE_MOBILE": "Будь мобильним!",
+    "DOWNLOAD": "Скачай SendUA!",
+    "ANDROID": "для Android",
+    "IOS": "для iOS"
   },
   "HEADLINE": "Head Line UA {{ name }}"
 }
