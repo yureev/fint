@@ -24,28 +24,37 @@ function card2cardDirective() {
 	}
 
 	function Ctrl($scope, $http) {
-		var config = $scope.config = {
-			tariff: null,
-			tariffType: 'other'
-		};
+		var self = this,
+			config = $scope.config = {
+				tariff: null,
+				tariffType: 'other'
+			},
+			init = function() {
+				$http.jsonp('https://send.ua/sendua-external/Info/GetTariffs?tarifftype=web&callback=JSON_CALLBACK')
+					.then(function(response) {
+						var data = response.data;
 
-		$http.jsonp('https://send.ua/sendua-external/Info/GetTariffs?tarifftype=web&callback=JSON_CALLBACK')
-			.then(function(response) {
-				var data = response.data;
+						angular.forEach(data, function (tariff) {
+							if (tariff.card_type == config.tariffType) {
+								config.tariff = tariff;
+							}
+						});
+					});
 
-				angular.forEach(data, function (tariff) {
-					if (tariff.card_type == config.tariffType) {
-						config.tariff = tariff;
-					}
-				});
-			});
+				self.goState($scope.STATES.INPUT);
+
+			};
 
 		$scope.STATES = {
 			INPUT: "INPUT",
 			ERROR: "ERROR"
 		};
 
-		$scope.state = $scope.STATES.INPUT;
+		this.goState = function(state) {
+			$scope.state = state;
+		};
+
+		init();
 	}
 }
 
@@ -53,12 +62,21 @@ function card2cardInputDirective() {
 	return {
 		restrict: 'A',
 		link: postLink,
+		require: ['^card2card', 'card2cardInput'],
 		controller: ['$scope', Ctrl],
 		controllerAs: 'vmInput',
 		template: require('./templates/input.html')
 	};
 
-	function postLink(scope, element, attrs) {
+	function postLink(scope, element, attrs, ctrls) {
+		var Card2cardCtrl = ctrls[0],
+			Card2cardInputCtrl = ctrls[1];
+
+		scope.submit = function() {
+			Card2cardCtrl.goState(scope.STATES.ERROR);
+			Card2cardInputCtrl.submit();
+		};
+
 		scope.$watch('c2cForm', function() {
 			window.error = scope.c2cForm.$error;
 		});
@@ -84,7 +102,6 @@ function card2cardInputDirective() {
 		};
 		
 		this.submit = function() {
-			$scope.state = $scope.STATES.ERROR;
 			console.log('SUBMIT');
 		};
 	}
