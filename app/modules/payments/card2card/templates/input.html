@@ -1,143 +1,141 @@
-<div class="state-input">
-    <form name="c2cForm" ct-payments>
-        <div class="form-container">
-            <div class="form-title" translate="CARD2CARD.TITLE"></div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="cards source">
-                        <div class="card-logo"></div>
-                        <h4 translate="CARD2CARD.SOURCE.TITLE"></h4>
-                        <div class="form-group card-input" ct-input-container>
-                            <input type="text" name="number" class="form-control" ct-tabindex="checkNumber" tabindex="1"
-                                   ng-model="number" required translate translate-attr-placeholder="CARD2CARD.SOURCE.NUMBER"
-                                   autocomplete="off"
-                                   ct-payments-main-card
-                                   ct-payments-format-number
-                                   ct-payments-validate-number
-                                   ng-class="c2cForm.number.$card.type"/>
-                        </div>
-                        <div class="form-group">
-                            <div ct-input-container>
-                                <input type="text" class="form-control small-input" ct-tabindex="checkMonth" required
-                                       maxlength="2" tabindex="2"
-                                       ng-model="viewExpire.month" name="month" autocomplete="off"
-                                       translate translate-attr-placeholder="CARD2CARD.SOURCE.MONTH"
-                                       ct-payments-format-expire-month-text
-                                       ct-payments-validate-month/>
-                            </div>
-                            <div ct-input-container>
-                                <input type="text" class="form-control small-input" ct-tabindex="checkYear" required
-                                       maxlength="2" tabindex="3"
-                                       ng-model="viewExpire.year" name="year" autocomplete="off"
-                                       translate translate-attr-placeholder="CARD2CARD.SOURCE.YEAR"
-                                       ct-payments-format-expire-year-text
-                                       ct-payments-validate-year/>
-                            </div>
-                            <div ct-input-container>
-                                <input type="text" maxlength="3" id="cvc" name="cvc" class="form-control small-input"
-                                       ng-model="cvc" required placeholder="CVC" tabindex="4" ct-tabindex="checkCvc"
-                                       translate translate-attr-placeholder="CARD2CARD.SOURCE.CVC"
-                                       ct-payments-format-cvc
-                                       ct-payments-validate-cvc/>
-                            </div>
-                            <div ct-input-container class="card-input">
-                                <input type="hidden" name="expire"
-                                       ng-model="expire" required
-                                       ct-payments-validate-expire="viewExpire"/>
-                            </div>
-                        </div>
+<form name="c2cForm" ct-payments>
+    <div class="form-container">
+        <div class="form-title" translate="CARD2CARD.TITLE"></div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="cards source">
+                    <div class="card-logo"></div>
+                    <h4 translate="CARD2CARD.SOURCE.TITLE"></h4>
+                    <div class="form-group card-input" ct-input-container>
+                        <input type="text" name="number" class="form-control" ct-tabindex="checkNumber" tabindex="1"
+                               ng-model="number" required placeholder="{{ CARD2CARD.SOURCE.NUMBER | translate }}"
+                               autocomplete="off"
+                               ct-payments-main-card
+                               ct-payments-format-number
+                               ct-payments-validate-number
+                               ng-class="c2cForm.number.$card.type"/>
                     </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="amount">
-                        <b><p translate="CARD2CARD.AMOUNT.TITLE"></p></b>
-                        <div class="form-group" ct-input-container>
-                            <input type="text" name="amount" class="form-control" tabindex="6" ct-currency
-                                   ng-model="amount" ng-change="vmInput.calculate()" min="1" max="25000" required
-                                   autocomplete="off"/>
-                            <span translate="CARD2CARD.AMOUNT.RANGE"></span>
-                            <div ng-messages="c2cForm.amount.$error">
-                                <div ng-message="required">Введите сумму перевода</div>
-                                <div ng-message="min">Сумма должна быть больше</div>
-                                <div ng-message="max">Сумма должна быть меньше</div>
-                            </div>
+                    <div class="form-group">
+                        <div ct-input-container>
+                            <input type="text" class="form-control small-input" ct-tabindex="checkMonth" required
+                                   maxlength="2" tabindex="2"
+                                   ng-model="viewExpire.month" name="month" autocomplete="off"
+                                   placeholder="{{ CARD2CARD.SOURCE.MONTH | translate }}"
+                                   ct-payments-format-expire-month-text
+                                   ct-payments-validate-month/>
                         </div>
-                        <div class="comission">
-                            <div><span translate="CARD2CARD.AMOUNT.COMMISSION"></span> {{ commiss }} <span
-                                    translate="CARD2CARD.AMOUNT.CURRENCY"></span><br/>
-                                <span>({{ config.tariff.comm_percent }}% + {{config.tariff.total_min/100 }}</span>
-                                <span translate="CARD2CARD.AMOUNT.CURRENCY"></span><span>)</span>
-                            </div>
+                        <div ct-input-container>
+                            <input type="text" class="form-control small-input" ct-tabindex="checkYear" required
+                                   maxlength="2" tabindex="3"
+                                   ng-model="viewExpire.year" name="year" autocomplete="off"
+                                   placeholder="{{ CARD2CARD.SOURCE.YEAR | translate }}"
+                                   ct-payments-format-expire-year-text
+                                   ct-payments-validate-year/>
                         </div>
-                        <div class="total">
-                            <div><b><span translate="CARD2CARD.AMOUNT.TOTAL"></span> {{ total }} <span
-                                    translate="CARD2CARD.AMOUNT.CURRENCY"></span></b></div>
+                        <div ct-input-container>
+                            <input type="text" maxlength="3" id="cvc" name="cvc" class="form-control small-input"
+                                   ng-model="cvc" required tabindex="4" ct-tabindex="checkCvc"
+                                   placeholder="{{ CARD2CARD.SOURCE.CVC | translate }}"
+                                   ct-payments-format-cvc
+                                   ct-payments-validate-cvc/>
                         </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="cards target">
-                        <h4 translate="CARD2CARD.TARGET.TITLE"></h4>
-                        <div class="form-group card-dest" ct-input-container>
-                            <input type="text" name="numberTarget" class="form-control"
-                                   ng-model="numberTarget" required
-                                   translate translate-attr-placeholder="CARD2CARD.TARGET.NUMBER"
-                                   ct-payments-format-number
-                                   ct-payments-validate-number/>
+                        <div ct-input-container class="card-input">
+                            <input type="hidden" name="expire"
+                                   ng-model="expire" required
+                                   ct-payments-validate-expire="viewExpire"/>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="phone-number">
-                        <div class="form-group" ct-input-container>
-                            <p translate="CARD2CARD.SOURCE.PHONE_NUMBER"></p>
-                            <input type="text" name="phone" class="form-control" ui-mask="+380 (99) 999 99 99"
-                                   tabindex="5"
-                                   ct-tabindex="checkPhone" ng-model="phone" tabindex="5"
-                                   required placeholder="+380 (__) ___-__-__"/>
+            <div class="col-sm-4">
+                <div class="amount">
+                    <b><p translate="CARD2CARD.AMOUNT.TITLE"></p></b>
+                    <div class="form-group" ct-input-container>
+                        <input type="text" name="amount" class="form-control" tabindex="6" ct-currency
+                               ng-model="amount" ng-change="vm.calculate()" min="1" max="25000" required
+                               autocomplete="off"/>
+                        <span translate="CARD2CARD.AMOUNT.RANGE"></span>
+                        <div ng-messages="c2cForm.amount.$error">
+                            <div ng-message="required">Введите сумму перевода</div>
+                            <div ng-message="min">Сумма должна быть больше</div>
+                            <div ng-message="max">Сумма должна быть меньше</div>
                         </div>
                     </div>
-                </div>
-                <div class="submit-check">
-
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" ng-model="agreed"><span translate="CARD2CARD.AGREEMENT"></span>
-                        </label>
+                    <div class="comission">
+                        <div><span translate="CARD2CARD.AMOUNT.COMMISSION"></span> {{ commiss }} <span
+                                translate="CARD2CARD.AMOUNT.CURRENCY"></span><br/>
+                            <span>({{ config.tariff.comm_percent }}% + {{config.tariff.total_min/100 }}</span>
+                            <span translate="CARD2CARD.AMOUNT.CURRENCY"></span><span>)</span>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-large send-button" ng-submit="vmInput.submit()"
-                            ng-disabled="c2cForm.$invalid || c2cForm.$pristine">
-                        <span translate="CARD2CARD.SEND"></span>
-                    </button>
+                    <div class="total">
+                        <div><b><span translate="CARD2CARD.AMOUNT.TOTAL"></span> {{ total }} <span
+                                translate="CARD2CARD.AMOUNT.CURRENCY"></span></b></div>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="error">
-                        <div ng-messages="c2cForm.number.$error" ng-show="c2cForm.number.$touched">
-                            <div ng-message="required">Введите номер карты отправителя</div>
-                            <div ng-message="invalidNumber">Неверный номер карты отправителя</div>
-                        </div>
-                        <div ng-messages="c2cForm.expire.$error">
-                            <div ng-message="invalidExpire">Срок действия карты истек</div>
-                        </div>
-                        <div ng-messages="c2cForm.cvc.$error" ng-show="c2cForm.cvc.$touched">
-                            <div ng-message="required">Ведите номер CVC</div>
-                            <div ng-message="invalidCvc">Неверный CVC</div>
-                        </div>
-                        <div ng-messages="c2cForm.phone.$error" ng-show="c2cForm.phone.$touched">
-                            <div ng-message="required">Введите номер телефона</div>
-                            <div ng-message="mask">Неверный номер телефона</div>
-                        </div>
-                        <div ng-messages="c2cForm.numberTarget.$error" ng-show="c2cForm.numberTarget.$touched">
-                            <div ng-message="required">Введите номер карты получателя</div>
-                            <div ng-message="invalidNumber">Неверный номер карты получателя</div>
-                        </div>
+            <div class="col-sm-4">
+                <div class="cards target">
+                    <h4 translate="CARD2CARD.TARGET.TITLE"></h4>
+                    <div class="form-group card-dest" ct-input-container>
+                        <input type="text" name="numberTarget" class="form-control"
+                               ng-model="numberTarget" required
+                               translate translate-attr-placeholder="CARD2CARD.TARGET.NUMBER"
+                               ct-payments-format-number
+                               ct-payments-validate-number/>
                     </div>
                 </div>
             </div>
         </div>
-    </form>
-</div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="phone-number">
+                    <div class="form-group" ct-input-container>
+                        <p translate="CARD2CARD.SOURCE.PHONE_NUMBER"></p>
+                        <input type="text" name="phone" class="form-control" ui-mask="+380 (99) 999 99 99"
+                               tabindex="5"
+                               ct-tabindex="checkPhone" ng-model="phone" tabindex="5"
+                               required placeholder="+380 (__) ___-__-__"/>
+                    </div>
+                </div>
+            </div>
+            <div class="submit-check">
+
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="agreed"><span translate="CARD2CARD.AGREEMENT"></span>
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-large send-button"
+                        ng-disabled="c2cForm.$invalid || c2cForm.$pristine">
+                    <span translate="CARD2CARD.SEND"></span>
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="error">
+                    <div ng-messages="c2cForm.number.$error" ng-show="c2cForm.number.$touched">
+                        <div ng-message="required">Введите номер карты отправителя</div>
+                        <div ng-message="invalidNumber">Неверный номер карты отправителя</div>
+                    </div>
+                    <div ng-messages="c2cForm.expire.$error">
+                        <div ng-message="invalidExpire">Срок действия карты истек</div>
+                    </div>
+                    <div ng-messages="c2cForm.cvc.$error" ng-show="c2cForm.cvc.$touched">
+                        <div ng-message="required">Ведите номер CVC</div>
+                        <div ng-message="invalidCvc">Неверный CVC</div>
+                    </div>
+                    <div ng-messages="c2cForm.phone.$error" ng-show="c2cForm.phone.$touched">
+                        <div ng-message="required">Введите номер телефона</div>
+                        <div ng-message="mask">Неверный номер телефона</div>
+                    </div>
+                    <div ng-messages="c2cForm.numberTarget.$error" ng-show="c2cForm.numberTarget.$touched">
+                        <div ng-message="required">Введите номер карты получателя</div>
+                        <div ng-message="invalidNumber">Неверный номер карты получателя</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
