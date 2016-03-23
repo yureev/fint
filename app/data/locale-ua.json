@@ -87,10 +87,9 @@
     }
   },
   "MOBILE": {
-    "BE_MOBILE": "Будь мобильним!",
+    "BE_MOBILE": "Будь мобільним!",
     "DOWNLOAD": "Скачай SendUA!",
     "ANDROID": "для Android",
     "IOS": "для iOS"
-  },
-  "HEADLINE": "Head Line UA {{ name }}"
+  }
 }

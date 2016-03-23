@@ -25,6 +25,11 @@ function MainCtrl($scope) {
 			return true;
 		}
 	};
+	$scope.checkTargetNumber = function (ctrl) {
+		if (ctrl.$valid && ctrl.$modelValue.length == 16) {
+			return true;
+		}
+	};
 }
 
 module.exports = MainCtrl;

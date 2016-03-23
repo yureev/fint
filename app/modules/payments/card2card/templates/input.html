@@ -56,9 +56,9 @@
                                autocomplete="off"/>
                         <span translate="CARD2CARD.AMOUNT.RANGE"></span>
                         <div ng-messages="c2cForm.amount.$error">
-                            <div ng-message="required">Введите сумму перевода</div>
-                            <div ng-message="min">Сумма должна быть больше</div>
-                            <div ng-message="max">Сумма должна быть меньше</div>
+                            <div ng-message="required" translate="CARD2CARD.ERRORS.AMOUNT.AMOUNT_REQUIRED"></div>
+                            <div ng-message="min" translate="CARD2CARD.ERRORS.AMOUNT.BIGGER_SUM"></div>
+                            <div ng-message="max" translate="CARD2CARD.ERRORS.AMOUNT.SMALLER_SUM"></div>
                         </div>
                     </div>
                     <div class="comission">
@@ -78,8 +78,8 @@
                 <div class="cards target">
                     <h4 translate="CARD2CARD.TARGET.TITLE"></h4>
                     <div class="form-group card-dest" ct-input-container>
-                        <input type="text" name="numberTarget" class="form-control"
-                               ng-model="numberTarget" required
+                        <input type="text" name="numberTarget" class="form-control" ct-tabindex="checkTargetNumber"
+                               ng-model="numberTarget" required tabindex="7"
                                placeholder="{{ 'CARD2CARD.TARGET.NUMBER' | translate }}"
                                ct-payments-format-number
                                ct-payments-validate-number/>
@@ -103,37 +103,40 @@
 
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" ng-model="agreed"><span translate="CARD2CARD.AGREEMENT"></span>
+                        <input type="checkbox" tabindex="8" ng-model="agreed"><span
+                            translate="CARD2CARD.AGREEMENT"></span>
                     </label>
                 </div>
                 <button type="submit" class="btn btn-primary btn-large send-button"
+                        tabindex="9"
                         ng-disabled="c2cForm.$invalid || c2cForm.$pristine">
-                    <span translate="CARD2CARD.SEND"></span>
+                    {{ 'CARD2CARD.SEND' | translate}}
                 </button>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-4">
                 <div class="error">
-                    <div ng-messages="c2cForm.number.$error" ng-show="c2cForm.number.$touched">
-                        <div ng-message="required">Введите номер карты отправителя</div>
-                        <div ng-message="invalidNumber">Неверный номер карты отправителя</div>
-                    </div>
-                    <div ng-messages="c2cForm.expire.$error">
-                        <div ng-message="invalidExpire">Срок действия карты истек</div>
-                    </div>
-                    <div ng-messages="c2cForm.cvc.$error" ng-show="c2cForm.cvc.$touched">
-                        <div ng-message="required">Ведите номер CVC</div>
-                        <div ng-message="invalidCvc">Неверный CVC</div>
-                    </div>
-                    <div ng-messages="c2cForm.phone.$error" ng-show="c2cForm.phone.$touched">
-                        <div ng-message="required">Введите номер телефона</div>
-                        <div ng-message="mask">Неверный номер телефона</div>
-                    </div>
-                    <div ng-messages="c2cForm.numberTarget.$error" ng-show="c2cForm.numberTarget.$touched">
-                        <div ng-message="required">Введите номер карты получателя</div>
-                        <div ng-message="invalidNumber">Неверный номер карты получателя</div>
-                    </div>
+                    <div class="error">
+                        <div ng-messages="c2cForm.number.$error" ng-show="c2cForm.number.$touched">
+                            <div ng-message="required" translate="CARD2CARD.ERRORS.SOURCE.NUMBER_REQUIRED"></div>
+                            <div ng-message="invalidNumber" translate="CARD2CARD.ERRORS.SOURCE.NUMBER_INVALID"></div>
+                        </div>
+                        <div ng-messages="c2cForm.expire.$error">
+                            <div ng-message="invalidExpire" translate="CARD2CARD.ERRORS.SOURCE.DATE_EXPIRE"></div>
+                        </div>
+                        <div ng-messages="c2cForm.cvc.$error" ng-show="c2cForm.cvc.$touched">
+                            <div ng-message="required" translate="CARD2CARD.ERRORS.SOURCE.CVC_REQUIRED"></div>
+                            <div ng-message="invalidCvc" translate="CARD2CARD.ERRORS.SOURCE.CVC_INVALID"></div>
+                        </div>
+                        <div ng-messages="c2cForm.phone.$error" ng-show="c2cForm.phone.$touched">
+                            <div ng-message="required" translate="CARD2CARD.ERRORS.SOURCE.PHONE_REQUIRED"></div>
+                            <div ng-message="mask" translate="CARD2CARD.ERRORS.SOURCE.PHONE_INVALID"></div>
+                        </div>
+                        <div ng-messages="c2cForm.numberTarget.$error" ng-show="c2cForm.numberTarget.$touched">
+                            <div ng-message="required" translate="CARD2CARD.ERRORS.TARGET.NUMBER_REQUIRED"></div>
+                            <div ng-message="invalidNumber" translate="CARD2CARD.ERRORS.TARGET.NUMBER_INVALID"></div>
+                        </div>
                 </div>
             </div>
         </div>
