@@ -4,7 +4,9 @@ angular.module('card2card', [
 	require('component-payments'),
 	require('_modules/components/currency')
 ])
-	.directive('card2card', card2cardDirective);
+	.directive('card2card', card2cardDirective)
+	.directive('card2cardInput', card2cardInputDirective)
+	.directive('card2cardError', card2cardErrorDirective);
 
 module.exports = 'card2card';
 
@@ -44,6 +46,13 @@ function card2cardDirective() {
 			});
 		});
 
+		this.STATES = {
+			INPUT: "INPUT",
+			ERROR: "ERROR"
+		};
+
+		this.state = this.STATES.INPUT;
+
 		this.calculate = function () {
 			$scope.commiss = Math.round($scope.amount * config.tariff.comm_percent + config.tariff.comm_fixed);
 
@@ -59,5 +68,26 @@ function card2cardDirective() {
 
 			$scope.total = $scope.amount + $scope.commiss;
 		};
+	}
+}
+
+function card2cardInputDirective() {
+	return {
+		restrict: 'A',
+		link: postLink,
+		template: require('./templates/input.html')
+	};
+
+	function postLink(scope, element, attrs) {
+	}
+}
+function card2cardErrorDirective() {
+	return {
+		restrict: 'A',
+		link: postLink,
+		template: require('./templates/error.html')
+	};
+
+	function postLink(scope, element, attrs) {
 	}
 }
