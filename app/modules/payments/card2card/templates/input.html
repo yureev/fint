@@ -52,7 +52,7 @@
                     <b><p translate="CARD2CARD.AMOUNT.TITLE"></p></b>
                     <div class="form-group" ct-input-container>
                         <input type="text" name="amount" class="form-control" tabindex="6" ct-currency
-                               ng-model="amount" ng-change="vm.calculate()" min="1" max="25000" required
+                               ng-model="amount" ng-change="vmInput.calculate()" min="1" max="25000" required
                                autocomplete="off"/>
                         <span translate="CARD2CARD.AMOUNT.RANGE"></span>
                         <div ng-messages="c2cForm.amount.$error">
