@@ -16,7 +16,8 @@ angular.module('app', [
 	require('component-utils'),
 
 	require('_modules/auth'),
-	require('_modules/main')
+	require('_modules/main'),
+	require('_modules/mobile')
 ])
 	.run(['$rootScope', '$state', '$stateParams', 'session',
 		function ($rootScope, $state, $stateParams, session) {
