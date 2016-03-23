@@ -80,7 +80,7 @@
                     <div class="form-group card-dest" ct-input-container>
                         <input type="text" name="numberTarget" class="form-control"
                                ng-model="numberTarget" required
-                               translate translate-attr-placeholder="CARD2CARD.TARGET.NUMBER"
+                               placeholder="{{ CARD2CARD.TARGET.NUMBER | translate }}"
                                ct-payments-format-number
                                ct-payments-validate-number/>
                     </div>
