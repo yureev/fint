@@ -8,7 +8,7 @@
                     <h4 translate="CARD2CARD.SOURCE.TITLE"></h4>
                     <div class="form-group card-input" ct-input-container>
                         <input type="text" name="number" class="form-control" ct-tabindex="checkNumber" tabindex="1"
-                               ng-model="number" required translate translate-attr-placeholder="CARD2CARD.SOURCE.NUMBER"
+                               ng-model="number" required placeholder="{{ CARD2CARD.SOURCE.NUMBER | translate }}"
                                autocomplete="off"
                                ct-payments-main-card
                                ct-payments-format-number
@@ -20,7 +20,7 @@
                             <input type="text" class="form-control small-input" ct-tabindex="checkMonth" required
                                    maxlength="2" tabindex="2"
                                    ng-model="viewExpire.month" name="month" autocomplete="off"
-                                   translate translate-attr-placeholder="CARD2CARD.SOURCE.MONTH"
+                                   placeholder="{{ CARD2CARD.SOURCE.MONTH | translate }}"
                                    ct-payments-format-expire-month-text
                                    ct-payments-validate-month/>
                         </div>
@@ -28,14 +28,14 @@
                             <input type="text" class="form-control small-input" ct-tabindex="checkYear" required
                                    maxlength="2" tabindex="3"
                                    ng-model="viewExpire.year" name="year" autocomplete="off"
-                                   translate translate-attr-placeholder="CARD2CARD.SOURCE.YEAR"
+                                   placeholder="{{ CARD2CARD.SOURCE.YEAR | translate }}"
                                    ct-payments-format-expire-year-text
                                    ct-payments-validate-year/>
                         </div>
                         <div ct-input-container>
                             <input type="text" maxlength="3" id="cvc" name="cvc" class="form-control small-input"
-                                   ng-model="cvc" required placeholder="CVC" tabindex="4" ct-tabindex="checkCvc"
-                                   translate translate-attr-placeholder="CARD2CARD.SOURCE.CVC"
+                                   ng-model="cvc" required tabindex="4" ct-tabindex="checkCvc"
+                                   placeholder="{{ CARD2CARD.SOURCE.CVC | translate }}"
                                    ct-payments-format-cvc
                                    ct-payments-validate-cvc/>
                         </div>
