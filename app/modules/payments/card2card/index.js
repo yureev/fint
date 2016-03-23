@@ -24,7 +24,7 @@ function card2cardDirective() {
 
 		scope.$watch('c2cForm', function() {
 			window.c2cForm = scope.c2cForm;
-		})
+		});
 	}
 
 	function Ctrl($scope, $http) {
@@ -34,7 +34,7 @@ function card2cardDirective() {
 		};
 
 		$http({
-			method: 'GET',
+			method: 'JSONP',
 			url: require('_data/old/tariffs.json')
 		}).then(function (response) {
 			var data = response.data;
@@ -52,7 +52,22 @@ function card2cardDirective() {
 		};
 
 		this.state = this.STATES.INPUT;
+	}
+}
 
+function card2cardInputDirective() {
+	return {
+		restrict: 'A',
+		link: postLink,
+		controller: ['$scope', Ctrl],
+		controllerAs: 'vmInput',
+		template: require('./templates/input.html')
+	};
+
+	function postLink(scope, element, attrs) {
+	}
+	
+	function Ctrl($scope) {
 		this.calculate = function () {
 			$scope.commiss = Math.round($scope.amount * config.tariff.comm_percent + config.tariff.comm_fixed);
 
@@ -68,17 +83,8 @@ function card2cardDirective() {
 
 			$scope.total = $scope.amount + $scope.commiss;
 		};
-	}
-}
-
-function card2cardInputDirective() {
-	return {
-		restrict: 'A',
-		link: postLink,
-		template: require('./templates/input.html')
-	};
-
-	function postLink(scope, element, attrs) {
+		
+		this.submit = function() {}
 	}
 }
 function card2cardErrorDirective() {
