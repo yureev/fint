@@ -79,10 +79,6 @@ function card2cardInputDirective() {
 		scope.submit = function() {
 			Card2cardInputCtrl.submit();
 		};
-
-		scope.$watch('c2cForm', function() {
-			window.error = scope.c2cForm.$error;
-		});
 	}
 	
 	function Ctrl($scope, $http, $controller) {
@@ -105,36 +101,31 @@ function card2cardInputDirective() {
 			$scope.total = $scope.amount + $scope.commiss;
 		};
 
-		this.paramsForCreateOperattion = function(){
-			var data = {};
-			
-			data.ammount = {
-				summa: Math.round($scope.amount * 100),
-				commission: Math.round($scope.commiss * 100),
-				type: 'web'    // parameter from global settings
-			};
-			data.cardFrom = {
-				cardNumber: $scope.number,
-				dateValid: $scope.viewExpire.month + '/' + $scope.viewExpire.year,
-				cvv: $scope.cvc
-			};
-			data.cardTo = $scope.numberTarget;
-			data.inputType = null;
-			data.ipaddress = null;
-			data.maskfrom = null;
-			data.maskto = null;
-			data.mobile = null;
-			data.socialNumber = '+380' + $scope.phone;
-			data.version = "1.0";
-			
-			return data;
-		};
-		
 		this.submit = function() {
 			$http({
 				method: 'POST',
 				url: '/sendua-external/Card2Card/CreateCard2CardOperation',
-				data: this.paramsForCreateOperattion()
+				data: {
+					ammount: {
+						summa: Math.round($scope.amount * 100),
+						commission: Math.round($scope.commiss * 100),
+						type: 'web'    // parameter from global settings
+					},
+					cardFrom: {
+						cardNumber: $scope.number,
+						dateValid: $scope.viewExpire.month + '/' + $scope.viewExpire.year,
+						cvv: $scope.cvc
+					},
+					cardTo: $scope.numberTarget,
+					inputType: null,
+					ipaddress: null,
+					maskfrom: null,
+					maskto: null,
+					mobile: null,
+					socialNumber: '+380' + $scope.phone,
+					version: "1.0"
+
+				}
 			}).then(function successCallback(response) {
 				var data = response.data;
 
@@ -146,12 +137,12 @@ function card2cardInputDirective() {
 						$scope.cvv = '';
 						Card2cardCtrl.goState($scope.STATES.LOOKUP);
 					} else if (!!data.secur3d) {
-						Send.secur3d = {
-							acsUrl: data.secur3d.acsUrl,
-							paReq: data.secur3d.paReq,
-							termUrl: data.secur3d.termUrl,
-							md: data.secur3d.md
-						};
+						//Send.secur3d = {
+						//	acsUrl: data.secur3d.acsUrl,
+						//	paReq: data.secur3d.paReq,
+						//	termUrl: data.secur3d.termUrl,
+						//	md: data.secur3d.md
+						//};
 
 						// Card2cardCtrl.goState($scope.STATES.3DSEC);
 					} else {
