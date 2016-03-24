@@ -3,7 +3,7 @@
     <div class="form-title" translate="CARD2CARD.LOOKUP.TITLE" data-ng-style="resizeTitle(420)">Перевод
         с карты на карту
     </div>
-    <div class="lookup-box">
+    <form class="lookup-box" ng-submit="submit()">
         <div class="lookup-title">
             <span translate="CARD2CARD.LOOKUP.DESC.FOR_CHECK"></span>
             <span translate="CARD2CARD.LOOKUP.DESC.OPERATION_SUCCESS">Якщо операція пройшла вдало і ви отримали повідомлення на телефон, будь ласка вкажіть код з смс</span>
@@ -16,8 +16,7 @@
             <div class="col-md-7 col-sm-7 col-xs-7">
                 <input type="text"
                        class="lookup-sms-input"
-                       data-ng-model="send.lookupCode.value"
-                       data-ng-class="{error: send.lookupCode.error}"
+                       data-ng-model="$scope.lookupCode.value"
                        maxlength="6"
                        tooltip="Код должен состоять из 6-ти цифр"
                        tooltip-enable="send.lookupCode.error"
@@ -28,11 +27,14 @@
                        required/>
             </div>
         </div>
-        <div class="lookup-continue" data-ng-click="send.loading ? false : send.changeStage(5)"
-             data-ng-class="{disabled: (send.lookupCode.value.length != 6)}"
-             translate="CARD2CARD.LOOKUP.CONTINUE">
+        <button class="lookup-continue"
+                type="submit"
+                data-ng-click="send.loading ? false : send.changeStage(5)"
+                data-ng-class="{disabled: ($scope.lookupCode.value.length != 6)}"
+                data-ng-model="$scope.lookupCode"
+                translate="CARD2CARD.LOOKUP.CONTINUE">
             Продолжить
-        </div>
-    </div>
+        </button>
+    </form>
     <div class="clearfix"></div>
 </div>

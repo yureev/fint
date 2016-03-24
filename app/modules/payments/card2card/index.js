@@ -76,7 +76,6 @@ function card2cardInputDirective() {
 			Card2cardInputCtrl = ctrls[1];
 
 		scope.submit = function() {
-			Card2cardCtrl.goState(scope.STATES.ERROR);
 			Card2cardInputCtrl.submit();
 		};
 
@@ -110,7 +109,7 @@ function card2cardInputDirective() {
 			data.ammount = {
 				summa: Math.round($scope.amount * 100),
 				commission: Math.round($scope.commiss * 100),
-				type: 'web'
+				type: 'web'    // parameter from global settings
 			};
 			data.cardFrom = {
 				cardNumber: $scope.number,
@@ -140,8 +139,27 @@ function card2cardInputDirective() {
 				$scope.operationNumber = data.idClient || data.operationNumber;
 				if (data.state.code == 0 || data.state.code == 59) {
 
+					if(!!data.secur3d && data.secur3d.paReq == 'lookup') {
+						$scope.md = data.secur3d.md;
+						$scope.cvv = '';
+						Card2cardCtrl.goState(scope.STATES.LOOKUP);
+					} else if (!!data.secur3d) {
+						Send.secur3d = {
+							acsUrl: data.secur3d.acsUrl,
+							paReq: data.secur3d.paReq,
+							termUrl: data.secur3d.termUrl,
+							md: data.secur3d.md
+						};
+
+						// Card2cardCtrl.goState(scope.STATES.3DSEC);
+					} else {
+						alert('Сервис временно не работает');
+					}
 				} else {
-					
+					// ERROR
+					var code = (data.state && data.state.code) || data.mErrCode;
+					$scope.mPayStatus = $scope.response.errors[$scope.lang][code] ? $scope.response.errors[$scope.lang][code] + '<br/>' + (data.mPayStatus || data.state.message) : (data.mPayStatus || data.state.message);
+					Card2cardCtrl.goState(scope.STATES.ERROR);
 				}
 			}, function errorCallback(response) {
 				console.log('error: ', response);
@@ -153,10 +171,14 @@ function card2cardLookupDirective() {
 	return {
 		restrict: 'A',
 		link: postLink,
-		template: require('./templates/lookup.html')
+		template: require('./templates/lookup.html'),
+		require: ['^card2card', 'card2cardLookup'],
+		controller: ['$scope', '$http', Ctrl],
+		controllerAs: 'vmLookup'
 	};
 
 	function postLink(scope, element, attrs) {
+
 	}
 }
 function card2cardErrorDirective() {
