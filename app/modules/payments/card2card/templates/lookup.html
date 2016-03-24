@@ -1,0 +1,38 @@
+<div class="state-lookup">
+    <div class="lookup-close" data-ng-click="send.changeStage(1, true)"></div>
+    <div class="form-title" translate="CARD2CARD.LOOKUP.TITLE" data-ng-style="resizeTitle(420)">Перевод
+        с карты на карту
+    </div>
+    <div class="lookup-box">
+        <div class="lookup-title">
+            <span translate="CARD2CARD.LOOKUP.DESC.FOR_CHECK"></span>
+            <span translate="CARD2CARD.LOOKUP.DESC.OPERATION_SUCCESS">Якщо операція пройшла вдало і ви отримали повідомлення на телефон, будь ласка вкажіть код з смс</span>
+            <span class="lookup-code">(VSEND_CODE(</span>xxxxxx<span class="lookup-code">))</span>
+        </div>
+        <div class="row lookup-forms">
+            <div class="col-md-5 col-sm-5 col-xs-5 lookup-sms-title" translate="CARD2CARD.LOOKUP.CODE">
+                Код из СМС
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7">
+                <input type="text"
+                       class="lookup-sms-input"
+                       data-ng-model="send.lookupCode.value"
+                       data-ng-class="{error: send.lookupCode.error}"
+                       maxlength="6"
+                       tooltip="Код должен состоять из 6-ти цифр"
+                       tooltip-enable="send.lookupCode.error"
+                       tooltip-trigger="focus"
+                       tooltip-placement="top"
+                       placeholder="XXXXXX"
+                       only-digits
+                       required/>
+            </div>
+        </div>
+        <div class="lookup-continue" data-ng-click="send.loading ? false : send.changeStage(5)"
+             data-ng-class="{disabled: (send.lookupCode.value.length != 6)}"
+             translate="CARD2CARD.LOOKUP.CONTINUE">
+            Продолжить
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
