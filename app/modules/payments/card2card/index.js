@@ -32,7 +32,7 @@ function card2cardDirective() {
 				tariffType: 'other'
 			},
 			init = function() {
-				$http.jsonp('https://send.ua/sendua-external/Info/GetTariffs?tarifftype=web&callback=JSON_CALLBACK')
+				$http.jsonp('https://stage.send.ua/sendua-external/Info/GetTariffs?tarifftype=web&callback=JSON_CALLBACK')
 					.then(function(response) {
 						var data = response.data;
 
@@ -131,7 +131,7 @@ function card2cardInputDirective() {
 		this.submit = function() {
 			$http({
 				method: 'POST',
-				url: 'https://send.ua/sendua-external/Card2Card/CreateCard2CardOperation',
+				url: 'https://stage.send.ua/sendua-external/Card2Card/CreateCard2CardOperation',
 				data: this.paramsForCreateOperattion()
 			}).then(function successCallback(response) {
 				console.log('response: ', response);
