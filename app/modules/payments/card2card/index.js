@@ -8,24 +8,10 @@ angular.module('card2card', [
 	.directive('card2cardInput', card2cardInputDirective)
 	.directive('card2cardLookup', card2cardLookupDirective)
 	.directive('card2cardError', card2cardErrorDirective)
-	.directive('onlyDigits', onlyDigitsDirective);
+	.directive('onlyDigits', onlyDigitsDirective)
+	.controller('Card2cardCtrl', ['$scope', '$http', Card2cardCtrl]);
 
-module.exports = 'card2card';
-
-function card2cardDirective() {
-	return {
-		restrict: 'A',
-		link: postLink,
-		controller: ['$scope', '$http', Ctrl],
-		controllerAs: 'vm',
-		template: require('./templates/main.html')
-	};
-
-	function postLink(scope, element, attrs) {
-		element.addClass('card2card');
-	}
-
-	function Ctrl($scope, $http) {
+function Card2cardCtrl($scope, $http) {
 		var self = this,
 			config = $scope.config = {
 				tariff: null,
@@ -59,6 +45,21 @@ function card2cardDirective() {
 
 		init();
 	}
+
+module.exports = 'card2card';
+
+function card2cardDirective() {
+	return {
+		restrict: 'A',
+		link: postLink,
+		controller: 'Card2cardCtrl',
+		controllerAs: 'vm',
+		template: require('./templates/main.html')
+	};
+
+	function postLink(scope, element, attrs) {
+		element.addClass('card2card');
+	}
 }
 
 function card2cardInputDirective() {
@@ -66,7 +67,7 @@ function card2cardInputDirective() {
 		restrict: 'A',
 		link: postLink,
 		require: ['^card2card', 'card2cardInput'],
-		controller: ['$scope', '$http', Ctrl],
+		controller: ['$scope', '$http', '$controller', Ctrl],
 		controllerAs: 'vmInput',
 		template: require('./templates/input.html')
 	};
@@ -84,8 +85,9 @@ function card2cardInputDirective() {
 		});
 	}
 	
-	function Ctrl($scope, $http) {
-		var config = $scope.config;
+	function Ctrl($scope, $http, $controller) {
+		var config = $scope.config,
+			Card2cardCtrl = $controller('Card2cardCtrl', {$scope: $scope});
 
 		this.calculate = function () {
 			$scope.commiss = Math.round($scope.amount * config.tariff.comm_percent + config.tariff.comm_fixed);
@@ -134,11 +136,11 @@ function card2cardInputDirective() {
 				url: 'https://stage.send.ua/sendua-external/Card2Card/CreateCard2CardOperation',
 				data: this.paramsForCreateOperattion()
 			}).then(function successCallback(response) {
-				console.log('response: ', response);
 				var data = response.data;
-				$scope.operationNumber = data.idClient || data.operationNumber;
-				if (data.state.code == 0 || data.state.code == 59) {
 
+				$scope.operationNumber = data.idClient || data.operationNumber;
+
+				if (data.state.code == 0 || data.state.code == 59) {
 					if(!!data.secur3d && data.secur3d.paReq == 'lookup') {
 						$scope.md = data.secur3d.md;
 						$scope.cvv = '';
@@ -158,11 +160,12 @@ function card2cardInputDirective() {
 				} else {
 					// ERROR
 					var code = (data.state && data.state.code) || data.mErrCode;
+
 					$scope.mPayStatus = $scope.response.errors[$scope.lang][code] ? $scope.response.errors[$scope.lang][code] + '<br/>' + (data.mPayStatus || data.state.message) : (data.mPayStatus || data.state.message);
+
 					Card2cardCtrl.goState(scope.STATES.ERROR);
 				}
 			}, function errorCallback(response) {
-				console.log('error: ', response);
 			});
 		};
 	}
