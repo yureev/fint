@@ -87,7 +87,7 @@ function card2cardInputDirective() {
 	
 	function Ctrl($scope, $http, $controller) {
 		var config = $scope.config,
-			Card2cardCtrl = $controller('Card2cardCtrl', {$scope: $scope});
+			Card2cardCtrl = $controller('Card2cardCtrl', {$scope: $scope.$parent});
 
 		this.calculate = function () {
 			$scope.commiss = Math.round($scope.amount * config.tariff.comm_percent + config.tariff.comm_fixed);
@@ -133,7 +133,7 @@ function card2cardInputDirective() {
 		this.submit = function() {
 			$http({
 				method: 'POST',
-				url: 'https://stage.send.ua/sendua-external/Card2Card/CreateCard2CardOperation',
+				url: '/sendua-external/Card2Card/CreateCard2CardOperation',
 				data: this.paramsForCreateOperattion()
 			}).then(function successCallback(response) {
 				var data = response.data;
@@ -144,7 +144,7 @@ function card2cardInputDirective() {
 					if(!!data.secur3d && data.secur3d.paReq == 'lookup') {
 						$scope.md = data.secur3d.md;
 						$scope.cvv = '';
-						Card2cardCtrl.goState(scope.STATES.LOOKUP);
+						Card2cardCtrl.goState($scope.STATES.LOOKUP);
 					} else if (!!data.secur3d) {
 						Send.secur3d = {
 							acsUrl: data.secur3d.acsUrl,
@@ -153,7 +153,7 @@ function card2cardInputDirective() {
 							md: data.secur3d.md
 						};
 
-						// Card2cardCtrl.goState(scope.STATES.3DSEC);
+						// Card2cardCtrl.goState($scope.STATES.3DSEC);
 					} else {
 						alert('Сервис временно не работает');
 					}
@@ -163,9 +163,10 @@ function card2cardInputDirective() {
 
 					$scope.mPayStatus = $scope.response.errors[$scope.lang][code] ? $scope.response.errors[$scope.lang][code] + '<br/>' + (data.mPayStatus || data.state.message) : (data.mPayStatus || data.state.message);
 
-					Card2cardCtrl.goState(scope.STATES.ERROR);
+					Card2cardCtrl.goState($scope.STATES.ERROR);
 				}
 			}, function errorCallback(response) {
+				Card2cardCtrl.goState($scope.STATES.ERROR);
 			});
 		};
 	}
