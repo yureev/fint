@@ -1,0 +1,6 @@
+{
+  "id": 1,
+  "name": "Admin Admin",
+  "role": "ADMIN",
+  "permissions": ["DASHBOARD_READ", "PROFILE_READ", "USERS_READ", "USERS_UPDATE", "USERS_DELETE", "USERS_CREATE", "CARDS_READ"]
+}
