@@ -180,6 +180,10 @@ function card2cardLookupDirective() {
 	function postLink(scope, element, attrs) {
 
 	}
+
+	function Ctrl($scope, $http) {
+
+	}
 }
 function card2cardErrorDirective() {
 	return {
