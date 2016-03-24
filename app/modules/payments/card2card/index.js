@@ -18,7 +18,7 @@ function Card2cardCtrl($scope, $http) {
 				tariffType: 'other'
 			},
 			init = function() {
-				$http.jsonp('https://stage.send.ua/sendua-external/Info/GetTariffs?tarifftype=web&callback=JSON_CALLBACK')
+				$http.jsonp('/sendua-external/Info/GetTariffs?tarifftype=web&callback=JSON_CALLBACK')
 					.then(function(response) {
 						var data = response.data;
 
