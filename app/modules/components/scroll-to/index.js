@@ -3,7 +3,8 @@ angular.module('component-scroll', [])
 
 module.exports = 'component-scroll';
 
-function scrollToDirective($location, $timeout) {
+scrollToDirective.$inject = ['$timeout'];
+function scrollToDirective($timeout) {
 	return {
 		restrict: 'A',
 		link: postLink
