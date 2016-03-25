@@ -51,6 +51,7 @@
     "bootstrap-sass": "^3.3.6",
     "component-input": "^1.0.6",
     "component-payments": "^1.1.10",
+    "component-spinner2": "^1.0.1",
     "component-tabindex": "^1.0.4",
     "component-spinner2": "^1.0.1",
     "component-utils": "^1.0.1",

@@ -46,7 +46,6 @@ function Card2cardCtrl($scope, $http) {
 		var q = $http.jsonp('https://stage.send.ua/sendua-external/Info/GetTariffs?tarifftype=web&callback=JSON_CALLBACK')
 			.then(function (response) {
 				var data = response.data;
-
 				angular.forEach(data, function (tariff) {
 					if (tariff.card_type == $scope.config.tariffType) {
 						$scope.config.tariff = tariff;
@@ -71,12 +70,7 @@ function card2cardDirective() {
 		element.addClass('card2card');
 
 		scope.goState(scope.STATES.INPUT);
-
-		scope.LOADING = true;
-		scope.getTariffs()
-			.then(function() {
-				scope.LOADING = false;
-			});
+		scope.getTariffs();
 	}
 }
 
@@ -92,7 +86,10 @@ function card2cardInputDirective() {
 
 	function postLink(scope, element, attrs, Card2cardInputCtrl) {
 		scope.submit = function() {
-			Card2cardInputCtrl.submit();
+			scope.INPUT_LOADING = true;
+
+			Card2cardInputCtrl.submit()
+
 		};
 	}
 	
@@ -140,6 +137,8 @@ function card2cardInputDirective() {
 
 				}
 			}).then(function successCallback(response) {
+				$scope.INPUT_LOADING = false;
+
 				var data = response.data,
 					transaction = {
 						number: $scope.number.substr(-4),
@@ -205,7 +204,10 @@ function card2cardLookupDirective() {
 
 	function postLink(scope, element, attrs, Card2cardLookupCtrl) {
 		scope.submit = function () {
-			Card2cardLookupCtrl.submit();
+			scope.LOOKUP_LOADING = true;
+
+			Card2cardLookupCtrl.submit()
+
 		};
 	}
 
@@ -224,9 +226,11 @@ function card2cardLookupDirective() {
 					cvv: '000'
 				}
 			}).then(function successCallback(response) {
+				$scope.LOOKUP_LOADING = false;
+
 				var data = response.data,
 					transaction = {};
-				
+
 				transaction.operationNumber = data.idClient || data.operationNumber || data.mPayNumber;
 
 				if(data.state.code == 0) {
