@@ -58,12 +58,11 @@ function card2cardDirective() {
 	return {
 		restrict: 'A',
 		link: postLink,
-		controller: 'Card2cardCtrl',
 		controllerAs: 'vm',
 		template: require('./templates/main.html')
 	};
 
-	function postLink(scope, element, attrs, Card2cardCtrl) {
+	function postLink(scope, element, attrs) {
 		element.addClass('card2card');
 
 		scope.goState(scope.STATES.INPUT);
@@ -75,16 +74,13 @@ function card2cardInputDirective() {
 	return {
 		restrict: 'A',
 		link: postLink,
-		require: ['^card2card', 'card2cardInput'],
+		require: 'card2cardInput',
 		controller: ['$scope', '$http', Ctrl],
 		controllerAs: 'vmInput',
 		template: require('./templates/input.html')
 	};
 
-	function postLink(scope, element, attrs, ctrls) {
-		var Card2cardCtrl = ctrls[0],
-			Card2cardInputCtrl = ctrls[1];
-
+	function postLink(scope, element, attrs, Card2cardInputCtrl) {
 		scope.submit = function() {
 			Card2cardInputCtrl.submit();
 		};
@@ -192,15 +188,12 @@ function card2cardLookupDirective() {
 		restrict: 'A',
 		link: postLink,
 		template: require('./templates/lookup.html'),
-		require: ['^card2card', 'card2cardLookup'],
+		require: 'card2cardLookup',
 		controller: ['$scope', '$http', Ctrl],
 		controllerAs: 'vmLookup'
 	};
 
-	function postLink(scope, element, attrs, ctrls) {
-		var Card2cardCtrl = ctrls[0],
-			Card2cardLookupCtrl = ctrls[1];
-
+	function postLink(scope, element, attrs, Card2cardLookupCtrl) {
 		scope.submit = function () {
 			Card2cardLookupCtrl.submit();
 		};
@@ -267,14 +260,10 @@ function card2cardErrorDirective() {
 	return {
 		restrict: 'A',
 		link: postLink,
-		template: require('./templates/error.html'),
-		require: '^card2card'
+		template: require('./templates/error.html')
 	};
 
-	function postLink(scope, element, attrs, Card2cardCtrl) {
-		scope.goState = function(state) {
-			Card2cardCtrl.goState(state);
-		}
+	function postLink(scope, element, attrs) {
 	}
 }
 
