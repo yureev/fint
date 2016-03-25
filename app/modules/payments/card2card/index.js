@@ -31,7 +31,7 @@ function Card2cardCtrl($scope, $http) {
 	};
 
 	this.saveTransaction = function (transaction) {
-		$scope.transaction = transaction;
+		angular.extend($scope.transaction || {}, transaction);
 	};
 
 	this.getTariffs = function () {
@@ -105,6 +105,7 @@ function card2cardInputDirective() {
 		};
 
 		this.submit = function() {
+
 			$http({
 				method: 'POST',
 				url: '/sendua-external/Card2Card/CreateCard2CardOperation',
@@ -130,17 +131,27 @@ function card2cardInputDirective() {
 
 				}
 			}).then(function successCallback(response) {
-				var data = response.data;
+				var data = response.data,
+					transaction = {
+						number: $scope.number.substr(-4),
+						numberTarget: $scope.numberTarget.substr(-4),
+						amount: $scope.amount,
+						commiss: $scope.commiss,
+						total: $scope.total
+					};
 
 				$scope.operationNumber = data.idClient || data.operationNumber;
 
 				if (data.state.code == 0 || data.state.code == 59) {
 					if(!!data.secur3d && data.secur3d.paReq == 'lookup') {
-						$scope.md = data.secur3d.md;
-						$scope.cvv = '';
+						transaction.md = data.secur3d.md;
+						transaction.cvv =  '';
+
 						Card2cardCtrl.goState($scope.STATES.LOOKUP);
 					} else if (!!data.secur3d) {
-						//Send.secur3d = {
+
+
+						//transaction.secur3d = {
 						//	acsUrl: data.secur3d.acsUrl,
 						//	paReq: data.secur3d.paReq,
 						//	termUrl: data.secur3d.termUrl,
@@ -149,16 +160,20 @@ function card2cardInputDirective() {
 
 						// Card2cardCtrl.goState($scope.STATES.3DSEC);
 					} else {
-						alert('Сервис временно не работает');
+						//alert('Сервис временно не работает');
 					}
+
+
 				} else {
 					// ERROR
 					var code = (data.state && data.state.code) || data.mErrCode;
 
-					$scope.mPayStatus = $scope.response.errors[$scope.lang][code] ? $scope.response.errors[$scope.lang][code] + '<br/>' + (data.mPayStatus || data.state.message) : (data.mPayStatus || data.state.message);
+					transaction.mPayStatus = data.mPayStatus || data.state.message;
 
 					Card2cardCtrl.goState($scope.STATES.ERROR);
 				}
+
+				Card2cardCtrl.saveTransaction(transaction);
 			}, function errorCallback(response) {
 				Card2cardCtrl.goState($scope.STATES.ERROR);
 			});
@@ -181,6 +196,9 @@ function card2cardLookupDirective() {
 
 		scope.submit = function () {
 			Card2cardLookupCtrl.submit();
+		};
+		scope.goState = function(state) {
+			Card2cardCtrl.goState(state);
 		}
 	}
 
@@ -189,11 +207,7 @@ function card2cardLookupDirective() {
 			Card2cardCtrl = $controller('Card2cardCtrl', {$scope: $scope.$parent});
 
 		this.submit = function () {
-			console.log({
-				md: $scope.md,
-				paRes: $scope.lookupCode,
-				cvv: '000'
-			});
+
 			$http({
 				method: 'POST',
 				url: '/sendua-external/ConfirmLookUp/finishlookup',
@@ -203,16 +217,19 @@ function card2cardLookupDirective() {
 					cvv: '000'
 				}
 			}).then(function successCallback(response) {
-				var data = response.data;
-				$scope.operationNumber = data.idClient || data.operationNumber || data.mPayNumber;
+				var data = response.data,
+					transaction = {};
+				
+				transaction.operationNumber = data.idClient || data.operationNumber || data.mPayNumber;
 
 				if(data.state.code == 0) {
 					Card2cardCtrl.goState($scope.STATES.SUCCESS);
 				} else {
-					$scope.mPayStatus = $scope.response.errors[$scope.lang][code] ? $scope.response.errors[$scope.lang][code] + '<br/>' + (data.mPayStatus || data.state.message) : (data.mPayStatus || data.state.message);
+					transaction.mPayStatus = $scope.response.errors[$scope.lang][code] ? $scope.response.errors[$scope.lang][code] + '<br/>' + (data.mPayStatus || data.state.message) : (data.mPayStatus || data.state.message);
 					Card2cardCtrl.goState($scope.STATES.ERROR);
 				}
-				
+
+				Card2cardCtrl.saveTransaction(transaction);
 			}, function errorCallback(response) {
 				Card2cardCtrl.goState($scope.STATES.ERROR);
 			});
@@ -230,6 +247,11 @@ function card2cardSuccessDirective() {
 	};
 
 	function postLink(scope, element, attrs, ctrls) {
+		var Card2cardCtrl = ctrls[0];
+		
+		scope.goState = function(state) {
+			Card2cardCtrl.goState(state);
+		} 
 	}
 
 	function Ctrl($scope, $http, $controller) {

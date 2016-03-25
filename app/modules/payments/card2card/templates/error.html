@@ -2,8 +2,8 @@
     <div class="error-container">
         <div class="error-header" translate="CARD2CARD.ERROR.TITLE"></div>
         <div class="error-title">
-            <span translate="CARD2CARD.ERROR.OPERATION_CODE">Код операции </span><span class="error-code">{{send.operationNumber}}</span><br/>
-            <span data-ng-bind-html="trustHtml(send.mPayStatus)"></span>
+            <span translate="CARD2CARD.ERROR.OPERATION_CODE">Код операции </span><span class="error-code">{{transaction.operationNumber}}</span><br/>
+            <span>{{ transaction.mPayStatus }}</span>
         </div>
         <div class="footer">
             <div class="error-title-2">
@@ -12,11 +12,11 @@
                 <div class="error-phone">(044) 390-08-85</div>
             </div>
             <div class="mailto-container">
-                <a data-ng-href="mailto:support@send.ua​?subject=Money transfer error&body=Code operation: {{send.operationNumber}}. Error: {{send.mPayStatus}}"><i
+                <a data-ng-href="mailto:support@send.ua​?subject=Money transfer error&body=Code operation: {{$scope.operationNumber}}. Error: {{$scope.mPayStatus}}"><i
                         class="mailto"></i></a>
             </div>
             <span class="mailto-text" translate="CARD2CARD.ERROR.SEND_TO_SERVICE">Отправить в сервисную службу</span>
-            <div class="error-exit" data-ng-click="send.changeStage(1, true)" translate="CARD2CARD.ERROR.TO_START">В
+            <div class="error-exit" ng-click="goState(STATES.INPUT)" translate="CARD2CARD.ERROR.TO_START">В
                 начало
             </div>
         </div>

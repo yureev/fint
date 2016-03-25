@@ -1,6 +1,6 @@
 <div class="state-lookup">
-    <div class="lookup-close" data-ng-click="send.changeStage(1, true)"></div>
-    <div class="form-title" translate="CARD2CARD.LOOKUP.TITLE" data-ng-style="resizeTitle(420)">Перевод
+    <div class="lookup-close" data-ng-click="goState(STATES.INPUT)"></div>
+    <div class="form-title" translate="CARD2CARD.LOOKUP.TITLE">Перевод
         с карты на карту
     </div>
     <form class="lookup-box" ng-submit="submit()">
@@ -29,7 +29,7 @@
         </div>
         <button class="lookup-continue"
                 type="submit"
-                data-ng-class="{disabled: ($scope.lookupCode.length != 6)}"
+                data-ng-class="{disabled: (lookupCode.length != 6)}"
                 translate="CARD2CARD.LOOKUP.CONTINUE">
             Продолжить
         </button>
