@@ -89,9 +89,7 @@ function card2cardInputDirective() {
 			scope.INPUT_LOADING = true;
 
 			Card2cardInputCtrl.submit()
-				.then(function () {
-					scope.INPUT_LOADING = false;
-				});
+
 		};
 	}
 	
@@ -139,6 +137,7 @@ function card2cardInputDirective() {
 
 				}
 			}).then(function successCallback(response) {
+				$scope.INPUT_LOADING = false;
 
 				var data = response.data,
 					transaction = {
@@ -208,9 +207,7 @@ function card2cardLookupDirective() {
 			scope.LOOKUP_LOADING = true;
 
 			Card2cardLookupCtrl.submit()
-				.then(function () {
-					scope.LOOKUP_LOADING = false;
-				});
+
 		};
 	}
 
@@ -229,9 +226,11 @@ function card2cardLookupDirective() {
 					cvv: '000'
 				}
 			}).then(function successCallback(response) {
+				$scope.LOOKUP_LOADING = false;
+
 				var data = response.data,
 					transaction = {};
-				
+
 				transaction.operationNumber = data.idClient || data.operationNumber || data.mPayNumber;
 
 				if(data.state.code == 0) {
