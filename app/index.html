@@ -7,11 +7,12 @@
             <div class="col-md-9 col-sm-9 col-xs-3  container">
                 <div id="navbarCollapse" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav tabs">
-                        <li class="item about-services" scroll-to="services" translate="APP.MENU.ABOUT"></li>
-                        <li class="item tarif ng-binding" scroll-to="tarif" translate="APP.MENU.TARIFFS"></li>
-                        <li class="item faq ng-binding" scroll-to="qaa" translate="APP.MENU.FAQ"></li>
-                        <li class="item contact ng-binding" scroll-to="contacts" translate="APP.MENU.CONTACTS"></li>
-                        <li class="item login ng-binding" translate="APP.MENU.DASHBOARD"></li>
+                        <li class="item about-services" scroll-to="services">{{ 'APP.MENU.ABOUT' | translate }}</li>
+                        <li class="item tarif ng-binding" scroll-to="tarif">{{ 'APP.MENU.TARIFFS' | translate }}</li>
+                        <li class="item faq ng-binding" scroll-to="qaa">{{ 'APP.MENU.FAQ' | translate }}</li>
+                        <li class="item contact ng-binding" scroll-to="contacts">{{ 'APP.MENU.CONTACTS' | translate }}
+                        </li>
+                        <li class="item login ng-binding">{{ 'APP.MENU.DASHBOARD' | translate }}</li>
                     </ul>
                 </div>
             </div>
@@ -55,7 +56,7 @@
     </div>
     <div class="clearfix"></div>
     <div class="about" id="services">
-        <div class="about-title" translate="APP.CONTENT.SERVICE.TITLE"></div>
+        <div class="about-title">{{ 'APP.CONTENT.SERVICE.TITLE' | translate }}</div>
         <div class="about-desc">
             <div class="about-content" translate="APP.CONTENT.SERVICE.TEXT"></div>
         </div>
@@ -66,7 +67,7 @@
     <div class="clearfix"></div>
     <div class="about tariff" id="tarif">
         <div class="wrap">
-            <div class="about-title" translate="APP.CONTENT.TARIFFS.TITLE"></div>
+            <div class="about-title">{{ 'APP.CONTENT.TARIFFS.TITLE' | translate }}</div>
             <div class="about-desc">
                 <div class="about-content" translate="APP.CONTENT.TARIFFS.TEXT"></div>
                 <img class="calc" src="./assets/images/old/Calc_illustr.jpg" width="350" height="310">
@@ -77,7 +78,7 @@
     </div>
     <div class="clearfix"></div>
     <div class="questions" id="qaa">
-        <div class="title" translate="APP.CONTENT.FAQ.TITLE"></div>
+        <div class="title">{{ 'APP.CONTENT.FAQ.TITLE' | translate }}</div>
         <div class="block">
             <div class="tablet">
                 <div class="ask-block scroll">
@@ -85,21 +86,21 @@
                         <uib-accordion-group is-open="true">
                             <uib-accordion-heading>
                                 <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
-                                <span translate="APP.CONTENT.FAQ.QUESTION_1.TITLE"></span>
+                                <span>{{ 'APP.CONTENT.FAQ.QUESTION_1.TITLE' | translate }}</span>
                             </uib-accordion-heading>
                             <div translate="APP.CONTENT.FAQ.QUESTION_1.TEXT"></div>
                         </uib-accordion-group>
                         <uib-accordion-group>
                             <uib-accordion-heading>
                                 <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
-                                <span translate="APP.CONTENT.FAQ.QUESTION_2.TITLE"></span>
+                                <span>{{ 'APP.CONTENT.FAQ.QUESTION_2.TITLE' | translate }}</span>
                             </uib-accordion-heading>
                             <div translate="APP.CONTENT.FAQ.QUESTION_2.TEXT"></div>
                         </uib-accordion-group>
                         <uib-accordion-group>
                             <uib-accordion-heading>
                                 <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
-                                <span translate="APP.CONTENT.FAQ.QUESTION_3.TITLE"></span>
+                                <span>{{ 'APP.CONTENT.FAQ.QUESTION_3.TITLE' | translate }}</span>
                             </uib-accordion-heading>
                             <div translate="APP.CONTENT.FAQ.QUESTION_3.TEXT"></div>
                         </uib-accordion-group>
@@ -110,7 +111,7 @@
         </div>
         <div class="clearfix"></div>
         <div class="about-contacts">
-            <div class="contacts-title" id="contacts" translate="APP.CONTENT.CONTACTS.TITLE"></div>
+            <div class="contacts-title" id="contacts">{{ 'APP.CONTENT.CONTACTS.TITLE' | translate }}</div>
             <div class="row contacts">
                 <div class="facebook-pic"></div>
                 <div class="twitter-pic"></div>

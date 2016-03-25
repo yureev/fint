@@ -63,15 +63,16 @@
                             </div>
                         </div>
                         <div class="comission">
-                            <div><span translate="CARD2CARD.AMOUNT.COMMISSION"></span> {{ commiss }} <span
-                                    translate="CARD2CARD.AMOUNT.CURRENCY"></span><br/>
-                                <span>({{ config.tariff.comm_percent }}% + {{config.tariff.total_min/100 }}</span>
-                                <span translate="CARD2CARD.AMOUNT.CURRENCY"></span><span>)</span>
-                            </div>
+                            {{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commiss }}
+                            {{ 'CARD2CARD.AMOUNT.CURRENCY' | translate }}<br>
+                            ({{ config.tariff.comm_percent }}% + {{config.tariff.total_min/100 }}
+                            {{ 'CARD2CARD.AMOUNT.CURRENCY' | translate }})
                         </div>
                         <div class="total">
-                            <div><b><span translate="CARD2CARD.AMOUNT.TOTAL"></span> {{ total }} <span
-                                    translate="CARD2CARD.AMOUNT.CURRENCY"></span></b></div>
+                            <strong>
+                                {{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{ total }}
+                                {{ 'CARD2CARD.AMOUNT.CURRENCY' | translate }}
+                            </strong>
                         </div>
                     </div>
                 </div>
@@ -103,14 +104,14 @@
                 <div class="submit-check">
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" tabindex="8" ng-model="agreed"><span
-                                translate="CARD2CARD.AGREEMENT"></span>
+                            <input type="checkbox" tabindex="8" ng-model="agreed">
+                            <span translate="CARD2CARD.AGREEMENT"></span>
                         </label>
                     </div>
                     <button type="submit" class="btn btn-primary btn-large send-button"
                             tabindex="9"
                             ng-disabled="c2cForm.$invalid || c2cForm.$pristine">
-                        {{ 'CARD2CARD.SEND' | translate}}
+                        {{ 'CARD2CARD.SEND' | translate }}
                     </button>
                 </div>
             </div>
