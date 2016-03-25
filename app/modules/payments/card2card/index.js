@@ -139,7 +139,6 @@ function card2cardInputDirective() {
 
 				}
 			}).then(function successCallback(response) {
-				$scope.INPUT_LOADER = false;
 
 				var data = response.data,
 					transaction = {
@@ -213,6 +212,7 @@ function card2cardLookupDirective() {
 					scope.LOOKUP_LOADING = false;
 				});
 		};
+	}
 
 	function Ctrl($scope, $http) {
 		this.submit = function () {
