@@ -9,7 +9,7 @@ angular.module('card2card', [
 	.directive('card2cardLookup', card2cardLookupDirective)
 	.directive('card2cardError', card2cardErrorDirective)
 	.directive('card2cardSuccess', card2cardSuccessDirective)
-	.directive('onlyDigits', onlyDigitsDirective)
+	.directive('onlyDigits', ['CtUtils', onlyDigitsDirective])
 	.directive('amount', amountDirective)
 	.controller('Card2cardCtrl', ['$scope', '$http', Card2cardCtrl]);
 
@@ -204,12 +204,11 @@ function card2cardLookupDirective() {
 		var Card2cardCtrl = $controller('Card2cardCtrl', {$scope: $scope.$parent});
 
 		this.submit = function () {
-
 			$http({
 				method: 'POST',
 				url: '/sendua-external/ConfirmLookUp/finishlookup',
 				data: {
-					md: $scope.md,
+					md: $scope.transation.md,
 					paRes: $scope.lookupCode,
 					cvv: '000'
 				}
