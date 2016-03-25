@@ -163,14 +163,14 @@ function card2cardInputDirective() {
 					} else if (!!data.secur3d) {
 
 
-						//transaction.secur3d = {
-						//	acsUrl: data.secur3d.acsUrl,
-						//	paReq: data.secur3d.paReq,
-						//	termUrl: data.secur3d.termUrl,
-						//	md: data.secur3d.md
-						//};
+						transaction.secur3d = {
+							acsUrl: data.secur3d.acsUrl,
+							paReq: data.secur3d.paReq,
+							termUrl: data.secur3d.termUrl,
+							md: data.secur3d.md
+						};
 
-						// $scope.goState($scope.STATES.3DSEC);
+						 $scope.goState($scope.STATES.THREEDSEC);
 					} else {
 						//alert('Сервис временно не работает');
 					}
@@ -285,10 +285,18 @@ function card2card3dsecDirective() {
 	return {
 		restrict: 'A',
 		link: postLink,
-		template: require('./templates/3dsec.html')
+		template: require('./templates/3dsec.html'),
+		controller: ['$scope', '$http', Ctrl]
 	};
 
 	function postLink(scope, element, attrs) {
+	}
+	function Ctrl($scope) {
+		/*$timeout(function () {
+			console.log($scope.transaction.secur3d);
+			var iframe = document.getElementById("ifr3Dcard").contentWindow;
+			iframe.postMessage(JSON.stringify({secur3d: $scope.transaction.secur3d}), '*');
+		}, 2500);*/
 	}
 }
 
