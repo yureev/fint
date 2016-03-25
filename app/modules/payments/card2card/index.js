@@ -14,7 +14,7 @@ angular.module('card2card', [
 	.controller('Card2cardCtrl', ['$scope', '$http', Card2cardCtrl]);
 
 function Card2cardCtrl($scope, $http) {
-	var config = $scope.config = {
+	$scope.config = {
 		tariff: null,
 		tariffType: 'other'
 	};
@@ -35,13 +35,13 @@ function Card2cardCtrl($scope, $http) {
 	};
 
 	this.getTariffs = function () {
-		$http.jsonp('/sendua-external/Info/GetTariffs?tarifftype=web&callback=JSON_CALLBACK')
+		$http.get('/sendua-external/Info/GetTariffs?tarifftype=web')
 			.then(function (response) {
 				var data = response.data;
 
 				angular.forEach(data, function (tariff) {
-					if (tariff.card_type == config.tariffType) {
-						config.tariff = tariff;
+					if (tariff.card_type == $scope.config.tariffType) {
+						$scope.config.tariff = tariff;
 					}
 				});
 			});
@@ -89,16 +89,6 @@ function card2cardInputDirective() {
 			Card2cardCtrl = $controller('Card2cardCtrl', {$scope: $scope.$parent});
 
 		this.calculate = function () {
-			Card2cardCtrl.saveTransaction({
-				number: $scope.number.substr(-4),
-				numberTarget: $scope.numberTarget.substr(-4),
-				amount: $scope.amount,
-				commiss: $scope.commiss,
-				total: $scope.total
-			});
-
-			return;
-
 			$scope.commiss = Math.round($scope.amount * config.tariff.comm_percent + config.tariff.comm_fixed);
 
 			if ($scope.commiss < config.tariff.total_min) {
