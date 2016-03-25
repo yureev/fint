@@ -20,7 +20,7 @@
                     <td class="success-description-title" translate="CARD2CARD.SUCCESS.SENDER_CARD">Карта
                         отправителя
                     </td>
-                    <td class="success-description-number">** {{send.cardA.cardA4.value}}</td>
+                    <td class="success-description-number">** {{number.substring(-4, 4)}}</td>
                 </tr>
                 <tr>
                     <td class="success-description-title" translate="CARD2CARD.SUCCESS.RES_CARD">Карта получателя
@@ -30,18 +30,18 @@
                 <tr>
                     <td class="success-description-title" translate="CARD2CARD.SUCCESS.SUM_SEND">Сумма перевода
                     </td>
-                    <td class="success-description-number"><strong>{{send.summ.value}}</strong> <span
+                    <td class="success-description-number"><strong>{{amount}}</strong> <span
                             translate="CARD2CARD.SUCCESS.UAH"></span></td>
                 </tr>
                 <tr>
                     <td class="success-description-title" translate="CARD2CARD.SUCCESS.COMMISSION_DESC">Комиссия
                     </td>
-                    <td class="success-description-number"><strong>{{send.commiss}}</strong> <span
+                    <td class="success-description-number"><strong>{{commiss}}</strong> <span
                             translate="CARD2CARD.SUCCESS.UAH"></span></td>
                 </tr>
                 <tr>
                     <td class="success-description-title" translate="CARD2CARD.SUCCESS.SUM_ALL">Сумма списания</td>
-                    <td class="success-description-number"><strong>{{send.summTotal}}</strong> <span
+                    <td class="success-description-number"><strong>{{total}}</strong> <span
                             translate="CARD2CARD.SUCCESS.UAH"></span></td>
                 </tr>
                 <tr class="footer">

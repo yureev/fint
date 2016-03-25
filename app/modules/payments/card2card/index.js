@@ -13,40 +13,39 @@ angular.module('card2card', [
 	.controller('Card2cardCtrl', ['$scope', '$http', Card2cardCtrl]);
 
 function Card2cardCtrl($scope, $http) {
-		var self = this,
-			config = $scope.config = {
-				tariff: null,
-				tariffType: 'other'
-			},
-			init = function() {
-				$http.jsonp('/sendua-external/Info/GetTariffs?tarifftype=web&callback=JSON_CALLBACK')
-					.then(function(response) {
-						var data = response.data;
+	var config = $scope.config = {
+		tariff: null,
+		tariffType: 'other'
+	};
 
-						angular.forEach(data, function (tariff) {
-							if (tariff.card_type == config.tariffType) {
-								config.tariff = tariff;
-							}
-						});
-					});
+	$scope.STATES = {
+		INPUT: "INPUT",
+		ERROR: "ERROR",
+		LOOKUP: "LOOKUP",
+		SUCCESS: "SUCCESS"
+	};
 
-				self.goState($scope.STATES.INPUT);
+	this.goState = function (state) {
+		$scope.state = state;
+	};
 
-			};
+	this.saveTransaction = function (transaction) {
+		$scope.transaction = transaction;
+	};
 
-		$scope.STATES = {
-			INPUT: "INPUT",
-			ERROR: "ERROR",
-			LOOKUP: "LOOKUP",
-			SUCCESS: "SUCCESS"
-		};
+	this.getTariffs = function () {
+		$http.jsonp('/sendua-external/Info/GetTariffs?tarifftype=web&callback=JSON_CALLBACK')
+			.then(function (response) {
+				var data = response.data;
 
-		this.goState = function(state) {
-			$scope.state = state;
-		};
-
-		init();
-	}
+				angular.forEach(data, function (tariff) {
+					if (tariff.card_type == config.tariffType) {
+						config.tariff = tariff;
+					}
+				});
+			});
+	};
+}
 
 module.exports = 'card2card';
 
@@ -59,8 +58,11 @@ function card2cardDirective() {
 		template: require('./templates/main.html')
 	};
 
-	function postLink(scope, element, attrs) {
+	function postLink(scope, element, attrs, Card2cardCtrl) {
 		element.addClass('card2card');
+
+		Card2cardCtrl.goState(scope.STATES.INPUT);
+		Card2cardCtrl.getTariffs();
 	}
 }
 
@@ -131,6 +133,14 @@ function card2cardInputDirective() {
 			}).then(function successCallback(response) {
 				var data = response.data;
 
+				Card2cardCtrl.saveTransaction({
+					number: $scope.number.substring(-4, 4),
+					numberTarget: $scope.numberTarget.substring(-4, 4),
+					amount: $scope.amount,
+					commiss: $scope.comiss,
+					
+				});
+
 				$scope.operationNumber = data.idClient || data.operationNumber;
 
 				if (data.state.code == 0 || data.state.code == 59) {
@@ -171,7 +181,7 @@ function card2cardLookupDirective() {
 		link: postLink,
 		template: require('./templates/lookup.html'),
 		require: ['^card2card', 'card2cardLookup'],
-		controller: ['$scope', '$http', Ctrl],
+		controller: ['$scope', '$http', '$controller', Ctrl],
 		controllerAs: 'vmLookup'
 	};
 
@@ -183,11 +193,16 @@ function card2cardLookupDirective() {
 		}
 	}
 
-	function Ctrl($scope, $http) {
+	function Ctrl($scope, $http, $controller) {
 		var config = $scope.config,
 			Card2cardCtrl = $controller('Card2cardCtrl', {$scope: $scope.$parent});
 
 		this.submit = function () {
+			console.log({
+				md: $scope.md,
+				paRes: $scope.lookupCode,
+				cvv: '000'
+			});
 			$http({
 				method: 'POST',
 				url: '/sendua-external/ConfirmLookUp/finishlookup',
@@ -198,14 +213,17 @@ function card2cardLookupDirective() {
 				}
 			}).then(function successCallback(response) {
 				var data = response.data;
+				$scope.operationNumber = data.idClient || data.operationNumber || data.mPayNumber;
 
 				if(data.state.code == 0) {
-					$scope.operationNumber = data.idClient || data.operationNumber || data.mPayNumber;
 					Card2cardCtrl.goState($scope.STATES.SUCCESS);
+				} else {
+					$scope.mPayStatus = $scope.response.errors[$scope.lang][code] ? $scope.response.errors[$scope.lang][code] + '<br/>' + (data.mPayStatus || data.state.message) : (data.mPayStatus || data.state.message);
+					Card2cardCtrl.goState($scope.STATES.ERROR);
 				}
 				
 			}, function errorCallback(response) {
-				
+				Card2cardCtrl.goState($scope.STATES.ERROR);
 			});
 		}
 	}
@@ -217,15 +235,21 @@ function card2cardSuccessDirective() {
 		link: postLink,
 		template: require('./templates/success.html'),
 		require: ['^card2card', 'card2cardSuccess'],
-		controller: ['$scope', '$http'],
+		controller: ['$scope', '$http', '$controller', Ctrl]
 	};
 
-	function postLink(scope, element, attrs) {
-
+	function postLink(scope, element, attrs, ctrls) {
 	}
 
-	function Ctrl($scope, $http) {
+	function Ctrl($scope, $http, $controller) {
+		$http.get('/sendua-external/Info/GetDateTime')
+			.then(function (response) {
+				var data = response.data;
 
+				$scope.currentDate = data.datetime || new Date();
+			}, function() {
+				$scope.currentDate = new Date();
+			});
 	}
 }
 

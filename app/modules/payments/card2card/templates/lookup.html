@@ -16,7 +16,7 @@
             <div class="col-md-7 col-sm-7 col-xs-7">
                 <input type="text"
                        class="lookup-sms-input"
-                       data-ng-model="$scope.lookupCode.value"
+                       data-ng-model="lookupCode"
                        maxlength="6"
                        tooltip="Код должен состоять из 6-ти цифр"
                        tooltip-enable="send.lookupCode.error"
@@ -29,9 +29,7 @@
         </div>
         <button class="lookup-continue"
                 type="submit"
-                data-ng-click="send.loading ? false : send.changeStage(5)"
-                data-ng-class="{disabled: ($scope.lookupCode.value.length != 6)}"
-                data-ng-model="$scope.lookupCode"
+                data-ng-class="{disabled: ($scope.lookupCode.length != 6)}"
                 translate="CARD2CARD.LOOKUP.CONTINUE">
             Продолжить
         </button>
