@@ -10,6 +10,7 @@ angular.module('card2card', [
 	.directive('card2cardError', card2cardErrorDirective)
 	.directive('card2cardSuccess', card2cardSuccessDirective)
 	.directive('onlyDigits', onlyDigitsDirective)
+	.directive('amount', amountDirective)
 	.controller('Card2cardCtrl', ['$scope', '$http', Card2cardCtrl]);
 
 function Card2cardCtrl($scope, $http) {
@@ -46,8 +47,6 @@ function Card2cardCtrl($scope, $http) {
 			});
 	};
 }
-
-module.exports = 'card2card';
 
 function card2cardDirective() {
 	return {
@@ -288,3 +287,22 @@ function onlyDigitsDirective(CtUtils){
 		}
 	}
 }
+function amountDirective(){
+	return {
+		restrict: 'A',
+		require: 'ngModel',
+		link: postLink
+	};
+
+	function postLink(scope, element, attr, ModelCtrl) {
+		ModelCtrl.$formatters.push(function(value) {
+			if (!value) {
+				value = 0;
+			}
+
+			return value;
+		});
+	}
+}
+
+module.exports = 'card2card';
