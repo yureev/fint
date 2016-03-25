@@ -9,6 +9,7 @@ angular.module('card2card', [
 	.directive('card2cardLookup', card2cardLookupDirective)
 	.directive('card2cardError', card2cardErrorDirective)
 	.directive('card2cardSuccess', card2cardSuccessDirective)
+	.directive('card2card3dsec', card2card3dsecDirective)
 	.directive('onlyDigits', ['CtUtils', onlyDigitsDirective])
 	.directive('amount', amountDirective)
 	.controller('Card2cardCtrl', ['$scope', '$http', Card2cardCtrl]);
@@ -25,7 +26,8 @@ function Card2cardCtrl($scope, $http) {
 		INPUT: "INPUT",
 		ERROR: "ERROR",
 		LOOKUP: "LOOKUP",
-		SUCCESS: "SUCCESS"
+		SUCCESS: "SUCCESS",
+		THREEDSEC: "THREEDSEC"
 	};
 
 	$scope.goState = function (state) {
@@ -41,7 +43,7 @@ function Card2cardCtrl($scope, $http) {
 	};
 
 	$scope.getTariffs = function () {
-		$http.jsonp('https://stage.send.ua/sendua-external/Info/GetTariffs?tarifftype=web&callback=JSON_CALLBACK')
+		var q = $http.jsonp('https://stage.send.ua/sendua-external/Info/GetTariffs?tarifftype=web&callback=JSON_CALLBACK')
 			.then(function (response) {
 				var data = response.data;
 
@@ -51,6 +53,8 @@ function Card2cardCtrl($scope, $http) {
 					}
 				});
 			});
+
+		return q;
 	};
 }
 
@@ -67,7 +71,12 @@ function card2cardDirective() {
 		element.addClass('card2card');
 
 		scope.goState(scope.STATES.INPUT);
-		scope.getTariffs();
+
+		scope.LOADING = true;
+		scope.getTariffs()
+			.then(function() {
+				scope.LOADING = false;
+			});
 	}
 }
 
@@ -204,6 +213,7 @@ function card2cardLookupDirective() {
 		this.submit = function () {
 			console.log('Submit');
 			console.log($scope);
+			
 
 			$http({
 				method: 'POST',
@@ -229,6 +239,9 @@ function card2cardLookupDirective() {
 				$scope.saveTransaction(transaction);
 			}, function errorCallback(response) {
 				$scope.goState($scope.STATES.ERROR);
+			}).finally(function() {
+				loading = false;
+				
 			});
 		}
 	}
@@ -262,6 +275,17 @@ function card2cardErrorDirective() {
 		restrict: 'A',
 		link: postLink,
 		template: require('./templates/error.html')
+	};
+
+	function postLink(scope, element, attrs) {
+	}
+}
+
+function card2card3dsecDirective() {
+	return {
+		restrict: 'A',
+		link: postLink,
+		template: require('./templates/3dsec.html')
 	};
 
 	function postLink(scope, element, attrs) {

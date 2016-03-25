@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <title>3D Secure</title>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"
+            integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-json/2.5.1/jquery.json.min.js"></script>
+    <script>
+        (function ($) {
+            var Validator = function () {
+                var errFields = {length: 0};
+
+                function trimString(str) {
+                    if (typeof str == 'string')
+                        return str.replace(/^\s+/, "").replace(/\s+$/, "");
+                    return str;
+                }
+
+                function ifExist(obj, def) {
+                    if (def === undefined) return;
+                    var valid = [undefined, null, "", 0];
+                    for (var i = 0; i < valid.length; ++i) {
+                        if (obj == valid[i]) return def;
+                    }
+                    return trimString(obj);
+                }
+
+                function toNumber(val) {
+                    var res = 1 * parseFloat(val).toFixed(2);
+                    if (!isNaN(res)) return res;
+                    return 0;
+                }
+
+                function getParams() {
+                    return {
+                        v: ifExist($(this).val(), ""),
+                        n: ifExist(this.__extra__['errname'], ""),
+                        m: ifExist(toNumber(this.__extra__['mandatory']), 0),
+                        e: ifExist(this.__extra__['errdef'], "")
+                    }
+                }
+
+                function ifMandatory(ps) {
+                    if (ps.m)
+                        if (ps.v === "")
+                            return ps.n + " " + ps.e;
+                    return;
+                }
+
+                return {
+                    append: function (vf) {
+                        this.on('validate', function (event, params) {
+                            try {
+                                if (vf && vf instanceof Function)
+                                    this.__extra__.errorMessage = vf.call(this, params);
+
+                                var ps = getParams.call(this);
+                                var err = ifMandatory(ps);
+
+                                if (err) {
+                                    this.__extra__.errorMessage = err;
+                                }
+                                if (this.__extra__.errorMessage) {
+                                    errFields[this.id] = this;
+                                    ++errFields.length;
+                                    this.__extra__.pattern.getContainer().addClass('error');
+                                } else {
+                                    this.__extra__.pattern.getContainer().removeClass('error');
+                                    if (this.id in errFields) delete errFields[this.id];
+                                    --errFields.length;
+                                }
+                            } catch (e) {
+                                console.log(e.message);
+                            }
+                        });
+                    },
+                    check: function () {
+                        var err;
+                        for (var i = 0; i < arguments.length; ++i) {
+                            var el, params;
+                            if (typeof arguments[i] == "string") el = $(arguments[i]);
+                            else if (arguments[i] instanceof Array) {
+                                el = $(arguments[i][0]);
+                                params = arguments[i][1];
+                            } else return;
+
+                            var first;
+                            if (el.length === 0) return;
+                            if (params) el.trigger('validate', params);
+                            else el.trigger('validate');
+
+                            err = el.get(0).__extra__.errorMessage;
+                            if (err && !first) first = el;
+                        }
+                        if (first) {
+                            err = first.get(0).__extra__.errorMessage;
+                        }
+                        return err;
+                    }
+                }
+            }();
+
+            var FieldPattern = function (o) {
+                var fieldFrame = {}, id = o.id,
+                        getPattern = function (type, id) {
+                            var _el = $('<div/>');
+                            switch (type.toString()) {
+                                case 'caption':
+                                    _el.attr({id: id + "_caption"}).addClass('fieldCaption');
+                                    break;
+                                case 'content':
+                                    _el.attr({id: id + "_content"}).addClass('fieldContent');
+                                    break;
+                                case 'description':
+                                    _el.attr({id: id + "_descr"}).addClass('fieldDesc');
+                                    break;
+                                case 'container':
+                                    _el.attr({id: id + "_container"}).addClass('fieldContainer');
+                            }
+                            return _el;
+                        }, $container = getPattern('container', id).addClass(o.type);
+
+                if (o.caption) {
+                    fieldFrame.caption =
+                            getPattern('caption', id).html(o.caption);
+                }
+
+                fieldFrame.content = getPattern('content', id);
+
+                if (o.description) {
+                    fieldFrame.description =
+                            getPattern('description', id).html(o.description);
+                }
+
+                return {
+                    appendContent: function (child) {
+                        fieldFrame.content.append(child);
+                    },
+                    appendCaption: function (child) {
+                        if (!fieldFrame.caption)
+                            fieldFrame.caption = getPattern('caption', o.id);
+                        fieldFrame.caption.append(child);
+                    },
+                    appendDescr: function (child) {
+                        if (!fieldFrame.description)
+                            fieldFrame.description = getPattern('description', o.id);
+                        fieldFrame.description.append(child);
+                    },
+                    getContainer: function () {
+                        var _c = $container;
+                        for (var i in fieldFrame) {
+                            if (fieldFrame.hasOwnProperty(i))
+                                _c.append(fieldFrame[i]);
+                        }
+                        return _c;
+                    }
+                }
+            }
+
+            var SectionPattern = function (o) {
+                var sectionFrame = {}, id = o.id,
+                        getPattern = function (type) {
+                            var _el = $('<div/>');
+                            switch (type.toString()) {
+                                case 'header':
+                                    _el.addClass('fieldSectionHeader');
+                                    break;
+                                case 'content':
+                                    _el.addClass('fieldSectionContent');
+                                    break;
+                                case 'footer':
+                                    _el.addClass('fieldSectionFooter');
+                                    break;
+                                case 'container':
+                                    _el.attr({id: id}).addClass('fieldSection');
+                            }
+                            return _el;
+                        }, insertFrom = function (cnt) {
+                            if (typeof cnt == 'string') this.html(cnt);
+                            if (typeof cnt == 'object') this.append(cnt);
+                        }, $container = getPattern('container');
+
+                if (o.header !== undefined) {
+                    sectionFrame.header = getPattern('header');
+                    insertFrom.call(sectionFrame.header, o.header);
+                }
+
+                sectionFrame.content = getPattern('content');
+                if (o.content !== undefined)
+                    insertFrom.call(sectionFrame.content, o.content);
+
+                if (o.footer !== undefined) {
+                    sectionFrame.footer = getPattern('footer');
+                    insertFrom.call(sectionFrame.footer, o.footer);
+                }
+
+                return {
+                    appendContent: function (child) {
+                        sectionFrame.content.append(child);
+                    },
+                    appendHeader: function (child) {
+                        if (!sectionFrame.header)
+                            sectionFrame.header = getPattern('header');
+                        sectionFrame.header.append(child);
+                    },
+                    appendDescr: function (child) {
+                        if (!sectionFrame.footer)
+                            sectionFrame.footer = getPattern('footer');
+                        sectionFrame.footer.append(child);
+                    },
+                    getContainer: function () {
+                        for (var i in sectionFrame) {
+                            if (sectionFrame.hasOwnProperty(i))
+                                $container.append(sectionFrame[i]);
+                        }
+                        return $container;
+                    }
+                }
+            }
+
+            var newField = function () {
+
+                        /**
+                         *    {
+			 *		basic: object {
+			 *			id: string
+			 *			,placeholder: string
+			 *			,caption: string
+			 *			,description: string
+			 *			...
+			 *		},
+			 *		extra: object {
+			 *			'data-mandatory': int
+			 *			,'data-name': string
+			 *			...
+			 *		},
+			 *		optional: object {
+			 *			maxlength: int
+			 *			...
+			 *		},
+			 *		validate: function(){},
+			 *		_event:function(){}
+			 *	}
+                         **/
+
+                        var allowedTypes = {
+                            text: true
+                            , password: true
+                            , checkbox: true
+                            , radio: true
+                            , select: true
+                            , button: true
+                            , submit: true
+                            , image: false
+                            , hidden: true
+                            , number: true
+                        };
+
+
+                        var type = arguments[0].toString(),
+                                params = Array.prototype.slice.call(arguments, 1)[0],
+                                $field = $('<input/>'),
+                                field = $field.get(0),
+                                fieldP = FieldPattern(params.basic),
+                                form = this.get(0);
+                        field.__extra__ = {pattern: fieldP, form: form};
+
+                        if (!allowedTypes.hasOwnProperty(type)) type = "text";
+                        if (type == 'select') $field = $('<select/>');
+
+                        $field.attr({
+                            type: type,
+                            id: params.basic.id,
+                            name: params.basic.id
+                        });
+
+                        switch (type) {
+                            case 'text':
+                            case 'password':
+                            case 'number':
+                            case 'hidden':
+                                if (params.basic.placeholder) {
+                                    var $placeholder = $('<label/>');
+                                    field.__extra__.placeholder = $placeholder.get(0);
+                                    field.__extra__.placeholder.__extra__ = {};
+                                    $placeholder.attr({'for': $field.attr('id'), id: $field.attr('id') + "_ph"});
+                                    $placeholder.addClass("fieldPlaceHolder");
+
+                                    field.__extra__.placeholder.__extra__['dataValue'] = params.basic.placeholder;
+                                    $placeholder.html(params.basic.placeholder);
+                                    $field.focus(function () {
+                                        // $(this).select(false);
+                                        $(this.__extra__.placeholder).html('');
+                                    }).on('focusout', function () {
+                                        if ($(this).val() === "")
+                                            $(this.__extra__.placeholder)
+                                                    .html(this.__extra__.placeholder.__extra__['dataValue']);
+                                    });
+                                    fieldP.appendContent($placeholder);
+                                }
+                                break;
+                            case 'checkbox':
+                            case 'radio':
+                                if (params.basic.label) {
+                                    var $label = $('<label/>');
+                                    field.__extra__.label = $label.get(0);
+                                    field.__extra__.label.__extra__ = {};
+                                    $label.attr({'for': $field.attr('id'), id: $field.attr('id') + "_lbl"});
+                                    $label.addClass("fieldLabel");
+                                    $label.html(params.basic.label);
+                                    fieldP.appendDescr($label);
+                                }
+                                break;
+                            case 'select':
+                                if (params.basic.options) {
+                                    var opts = [];
+                                    for (var i in params.basic.options) {
+                                        opts.push($('<option/>').attr({id: i})
+                                                .html(params.basic.options[i]));
+                                    }
+                                    if (opts.length > 0) $field.append(opts);
+                                }
+                                break;
+                            case 'button':
+                                if (params.validate)
+                                    delete params.validate;
+                                if (params.basic.value)
+                                    $field.val(params.basic.value);
+                                if (params.optional && params.optional.value) {
+                                    $field.val(params.optional.value);
+                                    delete params.optional.value;
+                                }
+                        }
+
+                        if (params.extra) {
+                            for (var di in params.extra) {
+                                if (!params.extra.hasOwnProperty(di)) continue;
+                                var item = params.extra[di];
+                                field.__extra__[di] = item;
+                            }
+                        }
+
+                        if (params.optional) {
+                            for (var oi in params.optional) {
+                                if (!params.optional.hasOwnProperty(oi)) continue;
+                                var item = params.optional[oi];
+                                field.setAttribute(oi, item);
+                            }
+                        }
+                        if (params.validate && params.validate instanceof Function) {
+                            Validator.append.call($field, params.validate);
+                        }
+
+                        for (var i in params) {
+                            if (/^_/.test(i)) {
+                                if (!(params[i] instanceof Function)) continue;
+                                var e = i.substring(1);
+                                $field.on(e, params[i]);
+                            }
+                        }
+
+                        if ($field) fieldP.appendContent($field);
+
+                        var $container = fieldP.getContainer();
+                        var container = $container.get(0);
+
+                        var parent = form;
+                        form.__extra__.fields[params.basic.id] = container;
+
+                        if (params.basic.section) {
+                            var sec = form.__extra__.sections[params.basic.section];
+                            if (sec) {
+                                $(sec).children('.fieldSectionContent').append($container);
+                                parent = sec;
+                            } else this.append($container)
+                        } else this.append($container);
+                        parent.__extra__.fields[params.basic.id] = container;
+
+                        field.__extra__.fieldIndex = form.length - 1;
+                    },
+                    createField = function (type) {
+                        return function (o) {
+                            o.basic.type = type;
+                            newField.call(this, type, o);
+                            return this;
+                        }
+                    },
+                    fieldCollection = function () {
+                        var f = ['text', 'password', 'hidden', 'checkbox', 'radio', 'select', 'button', 'submit', 'number'], r = {};
+                        for (var i = 0; i < f.length; ++i) {
+                            r[f[i]] = createField(f[i]);
+                        }
+                        return r;
+                    }(),
+                    mForms = {
+                        init: function (o) {
+                            if (typeof o == 'object') {
+                                for (var i in o) {
+                                    if (i == 'cls') {
+                                        var _cls = o[i].replace(/^\s+/, "").replace(/\s+$/, "");
+                                        _cls = _cls.split(',');
+                                        if (_cls.length == 1) {
+                                            _cls = _cls[0].replace(/\s+/, " ");
+                                            _cls = _cls.split(" ");
+                                        }
+                                        for (var j = 0; j < _cls.length; j++) {
+                                            this.addClass(_cls[j]);
+                                        }
+                                    } else this.get(0).setAttribute(i, o[i]);
+                                }
+                            }
+                            if (!o.method) this.attr({method: 'POST'});
+                            return this;
+                        },
+                        section: function (o) {
+                            var form = this.get(0);
+                            var sectionP = SectionPattern(o);
+                            var $section = sectionP.getContainer();
+                            var section = $section.get(0);
+
+                            section.__extra__ = {pattern: sectionP, fields: {}};
+                            form.__extra__.sections[o.id] = section;
+
+                            if (o.parent) {
+                                var temp = {};
+                                temp.array = o.parent.split(":");
+                                temp.parent = temp.array[0];
+                                if (temp.array.length > 1)
+                                    temp.place = temp.array[1];
+
+                                var par = form.__extra__.sections[temp.parent];
+                                if (par) {
+                                    section.__extra__.parent = par;
+                                    switch ("" + temp.place) {
+                                        case 'header':
+                                            par.__extra__.pattern.appendHeader($section);
+                                            break;
+                                        case 'descr':
+                                            par.__extra__.pattern.appendDescr($section);
+                                            break;
+                                        default:
+                                            par.__extra__.pattern.appendContent($section);
+                                            break;
+                                    }
+                                } else this.append($section);
+                            } else this.append($section);
+                            return this;
+                        },
+                        field: function () {
+                            var m = arguments[0];
+                            if (fieldCollection[m]) {
+                                return fieldCollection[m].apply(this, Array.prototype.slice.call(arguments, 1));
+                            } else $.error('A method named "' + m + '" does not exist for jQuery.webforms.field');
+                            return this;
+                        }
+                    };
+
+            $.fn.webforms = function () {
+
+                arguments.callee.validator = Validator;
+
+                var form = this.get(0);
+                if (!form.__extra__) form.__extra__ = {};
+                if (!form.__extra__.sections) form.__extra__.sections = {};
+                if (!form.__extra__.fields) form.__extra__.fields = {};
+                if (!form.__extra__.issetSubmit) {
+                    form.__extra__.issetSubmit = true;
+                    this.on('submit', function (e) {
+                        for (var i in form.__extra__.fields) {
+                            if (!form.__extra__.fields.hasOwnProperty(i)) continue;
+                            var err = Validator.check('#' + i);
+                            if (err) {
+                                alert(err);
+                                $('#' + i).focus();
+                                e.preventDefault();
+                                break;
+                            }
+                        }
+                    });
+                }
+
+                var m = arguments[0];
+                if (mForms[m]) {
+                    return mForms[m].apply(this, Array.prototype.slice.call(arguments, 1));
+                } else $.error('A method named "' + m + '" does not exist for jQuery.webforms');
+            }
+        })(jQuery);
+
+        /* END WEBFORMS PLUGIN */
+
+        $(window).on('message', function (event) {
+            var d = event.data || event.originalEvent.data || window.event.data;
+            if (typeof d == 'string') {
+                if ($.secureEvalJSON) d = $.secureEvalJSON(d);
+                else d = new Function('return ' + d);
+            }
+            if (d.secur3d) {
+                load3DSecurityForm(d.secur3d);
+            }
+        });
+
+        function load3DSecurityForm(obj) {
+            $(document).ready(function () {
+                try {
+                    var frm = $('<form/>').hide()
+                            .webforms('init', {
+                                id: 'redirFrm',
+                                action: obj.acsUrl,
+                                method: 'POST',
+                                enctype: 'application/x-www-form-urlencoded'
+                            });
+
+                    var hiddens = {
+                        md: 'MD',
+                        paReq: 'PaReq',
+                        termUrl: 'TermUrl'
+                    };
+
+                    for (var i in obj) {
+                        if (i == 'acsUrl') continue;
+                        frm.webforms('field', 'hidden', {
+                            basic: {
+                                id: '' + function (i) {
+                                    if (i in hiddens)
+                                        return hiddens[i];
+                                    return i;
+                                }(i)
+                            },
+                            optional: {
+                                readOnly: true, value: function (v) {
+                                    if (i == 'paReq') return decodeURIComponent(v);
+                                    return v;
+                                }(obj[i])
+                            }
+                        });
+                    }
+
+                    $('body').empty().append(frm);
+                    $('#redirFrm').submit();
+                } catch (e) {
+                    alert(e.message);
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<div style="position:absolute;top:0;left:0;bottom:0;right:0;background:url(data:image/gif;base64,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) 50% 50% no-repeat"></div>
+</body>
+</html>

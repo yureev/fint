@@ -13,6 +13,7 @@ angular.module('app', [
 
 	require('component-input'),
 	require('component-tabindex'),
+	require('component-spinner2'),
 	require('component-utils'),
 
 	require('_modules/auth'),
