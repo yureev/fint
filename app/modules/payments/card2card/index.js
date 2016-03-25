@@ -35,7 +35,7 @@ function Card2cardCtrl($scope, $http) {
 	};
 
 	this.getTariffs = function () {
-		$http.get('/sendua-external/Info/GetTariffs?tarifftype=web')
+		$http.jsonp('https://stage.send.ua/sendua-external/Info/GetTariffs?tarifftype=web&callback=JSON_CALLBACK')
 			.then(function (response) {
 				var data = response.data;
 
@@ -85,16 +85,15 @@ function card2cardInputDirective() {
 	}
 	
 	function Ctrl($scope, $http, $controller) {
-		var config = $scope.config,
-			Card2cardCtrl = $controller('Card2cardCtrl', {$scope: $scope.$parent});
+		var Card2cardCtrl = $controller('Card2cardCtrl', {$scope: $scope.$parent});
 
 		this.calculate = function () {
-			$scope.commiss = Math.round($scope.amount * config.tariff.comm_percent + config.tariff.comm_fixed);
+			$scope.commiss = Math.round($scope.amount * $scope.config.tariff.comm_percent + $scope.config.tariff.comm_fixed);
 
-			if ($scope.commiss < config.tariff.total_min) {
-				$scope.commiss = config.tariff.total_min / 100;
-			} else if ($scope.commiss > config.tariff.total_max) {
-				$scope.commiss = config.tariff.total_max / 100;
+			if ($scope.commiss < $scope.config.tariff.total_min) {
+				$scope.commiss = $scope.config.tariff.total_min / 100;
+			} else if ($scope.commiss > $scope.config.tariff.total_max) {
+				$scope.commiss = $scope.config.tariff.total_max / 100;
 			} else if (!!$scope.commiss) {
 				$scope.commiss /= 100;
 			} else {
@@ -203,8 +202,7 @@ function card2cardLookupDirective() {
 	}
 
 	function Ctrl($scope, $http, $controller) {
-		var config = $scope.config,
-			Card2cardCtrl = $controller('Card2cardCtrl', {$scope: $scope.$parent});
+		var Card2cardCtrl = $controller('Card2cardCtrl', {$scope: $scope.$parent});
 
 		this.submit = function () {
 
