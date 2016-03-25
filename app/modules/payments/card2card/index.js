@@ -198,7 +198,8 @@ function card2cardLookupDirective() {
 	};
 
 	function postLink(scope, element, attrs, ctrls) {
-		var Card2cardLookupCtrl = ctrls[1];
+		var Card2cardCtrl = ctrls[0],
+			Card2cardLookupCtrl = ctrls[1];
 
 		scope.submit = function () {
 			Card2cardLookupCtrl.submit();
