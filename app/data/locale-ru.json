@@ -100,6 +100,20 @@
       "SUPPORT_TEL": "Телефон сервисной службы",
       "SEND_TO_SERVICE": "Отправить в сервисную<br/> службу",
       "TO_START": "закрыть"
+    },
+    "SUCCESS": {
+      "PAYMENT_SUCCESS": "Перевод успешно выполнен",
+      "TICKET_NUMBER": "Номер квитанции",
+      "TICKET_DATE": "Дата операции",
+      "SENDER_CARD": "Карта отправителя",
+      "RES_CARD": "Карта-получатель",
+      "SUM_SEND": "Сумма перевода",
+      "COMMISSION_DESC": "Комиссия",
+      "SUM_ALL": "Сумма списания",
+      "PRINT_TICKET": "Печать<br/> квитанции",
+      "SEND_TO_EMAIL": "Квитанцию<br/> на почту",
+      "TO_START": "закрыть",
+      "UAH": "грн"
     }
   },
   "MOBILE": {

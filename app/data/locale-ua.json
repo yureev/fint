@@ -100,6 +100,19 @@
       "SUPPORT_TEL": "Телефон сервісної служби",
       "SEND_TO_SERVICE": "Відправити до сервісної<br/> служби",
       "TO_START": "Закрити"
+    },
+    "SUCCESS": {
+      "PAYMENT_SUCCESS": "Переказ успішно виконаний",
+      "TICKET_NUMBER": "Номер квитанції",
+      "TICKET_DATE": "Дата операції",
+      "SENDER_CARD": "Картка відправника",
+      "RES_CARD": "Картка-отримувач",
+      "SUM_SEND": "Сума переказу",
+      "COMMISSION_DESC": "Комісія",
+      "SUM_ALL": "Сума списання",
+      "PRINT_TICKET": "Друк<br/> квитанції",
+      "SEND_TO_EMAIL": "Квитанцію<br/> на пошту",
+      "UAH": "грн"
     }
   },
   "MOBILE": {

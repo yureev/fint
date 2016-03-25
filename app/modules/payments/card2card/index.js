@@ -8,6 +8,7 @@ angular.module('card2card', [
 	.directive('card2cardInput', card2cardInputDirective)
 	.directive('card2cardLookup', card2cardLookupDirective)
 	.directive('card2cardError', card2cardErrorDirective)
+	.directive('card2cardSuccess', card2cardSuccessDirective)
 	.directive('onlyDigits', onlyDigitsDirective)
 	.controller('Card2cardCtrl', ['$scope', '$http', Card2cardCtrl]);
 
@@ -36,7 +37,8 @@ function Card2cardCtrl($scope, $http) {
 		$scope.STATES = {
 			INPUT: "INPUT",
 			ERROR: "ERROR",
-			LOOKUP: "LOOKUP"
+			LOOKUP: "LOOKUP",
+			SUCCESS: "SUCCESS"
 		};
 
 		this.goState = function(state) {
@@ -162,6 +164,7 @@ function card2cardInputDirective() {
 		};
 	}
 }
+
 function card2cardLookupDirective() {
 	return {
 		restrict: 'A',
@@ -172,6 +175,51 @@ function card2cardLookupDirective() {
 		controllerAs: 'vmLookup'
 	};
 
+	function postLink(scope, element, attrs, ctrls) {
+		var Card2cardLookupCtrl = ctrls[1];
+
+		scope.submit = function () {
+			Card2cardLookupCtrl.submit();
+		}
+	}
+
+	function Ctrl($scope, $http) {
+		var config = $scope.config,
+			Card2cardCtrl = $controller('Card2cardCtrl', {$scope: $scope.$parent});
+
+		this.submit = function () {
+			$http({
+				method: 'POST',
+				url: '/sendua-external/ConfirmLookUp/finishlookup',
+				data: {
+					md: $scope.md,
+					paRes: $scope.lookupCode,
+					cvv: '000'
+				}
+			}).then(function successCallback(response) {
+				var data = response.data;
+
+				if(data.state.code == 0) {
+					$scope.operationNumber = data.idClient || data.operationNumber || data.mPayNumber;
+					Card2cardCtrl.goState($scope.STATES.SUCCESS);
+				}
+				
+			}, function errorCallback(response) {
+				
+			});
+		}
+	}
+}
+
+function card2cardSuccessDirective() {
+	return {
+		restrict: 'A',
+		link: postLink,
+		template: require('./templates/success.html'),
+		require: ['^card2card', 'card2cardSuccess'],
+		controller: ['$scope', '$http'],
+	};
+
 	function postLink(scope, element, attrs) {
 
 	}
@@ -180,6 +228,7 @@ function card2cardLookupDirective() {
 
 	}
 }
+
 function card2cardErrorDirective() {
 	return {
 		restrict: 'A',
