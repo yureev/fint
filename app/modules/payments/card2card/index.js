@@ -238,7 +238,7 @@ function card2cardSuccessDirective() {
 		restrict: 'A',
 		link: postLink,
 		template: require('./templates/success.html'),
-		require: ['^card2card', 'card2cardSuccess'],
+		require: ['^card2card'],
 		controller: ['$scope', '$http', '$controller', Ctrl]
 	};
 
@@ -247,7 +247,7 @@ function card2cardSuccessDirective() {
 		
 		scope.goState = function(state) {
 			Card2cardCtrl.goState(state);
-		} 
+		};
 	}
 
 	function Ctrl($scope, $http, $controller) {
@@ -266,10 +266,14 @@ function card2cardErrorDirective() {
 	return {
 		restrict: 'A',
 		link: postLink,
-		template: require('./templates/error.html')
+		template: require('./templates/error.html'),
+		require: '^card2card'
 	};
 
-	function postLink(scope, element, attrs) {
+	function postLink(scope, element, attrs, Card2cardCtrl) {
+		scope.goState = function(state) {
+			Card2cardCtrl.goState(state);
+		}
 	}
 }
 
