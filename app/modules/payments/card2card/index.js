@@ -295,13 +295,16 @@ function amountDirective(){
 	};
 
 	function postLink(scope, element, attr, ModelCtrl) {
-		ModelCtrl.$formatters.push(function(value) {
+		ModelCtrl.$formatters.push(check);
+		ModelCtrl.$parsers.push(check);
+
+		function check(value) {
 			if (!value) {
 				value = 0;
 			}
 
 			return value;
-		});
+		}
 	}
 }
 
