@@ -208,7 +208,7 @@ function card2cardLookupDirective() {
 				method: 'POST',
 				url: '/sendua-external/ConfirmLookUp/finishlookup',
 				data: {
-					md: $scope.transation.md,
+					md: $scope.transaction.md,
 					paRes: $scope.lookupCode,
 					cvv: '000'
 				}
