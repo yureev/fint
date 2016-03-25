@@ -9,7 +9,7 @@
                     <td class="success-description-title" translate="CARD2CARD.SUCCESS.TICKET_NUMBER">Номер
                         квитанции
                     </td>
-                    <td class="success-description-number">{{operationNumber}}</td>
+                    <td class="success-description-number">{{ operationNumber }}</td>
                 </tr>
                 <tr>
                     <td class="success-description-title" translate="CARD2CARD.SUCCESS.TICKET_DATE">Дата операции
@@ -20,28 +20,28 @@
                     <td class="success-description-title" translate="CARD2CARD.SUCCESS.SENDER_CARD">Карта
                         отправителя
                     </td>
-                    <td class="success-description-number">** {{number.substring(-4, 4)}}</td>
+                    <td class="success-description-number">** {{ transaction.number }}</td>
                 </tr>
                 <tr>
                     <td class="success-description-title" translate="CARD2CARD.SUCCESS.RES_CARD">Карта получателя
                     </td>
-                    <td class="success-description-number">** {{send.cardB.cardB4.value}}</td>
+                    <td class="success-description-number">** {{ transaction.numberTarget }}</td>
                 </tr>
                 <tr>
                     <td class="success-description-title" translate="CARD2CARD.SUCCESS.SUM_SEND">Сумма перевода
                     </td>
-                    <td class="success-description-number"><strong>{{amount}}</strong> <span
+                    <td class="success-description-number"><strong>{{ transaction.amount }}</strong> <span
                             translate="CARD2CARD.SUCCESS.UAH"></span></td>
                 </tr>
                 <tr>
                     <td class="success-description-title" translate="CARD2CARD.SUCCESS.COMMISSION_DESC">Комиссия
                     </td>
-                    <td class="success-description-number"><strong>{{commiss}}</strong> <span
+                    <td class="success-description-number"><strong>{{ transaction.commiss }}</strong> <span
                             translate="CARD2CARD.SUCCESS.UAH"></span></td>
                 </tr>
                 <tr>
                     <td class="success-description-title" translate="CARD2CARD.SUCCESS.SUM_ALL">Сумма списания</td>
-                    <td class="success-description-number"><strong>{{total}}</strong> <span
+                    <td class="success-description-number"><strong>{{ transaction.total }}</strong> <span
                             translate="CARD2CARD.SUCCESS.UAH"></span></td>
                 </tr>
                 <tr class="footer">
@@ -56,9 +56,12 @@
                         <span class="mailto-text"
                               translate="CARD2CARD.SUCCESS.SEND_TO_EMAIL">Квитанцию на почту</span>
                     </td>
-                    <td class="success-description-number"><span class="success-close"
-                                                                 translate="CARD2CARD.SUCCESS.TO_START"
-                                                                 data-ng-click="send.changeStage(1, true)">Закрыть</span>
+                    <td class="success-description-number">
+                        <div class="success-close"
+                             translate="CARD2CARD.SUCCESS.TO_START"
+                             type="submit">
+                            Закрыть
+                        </div>
                     </td>
                 </tr>
             </table>

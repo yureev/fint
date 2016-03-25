@@ -90,6 +90,16 @@ function card2cardInputDirective() {
 			Card2cardCtrl = $controller('Card2cardCtrl', {$scope: $scope.$parent});
 
 		this.calculate = function () {
+			Card2cardCtrl.saveTransaction({
+				number: $scope.number.substr(-4),
+				numberTarget: $scope.numberTarget.substr(-4),
+				amount: $scope.amount,
+				commiss: $scope.commiss,
+				total: $scope.total
+			});
+
+			return;
+
 			$scope.commiss = Math.round($scope.amount * config.tariff.comm_percent + config.tariff.comm_fixed);
 
 			if ($scope.commiss < config.tariff.total_min) {
@@ -132,14 +142,6 @@ function card2cardInputDirective() {
 				}
 			}).then(function successCallback(response) {
 				var data = response.data;
-
-				Card2cardCtrl.saveTransaction({
-					number: $scope.number.substring(-4, 4),
-					numberTarget: $scope.numberTarget.substring(-4, 4),
-					amount: $scope.amount,
-					commiss: $scope.comiss,
-					
-				});
 
 				$scope.operationNumber = data.idClient || data.operationNumber;
 
