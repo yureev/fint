@@ -19,6 +19,8 @@ function Card2cardCtrl($scope, $http) {
 		tariffType: 'other'
 	};
 
+	$scope.transaction = {};
+
 	$scope.STATES = {
 		INPUT: "INPUT",
 		ERROR: "ERROR",
@@ -26,15 +28,19 @@ function Card2cardCtrl($scope, $http) {
 		SUCCESS: "SUCCESS"
 	};
 
-	this.goState = function (state) {
+	$scope.goState = function (state) {
 		$scope.state = state;
 	};
 
-	this.saveTransaction = function (transaction) {
-		angular.extend($scope.transaction || {}, transaction);
+	$scope.saveTransaction = function (transaction) {
+		angular.extend($scope.transaction, transaction);
+
+		console.log('saveTransaction');
+		console.log(transaction);
+		console.log($scope);
 	};
 
-	this.getTariffs = function () {
+	$scope.getTariffs = function () {
 		$http.jsonp('https://stage.send.ua/sendua-external/Info/GetTariffs?tarifftype=web&callback=JSON_CALLBACK')
 			.then(function (response) {
 				var data = response.data;
@@ -60,8 +66,8 @@ function card2cardDirective() {
 	function postLink(scope, element, attrs, Card2cardCtrl) {
 		element.addClass('card2card');
 
-		Card2cardCtrl.goState(scope.STATES.INPUT);
-		Card2cardCtrl.getTariffs();
+		scope.goState(scope.STATES.INPUT);
+		scope.getTariffs();
 	}
 }
 
@@ -70,7 +76,7 @@ function card2cardInputDirective() {
 		restrict: 'A',
 		link: postLink,
 		require: ['^card2card', 'card2cardInput'],
-		controller: ['$scope', '$http', '$controller', Ctrl],
+		controller: ['$scope', '$http', Ctrl],
 		controllerAs: 'vmInput',
 		template: require('./templates/input.html')
 	};
@@ -84,9 +90,7 @@ function card2cardInputDirective() {
 		};
 	}
 	
-	function Ctrl($scope, $http, $controller) {
-		var Card2cardCtrl = $controller('Card2cardCtrl', {$scope: $scope.$parent});
-
+	function Ctrl($scope, $http) {
 		this.calculate = function () {
 			$scope.commiss = Math.round($scope.amount * $scope.config.tariff.comm_percent + $scope.config.tariff.comm_fixed);
 
@@ -142,10 +146,14 @@ function card2cardInputDirective() {
 
 				if (data.state.code == 0 || data.state.code == 59) {
 					if(!!data.secur3d && data.secur3d.paReq == 'lookup') {
+						console.log('data');
+						console.log(data);
+
+
 						transaction.md = data.secur3d.md;
 						transaction.cvv =  '';
 
-						Card2cardCtrl.goState($scope.STATES.LOOKUP);
+						$scope.goState($scope.STATES.LOOKUP);
 					} else if (!!data.secur3d) {
 
 
@@ -156,7 +164,7 @@ function card2cardInputDirective() {
 						//	md: data.secur3d.md
 						//};
 
-						// Card2cardCtrl.goState($scope.STATES.3DSEC);
+						// $scope.goState($scope.STATES.3DSEC);
 					} else {
 						//alert('Сервис временно не работает');
 					}
@@ -168,12 +176,12 @@ function card2cardInputDirective() {
 
 					transaction.mPayStatus = data.mPayStatus || data.state.message;
 
-					Card2cardCtrl.goState($scope.STATES.ERROR);
+					$scope.goState($scope.STATES.ERROR);
 				}
 
-				Card2cardCtrl.saveTransaction(transaction);
+				$scope.saveTransaction(transaction);
 			}, function errorCallback(response) {
-				Card2cardCtrl.goState($scope.STATES.ERROR);
+				$scope.goState($scope.STATES.ERROR);
 			});
 		};
 	}
@@ -185,7 +193,7 @@ function card2cardLookupDirective() {
 		link: postLink,
 		template: require('./templates/lookup.html'),
 		require: ['^card2card', 'card2cardLookup'],
-		controller: ['$scope', '$http', '$controller', Ctrl],
+		controller: ['$scope', '$http', Ctrl],
 		controllerAs: 'vmLookup'
 	};
 
@@ -195,15 +203,13 @@ function card2cardLookupDirective() {
 		scope.submit = function () {
 			Card2cardLookupCtrl.submit();
 		};
-		scope.goState = function(state) {
-			Card2cardCtrl.goState(state);
-		}
 	}
 
-	function Ctrl($scope, $http, $controller) {
-		var Card2cardCtrl = $controller('Card2cardCtrl', {$scope: $scope.$parent});
-
+	function Ctrl($scope, $http) {
 		this.submit = function () {
+			console.log('Submit');
+			console.log($scope);
+
 			$http({
 				method: 'POST',
 				url: '/sendua-external/ConfirmLookUp/finishlookup',
@@ -219,15 +225,15 @@ function card2cardLookupDirective() {
 				transaction.operationNumber = data.idClient || data.operationNumber || data.mPayNumber;
 
 				if(data.state.code == 0) {
-					Card2cardCtrl.goState($scope.STATES.SUCCESS);
+					$scope.goState($scope.STATES.SUCCESS);
 				} else {
 					transaction.mPayStatus = $scope.response.errors[$scope.lang][code] ? $scope.response.errors[$scope.lang][code] + '<br/>' + (data.mPayStatus || data.state.message) : (data.mPayStatus || data.state.message);
-					Card2cardCtrl.goState($scope.STATES.ERROR);
+					$scope.goState($scope.STATES.ERROR);
 				}
 
-				Card2cardCtrl.saveTransaction(transaction);
+				$scope.saveTransaction(transaction);
 			}, function errorCallback(response) {
-				Card2cardCtrl.goState($scope.STATES.ERROR);
+				$scope.goState($scope.STATES.ERROR);
 			});
 		}
 	}
@@ -238,19 +244,13 @@ function card2cardSuccessDirective() {
 		restrict: 'A',
 		link: postLink,
 		template: require('./templates/success.html'),
-		require: ['^card2card'],
-		controller: ['$scope', '$http', '$controller', Ctrl]
+		controller: ['$scope', '$http', Ctrl]
 	};
 
-	function postLink(scope, element, attrs, ctrls) {
-		var Card2cardCtrl = ctrls[0];
-		
-		scope.goState = function(state) {
-			Card2cardCtrl.goState(state);
-		};
+	function postLink(scope, element, attrs) {
 	}
 
-	function Ctrl($scope, $http, $controller) {
+	function Ctrl($scope, $http) {
 		$http.get('/sendua-external/Info/GetDateTime')
 			.then(function (response) {
 				var data = response.data;
