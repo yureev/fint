@@ -1,8 +1,8 @@
+(function() {
 angular.module('component-scroll', [])
-	.directive('scrollTo', ['$timeout', scrollToDirective]);
+	.directive('scrollTo', scrollToDirective);
 
-module.exports = 'component-scroll';
-
+scrollToDirective.$inject = ['$timeout'];
 function scrollToDirective($timeout) {
 	return {
 		restrict: 'A',
@@ -19,4 +19,8 @@ function scrollToDirective($timeout) {
 		});
 	}
 }
+})();
+
+module.exports = 'component-scroll';
+
 

@@ -8,31 +8,17 @@ angular.module('card2card', [
 	.directive('card2cardInput', card2cardInputDirective)
 	.directive('card2cardLookup', card2cardLookupDirective)
 	.directive('card2cardError', card2cardErrorDirective)
-	.directive('onlyDigits', onlyDigitsDirective);
+	.directive('onlyDigits', onlyDigitsDirective)
+	.controller('Card2cardCtrl', ['$scope', '$http', Card2cardCtrl]);
 
-module.exports = 'card2card';
-
-function card2cardDirective() {
-	return {
-		restrict: 'A',
-		link: postLink,
-		controller: ['$scope', '$http', Ctrl],
-		controllerAs: 'vm',
-		template: require('./templates/main.html')
-	};
-
-	function postLink(scope, element, attrs) {
-		element.addClass('card2card');
-	}
-
-	function Ctrl($scope, $http) {
+function Card2cardCtrl($scope, $http) {
 		var self = this,
 			config = $scope.config = {
 				tariff: null,
 				tariffType: 'other'
 			},
 			init = function() {
-				$http.jsonp('https://stage.send.ua/sendua-external/Info/GetTariffs?tarifftype=web&callback=JSON_CALLBACK')
+				$http.jsonp('/sendua-external/Info/GetTariffs?tarifftype=web&callback=JSON_CALLBACK')
 					.then(function(response) {
 						var data = response.data;
 
@@ -59,6 +45,21 @@ function card2cardDirective() {
 
 		init();
 	}
+
+module.exports = 'card2card';
+
+function card2cardDirective() {
+	return {
+		restrict: 'A',
+		link: postLink,
+		controller: 'Card2cardCtrl',
+		controllerAs: 'vm',
+		template: require('./templates/main.html')
+	};
+
+	function postLink(scope, element, attrs) {
+		element.addClass('card2card');
+	}
 }
 
 function card2cardInputDirective() {
@@ -66,7 +67,7 @@ function card2cardInputDirective() {
 		restrict: 'A',
 		link: postLink,
 		require: ['^card2card', 'card2cardInput'],
-		controller: ['$scope', '$http', Ctrl],
+		controller: ['$scope', '$http', '$controller', Ctrl],
 		controllerAs: 'vmInput',
 		template: require('./templates/input.html')
 	};
@@ -78,14 +79,11 @@ function card2cardInputDirective() {
 		scope.submit = function() {
 			Card2cardInputCtrl.submit();
 		};
-
-		scope.$watch('c2cForm', function() {
-			window.error = scope.c2cForm.$error;
-		});
 	}
 	
-	function Ctrl($scope, $http) {
-		var config = $scope.config;
+	function Ctrl($scope, $http, $controller) {
+		var config = $scope.config,
+			Card2cardCtrl = $controller('Card2cardCtrl', {$scope: $scope.$parent});
 
 		this.calculate = function () {
 			$scope.commiss = Math.round($scope.amount * config.tariff.comm_percent + config.tariff.comm_fixed);
@@ -103,66 +101,63 @@ function card2cardInputDirective() {
 			$scope.total = $scope.amount + $scope.commiss;
 		};
 
-		this.paramsForCreateOperattion = function(){
-			var data = {};
-			
-			data.ammount = {
-				summa: Math.round($scope.amount * 100),
-				commission: Math.round($scope.commiss * 100),
-				type: 'web'    // parameter from global settings
-			};
-			data.cardFrom = {
-				cardNumber: $scope.number,
-				dateValid: $scope.viewExpire.month + '/' + $scope.viewExpire.year,
-				cvv: $scope.cvc
-			};
-			data.cardTo = $scope.numberTarget;
-			data.inputType = null;
-			data.ipaddress = null;
-			data.maskfrom = null;
-			data.maskto = null;
-			data.mobile = null;
-			data.socialNumber = '+380' + $scope.phone;
-			data.version = "1.0";
-			
-			return data;
-		};
-		
 		this.submit = function() {
 			$http({
 				method: 'POST',
-				url: 'https://stage.send.ua/sendua-external/Card2Card/CreateCard2CardOperation',
-				data: this.paramsForCreateOperattion()
-			}).then(function successCallback(response) {
-				console.log('response: ', response);
-				var data = response.data;
-				$scope.operationNumber = data.idClient || data.operationNumber;
-				if (data.state.code == 0 || data.state.code == 59) {
+				url: '/sendua-external/Card2Card/CreateCard2CardOperation',
+				data: {
+					ammount: {
+						summa: Math.round($scope.amount * 100),
+						commission: Math.round($scope.commiss * 100),
+						type: 'web'    // parameter from global settings
+					},
+					cardFrom: {
+						cardNumber: $scope.number,
+						dateValid: $scope.viewExpire.month + '/' + $scope.viewExpire.year,
+						cvv: $scope.cvc
+					},
+					cardTo: $scope.numberTarget,
+					inputType: null,
+					ipaddress: null,
+					maskfrom: null,
+					maskto: null,
+					mobile: null,
+					socialNumber: '+380' + $scope.phone,
+					version: "1.0"
 
+				}
+			}).then(function successCallback(response) {
+				var data = response.data;
+
+				$scope.operationNumber = data.idClient || data.operationNumber;
+
+				if (data.state.code == 0 || data.state.code == 59) {
 					if(!!data.secur3d && data.secur3d.paReq == 'lookup') {
 						$scope.md = data.secur3d.md;
 						$scope.cvv = '';
-						Card2cardCtrl.goState(scope.STATES.LOOKUP);
+						Card2cardCtrl.goState($scope.STATES.LOOKUP);
 					} else if (!!data.secur3d) {
-						Send.secur3d = {
-							acsUrl: data.secur3d.acsUrl,
-							paReq: data.secur3d.paReq,
-							termUrl: data.secur3d.termUrl,
-							md: data.secur3d.md
-						};
+						//Send.secur3d = {
+						//	acsUrl: data.secur3d.acsUrl,
+						//	paReq: data.secur3d.paReq,
+						//	termUrl: data.secur3d.termUrl,
+						//	md: data.secur3d.md
+						//};
 
-						// Card2cardCtrl.goState(scope.STATES.3DSEC);
+						// Card2cardCtrl.goState($scope.STATES.3DSEC);
 					} else {
 						alert('Сервис временно не работает');
 					}
 				} else {
 					// ERROR
 					var code = (data.state && data.state.code) || data.mErrCode;
+
 					$scope.mPayStatus = $scope.response.errors[$scope.lang][code] ? $scope.response.errors[$scope.lang][code] + '<br/>' + (data.mPayStatus || data.state.message) : (data.mPayStatus || data.state.message);
-					Card2cardCtrl.goState(scope.STATES.ERROR);
+
+					Card2cardCtrl.goState($scope.STATES.ERROR);
 				}
 			}, function errorCallback(response) {
-				console.log('error: ', response);
+				Card2cardCtrl.goState($scope.STATES.ERROR);
 			});
 		};
 	}
