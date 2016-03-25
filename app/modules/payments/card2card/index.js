@@ -58,6 +58,7 @@ function card2cardDirective() {
 	return {
 		restrict: 'A',
 		link: postLink,
+		controller: 'Card2cardCtrl',
 		controllerAs: 'vm',
 		template: require('./templates/main.html')
 	};
