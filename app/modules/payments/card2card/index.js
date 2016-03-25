@@ -136,10 +136,9 @@ function card2cardInputDirective() {
 						numberTarget: $scope.numberTarget.substr(-4),
 						amount: $scope.amount,
 						commiss: $scope.commiss,
-						total: $scope.total
+						total: $scope.total,
+						operationNumber: data.idClient || data.operationNumber
 					};
-
-				$scope.operationNumber = data.idClient || data.operationNumber;
 
 				if (data.state.code == 0 || data.state.code == 59) {
 					if(!!data.secur3d && data.secur3d.paReq == 'lookup') {
