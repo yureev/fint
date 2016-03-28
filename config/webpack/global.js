@@ -7,6 +7,7 @@ var Manifest = require('manifest-revision-webpack-plugin');
 
 var TextPlugin = require('extract-text-webpack-plugin');
 var autoprefixer = require('autoprefixer-core');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 var discardDuplicates = require('postcss-discard-duplicates');
 var discardComments = require('postcss-discard-comments');
 
@@ -123,6 +124,10 @@ module.exports = function (_path) {
 				jQuery: 'jquery',
 				'window.jQuery': 'jquery'
 			}),
+			new CopyWebpackPlugin([
+            	{ from: 'app/assets/iframes', to: 'assets/iframes' }
+        	]),
+
 			new webpack.optimize.CommonsChunkPlugin('vendors', 'assets/js/vendors.[chunkhash].js'),
 			new TextPlugin('assets/css/[name].[chunkhash].css'),
 			new Manifest(path.join(_path + '/config', 'manifest.json'), {
