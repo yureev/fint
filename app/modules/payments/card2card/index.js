@@ -311,6 +311,30 @@ function card2card3dsecDirective($timeout) {
 
             if (d.secure) {
                 //$rootScope.send.changeStage(7);
+				$http({
+					method: 'POST',
+					url: '/sendua-external/Info/GetPayStatus',
+					data: {
+						mErrCode: 0,
+						mPayNumber: $scope.transaction.operationNumber,
+						mPayStatus: $scope.transaction.mPayStatus || ''
+					}
+				}).then(function successCallback(response) {
+					var data = response.data,
+						transaction = {};
+
+					transaction.operationNumber = data.idClient || data.operationNumber || data.mPayNumber;
+
+					if(data.state.code == 0) {
+						$scope.goState($scope.STATES.SUCCESS);
+					} else {
+						transaction.mPayStatus = data.mPayStatus || data.state.message;
+						$scope.goState($scope.STATES.ERROR);
+					}
+					
+				}, function errorCallback(response) {
+					$scope.goState($scope.STATES.ERROR);
+				})
             } else if (d.lang) {
                 //$rootScope.lang = d.lang;
                 //$rootScope.word = $rootScope.vocabulary[$rootScope.lang];
