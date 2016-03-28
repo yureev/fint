@@ -45,7 +45,8 @@ function Card2cardCtrl($scope, $http) {
 	$scope.getTariffs = function () {
 		$scope.tariffs_loader = true;
 
-		$http.jsonp('https://stage.send.ua/sendua-external/Info/GetTariffs?tarifftype=web&callback=JSON_CALLBACK')
+		// $http.get(require('_data/tariffs.json'))
+		$http.get('/sendua-external/Info/GetTariffs?tarifftype=web')
 			.then(function (response) {
 				var data = response.data;
 				angular.forEach(data, function (tariff) {
@@ -92,9 +93,7 @@ function card2cardInputDirective() {
 
 	function postLink(scope, element, attrs, Card2cardInputCtrl) {
 		scope.submit = function() {
-
 			Card2cardInputCtrl.submit()
-
 		};
 	}
 	
@@ -103,16 +102,13 @@ function card2cardInputDirective() {
 			$scope.commiss = Math.round($scope.amount * $scope.config.tariff.comm_percent + $scope.config.tariff.comm_fixed);
 
 			if ($scope.commiss < $scope.config.tariff.total_min) {
-				$scope.commiss = $scope.config.tariff.total_min / 100;
+				$scope.commiss = $scope.config.tariff.total_min;
 			} else if ($scope.commiss > $scope.config.tariff.total_max) {
-				$scope.commiss = $scope.config.tariff.total_max / 100;
-			} else if (!!$scope.commiss) {
-				$scope.commiss /= 100;
-			} else {
-				$scope.commiss = 0;
+				$scope.commiss = $scope.config.tariff.total_max;
 			}
 
-			$scope.total = $scope.amount + $scope.commiss;
+			$scope.total = ($scope.amount*100 + $scope.commiss)/100;
+			$scope.commiss/=100;
 		};
 
 		this.submit = function() {

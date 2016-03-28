@@ -81,14 +81,14 @@
                             </div>
                         </div>
                         <div class="comission">
-                            {{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commiss }}
+                            {{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commiss || 0 }}
                             {{ 'CARD2CARD.AMOUNT.CURRENCY' | translate }}<br>
                             ({{ config.tariff.comm_percent }}% + {{config.tariff.total_min/100 }}
                             {{ 'CARD2CARD.AMOUNT.CURRENCY' | translate }})
                         </div>
                         <div class="total">
                             <strong>
-                                {{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{ total }}
+                                {{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{ total || 0 }}
                                 {{ 'CARD2CARD.AMOUNT.CURRENCY' | translate }}
                             </strong>
                         </div>
