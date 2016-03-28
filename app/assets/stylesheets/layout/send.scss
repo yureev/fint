@@ -25,6 +25,7 @@
 }
 
 $defaultColor: #435B8A;
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300&subset=latin,cyrillic);
 
 /*@font-face {
   font-family: "Roboto Black";
@@ -75,7 +76,8 @@ $defaultColor: #435B8A;
 
 body {
   height: 100%;
-  font-family: "Roboto Light", Arial, sans-serif;
+  font-family: "Roboto", Arial, sans-serif;
+  font-weight: 300;
 }
 
 .container-fluid {
@@ -96,7 +98,7 @@ body {
 
       span {
         letter-spacing: 0.1em;
-        font-weight: bold;
+        font-weight: 700;
       }
     }
     .settings {
@@ -135,7 +137,8 @@ body {
         color: white;
         list-style: none;
         font-size: 14px;
-        font-family: "Roboto Medium", Arial, sans-serif;
+        font-family: "Roboto", Arial, sans-serif;
+        font-weight: 500;
 
         li {
           padding: 1.9em 10px;
@@ -804,7 +807,7 @@ footer {
           width: 140px;
           height: 40px;
           text-align: right;
-          font-weight: bold;
+          font-weight: 700;
         }
 
         &.table-delete {
@@ -1146,7 +1149,7 @@ footer {
           background-color: red;
           color: white;
           text-align: center;
-          font-weight: bold;
+          font-weight: 700;
           font-size: 12px;
 
           &:hover {
@@ -1238,7 +1241,7 @@ footer {
         background-color: #435B8A;
         color: white;
         text-align: left;
-        font-weight: bold;
+        font-weight: 700;
         font-size: 15px;
 
         &:hover {
@@ -1271,7 +1274,7 @@ footer {
       text-align: center;
 
       &.amount, &.commission {
-        font-weight: bold;
+        font-weight: 700;
       }
 
     }
@@ -1349,7 +1352,7 @@ footer {
     color: black !important;
 
     .sheet, .file {
-      font-weight: bold;
+      font-weight: 700;
     }
   }
 }
@@ -1430,7 +1433,7 @@ footer {
         text-align: center;
       }
       &.sum, &.commission {
-        font-weight: bold;
+        font-weight: 700;
       }
 
       .eye {
@@ -1512,7 +1515,7 @@ footer {
         background-color: green;
         color: white;
         text-align: center;
-        font-weight: bold;
+        font-weight: 700;
         font-size: 12px;
       }
 
@@ -1526,7 +1529,7 @@ footer {
         background-color: orange;
         color: white;
         text-align: center;
-        font-weight: bold;
+        font-weight: 700;
         font-size: 12px;
       }
 
@@ -1552,7 +1555,7 @@ footer {
           background-color: red;
           color: white;
           text-align: center;
-          font-weight: bold;
+          font-weight: 700;
           font-size: 12px;
 
           &:hover {
@@ -1601,7 +1604,8 @@ footer {
 
     .tabs {
       list-style: none;
-      font-family: "Roboto Light", Arial, sans-serif;
+      font-family: "Roboto", Arial, sans-serif;
+      font-weight: 300;
       font-size: 1.2em;
 
       li {
@@ -2167,7 +2171,7 @@ footer {
   color: white;
   text-align: center;
   letter-spacing: 2px;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 14px;
 
   .button-block {
@@ -2279,7 +2283,7 @@ footer {
         margin-bottom: 20px;
 
         .bold {
-          font-weight: bold;
+          font-weight: 700;
         }
       }
     }
@@ -2456,7 +2460,8 @@ footer {
   height: 36px;
   text-align: center;
   font-size: 14px;
-  font-family: 'Roboto Medium', 'Arial', sans-serif;
+  font-family: 'Roboto', 'Arial', sans-serif;
+  font-weight: 500;
 }
 
 .login-submit {
@@ -2792,7 +2797,7 @@ footer {
   width: 20px;
   height: 26px;
   background: url("../images/Sprite_sendua.png") -89px -40px no-repeat;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 120%;
   font-family: 'arial', 'sans-serif';
   cursor: pointer;
@@ -2861,7 +2866,7 @@ footer {
         width: 48%;
         background: #FFFFFF;
         text-align: left;
-        font-weight: bold;
+        font-weight: 700;
         font-size: 1.4em;
       }
 
@@ -2961,7 +2966,7 @@ footer {
             left: 10px;
             display: inline-block;
             color: #626B72;
-            font-weight: bold;
+            font-weight: 700;
             font-size: 17px;
 
             &.active {
@@ -2985,7 +2990,7 @@ footer {
           display: table-cell;
           width: 100%;
           vertical-align: middle;
-          font-weight: bold;
+          font-weight: 700;
           font-size: 18px;
         }
         }
