@@ -27,42 +27,7 @@
 $defaultColor: #435B8A;
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300&subset=latin,cyrillic);
 
-/*@font-face {
-  font-family: "Roboto Black";
-  src: url(/css/fonts/roboto/Roboto-Black.ttf);
-}
 
-@font-face {
-  font-family: 'Roboto Light';
-  src: url('/css/fonts/roboto/roboto_light/RobotoLight.eot');
-  src: url('/css/fonts/roboto/roboto_light/RobotoLight.eot?#iefix') format('embedded-opentype'),
-  url('/css/fonts/roboto/roboto_light/RobotoLight.woff') format('woff'),
-  url('/css/fonts/roboto/roboto_light/RobotoLight.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-
-}
-
-@font-face {
-  font-family: 'Roboto Medium';
-  src: url('/css/fonts/roboto/roboto_medium/RobotoMedium.eot');
-  src: url('/css/fonts/roboto/roboto_medium/RobotoMedium.eot?#iefix') format('embedded-opentype'),
-  url('/css/fonts/roboto/roboto_medium/RobotoMedium.woff') format('woff'),
-  url('/css/fonts/roboto/roboto_medium/RobotoMedium.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-
-}
-
-@font-face {
-  font-family: 'Roboto';
-  src: url('/css/fonts/roboto/roboto_regular/RobotoRegular.eot');
-  src: url('/css/fonts/roboto/roboto_regular/RobotoRegular.eot?#iefix') format('embedded-opentype'),
-  url('/css/fonts/roboto/roboto_regular/RobotoRegular.woff') format('woff'),
-  url('/css/fonts/roboto/roboto_regular/RobotoRegular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
 
 @font-face {
   font-family: "HelveticaLight";
@@ -72,7 +37,7 @@ $defaultColor: #435B8A;
   url("/css/fonts/HelveticaLight/HelveticaLight.ttf") format("truetype");
   font-style: normal;
   font-weight: normal;
-}*/
+}
 
 body {
   height: 100%;
@@ -3034,9 +2999,21 @@ footer {
   width: 44px;
   height: 16px;
   background: url("../images/Sprite_sendua.png") no-repeat -148px -45px;
-
   &:hover {
     cursor: pointer;
   }
+}
 
+.button-up {
+  margin: 7px auto;
+  width: 44px;
+  height: 16px;
+  background: url("../images/Sprite_sendua.png") no-repeat -148px -45px;
+  transform: rotate(180deg);
+  &:hover {
+    cursor: pointer;
   }
+}
+
+
+
