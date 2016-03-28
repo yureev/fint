@@ -323,9 +323,11 @@ function card2card3dsecDirective($timeout) {
 					var data = response.data,
 						transaction = {};
 
+					console.log('response', response);
+
 					transaction.operationNumber = data.idClient || data.operationNumber || data.mPayNumber;
 
-					if(data.state.code == 0) {
+					if (data.mErrCode == 0) {
 						$scope.goState($scope.STATES.SUCCESS);
 					} else {
 						transaction.mPayStatus = data.mPayStatus || data.state.message;
