@@ -25,43 +25,9 @@
 }
 
 $defaultColor: #435B8A;
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300&subset=latin,cyrillic);
 
-/*@font-face {
-  font-family: "Roboto Black";
-  src: url(/css/fonts/roboto/Roboto-Black.ttf);
-}
 
-@font-face {
-  font-family: 'Roboto Light';
-  src: url('/css/fonts/roboto/roboto_light/RobotoLight.eot');
-  src: url('/css/fonts/roboto/roboto_light/RobotoLight.eot?#iefix') format('embedded-opentype'),
-  url('/css/fonts/roboto/roboto_light/RobotoLight.woff') format('woff'),
-  url('/css/fonts/roboto/roboto_light/RobotoLight.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-
-}
-
-@font-face {
-  font-family: 'Roboto Medium';
-  src: url('/css/fonts/roboto/roboto_medium/RobotoMedium.eot');
-  src: url('/css/fonts/roboto/roboto_medium/RobotoMedium.eot?#iefix') format('embedded-opentype'),
-  url('/css/fonts/roboto/roboto_medium/RobotoMedium.woff') format('woff'),
-  url('/css/fonts/roboto/roboto_medium/RobotoMedium.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-
-}
-
-@font-face {
-  font-family: 'Roboto';
-  src: url('/css/fonts/roboto/roboto_regular/RobotoRegular.eot');
-  src: url('/css/fonts/roboto/roboto_regular/RobotoRegular.eot?#iefix') format('embedded-opentype'),
-  url('/css/fonts/roboto/roboto_regular/RobotoRegular.woff') format('woff'),
-  url('/css/fonts/roboto/roboto_regular/RobotoRegular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
 
 @font-face {
   font-family: "HelveticaLight";
@@ -71,11 +37,12 @@ $defaultColor: #435B8A;
   url("/css/fonts/HelveticaLight/HelveticaLight.ttf") format("truetype");
   font-style: normal;
   font-weight: normal;
-}*/
+}
 
 body {
   height: 100%;
-  font-family: "Roboto Light", Arial, sans-serif;
+  font-family: "Roboto", Arial, sans-serif;
+  font-weight: 300;
 }
 
 .container-fluid {
@@ -96,7 +63,7 @@ body {
 
       span {
         letter-spacing: 0.1em;
-        font-weight: bold;
+        font-weight: 700;
       }
     }
     .settings {
@@ -135,7 +102,8 @@ body {
         color: white;
         list-style: none;
         font-size: 14px;
-        font-family: "Roboto Medium", Arial, sans-serif;
+        font-family: "Roboto", Arial, sans-serif;
+        font-weight: 500;
 
         li {
           padding: 1.9em 10px;
@@ -804,7 +772,7 @@ footer {
           width: 140px;
           height: 40px;
           text-align: right;
-          font-weight: bold;
+          font-weight: 700;
         }
 
         &.table-delete {
@@ -1146,7 +1114,7 @@ footer {
           background-color: red;
           color: white;
           text-align: center;
-          font-weight: bold;
+          font-weight: 700;
           font-size: 12px;
 
           &:hover {
@@ -1238,7 +1206,7 @@ footer {
         background-color: #435B8A;
         color: white;
         text-align: left;
-        font-weight: bold;
+        font-weight: 700;
         font-size: 15px;
 
         &:hover {
@@ -1271,7 +1239,7 @@ footer {
       text-align: center;
 
       &.amount, &.commission {
-        font-weight: bold;
+        font-weight: 700;
       }
 
     }
@@ -1349,7 +1317,7 @@ footer {
     color: black !important;
 
     .sheet, .file {
-      font-weight: bold;
+      font-weight: 700;
     }
   }
 }
@@ -1430,7 +1398,7 @@ footer {
         text-align: center;
       }
       &.sum, &.commission {
-        font-weight: bold;
+        font-weight: 700;
       }
 
       .eye {
@@ -1512,7 +1480,7 @@ footer {
         background-color: green;
         color: white;
         text-align: center;
-        font-weight: bold;
+        font-weight: 700;
         font-size: 12px;
       }
 
@@ -1526,7 +1494,7 @@ footer {
         background-color: orange;
         color: white;
         text-align: center;
-        font-weight: bold;
+        font-weight: 700;
         font-size: 12px;
       }
 
@@ -1552,7 +1520,7 @@ footer {
           background-color: red;
           color: white;
           text-align: center;
-          font-weight: bold;
+          font-weight: 700;
           font-size: 12px;
 
           &:hover {
@@ -1601,7 +1569,8 @@ footer {
 
     .tabs {
       list-style: none;
-      font-family: "Roboto Light", Arial, sans-serif;
+      font-family: "Roboto", Arial, sans-serif;
+      font-weight: 300;
       font-size: 1.2em;
 
       li {
@@ -2167,7 +2136,7 @@ footer {
   color: white;
   text-align: center;
   letter-spacing: 2px;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 14px;
 
   .button-block {
@@ -2279,7 +2248,7 @@ footer {
         margin-bottom: 20px;
 
         .bold {
-          font-weight: bold;
+          font-weight: 700;
         }
       }
     }
@@ -2456,7 +2425,8 @@ footer {
   height: 36px;
   text-align: center;
   font-size: 14px;
-  font-family: 'Roboto Medium', 'Arial', sans-serif;
+  font-family: 'Roboto', 'Arial', sans-serif;
+  font-weight: 500;
 }
 
 .login-submit {
@@ -2792,7 +2762,7 @@ footer {
   width: 20px;
   height: 26px;
   background: url("../images/Sprite_sendua.png") -89px -40px no-repeat;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 120%;
   font-family: 'arial', 'sans-serif';
   cursor: pointer;
@@ -2861,7 +2831,7 @@ footer {
         width: 48%;
         background: #FFFFFF;
         text-align: left;
-        font-weight: bold;
+        font-weight: 700;
         font-size: 1.4em;
       }
 
@@ -2961,7 +2931,7 @@ footer {
             left: 10px;
             display: inline-block;
             color: #626B72;
-            font-weight: bold;
+            font-weight: 700;
             font-size: 17px;
 
             &.active {
@@ -2985,7 +2955,7 @@ footer {
           display: table-cell;
           width: 100%;
           vertical-align: middle;
-          font-weight: bold;
+          font-weight: 700;
           font-size: 18px;
         }
         }
@@ -3029,9 +2999,21 @@ footer {
   width: 44px;
   height: 16px;
   background: url("../images/Sprite_sendua.png") no-repeat -148px -45px;
-
   &:hover {
     cursor: pointer;
   }
+}
 
+.button-up {
+  margin: 7px auto;
+  width: 44px;
+  height: 16px;
+  background: url("../images/Sprite_sendua.png") no-repeat -148px -45px;
+  transform: rotate(180deg);
+  &:hover {
+    cursor: pointer;
   }
+}
+
+
+

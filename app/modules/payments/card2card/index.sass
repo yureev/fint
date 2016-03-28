@@ -1,13 +1,14 @@
 //STATE ERROR STYLES
+.loader
+	font-size: 8px !important
+
 .state-error
-	margin: 0 auto
+	margin: 50px auto auto
 	width: 440px
 	min-height: 315px
 	font-family: "Roboto Light", Helvetica, Arial, sans-serif
-	background: rgba(255, 255, 255, 0.73)
-	box-shadow: -6px 6px 16px 0 rgba(0, 0, 0, 0.15)
-	-webkit-border-radius: 4px
-	-moz-border-radius: 4px
+	background: rgba(255, 255, 255, .73)
+	box-shadow: -6px 6px 16px 0 rgba(0, 0, 0, .15)
 	border-radius: 4px
 
 	.error-container
@@ -119,9 +120,11 @@
 	.form-container
 		width: 715px
 		margin: 0 auto
+		font-weight: 400
 
 	.form-title
 		font-size: 18px
+		font-weight: 400
 		color: #435B8A
 		letter-spacing: 1.85px
 		line-height: 18px
@@ -172,7 +175,6 @@
 		border: 0px
 		background-color: #FFD3D3
 		transition: background-color 300ms linear
-		&::-webkit-input-placeholder
 
     .ct-input-container
         .form-control-feedback
@@ -255,13 +257,11 @@
 
 //STATE LOOKUP STYLES
 .state-lookup
-	margin: 50px auto
+	margin: 50px auto auto
 	width: 440px
 	height: 315px
 	background: rgba(255, 255, 255, 0.73)
 	box-shadow: -6px 6px 16px 0 rgba(0, 0, 0, 0.15)
-	-webkit-border-radius: 4px
-	-moz-border-radius: 4px
 	border-radius: 4px
 	padding-top: 1px
 	position: relative
@@ -350,11 +350,17 @@
 
 			&:hover
 				cursor: pointer
+					
 
 //STATE SUCCESS STYLES
 .state-success
+	margin: 50px auto auto
 	font-family: "Roboto Light", Helvetica, Arial, sans-serif
-	padding-top: 50px
+	background: rgba(255, 255, 255, 0.73)
+	box-shadow: -6px 6px 16px 0 rgba(0, 0, 0, 0.15)
+	border-radius: 4px
+	width: 450px
+	height: 350px
 
 	.form-title
 		font-family: "Roboto Light", Helvetica, Arial, sans-serif Light
@@ -367,158 +373,8 @@
 		text-transform: uppercase
 
 	.send-success-container
-		width: 450px
-		height: 400px
 		padding: 10px 20px 0 30px
 		margin: 0 auto
-		background: url("./images/ticket.png") 0 0 no-repeat
-
-		.send-success-table
-			width: 100%
-			max-width: 100%
-			margin-bottom: 20px
-			border-spacing: 0
-			border-collapse: collapse
-			line-height: 1.49
-
-			> tr
-				&:first-child
-					background: #435B8A
-					color: white
-
-				&.footer
-					.success-description-title
-						width: 65%
-
-						.mailto-container
-							margin-top: 30px
-
-						.mailto-text
-							margin: 30px 5px 0 8px
-
-					.success-description-number
-						width: 35%
-						float: right
-
-				td
-					padding: 0 10px
-
-		.success-code-title
-			font-size: 22px
-			text-align: center
-			text-transform: uppercase
-			color: black
-
-		.success-description-title
-			font-size: 18px
-			clear: both
-			float: left
-			width: 50%
-
-			.mailto-container
-				margin-top: 30px
-				background: #435B8A
-				width: 33px
-				height: 30px
-				float: left
-				border-radius: 5px
-
-				&:hover
-					opacity: .8
-				a
-					float: left
-					width: 32px
-					height: 30px
-					padding: 6px 3px
-					border-radius: 5px
-					background: #435B8A
-
-				.mailto
-					background: url(./images/Sprite_sendua.png) no-repeat -923px -7px
-					width: 33px
-					height: 22px
-					float: left
-
-				.mailto-text
-					margin: 32px 5px 0 8px
-					line-height: 100%
-					font-size: 12px
-					color: black
-					float: left
-
-		.success-description-number
-			font-size: 18px
-			float: left
-			text-align: right
-			width: 50%
-
-			.success-sum
-				font-weight: bold
-
-			.success-print
-				float: left
-				width: 32px
-				height: 30px
-				-webkit-border-radius: 5px
-				-moz-border-radius: 5px
-				border-radius: 5px
-				background: #435B8A url(./images/Sprite_sendua.png) no-repeat -883.5px -1px
-				clear: both
-				margin-top: 30px
-				margin-left: -10px
-
-				&:hover
-					cursor: pointer
-					opacity: 0.8
-
-			.success-print-text
-				margin: 30px 10px 0
-				line-height: 120%
-				font-size: 12px
-				color: black
-				float: left
-
-			.success-close
-				color: #fff
-				float: right
-				background-color: #435B8A
-				-webkit-border-radius: 5px
-				-moz-border-radius: 5px
-				border-radius: 5px
-				width: 109px
-				height: 30px
-				line-height: 30px
-				text-align: center
-				font-size: 16px
-				margin-top: 30px
-				font-weight: 700
-				text-transform: uppercase
-
-				&:hover
-					cursor: pointer
-					
-
-//STATE SUCCESS STYLES !!!!!!
-.state-success
-	font-family: "Roboto Light", Helvetica, Arial, sans-serif
-	padding-top: 50px
-
-	.form-title
-		font-family: "Roboto Light", Helvetica, Arial, sans-serif Light
-		font-size: 30px
-		color: #435B8A
-		letter-spacing: 1.85px
-		line-height: 18px
-		text-align: center
-		margin-top: 50px
-		text-transform: uppercase
-
-	.send-success-container
-		width: 450px
-		height: 400px
-		padding: 10px 20px 0 30px
-		margin: 0 auto
-		background: url("./images/ticket.png") 0 0 no-repeat
 
 		.send-success-table
 			width: 100%
@@ -644,5 +500,9 @@
 		float: left
 
 
-		
-	
+//STATE 3DSEC STYLES
+.state-3dsec
+	margin: 50px auto
+	background: rgba(255, 255, 255, 0.73)
+	box-shadow: -6px 6px 16px 0 rgba(0, 0, 0, 0.15)
+	border-radius: 4px

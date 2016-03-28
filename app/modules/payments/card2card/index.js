@@ -56,7 +56,7 @@ function Card2cardCtrl($scope, $http) {
 
 			})
 			.finally(function () {
-				$scope.tariffs_loader = false;
+				//$scope.tariffs_loader = false;
 			});
 
 		return;
@@ -302,7 +302,7 @@ function card2card3dsecDirective($timeout) {
 
 	function postLink(scope, element, attrs) {
 	}
-	function Ctrl($scope) {
+	function Ctrl($scope, $http) {
 		angular.element(window).on('message', function (event) {
             var d = event.data || event.originalEvent.data || window.event.data;
             d = JSON.parse(d);
@@ -323,9 +323,11 @@ function card2card3dsecDirective($timeout) {
 					var data = response.data,
 						transaction = {};
 
+					console.log('response', response);
+
 					transaction.operationNumber = data.idClient || data.operationNumber || data.mPayNumber;
 
-					if(data.state.code == 0) {
+					if (data.mErrCode == 0) {
 						$scope.goState($scope.STATES.SUCCESS);
 					} else {
 						transaction.mPayStatus = data.mPayStatus || data.state.message;
