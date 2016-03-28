@@ -33,12 +33,23 @@
                                        ct-payments-format-expire-year-text
                                        ct-payments-validate-year/>
                             </div>
-                            <div ct-input-container>
-                                <input type="text" maxlength="3" id="cvc" name="cvc" class="form-control small-input"
-                                       ng-model="cvc" required tabindex="4" ct-tabindex="checkCvc"
-                                       placeholder="{{ 'CARD2CARD.SOURCE.CVC' | translate }}"
-                                       ct-payments-format-cvc
-                                       ct-payments-validate-cvc/>
+                            <div class="form-group has-feedback">
+                                <div ct-input-container ng-show="showCvc">
+                                    <input type="text" maxlength="3" id="cvc" name="cvc" class="form-control small-input"
+                                           ng-model="cvc" required tabindex="4" ct-tabindex="checkCvc"
+                                           placeholder="{{ 'CARD2CARD.SOURCE.CVC' | translate }}"
+                                           ct-payments-format-cvc
+                                           ct-payments-validate-cvc/>
+                                    <span class="glyphicon glyphicon-eye-open form-control-feedback" ng-click="showCvc = false"></span>
+                                </div>
+                                <div ct-input-container ng-hide="showCvc">
+                                    <input type="password" maxlength="3" id="cvc2" name="cvc2" class="form-control small-input"
+                                           ng-model="cvc" required tabindex="4" ct-tabindex="checkCvc"
+                                           placeholder="{{ 'CARD2CARD.SOURCE.CVC' | translate }}"
+                                           ct-payments-format-cvc
+                                           ct-payments-validate-cvc/>
+                                    <span class="glyphicon glyphicon-eye-close form-control-feedback" ng-click="showCvc = true"></span>
+                                </div>
                             </div>
                             <div ct-input-container class="card-input">
                                 <input type="hidden" name="expire"
@@ -128,6 +139,10 @@
                                 <div ng-message="invalidExpire" translate="CARD2CARD.ERRORS.SOURCE.DATE_EXPIRE"></div>
                             </div>
                             <div ng-messages="c2cForm.cvc.$error" ng-show="c2cForm.cvc.$touched">
+                                <div ng-message="required" translate="CARD2CARD.ERRORS.SOURCE.CVC_REQUIRED"></div>
+                                <div ng-message="invalidCvc" translate="CARD2CARD.ERRORS.SOURCE.CVC_INVALID"></div>
+                            </div>
+                            <div ng-messages="c2cForm.cvc2.$error" ng-show="c2cForm.cvc2.$touched">
                                 <div ng-message="required" translate="CARD2CARD.ERRORS.SOURCE.CVC_REQUIRED"></div>
                                 <div ng-message="invalidCvc" translate="CARD2CARD.ERRORS.SOURCE.CVC_INVALID"></div>
                             </div>
