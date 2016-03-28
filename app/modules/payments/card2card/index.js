@@ -56,7 +56,7 @@ function Card2cardCtrl($scope, $http) {
 
 			})
 			.finally(function () {
-				//$scope.tariffs_loader = false;
+				$scope.tariffs_loader = false;
 			});
 
 		return;

@@ -16,39 +16,46 @@
                                    ct-payments-validate-number
                                    ng-class="c2cForm.number.$card.type"/>
                         </div>
-                        <div class="form-group">
-                            <div ct-input-container>
-                                <input type="text" class="form-control small-input" ct-tabindex="checkMonth" required
-                                       maxlength="2" tabindex="2"
-                                       ng-model="viewExpire.month" name="month" autocomplete="off"
-                                       placeholder="{{ 'CARD2CARD.SOURCE.MONTH' | translate }}"
-                                       ct-payments-format-expire-month-text
-                                       ct-payments-validate-month/>
+                        <div class="row row-centered">
+                            <div class="col-sm-4" ct-input-container>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" ct-tabindex="checkMonth"
+                                           required
+                                           maxlength="2" tabindex="2"
+                                           ng-model="viewExpire.month" name="month" autocomplete="off"
+                                           placeholder="{{ 'CARD2CARD.SOURCE.MONTH' | translate }}"
+                                           ct-payments-format-expire-month-text
+                                           ct-payments-validate-month/>
+                                </div>
                             </div>
-                            <div ct-input-container>
-                                <input type="text" class="form-control small-input" ct-tabindex="checkYear" required
+                            <div class="col-sm-4" ct-input-container>
+                                <input type="text" class="form-control" ct-tabindex="checkYear" required
                                        maxlength="2" tabindex="3"
                                        ng-model="viewExpire.year" name="year" autocomplete="off"
                                        placeholder="{{ 'CARD2CARD.SOURCE.YEAR' | translate }}"
                                        ct-payments-format-expire-year-text
                                        ct-payments-validate-year/>
                             </div>
-                            <div class="form-group has-feedback">
-                                <div ct-input-container ng-show="showCvc">
-                                    <input type="text" maxlength="3" id="cvc" name="cvc" class="form-control small-input"
+                            <div class="has-feedback col-sm-4">
+                                <div class="" ct-input-container ng-show="showCvc">
+                                    <input type="text" maxlength="3" id="cvc" name="cvc"
+                                           class="form-control"
                                            ng-model="cvc" required tabindex="4" ct-tabindex="checkCvc"
                                            placeholder="{{ 'CARD2CARD.SOURCE.CVC' | translate }}"
                                            ct-payments-format-cvc
                                            ct-payments-validate-cvc/>
-                                    <span class="glyphicon glyphicon-eye-open form-control-feedback" ng-click="showCvc = false"></span>
+                                    <span class="glyphicon glyphicon-eye-open form-control-feedback"
+                                          ng-click="showCvc = false"></span>
                                 </div>
                                 <div ct-input-container ng-hide="showCvc">
-                                    <input type="password" maxlength="3" id="cvc2" name="cvc2" class="form-control small-input"
+                                    <input type="password" maxlength="3" id="cvc2" name="cvc2"
+                                           class="form-control small-input"
                                            ng-model="cvc" required tabindex="4" ct-tabindex="checkCvc"
                                            placeholder="{{ 'CARD2CARD.SOURCE.CVC' | translate }}"
                                            ct-payments-format-cvc
                                            ct-payments-validate-cvc/>
-                                    <span class="glyphicon glyphicon-eye-close form-control-feedback" ng-click="showCvc = true"></span>
+                                    <span class="glyphicon glyphicon-eye-close form-control-feedback"
+                                          ng-click="showCvc = true"></span>
                                 </div>
                             </div>
                             <div ct-input-container class="card-input">
