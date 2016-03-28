@@ -9,7 +9,7 @@ angular.module('card2card', [
 	.directive('card2cardLookup', card2cardLookupDirective)
 	.directive('card2cardError', card2cardErrorDirective)
 	.directive('card2cardSuccess', card2cardSuccessDirective)
-	.directive('card2card3dsec', card2card3dsecDirective)
+	.directive('card2card3dsec', ['$timeout', card2card3dsecDirective])
 	.directive('onlyDigits', ['CtUtils', onlyDigitsDirective])
 	.directive('amount', amountDirective)
 	.controller('Card2cardCtrl', ['$scope', '$http', Card2cardCtrl]);
@@ -292,7 +292,7 @@ function card2cardErrorDirective() {
 	}
 }
 
-function card2card3dsecDirective() {
+function card2card3dsecDirective($timeout) {
 	return {
 		restrict: 'A',
 		link: postLink,
@@ -303,11 +303,32 @@ function card2card3dsecDirective() {
 	function postLink(scope, element, attrs) {
 	}
 	function Ctrl($scope) {
-		/*$timeout(function () {
-			console.log($scope.transaction.secur3d);
+		angular.element(window).on('message', function (event) {
+            var d = event.data || event.originalEvent.data || window.event.data;
+            d = JSON.parse(d);
+
+			console.log('MESSAGE 2', d);
+
+            if (d.secure) {
+                //$rootScope.send.changeStage(7);
+            } else if (d.lang) {
+                //$rootScope.lang = d.lang;
+                //$rootScope.word = $rootScope.vocabulary[$rootScope.lang];
+                //localStorage.setItem('lang', $rootScope.lang);
+            } else {
+                //$rootScope.send.changeStage(1, true);
+            }
+
+
+            //$scope.$apply();
+        });
+
+		window.uploadDone = function() {
+			console.log('uploadDone', $scope.transaction.secur3d);
+
 			var iframe = document.getElementById("ifr3Dcard").contentWindow;
 			iframe.postMessage(JSON.stringify({secur3d: $scope.transaction.secur3d}), '*');
-		}, 2500);*/
+		};
 	}
 }
 
