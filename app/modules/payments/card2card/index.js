@@ -43,7 +43,9 @@ function Card2cardCtrl($scope, $http) {
 	};
 
 	$scope.getTariffs = function () {
-		var q = $http.jsonp('https://stage.send.ua/sendua-external/Info/GetTariffs?tarifftype=web&callback=JSON_CALLBACK')
+		$scope.tariffs_loader = true;
+
+		$http.jsonp('https://stage.send.ua/sendua-external/Info/GetTariffs?tarifftype=web&callback=JSON_CALLBACK')
 			.then(function (response) {
 				var data = response.data;
 				angular.forEach(data, function (tariff) {
@@ -51,9 +53,13 @@ function Card2cardCtrl($scope, $http) {
 						$scope.config.tariff = tariff;
 					}
 				});
+
+			})
+			.finally(function () {
+				$scope.tariffs_loader = false;
 			});
 
-		return q;
+		return;
 	};
 }
 
@@ -86,7 +92,6 @@ function card2cardInputDirective() {
 
 	function postLink(scope, element, attrs, Card2cardInputCtrl) {
 		scope.submit = function() {
-			scope.INPUT_LOADING = true;
 
 			Card2cardInputCtrl.submit()
 
@@ -111,6 +116,7 @@ function card2cardInputDirective() {
 		};
 
 		this.submit = function() {
+			$scope.input_loader = true;
 
 			$http({
 				method: 'POST',
@@ -137,7 +143,6 @@ function card2cardInputDirective() {
 
 				}
 			}).then(function successCallback(response) {
-				$scope.INPUT_LOADING = false;
 
 				var data = response.data,
 					transaction = {
@@ -187,6 +192,9 @@ function card2cardInputDirective() {
 				$scope.saveTransaction(transaction);
 			}, function errorCallback(response) {
 				$scope.goState($scope.STATES.ERROR);
+				})
+				.finally(function () {
+					$scope.input_loader = false;
 			});
 		};
 	}
@@ -204,7 +212,6 @@ function card2cardLookupDirective() {
 
 	function postLink(scope, element, attrs, Card2cardLookupCtrl) {
 		scope.submit = function () {
-			scope.LOOKUP_LOADING = true;
 
 			Card2cardLookupCtrl.submit()
 
@@ -215,7 +222,8 @@ function card2cardLookupDirective() {
 		this.submit = function () {
 			console.log('Submit');
 			console.log($scope);
-			
+
+			$scope.lookup_loader = true;
 
 			$http({
 				method: 'POST',
@@ -226,7 +234,6 @@ function card2cardLookupDirective() {
 					cvv: '000'
 				}
 			}).then(function successCallback(response) {
-				$scope.LOOKUP_LOADING = false;
 
 				var data = response.data,
 					transaction = {};
@@ -244,7 +251,7 @@ function card2cardLookupDirective() {
 			}, function errorCallback(response) {
 				$scope.goState($scope.STATES.ERROR);
 			}).finally(function() {
-				loading = false;
+				$scope.lookup_loader = false;
 				
 			});
 		}
