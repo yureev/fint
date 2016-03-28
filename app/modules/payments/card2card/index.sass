@@ -1,489 +1,489 @@
 .loader
-    font-size: 8px !important
+	font-size: 8px !important
 
 .card2card
-    .state-border
-        background: rgba(255, 255, 255, .73)
-        box-shadow: -6px 6px 16px 0 rgba(0, 0, 0, .15)
-        border-radius: 4px
-        margin: 50px auto
-
-    //STATE ERROR STYLES
-    .state-error
-        width: 440px
-        min-height: 315px
-        font-family: "Roboto Light", Helvetica, Arial, sans-serif
-
-        .error-container
-            color: black
-            margin-left: auto
-            margin-right: auto
-            padding: 12px 40px
-            font-size: 14px
-            margin-bottom: 113px
-            position: relative
-
-            .error-header
-                font-size: 20px
-                text-transform: uppercase
-                text-align: center
-                color: #BB1D1A
-                margin-bottom: 25px
-
-            .error-title, .error-title-2
-                .error-code
-                    font-weight: bold
-
-            .error-title
-                text-align: center
-
-                span
-                    color: #BB1D1A
-                    font-size: 18px
-
-                    &:last-child
-                        color: black
-
-            .error-title-2
-                text-align: center
-                font-size: 19px
-                margin-top: 25px
-
-            .error-phone
-                font-weight: bold
-                text-align: center
-
-            .error-exit
-                font-family: Roboto, Helvetica, Arial, sans-serif
-                color: #fff
-                float: right
-                background-color: #435B8A
-                -webkit-border-radius: 5px
-                -moz-border-radius: 5px
-                border-radius: 5px
-                width: 115px
-                height: 30px
-                line-height: 30px
-                text-align: center
-                font-size: 17px
-                margin-top: 32px
-                text-transform: uppercase
-
-                &:hover
-                    cursor: pointer
-
-            .footer
-                width: 340px
-                margin: 0 auto
-                .mailto-container
-                    margin-top: 26px
-                    background: #435B8A
-                    width: 33px
-                    height: 30px
-                    float: left
-                    -webkit-border-radius: 5px
-                    -moz-border-radius: 5px
-                    border-radius: 5px
-                    &:hover
-                        opacity: .8
-                    a
-                        float: left
-                        width: 32px
-                        height: 30px
-                        padding: 6px 3px
-                        -webkit-border-radius: 5px
-                        -moz-border-radius: 5px
-                        border-radius: 5px
-                        background: #435B8A
-                        .mailto
-                            background: url(./images/Sprite_sendua.png) no-repeat -923px -7px
-                            width: 33px
-                            height: 22px
-                            float: left
-                .mailto-text
-                    margin: 32px 15px 0 10px
-                    line-height: 100%
-                    font-size: 12px
-                    color: black
-                    float: left
-
-    //STATE INPUT STYLES
-    .state-input
-        height: 390px
-        width: 95%
-        min-width: 800px
-        max-width: 930px
-        min-height: 350px
-        max-height: 470px
-
-        .form-container
-            width: 715px
-            margin: 0 auto
-            font-weight: 400
-
-        .form-title
-            font-size: 18px
-            font-weight: 400
-            color: #435B8A
-            letter-spacing: 1.85px
-            line-height: 18px
-            text-align: center
-            padding: 35px
-            text-transform: uppercase
-
-        .ct-payments
-
-            &.visa
-                .card-logo
-                    background-image: url('~payment-icons/min/flat/visa.svg')
-
-            &.mastercard
-                .card-logo
-                    background-image: url('~payment-icons/min/flat/mastercard.svg')
-
-            &.maestro
-                .card-logo
-                    background-image: url('~payment-icons/min/flat/maestro.svg')
-
-        .card-logo
-            width: 42px
-            height: 26px
-            background-size: cover
-            background-repeat: no-repeat
-            position: absolute
-            left: 189px
-            top: 53px
-
-        .cards
-            width: 230px
-            height: 150px
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5)
-            border-radius: 9px
-            padding: 12px
-            color: #fff
-            background-size: cover
-            margin: 0 auto
-
-            &.source
-                background-image: url(./images/card_bg_sender.jpg)
-
-            &.target
-                background-image: url(./images/card_bg_reseiver.jpg)
-
-        .ct-input-container.ct-input-invalid .ct-input
-            border: 0px
-            background-color: #FFD3D3
-            transition: background-color 300ms linear
-
-        .ct-input-container
-            .form-control-feedback
-                color: #000
-                pointer-events: all
-                cursor: pointer
-
-        .ct-input
-            border-radius: 5px
-            height: 30px
-
-        .button
-            position: absolute
-            top: 166px
-            left: 261px
-
-        .error
-            font-size: 12px
-            color: #d9534f
-            margin: 0 auto
-
-        .small-input
-            width: 60px
-            float: left
-            margin-right: 8px
-
-        .phone-number
-            margin: 0 auto
-            width: 230px
-            p
-                text-align: center
-                margin: 6px auto 0
-                font-size: 10pt
-            .form-group
-                margin-bottom: 0
-
-        .amount
-            text-align: center
-            span
-                font-size: 12px
-                margin-top: 2px
-            p
-                margin: 0 0 5px
-
-            .form-group
-                height: 35px
-
-            .comission
-                margin-top: 34px
-
-            .comission, .total
-                font-size: 12px
-                text-align: center
-                div:nth-child(1)
-                    font-size: 10pt
-
-                div:nth-child(2)
-                    float: left
-            input
-                width: 50%
-                text-align: center
-                margin: 0 auto
-                float: none
-
-        .submit-check
-            margin: 25px 3px 0 0
-            float: right
-
-            .checkbox
-                font-size: 10pt
-                margin: 5px 30px
-                float: left
-
-            button
-                float: right
-
-        .send-button
-            height: 30px
-            padding: 0 12px
-
-    //STATE LOOKUP STYLES
-    .state-lookup
-        width: 440px
-        height: 315px
-        padding-top: 1px
-        position: relative
-
-        .lookup-close
-            background: url("./images/Sprite_sendua.png") no-repeat -89px -40px
-            width: 20px
-            height: 20px
-            position: absolute
-            right: 5px
-            top: 3px
-
-            &:hover
-                cursor: pointer
-                opacity: .7
-
-        .form-title
-            font-size: 18px
-            color: #435B8A
-            letter-spacing: 1.85px
-            line-height: 18px
-            text-align: center
-            margin-top: 23px
-            text-transform: uppercase
-
-        .lookup-box
-            margin: 0 auto !important
-            display: block
-
-            .lookup-title, .lookup-title-2
-                font-weight: 700
-                width: 355px
-                margin: 15px auto
-                text-align: justify
-                line-height: 167%
-
-                .lookup-code
-                    color: grey
-
-            .lookup-forms
-                margin-top: 45px
-                position: relative
-                right: 50px
-
-                .lookup-sms-title
-                    text-align: right
-                    padding-top: 6px
-                    margin-bottom: 20px
-
-                .lookup-sms-input
-                    width: 100px
-                    height: 30px
-                    text-align: center
-                    -webkit-border-radius: 5px
-                    -moz-border-radius: 5px
-                    border-radius: 5px
-                    border: 1px solid #435B8A
-                    margin-bottom: 20px
-                    font-size: 15px
-                    position: relative
-                    right: 22px
-
-                    &:focus
-                        outline: 0
-
-            .lookup-continue
-                color: #fff
-                text-align: center
-                font-size: 12px
-                padding: 6px 0
-                width: 135px
-                height: 30px
-                background: #435B8A
-                -webkit-border-radius: 5px
-                -moz-border-radius: 5px
-                border-radius: 5px
-                border: 1px solid #435B8A
-                text-transform: uppercase
-                position: relative
-                top: -50px
-                left: 265px
-
-                &.disabled
-                    opacity: .6
-                    border-color: rgba(67, 91, 138, .6)
-
-                &:hover
-                    cursor: pointer
-
-    //STATE SUCCESS STYLES
-    .state-success
-        font-family: "Roboto Light", Helvetica, Arial, sans-serif
-        width: 450px
-        height: 350px
-
-        .form-title
-            font-family: "Roboto Light", Helvetica, Arial, sans-serif Light
-            font-size: 30px
-            color: #435B8A
-            letter-spacing: 1.85px
-            line-height: 18px
-            text-align: center
-            margin-top: 50px
-            text-transform: uppercase
-
-        .send-success-container
-            padding: 10px 20px 0 30px
-            margin: 0 auto
-
-            .send-success-table
-                width: 100%
-                max-width: 100%
-                margin-bottom: 20px
-                border-spacing: 0
-                border-collapse: collapse
-                line-height: 1.49
-
-                > tr
-                    &:first-child
-                        background: #435B8A
-                        color: white
-
-                    &.footer
-                        .success-description-title
-                            width: 65%
-
-                        .success-description-number
-                            width: 35%
-                            float: right
-
-                    td
-                        padding: 0 10px
-
-            .success-code-title
-                font-size: 22px
-                text-align: center
-                text-transform: uppercase
-                color: black
-
-            .success-description-title
-                font-size: 18px
-                clear: both
-                float: left
-                width: 50%
-
-            .success-description-number
-                font-size: 18px
-                float: left
-                text-align: right
-                width: 50%
-
-                .success-sum
-                    font-weight: bold
-
-            .success-print
-                float: left
-                width: 32px
-                height: 30px
-                -webkit-border-radius: 5px
-                -moz-border-radius: 5px
-                border-radius: 5px
-                background: #435B8A url(./images/Sprite_sendua.png) no-repeat -883.5px -1px
-                clear: both
-                margin-top: 30px
-                margin-left: -10px
-
-                &:hover
-                    cursor: pointer
-                    opacity: 0.8
-
-            .success-print-text
-                margin: 30px 10px 0
-                line-height: 120%
-                font-size: 12px
-                color: black
-                float: left
-
-            .success-close
-                color: #fff
-                float: right
-                background-color: #435B8A
-                -webkit-border-radius: 5px
-                -moz-border-radius: 5px
-                border-radius: 5px
-                width: 109px
-                height: 30px
-                line-height: 30px
-                text-align: center
-                font-size: 16px
-                margin-top: 30px
-                font-weight: 700
-                text-transform: uppercase
-
-                &:hover
-                    cursor: pointer
-
-        .mailto-container
-            margin-top: 30px
-            background: #435B8A
-            width: 33px
-            height: 30px
-            float: left
-            -webkit-border-radius: 5px
-            -moz-border-radius: 5px
-            border-radius: 5px
-
-            &:hover
-                opacity: 0.8
-
-            a
-                float: left
-                width: 32px
-                height: 30px
-                padding: 6px 3px
-                -webkit-border-radius: 5px
-                -moz-border-radius: 5px
-                border-radius: 5px
-                background: #435B8A
-                .mailto
-                    background: url(./images/Sprite_sendua.png) no-repeat -923px -7px
-                    width: 33px
-                    height: 22px
-                    float: left
-
-        .mailto-text
-            margin: 30px 5px 0 8px
-            line-height: 100%
-            font-size: 12px
-            color: black
-            float: left
+	.state-border
+		background: rgba(255, 255, 255, .73)
+		box-shadow: -6px 6px 16px 0 rgba(0, 0, 0, .15)
+		border-radius: 4px
+		margin: 50px auto
+
+	//STATE ERROR STYLES
+	.state-error
+		width: 440px
+		min-height: 315px
+		font-family: "Roboto Light", Helvetica, Arial, sans-serif
+
+		.error-container
+			color: black
+			margin-left: auto
+			margin-right: auto
+			padding: 12px 40px
+			font-size: 14px
+			margin-bottom: 113px
+			position: relative
+
+			.error-header
+				font-size: 20px
+				text-transform: uppercase
+				text-align: center
+				color: #BB1D1A
+				margin-bottom: 25px
+
+			.error-title, .error-title-2
+				.error-code
+					font-weight: bold
+
+			.error-title
+				text-align: center
+
+				span
+					color: #BB1D1A
+					font-size: 18px
+
+					&:last-child
+						color: black
+
+			.error-title-2
+				text-align: center
+				font-size: 19px
+				margin-top: 25px
+
+			.error-phone
+				font-weight: bold
+				text-align: center
+
+			.error-exit
+				font-family: Roboto, Helvetica, Arial, sans-serif
+				color: #fff
+				float: right
+				background-color: #435B8A
+				-webkit-border-radius: 5px
+				-moz-border-radius: 5px
+				border-radius: 5px
+				width: 115px
+				height: 30px
+				line-height: 30px
+				text-align: center
+				font-size: 17px
+				margin-top: 32px
+				text-transform: uppercase
+
+				&:hover
+					cursor: pointer
+
+			.footer
+				width: 340px
+				margin: 0 auto
+				.mailto-container
+					margin-top: 26px
+					background: #435B8A
+					width: 33px
+					height: 30px
+					float: left
+					-webkit-border-radius: 5px
+					-moz-border-radius: 5px
+					border-radius: 5px
+					&:hover
+						opacity: .8
+					a
+						float: left
+						width: 32px
+						height: 30px
+						padding: 6px 3px
+						-webkit-border-radius: 5px
+						-moz-border-radius: 5px
+						border-radius: 5px
+						background: #435B8A
+						.mailto
+							background: url(./images/Sprite_sendua.png) no-repeat -923px -7px
+							width: 33px
+							height: 22px
+							float: left
+				.mailto-text
+					margin: 32px 15px 0 10px
+					line-height: 100%
+					font-size: 12px
+					color: black
+					float: left
+
+	//STATE INPUT STYLES
+	.state-input
+		height: 390px
+		width: 95%
+		min-width: 800px
+		max-width: 930px
+		min-height: 350px
+		max-height: 470px
+
+		.form-container
+			width: 715px
+			margin: 0 auto
+			font-weight: 400
+
+		.form-title
+			font-size: 18px
+			font-weight: 400
+			color: #435B8A
+			letter-spacing: 1.85px
+			line-height: 18px
+			text-align: center
+			padding: 35px
+			text-transform: uppercase
+
+		.ct-payments
+
+			&.visa
+				.card-logo
+					background-image: url('~payment-icons/min/flat/visa.svg')
+
+			&.mastercard
+				.card-logo
+					background-image: url('~payment-icons/min/flat/mastercard.svg')
+
+			&.maestro
+				.card-logo
+					background-image: url('~payment-icons/min/flat/maestro.svg')
+
+		.card-logo
+			width: 42px
+			height: 26px
+			background-size: cover
+			background-repeat: no-repeat
+			position: absolute
+			left: 189px
+			top: 53px
+
+		.cards
+			width: 230px
+			height: 150px
+			box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5)
+			border-radius: 9px
+			padding: 12px
+			color: #fff
+			background-size: cover
+			margin: 0 auto
+
+			&.source
+				background-image: url(./images/card_bg_sender.jpg)
+
+			&.target
+				background-image: url(./images/card_bg_reseiver.jpg)
+
+		.ct-input-container.ct-input-invalid .ct-input
+			border: 0px
+			background-color: #FFD3D3
+			transition: background-color 300ms linear
+
+		.ct-input-container
+			.form-control-feedback
+				color: #000
+				pointer-events: all
+				cursor: pointer
+
+		.ct-input
+			border-radius: 5px
+			height: 30px
+
+		.button
+			position: absolute
+			top: 166px
+			left: 261px
+
+		.error
+			font-size: 12px
+			color: #d9534f
+			margin: 0 auto
+
+		.small-input
+			width: 60px
+			float: left
+			margin-right: 8px
+
+		.phone-number
+			margin: 0 auto
+			width: 230px
+			p
+				text-align: center
+				margin: 6px auto 0
+				font-size: 10pt
+			.form-group
+				margin-bottom: 0
+
+		.amount
+			text-align: center
+			span
+				font-size: 12px
+				margin-top: 2px
+			p
+				margin: 0 0 5px
+
+			.form-group
+				height: 35px
+
+			.comission
+				margin-top: 34px
+
+			.comission, .total
+				font-size: 12px
+				text-align: center
+				div:nth-child(1)
+					font-size: 10pt
+
+				div:nth-child(2)
+					float: left
+			input
+				width: 50%
+				text-align: center
+				margin: 0 auto
+				float: none
+
+		.submit-check
+			margin: 25px 3px 0 0
+			float: right
+
+			.checkbox
+				font-size: 10pt
+				margin: 5px 30px
+				float: left
+
+			button
+				float: right
+
+		.send-button
+			height: 30px
+			padding: 0 12px
+
+	//STATE LOOKUP STYLES
+	.state-lookup
+		width: 440px
+		height: 315px
+		padding-top: 1px
+		position: relative
+
+		.lookup-close
+			background: url("./images/Sprite_sendua.png") no-repeat -89px -40px
+			width: 20px
+			height: 20px
+			position: absolute
+			right: 5px
+			top: 3px
+
+			&:hover
+				cursor: pointer
+				opacity: .7
+
+		.form-title
+			font-size: 18px
+			color: #435B8A
+			letter-spacing: 1.85px
+			line-height: 18px
+			text-align: center
+			margin-top: 23px
+			text-transform: uppercase
+
+		.lookup-box
+			margin: 0 auto !important
+			display: block
+
+			.lookup-title, .lookup-title-2
+				font-weight: 700
+				width: 355px
+				margin: 15px auto
+				text-align: justify
+				line-height: 167%
+
+				.lookup-code
+					color: grey
+
+			.lookup-forms
+				margin-top: 45px
+				position: relative
+				right: 50px
+
+				.lookup-sms-title
+					text-align: right
+					padding-top: 6px
+					margin-bottom: 20px
+
+				.lookup-sms-input
+					width: 100px
+					height: 30px
+					text-align: center
+					-webkit-border-radius: 5px
+					-moz-border-radius: 5px
+					border-radius: 5px
+					border: 1px solid #435B8A
+					margin-bottom: 20px
+					font-size: 15px
+					position: relative
+					right: 22px
+
+					&:focus
+						outline: 0
+
+			.lookup-continue
+				color: #fff
+				text-align: center
+				font-size: 12px
+				padding: 6px 0
+				width: 135px
+				height: 30px
+				background: #435B8A
+				-webkit-border-radius: 5px
+				-moz-border-radius: 5px
+				border-radius: 5px
+				border: 1px solid #435B8A
+				text-transform: uppercase
+				position: relative
+				top: -50px
+				left: 265px
+
+				&.disabled
+					opacity: .6
+					border-color: rgba(67, 91, 138, .6)
+
+				&:hover
+					cursor: pointer
+
+	//STATE SUCCESS STYLES
+	.state-success
+		font-family: "Roboto Light", Helvetica, Arial, sans-serif
+		width: 450px
+		height: 350px
+
+		.form-title
+			font-family: "Roboto Light", Helvetica, Arial, sans-serif Light
+			font-size: 30px
+			color: #435B8A
+			letter-spacing: 1.85px
+			line-height: 18px
+			text-align: center
+			margin-top: 50px
+			text-transform: uppercase
+
+		.send-success-container
+			padding: 10px 20px 0 30px
+			margin: 0 auto
+
+			.send-success-table
+				width: 100%
+				max-width: 100%
+				margin-bottom: 20px
+				border-spacing: 0
+				border-collapse: collapse
+				line-height: 1.49
+
+				> tr
+					&:first-child
+						background: #435B8A
+						color: white
+
+					&.footer
+						.success-description-title
+							width: 65%
+
+						.success-description-number
+							width: 35%
+							float: right
+
+					td
+						padding: 0 10px
+
+			.success-code-title
+				font-size: 22px
+				text-align: center
+				text-transform: uppercase
+				color: black
+
+			.success-description-title
+				font-size: 18px
+				clear: both
+				float: left
+				width: 50%
+
+			.success-description-number
+				font-size: 18px
+				float: left
+				text-align: right
+				width: 50%
+
+				.success-sum
+					font-weight: bold
+
+			.success-print
+				float: left
+				width: 32px
+				height: 30px
+				-webkit-border-radius: 5px
+				-moz-border-radius: 5px
+				border-radius: 5px
+				background: #435B8A url(./images/Sprite_sendua.png) no-repeat -883.5px -1px
+				clear: both
+				margin-top: 30px
+				margin-left: -10px
+
+				&:hover
+					cursor: pointer
+					opacity: 0.8
+
+			.success-print-text
+				margin: 30px 10px 0
+				line-height: 120%
+				font-size: 12px
+				color: black
+				float: left
+
+			.success-close
+				color: #fff
+				float: right
+				background-color: #435B8A
+				-webkit-border-radius: 5px
+				-moz-border-radius: 5px
+				border-radius: 5px
+				width: 109px
+				height: 30px
+				line-height: 30px
+				text-align: center
+				font-size: 16px
+				margin-top: 30px
+				font-weight: 700
+				text-transform: uppercase
+
+				&:hover
+					cursor: pointer
+
+		.mailto-container
+			margin-top: 30px
+			background: #435B8A
+			width: 33px
+			height: 30px
+			float: left
+			-webkit-border-radius: 5px
+			-moz-border-radius: 5px
+			border-radius: 5px
+
+			&:hover
+				opacity: 0.8
+
+			a
+				float: left
+				width: 32px
+				height: 30px
+				padding: 6px 3px
+				-webkit-border-radius: 5px
+				-moz-border-radius: 5px
+				border-radius: 5px
+				background: #435B8A
+				.mailto
+					background: url(./images/Sprite_sendua.png) no-repeat -923px -7px
+					width: 33px
+					height: 22px
+					float: left
+
+		.mailto-text
+			margin: 30px 5px 0 8px
+			line-height: 100%
+			font-size: 12px
+			color: black
+			float: left
