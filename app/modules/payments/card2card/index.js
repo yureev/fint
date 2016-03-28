@@ -302,7 +302,7 @@ function card2card3dsecDirective($timeout) {
 
 	function postLink(scope, element, attrs) {
 	}
-	function Ctrl($scope) {
+	function Ctrl($scope, $http) {
 		angular.element(window).on('message', function (event) {
             var d = event.data || event.originalEvent.data || window.event.data;
             d = JSON.parse(d);
