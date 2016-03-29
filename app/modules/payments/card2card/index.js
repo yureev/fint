@@ -43,10 +43,13 @@ function Card2cardCtrl($scope, $http) {
 	};
 
 	$scope.getTariffs = function () {
+		var url = $scope.NODE_ENV == 'development' ?
+			require('_data/tariffs.json') :
+			'/sendua-external/Info/GetTariffs?tarifftype=web';
+
 		$scope.tariffs_loader = true;
 
-		// $http.get(require('_data/tariffs.json'))
-		$http.get('/sendua-external/Info/GetTariffs?tarifftype=web')
+		$http.get(url)
 			.then(function (response) {
 				var data = response.data;
 				angular.forEach(data, function (tariff) {
@@ -59,8 +62,6 @@ function Card2cardCtrl($scope, $http) {
 			.finally(function () {
 				$scope.tariffs_loader = false;
 			});
-
-		return;
 	};
 }
 

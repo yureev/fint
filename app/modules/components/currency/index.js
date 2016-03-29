@@ -1,9 +1,48 @@
 angular.module('component-currency', [])
-	.directive('ctCurrency', ctCurrencyDirective);
+	.filter('ctCurrency', ctCurrencyFilter)
+	.directive('ctCurrency', ['CtUtils', ctCurrencyDirective]);
 
-module.exports = 'component-currency';
+function ctCurrencyFilter() {
+	return function(value) {
+		var formated, intVal, decVal,
+			lastComma, index;
 
-function ctCurrencyDirective() {
+		value = typeof value == 'number' ? value.toString() : value;
+
+		formated = value.replace(/,/g, '').split('.');
+		intVal = formated[0];
+		decVal = formated[1] || '00';
+
+		if (decVal.length > 2) {
+			decVal = decVal.substr(0, 2);
+		}
+
+		intVal = intVal
+			.split('');
+
+		for (var i = Math.floor(intVal.length / 3); i > 0; --i) {
+			lastComma = intVal.indexOf(',');
+
+			if (lastComma == -1) {
+				index = intVal.length - 3;
+			} else {
+				index = lastComma - 3;
+			}
+
+			if (index === 0) {
+				break;
+			}
+
+			intVal.splice(index, 0, ',');
+		}
+
+		formated = intVal.join('') + '.' + decVal;
+
+		return formated
+	}
+}
+
+function ctCurrencyDirective(CtUtils) {
 	return {
 		restrict: 'A',
 		require: 'ngModel',
@@ -29,9 +68,9 @@ function ctCurrencyDirective() {
 			}
 		}
 
-		element.on('focus click', onFocus);
+		element.on('focus', onFocus);
 
-		element.on('keydown', onKeyDown);
+		element.on('keypress', onKeyPress);
 
 		element.on('keyup', onKeyUp);
 
@@ -46,7 +85,7 @@ function ctCurrencyDirective() {
 			if (modelValue) {
 
 			} else {
-				modelValue = '0.00'
+				modelValue = '0'
 			}
 
 			return modelValue;
@@ -54,40 +93,28 @@ function ctCurrencyDirective() {
 
 		function onFocus() {
 			var value = element.val(),
-				elemDOM = element[0],
-				pos,
-				dotPos = value.indexOf('.');
+				elemDOM = element[0];
 
 			setTimeout(function() {
-				pos = elemDOM.selectionStart;
-
-				//selectint
-				if (pos <= dotPos && !ngModelCtrl.$modelValue) {
-					elemDOM.setSelectionRange(0, dotPos);
-
-					return;
-				}
-
-				if (pos > dotPos) {
-					elemDOM.setSelectionRange(dotPos + 1, value.length + 1);
-				}
+				elemDOM.setSelectionRange(0, value.length + 1);
 			}, 10)
 		}
 
-		function onKeyDown(e) {
-			var char = String.fromCharCode(e.keyCode);
+		function onKeyPress(e) {
+			var char = CtUtils.getChar(e);
 
-			if (!char.match(/\./)) {
+			if (!char.match(/./)) {
 				return;
 			}
 
-			if (char.match(/[^\.|\d]/)) {
+			if (!char.match(/\d/)) {
 				e.preventDefault();
 			}
 		}
 
+
 		function onKeyUp(e) {
-			var value, formated, intVal, decVal,
+			var value, formated,
 				elemDOM = element[0],
 				lastComma, index, pos;
 
@@ -97,22 +124,13 @@ function ctCurrencyDirective() {
 			pos = elemDOM.selectionStart;
 
 			value = element.val();
-			formated = value.replace(/,/g, '').split('.');
-			intVal = formated[0];
-			decVal = formated[1];
+			formated = value.replace(/,/g, '').split('');
 
-			if (decVal.length > 2) {
-				decVal = decVal.substr(0, 2);
-			}
-
-			intVal = intVal
-				.split('');
-
-			for (var i = Math.floor(intVal.length / 3); i > 0; --i) {
-				lastComma = intVal.indexOf(',');
+			for (var i = Math.floor(formated.length / 3); i > 0; --i) {
+				lastComma = formated.indexOf(',');
 
 				if (lastComma == -1) {
-					index = intVal.length - 3;
+					index = formated.length - 3;
 				} else {
 					index = lastComma - 3;
 				}
@@ -121,10 +139,10 @@ function ctCurrencyDirective() {
 					break;
 				}
 
-				intVal.splice(index, 0, ',');
+				formated.splice(index, 0, ',');
 			}
 
-			formated = intVal.join('') + '.' + decVal;
+			formated = formated.join('');
 
 			ngModelCtrl.$setViewValue(formated);
 			ngModelCtrl.$render();
@@ -142,3 +160,5 @@ function ctCurrencyDirective() {
 		}
 	}
 }
+
+module.exports = 'component-currency';

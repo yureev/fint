@@ -60,9 +60,9 @@
                     <div class="amount">
                         <p><strong>{{ 'CARD2CARD.AMOUNT.TITLE' | translate }}</strong></p>
                         <div class="form-group" ct-input-container>
-                            <input type="number" name="amount" class="form-control" tabindex="6"
+                            <input type="text" name="amount" class="form-control" tabindex="6"
                                    ng-model="amount" ng-change="vmInput.calculate()" min="1" max="25000" required
-                                   autocomplete="off" amount/>
+                                   autocomplete="off" ct-currency/>
                             <span>{{ 'CARD2CARD.AMOUNT.RANGE' | translate }}</span>
                             <div ng-messages="c2cForm.amount.$error">
                                 <div ng-message="required">{{ 'CARD2CARD.ERRORS.AMOUNT.AMOUNT_REQUIRED' | translate }}
@@ -72,14 +72,14 @@
                             </div>
                         </div>
                         <div class="comission">
-                            {{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commiss || 0 }}
+                            {{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commiss || 0 | ctCurrency }}
                             {{ 'CARD2CARD.AMOUNT.CURRENCY' | translate }}<br>
-                            ({{ config.tariff.comm_percent }}% + {{config.tariff.total_min/100 }}
+                            ({{ config.tariff.comm_percent }}% + {{config.tariff.total_min/100 | ctCurrency }}
                             {{ 'CARD2CARD.AMOUNT.CURRENCY' | translate }})
                         </div>
                         <div class="total">
                             <strong>
-                                {{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{ total || 0 }}
+                                {{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{ total || 0 | ctCurrency }}
                                 {{ 'CARD2CARD.AMOUNT.CURRENCY' | translate }}
                             </strong>
                         </div>
