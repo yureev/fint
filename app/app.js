@@ -24,6 +24,8 @@ angular.module('app', [
 		function ($rootScope, $state, $stateParams, session) {
 			var $body = angular.element('body');
 
+			$rootScope.NODE_ENV = process.env.NODE_ENV;
+
 			$rootScope.$state = $state;
 			$rootScope.$stateParams = $stateParams;
 

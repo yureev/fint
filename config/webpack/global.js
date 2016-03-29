@@ -119,6 +119,7 @@ module.exports = function (_path) {
 
 		// load plugins
 		plugins: [
+			new webpack.EnvironmentPlugin('NODE_ENV'),
 			new webpack.ProvidePlugin({
 				$: 'jquery',
 				jQuery: 'jquery',
