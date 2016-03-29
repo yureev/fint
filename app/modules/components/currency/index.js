@@ -9,7 +9,7 @@ function ctCurrencyFilter() {
 
 		value = typeof value == 'number' ? value.toString() : value;
 
-		formated = value.replace(/,/g, '').split('.');
+		formated = value.replace(/ /g, '').split('.');
 		intVal = formated[0];
 		decVal = formated[1] || '00';
 
@@ -21,7 +21,7 @@ function ctCurrencyFilter() {
 			.split('');
 
 		for (var i = Math.floor(intVal.length / 3); i > 0; --i) {
-			lastComma = intVal.indexOf(',');
+			lastComma = intVal.indexOf(' ');
 
 			if (lastComma == -1) {
 				index = intVal.length - 3;
@@ -33,7 +33,7 @@ function ctCurrencyFilter() {
 				break;
 			}
 
-			intVal.splice(index, 0, ',');
+			intVal.splice(index, 0, ' ');
 		}
 
 		formated = intVal.join('') + '.' + decVal;
@@ -76,7 +76,7 @@ function ctCurrencyDirective(CtUtils) {
 
 		function parser(viewValue) {
 			viewValue = viewValue
-				.replace(/,/g, '');
+				.replace(/ /g, '');
 
 			return parseFloat(viewValue);
 		}
@@ -124,10 +124,10 @@ function ctCurrencyDirective(CtUtils) {
 			pos = elemDOM.selectionStart;
 
 			value = element.val();
-			formated = value.replace(/,/g, '').split('');
+			formated = value.replace(/ /g, '').split('');
 
 			for (var i = Math.floor(formated.length / 3); i > 0; --i) {
-				lastComma = formated.indexOf(',');
+				lastComma = formated.indexOf(' ');
 
 				if (lastComma == -1) {
 					index = formated.length - 3;
@@ -139,7 +139,7 @@ function ctCurrencyDirective(CtUtils) {
 					break;
 				}
 
-				formated.splice(index, 0, ',');
+				formated.splice(index, 0, ' ');
 			}
 
 			formated = formated.join('');
