@@ -45,7 +45,8 @@
                                            placeholder="{{ 'CARD2CARD.SOURCE.CVC' | translate }}"
                                            ct-payments-format-cvc
                                            ct-payments-validate-cvc/>
-                                    <span class="glyphicon glyphicon-eye-open form-control-feedback"
+                                    <span class="glyphicon form-control-feedback"
+                                          ng-class="{'glyphicon-eye-open': cvcType == 'text', 'glyphicon-eye-close': cvcType == 'password'}"
                                           ng-click="toggleCvc()"></span>
                                 </div>
                             </div>
