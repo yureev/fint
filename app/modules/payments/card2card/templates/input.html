@@ -17,7 +17,8 @@
                                    ng-class="c2cForm.number.$card.type"/>
                         </div>
                         <div class="row row-centered">
-                            <div class="col-sm-4" ct-input-container>
+                            <div class="col-sm-4" ng-class="{'ct-input-invalid': !expire && c2cForm.month.$touched}"
+                                 ct-input-container>
                                 <div class="form-group">
                                     <input type="text" class="form-control" ct-tabindex="checkMonth"
                                            required
@@ -28,8 +29,9 @@
                                            ct-payments-validate-month/>
                                 </div>
                             </div>
-                            <div class="col-sm-4" ct-input-container>
-                                <input type="text" class="form-control" ct-tabindex="checkYear" required
+                            <div class="col-sm-4" ct-input-container
+                                 ng-class="{'ct-input-invalid': !expire && c2cForm.year.$touched}">
+                                <input type="text" class="form-control" required ct-tabindex="checkYear"
                                        maxlength="2" tabindex="3"
                                        ng-model="viewExpire.year" name="year" autocomplete="off"
                                        placeholder="{{ 'CARD2CARD.SOURCE.YEAR' | translate }}"
@@ -39,7 +41,7 @@
                             <div class="has-feedback col-sm-4">
                                 <div ct-input-container>
                                     <input type="{{ cvcType }}" maxlength="3" id="cvc" name="cvc"
-                                           class="form-control"
+                                           class="form-control" autocomplete="off"
                                            ng-model="cvc" required tabindex="4" ct-tabindex="checkCvc"
                                            placeholder="{{ 'CARD2CARD.SOURCE.CVC' | translate }}"
                                            ct-payments-format-cvc
@@ -90,7 +92,7 @@
                         <h4>{{ 'CARD2CARD.TARGET.TITLE' | translate }}</h4>
                         <div class="form-group card-dest" ct-input-container>
                             <input type="text" name="numberTarget" class="form-control" ct-tabindex="checkTargetNumber"
-                                   ng-model="numberTarget" required tabindex="7"
+                                   ng-model="numberTarget" required tabindex="7" autocomplete="off"
                                    placeholder="{{ 'CARD2CARD.TARGET.NUMBER' | translate }}"
                                    ct-payments-format-number
                                    ct-payments-validate-number/>
@@ -104,7 +106,7 @@
                         <div class="form-group" ct-input-container>
                             <p>{{ 'CARD2CARD.SOURCE.PHONE_NUMBER' | translate }}</p>
                             <input type="text" name="phone" class="form-control" ui-mask="+380 (99) 999 99 99"
-                                   tabindex="5"
+                                   tabindex="5" autocomplete="off"
                                    ct-tabindex="checkPhone" ng-model="phone" tabindex="5"
                                    required placeholder="+380 (__) ___-__-__"/>
                         </div>
