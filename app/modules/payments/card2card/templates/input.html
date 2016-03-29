@@ -17,11 +17,10 @@
                                    ng-class="c2cForm.number.$card.type"/>
                         </div>
                         <div class="row row-centered">
-                            <div class="col-sm-4" ng-class="{'ct-input-invalid': !expire && c2cForm.month.$touched}"
-                                 ct-input-container>
+                            <div class="col-sm-4" ng-class="{'ct-input-invalid': c2cForm.expire.$error && c2cForm.expire.$error.invalidExpire}"
+                                ct-input-container>
                                 <div class="form-group">
                                     <input type="text" class="form-control" ct-tabindex="checkMonth"
-                                           required
                                            maxlength="2" tabindex="2"
                                            ng-model="viewExpire.month" name="month" autocomplete="off"
                                            placeholder="{{ 'CARD2CARD.SOURCE.MONTH' | translate }}"
@@ -29,9 +28,9 @@
                                            ct-payments-validate-month/>
                                 </div>
                             </div>
-                            <div class="col-sm-4" ct-input-container
-                                 ng-class="{'ct-input-invalid': !expire && c2cForm.year.$touched}">
-                                <input type="text" class="form-control" required ct-tabindex="checkYear"
+                            <div class="col-sm-4" ng-class="{'ct-input-invalid': c2cForm.expire.$error && c2cForm.expire.$error.invalidExpire}"
+                                ct-input-container>
+                                <input type="text" class="form-control" ct-tabindex="checkYear"
                                        maxlength="2" tabindex="3"
                                        ng-model="viewExpire.year" name="year" autocomplete="off"
                                        placeholder="{{ 'CARD2CARD.SOURCE.YEAR' | translate }}"
