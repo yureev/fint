@@ -5,9 +5,6 @@
 	.col-sm-4
 		padding: 0 5px 0 0
 
-	.loader
-		font-size: 8px !important
-
 	.state-border
 		background: rgba(255, 255, 255, .73)
 		box-shadow: -6px 6px 16px 0 rgba(0, 0, 0, .15)
@@ -122,39 +119,7 @@
 		min-height: 350px
 		max-height: 470px
 
-		.has-feedback
-			.form-control
-				padding-right: 0px
-
-		.form-container
-			width: 715px
-			margin: 0 auto
-			font-weight: 400
-
-		.row-centered
-			text-align: center
-			& > :nth-child(3)
-				float: right
-				padding-right: 0px
-
-		.col-centered
-			display: inline-block
-			float: none
-			text-align: left
-			margin-right: -4px
-
-		.form-title
-			font-size: 18px
-			font-weight: 400
-			color: #435B8A
-			letter-spacing: 1.85px
-			line-height: 18px
-			text-align: center
-			padding: 35px
-			text-transform: uppercase
-
 		.ct-payments
-
 			&.visa
 				.card-logo
 					background-image: url('~payment-icons/min/flat/visa.svg')
@@ -167,114 +132,135 @@
 				.card-logo
 					background-image: url('~payment-icons/min/flat/maestro.svg')
 
-		.card-logo
-			width: 42px
-			height: 26px
-			background-size: cover
-			background-repeat: no-repeat
-			position: absolute
-			left: 176px
-			top: 53px
+			.loader
+				font-size: 8px
 
-		.cards
-			width: 230px
-			height: 150px
-			box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5)
-			border-radius: 9px
-			padding: 12px
-			color: #fff
-			background-size: cover
-			margin: 0 auto
-
-			&.source
-				background-image: url(./images/card_bg_sender.jpg)
-
-			&.target
-				background-image: url(./images/card_bg_reseiver.jpg)
-
-		.ct-input-container.ct-input-invalid .ct-input
-			border: 0px
-			background-color: #FFD3D3
-			transition: background-color 300ms linear
-
-		.ct-input-container
-			.form-control-feedback
-				color: #000
-				pointer-events: all
-				cursor: pointer
-				width: 30px
-				height: 30px
-				line-height: 30px
-				font-size: 0.8em
-				opacity: 0.6
-
-		.ct-input
-			border-radius: 5px
-			height: 30px
-
-		.button
-			position: absolute
-			top: 166px
-			left: 261px
-
-		.error
-			font-size: 12px
-			color: #d9534f
-			margin: 0 auto
-
-		.phone-number
-			margin: 0 auto
-			width: 230px
-			p
-				text-align: center
-				margin: 6px auto 0
-				font-size: 10pt
-			.form-group
-				margin-bottom: 0
-
-		.amount
-			text-align: center
-			span
-				font-size: 12px
-				margin-top: 2px
-			p
-				margin: 0 0 5px
-
-			.form-group
-				height: 35px
-
-			.comission
-				margin-top: 34px
-
-			.comission, .total
-				font-size: 12px
-				text-align: center
-				div:nth-child(1)
-					font-size: 10pt
-
-				div:nth-child(2)
-					float: left
-			input
-				width: 50%
-				text-align: center
+			.form-container
+				width: 715px
 				margin: 0 auto
-				float: none
+				font-weight: 400
 
-		.submit-check
-			margin: 25px 7px 0 0
-			float: right
+				.row-centered
+					text-align: center
+					& > :nth-child(3)
+						float: right
+						padding-right: 0px
 
-			.checkbox
-				font-size: 10pt
-				margin: 5px 30px
-				float: left
+				.form-title
+					font-size: 18px
+					font-weight: 400
+					color: #435B8A
+					letter-spacing: 1.85px
+					line-height: 18px
+					text-align: center
+					padding: 35px
+					text-transform: uppercase
 
-			button
-				float: right
+				.cards
+					width: 230px
+					height: 150px
+					box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5)
+					border-radius: 9px
+					padding: 12px
+					color: #fff
+					background-size: cover
+					margin: 0 auto
 
-		.send-button
-			height: 30px
-			padding: 0 12px
+					&.source
+						background-image: url(./images/card_bg_sender.jpg)
+
+						.has-feedback
+							.form-control
+								padding-right: 0px
+
+						.card-logo
+							width: 42px
+							height: 26px
+							background-size: cover
+							background-repeat: no-repeat
+							position: absolute
+							left: 176px
+							top: 53px
+
+					&.target
+						background-image: url(./images/card_bg_reseiver.jpg)
+
+				.ct-input
+					border-radius: 5px
+					height: 30px
+
+				.ct-input-container.ct-input-invalid .ct-input
+					border: 0px
+					background-color: #FFD3D3
+					transition: background-color 300ms linear
+
+				.ct-input-container
+					.form-control-feedback
+						color: #000
+						pointer-events: all
+						cursor: pointer
+						width: 30px
+						height: 30px
+						line-height: 30px
+						font-size: 0.8em
+						opacity: 0.6
+
+				.phone-number
+					margin: 0 auto
+					width: 230px
+					p
+						text-align: center
+						margin: 6px auto 0
+						font-size: 10pt
+					.form-group
+						margin-bottom: 0
+
+				.error
+					font-size: 12px
+					color: #d9534f
+					margin: 0 auto
+
+				.amount
+					text-align: center
+					span
+						font-size: 12px
+						margin-top: 2px
+					p
+						margin: 0 0 5px
+
+					.form-group
+						height: 35px
+
+					.comission
+						margin-top: 34px
+
+					.comission, .total
+						font-size: 12px
+						text-align: center
+						div:nth-child(1)
+							font-size: 10pt
+
+						div:nth-child(2)
+							float: left
+					input
+						width: 50%
+						text-align: center
+						margin: 0 auto
+						float: none
+
+				.submit-check
+					margin: 25px 7px 0 0
+					float: right
+
+					.checkbox
+						font-size: 10pt
+						margin: 5px 30px
+						float: left
+
+				.send-button
+					height: 30px
+					padding: 0 12px
+					float: right
 
 	//STATE LOOKUP STYLES
 	.state-lookup
