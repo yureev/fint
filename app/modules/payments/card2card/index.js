@@ -118,7 +118,7 @@ function card2cardInputDirective() {
 			}
 
 			$scope.total = ($scope.amount*100 + $scope.commiss)/100;
-			$scope.commiss/=100;
+			$scope.commiss /= 100;
 		};
 
 		this.submit = function() {
