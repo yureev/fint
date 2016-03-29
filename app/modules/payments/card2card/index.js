@@ -95,6 +95,15 @@ function card2cardInputDirective() {
 		scope.submit = function() {
 			Card2cardInputCtrl.submit()
 		};
+
+		scope.cvcType = 'password';
+		scope.toggleCvc = function() {
+			if (scope.cvcType == 'password') {
+				scope.cvcType = 'text';
+			} else {
+				scope.cvcType = 'password';
+			}
+		}
 	}
 	
 	function Ctrl($scope, $http) {
