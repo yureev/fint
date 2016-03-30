@@ -1,2 +1,2 @@
-<select ng-if="NODE_ENV == 'development'" ng-model="state" ng-options="k as v for (k, v) in STATES"></select>
+<select ng-show="NODE_ENV == 'development'" ng-model="state" ng-options="k as v for (k, v) in STATES"></select>
 <div class="main" card2card></div>
