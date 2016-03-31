@@ -3,7 +3,7 @@
         <div class="form-container">
             <div class="form-title">{{ 'CARD2CARD.TITLE' | translate }}</div>
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-5">
                     <div class="cards source">
                         <div class="card-logo"></div>
                         <h4>{{ 'CARD2CARD.SOURCE.TITLE' | translate }}</h4>
@@ -39,7 +39,9 @@
                                        ct-payments-format-expire-year-text
                                        ct-payments-validate-year/>
                             </div>
-                            <div class="has-feedback col-sm-4">
+                            <div class="has-feedback col-sm-4" tooltip-placement="right"
+                                 uib-tooltip="{{ 'CARD2CARD.SOURCE.CVC_TOOLTIP' | translate }}"
+                                 tooltip-trigger="mouseenter: mouseleave">
                                 <div ct-input-container>
                                     <input type="{{ cvcType }}" maxlength="3" id="cvc" name="cvc"
                                            class="form-control" autocomplete="off"
@@ -60,7 +62,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-2">
                     <div class="amount">
                         <p><strong>{{ 'CARD2CARD.AMOUNT.TITLE' | translate }}</strong></p>
                         <div class="form-group" ct-input-container>
@@ -68,7 +70,7 @@
                                    ng-model="amount" ng-change="vmInput.calculate()" min="1" max="25000" required
                                    autocomplete="off" ct-currency/>
                             <span>{{ 'CARD2CARD.AMOUNT.RANGE' | translate }}</span>
-                            <div ng-messages="c2cForm.amount.$error">
+                            <div class="error-amount" ng-messages="c2cForm.amount.$error">
                                 <div ng-message="required">{{ 'CARD2CARD.ERRORS.AMOUNT.AMOUNT_REQUIRED' | translate }}
                                 </div>
                                 <div ng-message="min">{{ 'CARD2CARD.ERRORS.AMOUNT.BIGGER_SUM' | translate }}</div>
@@ -89,7 +91,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-5">
                     <div class="cards target">
                         <h4>{{ 'CARD2CARD.TARGET.TITLE' | translate }}</h4>
                         <div class="form-group card-dest" ct-input-container>
@@ -103,7 +105,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-5">
                     <div class="phone-number">
                         <div class="form-group" ct-input-container>
                             <p>{{ 'CARD2CARD.SOURCE.PHONE_NUMBER' | translate }}</p>
@@ -129,7 +131,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-5">
                     <div class="error">
                         <div ng-messages="c2cForm.number.$error" ng-show="c2cForm.number.$touched">
                             <div ng-message="required">{{ 'CARD2CARD.ERRORS.SOURCE.NUMBER_REQUIRED' | translate }}
