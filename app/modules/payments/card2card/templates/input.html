@@ -3,7 +3,7 @@
         <div class="form-container">
             <div class="form-title">{{ 'CARD2CARD.TITLE' | translate }}</div>
             <div class="row">
-                <div class="col-sm-5">
+                <div class="col-md-5 col-sm-5 col-xs-5">
                     <div class="cards source">
                         <div class="card-logo"></div>
                         <h4>{{ 'CARD2CARD.SOURCE.TITLE' | translate }}</h4>
@@ -17,7 +17,7 @@
                                    ng-class="c2cForm.number.$card.type"/>
                         </div>
                         <div class="row row-centered">
-                            <div class="col-sm-4"
+                            <div class="col-md-4 col-sm-4 col-xs-4"
                                  ng-class="{'ct-input-invalid': c2cForm.expire.$error && c2cForm.expire.$error.invalidExpire}"
                                  ct-input-container>
                                 <div class="form-group">
@@ -29,7 +29,7 @@
                                            ct-payments-validate-month/>
                                 </div>
                             </div>
-                            <div class="col-sm-4"
+                            <div class="col-md-4 col-sm-4 col-xs-4"
                                  ng-class="{'ct-input-invalid': c2cForm.expire.$error && c2cForm.expire.$error.invalidExpire}"
                                  ct-input-container>
                                 <input type="text" class="form-control" ct-tabindex="checkYear"
@@ -39,7 +39,7 @@
                                        ct-payments-format-expire-year-text
                                        ct-payments-validate-year/>
                             </div>
-                            <div class="has-feedback col-sm-4" tooltip-placement="right"
+                            <div class="has-feedback col-md-4 col-sm-4 col-xs-4" tooltip-placement="right"
                                  uib-tooltip="{{ 'CARD2CARD.SOURCE.CVC_TOOLTIP' | translate }}"
                                  tooltip-trigger="mouseenter: mouseleave">
                                 <div ct-input-container>
@@ -62,7 +62,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-2">
+                <div class="col-md-2 col-sm-2 col-xs-2">
                     <div class="amount">
                         <p><strong>{{ 'CARD2CARD.AMOUNT.TITLE' | translate }}</strong></p>
                         <div class="form-group" ct-input-container>
@@ -91,7 +91,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-5">
+                <div class="col-md-5 col-sm-5 col-xs-5">
                     <div class="cards target">
                         <h4>{{ 'CARD2CARD.TARGET.TITLE' | translate }}</h4>
                         <div class="form-group card-dest" ct-input-container>
@@ -105,7 +105,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-5">
+                <div class="col-md-5 col-sm-5 col-xs-5">
                     <div class="phone-number">
                         <div class="form-group" ct-input-container>
                             <p>{{ 'CARD2CARD.SOURCE.PHONE_NUMBER' | translate }}</p>
@@ -131,7 +131,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-5">
+                <div class="col-md-5 col-sm-5 col-xs-5">
                     <div class="error">
                         <div ng-messages="c2cForm.number.$error" ng-show="c2cForm.number.$touched">
                             <div ng-message="required">{{ 'CARD2CARD.ERRORS.SOURCE.NUMBER_REQUIRED' | translate }}
