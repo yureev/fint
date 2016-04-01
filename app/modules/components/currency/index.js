@@ -50,6 +50,8 @@ function ctCurrencyDirective(CtUtils) {
 	};
 
 	function postLink(scope, element, attrs, ngModelCtrl) {
+		var keyPressed;
+
 		if (!ngModelCtrl)
 			throw new Error("ct-currency should have ng-model!");
 
@@ -103,6 +105,8 @@ function ctCurrencyDirective(CtUtils) {
 		function onKeyPress(e) {
 			var char = CtUtils.getChar(e);
 
+			keyPressed = true;
+
 			if (!char.match(/./)) {
 				return;
 			}
@@ -117,6 +121,12 @@ function ctCurrencyDirective(CtUtils) {
 			var value, formated,
 				elemDOM = element[0],
 				lastComma, index, pos;
+
+			if (keyPressed) {
+				keyPressed = false;
+			} else {
+				return;
+			}
 
 			if (e.keyCode == 32)
 				return;
