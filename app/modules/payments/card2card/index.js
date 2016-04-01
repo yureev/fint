@@ -285,6 +285,14 @@ function card2cardSuccessDirective() {
 			}, function() {
 				$scope.currentDate = new Date();
 			});
+
+		$scope.printDiv = function (divName) {
+			var printContents = document.getElementById(divName).innerHTML;
+			var popupWin = window.open('', '_blank', 'width=800,height=600');
+			popupWin.document.open();
+			popupWin.document.write('<body onload="window.print()">' + printContents + '</body>');
+			popupWin.document.close();
+		};
 	}
 }
 

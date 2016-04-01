@@ -1,5 +1,5 @@
 <div class="state-success state-border">
-    <div class="send-success-box">
+    <div class="send-success-box" id="print">
         <div class="send-success-container">
             <table class="send-success-table">
                 <caption class="success-code-title" translate="CARD2CARD.SUCCESS.PAYMENT_SUCCESS">Платеж успешно
@@ -46,7 +46,7 @@
                 </tr>
                 <tr class="footer">
                     <td class="success-description-title">
-                        <span class="success-print" data-ng-click="send.printTicket()"></span>
+                        <span class="success-print" ng-click="printDiv('print')"></span>
                         <span class="success-print-text"
                               translate="CARD2CARD.SUCCESS.PRINT_TICKET">Печать квитанции</span>
                         <div class="mailto-container">
