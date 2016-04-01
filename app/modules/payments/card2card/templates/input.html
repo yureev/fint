@@ -141,6 +141,10 @@
                         <div ng-messages="c2cForm.year.$error" ng-show="c2cForm.year.$touched">
                             <div ng-message="required">{{ 'CARD2CARD.ERRORS.SOURCE.YEAR_REQUIRED' | translate }}</div>
                         </div>
+                        <div ng-messages="c2cForm.expire.$error">
+                            <div ng-message="invalidExpire">{{ 'CARD2CARD.ERRORS.SOURCE.DATE_EXPIRE' | translate }}
+                            </div>
+                        </div>
                         <div ng-messages="c2cForm.cvc.$error" ng-show="c2cForm.cvc.$touched">
                             <div ng-message="required">{{ 'CARD2CARD.ERRORS.SOURCE.CVC_REQUIRED' | translate }}</div>
                             <div ng-message="invalidCvc">{{ 'CARD2CARD.ERRORS.SOURCE.CVC_INVALID' | translate }}</div>
