@@ -46,7 +46,7 @@
     "AGREEMENT": "Согласен с условиями <a href='/assets/iframes/terms_conditions.pdf' target='_blank'>Договора</a>",
     "SEND": "ПЕРЕВЕСТИ",
     "SOURCE": {
-      "TITLE": "Карта отправитель",
+      "TITLE": "Карта отправителя",
       "NUMBER": "Номер карты отправителя",
       "MONTH": "Мес.",
       "YEAR": "Год",
@@ -77,7 +77,7 @@
       }
     },
     "TARGET": {
-      "TITLE": "Карта получатель",
+      "TITLE": "Карта получателя",
       "NUMBER": "Номер карты получателя"
     },
     "AMOUNT": {

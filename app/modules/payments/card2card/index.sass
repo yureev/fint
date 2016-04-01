@@ -126,26 +126,48 @@
 		max-height: 470px
 
 		.ct-payments
-			.card-logo
-				display: none
-
-			&.visa
+			.source
 				.card-logo
-					background-image: url(./images/visa_logo.svg)
-					display: block
-					width: 50px
-					height: 16px
-					right: 65px
-					top: 61px
+					display: none
 
-			&.mastercard
-				.card-logo
-					background-image: url(./images/masterCard_logo.svg)
-					display: block
-					width: 44px
-					height: 26px
-					right: 63px
-					top: 56px
+				&.visa
+					.card-logo
+						background-image: url(./images/visa_logo.svg)
+						display: block
+						width: 50px
+						height: 16px
+						right: 65px
+						top: 61px
+
+				&.mastercard
+					.card-logo
+						background-image: url(./images/masterCard_logo.svg)
+						display: block
+						width: 44px
+						height: 26px
+						right: 63px
+						top: 56px
+			.target
+				.target-card-logo
+					display: none
+
+				&.visa
+					.target-card-logo
+						background-image: url(./images/visa_logo.svg)
+						display: block
+						width: 50px
+						height: 16px
+						right: 65px
+						top: 61px
+
+				&.mastercard
+					.target-card-logo
+						background-image: url(./images/masterCard_logo.svg)
+						display: block
+						width: 44px
+						height: 26px
+						right: 63px
+						top: 56px
 
 			.form-container
 				width: 880px
@@ -184,14 +206,14 @@
 					&.source
 						background-image: url(./images/card_bg_sender.jpg)
 
-						.has-feedback
-							.form-control
-								padding-right: 0px
-
 						.card-logo
 							background-size: cover
 							background-repeat: no-repeat
 							position: absolute
+
+						.has-feedback
+							.form-control
+								padding-right: 0px
 
 						.tooltip-arrow
 							border-right-color: #FFFFFF
@@ -204,6 +226,11 @@
 
 					&.target
 						background-image: url(./images/card_bg_reseiver.jpg)
+
+						.target-card-logo
+							background-size: cover
+							background-repeat: no-repeat
+							position: absolute
 
 				.ct-input
 					border-radius: 5px
@@ -291,7 +318,7 @@
 	//STATE LOOKUP STYLES
 	.state-lookup
 		width: 715px
-		height: 390px
+		min-height: 390px
 		padding-top: 1px
 		position: relative
 
@@ -322,10 +349,10 @@
 
 			.lookup-title, .lookup-title-2
 				font-weight: 700
-				margin: 15px auto
 				line-height: 167%
 				font-size: 12px
-				padding: 20px
+				padding: 25px
+				text-align: justify
 
 				ul
 					list-style-type: decimal

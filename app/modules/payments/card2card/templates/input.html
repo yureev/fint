@@ -64,7 +64,7 @@
                     <div class="amount">
                         <p><strong>{{ 'CARD2CARD.AMOUNT.TITLE' | translate }}</strong></p>
                         <div class="form-group" ct-input-container>
-                            <input type="text" name="amount" class="form-control" tabindex="6"
+                            <input type="text" name="amount" class="form-control" tabindex="5"
                                    ng-model="amount" ng-change="vmInput.calculate()" min="1" max="25000" required
                                    autocomplete="off" ct-currency/>
                             <span>{{ 'CARD2CARD.AMOUNT.RANGE' | translate }}</span>
@@ -91,13 +91,16 @@
                 </div>
                 <div class="col-md-5 col-sm-5 col-xs-5">
                     <div class="cards target">
+                        <div class="target-card-logo"></div>
                         <h4>{{ 'CARD2CARD.TARGET.TITLE' | translate }}</h4>
                         <div class="form-group card-dest" ct-input-container>
                             <input type="text" name="numberTarget" class="form-control" ct-tabindex="checkTargetNumber"
-                                   ng-model="numberTarget" required tabindex="7" autocomplete="off"
+                                   ng-model="numberTarget" required tabindex="6" autocomplete="off"
                                    placeholder="{{ 'CARD2CARD.TARGET.NUMBER' | translate }}"
+                                   ct-payments-target-card
                                    ct-payments-format-number
-                                   ct-payments-validate-number/>
+                                   ct-payments-validate-number
+                                   ng-class="c2cForm.numberTarget.$targetCard.type"/>
                         </div>
                     </div>
                 </div>
@@ -108,7 +111,7 @@
                         <div class="form-group" ct-input-container>
                             <p>{{ 'CARD2CARD.SOURCE.PHONE_NUMBER' | translate }}</p>
                             <input type="text" name="phone" class="form-control" ui-mask="+380 (99) 999 99 99"
-                                   tabindex="5" autocomplete="off"
+                                   tabindex="7" autocomplete="off"
                                    ct-tabindex="checkPhone" ng-model="phone" tabindex="5"
                                    required placeholder="+380 (__) ___-__-__"/>
                         </div>
