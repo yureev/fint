@@ -58,6 +58,8 @@
       "SOURCE": {
         "NUMBER_REQUIRED": "Введіть номер картки відправника",
         "NUMBER_INVALID": "Невірний номер картки відправника",
+        "MONTH_REQUIRED": "Введіть місяць",
+        "YEAR_REQUIRED": "Введіть рік",
         "DATE_EXPIRE": "Строк дії картки вичерпано",
         "CVC_REQUIRED": "Введіть номер CVC",
         "CVC_INVALID": "Невірний номер CVC",

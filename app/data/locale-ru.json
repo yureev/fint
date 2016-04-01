@@ -58,6 +58,8 @@
       "SOURCE": {
         "NUMBER_REQUIRED": "Введите номер карты отправителя",
         "NUMBER_INVALID": "Неверный номер карты отправителя",
+        "MONTH_REQUIRED": "Введите месяц",
+        "YEAR_REQUIRED": "Введите год",
         "DATE_EXPIRE": "Срок действия карты истек",
         "CVC_REQUIRED": "Введите номер CVC",
         "CVC_INVALID": "Неверный номер CVC",
