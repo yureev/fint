@@ -51,7 +51,7 @@
     "angular-ui-router": "^0.2.17",
     "bootstrap-sass": "^3.3.6",
     "component-input": "^1.0.6",
-    "component-payments": "^1.1.16",
+    "component-payments": "1.1.18",
     "component-spinner2": "^1.0.3",
     "component-tabindex": "^1.0.4",
     "component-utils": "^1.0.1",

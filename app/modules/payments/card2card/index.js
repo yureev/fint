@@ -2,8 +2,7 @@ require('./index.sass');
 
 angular.module('card2card', [
 	require('component-payments'),
-		require('_modules/components/currency'),
-		require('angular-ui-bootstrap/src/tooltip')
+		require('_modules/components/currency')
 ])
 	.directive('card2card', card2cardDirective)
 	.directive('card2cardInput', card2cardInputDirective)

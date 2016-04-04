@@ -11,6 +11,8 @@ angular.module('app', [
 	'restangular',
 	'pascalprecht.translate',
 
+		require('angular-ui-bootstrap/src/tooltip'),
+
 	require('component-input'),
 	require('component-tabindex'),
 	require('component-spinner2'),
