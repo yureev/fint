@@ -1,0 +1,22 @@
+<div class="state-lookup" ct-spinner="lookup_loader">
+    <div ng-click="goState(STATES.INPUT)">Close</div>
+    <div>{{ 'CARD2CARD.LOOKUP.TITLE' | translate }}</div>
+    <form ng-submit="submit()">
+        <div translate="CARD2CARD.LOOKUP.DESC.FOR_CHECK"></div>
+        <div translate="CARD2CARD.LOOKUP.DESC.OPERATION_SUCCESS"></div>
+        <div>{{ 'CARD2CARD.LOOKUP.CODE' | translate }}</div>
+        <input type="text"
+               class="lookup-sms-input"
+               ng-model="lookupCode"
+               tooltip="Код должен состоять из 6-ти цифр"
+               tooltip-enable="send.lookupCode.error"
+               tooltip-trigger="focus"
+               tooltip-placement="top"
+               placeholder="XXXXXX"
+               only-digits
+               required/>
+        <button type="submit">
+            {{ 'CARD2CARD.LOOKUP.CONTINUE' | translate }}
+        </button>
+    </form>
+</div>

@@ -55,6 +55,8 @@
     "component-spinner2": "^1.0.3",
     "component-tabindex": "^1.0.4",
     "component-utils": "^1.0.1",
+    "component-currency": "^1.0.0",
+    "component-cardtocard": "^1.0.0",
     "copy-webpack-plugin": "^1.1.1",
     "font-awesome": "^4.5.0",
     "jquery": "^2.2.0",

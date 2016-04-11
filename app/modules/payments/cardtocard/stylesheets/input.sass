@@ -1,0 +1,62 @@
+.state-input
+	.play
+		display: inline-block
+		margin-top: 80px
+		height: 50px
+		width: 30px
+
+	.title
+		text-align: center
+		font-size: 25px
+		font-weight: normal
+		margin-bottom: 30px
+
+	.card
+		border-radius: 10px
+		height: 222px
+		width: 333px
+		padding: 20px 30px 0 30px
+		color: #fff
+		display: inline-block
+
+		&.target
+			background-image: url('./images/card_red_bg.jpg')
+
+		&.source
+			background-image: url('./images/card_grey_bg.jpg')
+
+			.card-data
+				margin-top: 35px
+
+				.cod
+					float: right
+					margin-right: 49px
+
+			.date
+				display: inline-block
+				float: left
+				margin-right: 5px
+				width: 60px
+
+			.cvv
+				display: inline-block
+				float: right
+				width: 75px
+
+	.description
+		width: 40%
+		margin: 30px auto
+		.commission
+			padding: 10px 0
+		.text
+			padding: 10px 0
+
+	.submit
+		padding: 20px 0
+		border-top: 2px solid #dfdfdf
+
+		.send-button
+			margin-right: 60px
+			margin-left: 20px
+
+	.errors

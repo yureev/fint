@@ -1,0 +1,11 @@
+<div class="state-error">
+    <div ng-click="goState(STATES.INPUT)">{{ 'CARD2CARD.ERROR.TO_START' | translate }}</div>
+    <div>{{ 'CARD2CARD.ERROR.TITLE' | translate }}</div>
+    <div>{{ 'CARD2CARD.ERROR.OPERATION_CODE' | translate }}</div>
+    <div>{{ transaction.operationNumber }}</div>
+    <div>{{ transaction.mPayStatus }}</div>
+    <div>{{ 'CARD2CARD.ERROR.SUPPORT_TEL' | translate }}</div>
+    <a ng-href="mailto:support@send.ua​?subject=Money transfer error&body=Code operation: {{$scope.operationNumber}}. Error: {{$scope.mPayStatus}}">
+        {{ 'CARD2CARD.ERROR.SEND_TO_SERVICE' | translate }}
+    </a>
+</div>
