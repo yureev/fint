@@ -7,15 +7,27 @@ $fa-font-path: "~font-awesome/fonts"
 @import "~font-awesome/scss/font-awesome.scss"
 
 // Import Mixins'
-@import "mixins/index"
+@import "assets/stylesheets/mixins/index"
 
-@import "layout/send"
-
-@import "components/uib_tooltip"
+@import "assets/stylesheets/components/uib_tooltip"
 
 // Misc
 a
-    cursor: pointer
+	cursor: pointer
 
 input:invalid
-    box-shadow: none
+	box-shadow: none
+
+.app
+	header
+		.navbar-default
+			background-color: #FFF
+			border: 0
+			padding-top: 20px
+		form
+			float: right !important
+
+
+
+
+

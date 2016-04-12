@@ -1,7 +1,7 @@
 'use strict';
 
 // Stylesheet entrypoint
-require('_stylesheets/app.sass');
+require('./index.sass');
 
 angular.module('app', [
 	'ngMessages',

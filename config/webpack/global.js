@@ -26,7 +26,7 @@ module.exports = function (_path) {
 	return {
 		// entry points
 		entry: {
-			application: _path + '/app/app.js',
+			application: _path + '/app/index.js',
 			vendors: ['jquery', 'lodash',
 				'angular',
 				'angular-messages',

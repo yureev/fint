@@ -17,7 +17,7 @@ angular.module('cardToCard', [
 config.$inject = ['CardToCardProvider'];
 function config(CardToCardProvider) {
 	CardToCardProvider.setUrls({
-		getTariffs: require('_data/tariffs.json'), //' /sendua-external/Info/GetTariffs?tarifftype=web',
+		getTariffs: require('_data/tariffs.json'), //' /sendua-external/Info/GetTariffs?tarifftype=web', //TODO make proper link
 		getPayStatus: '/sendua-external/Info/GetPayStatus',
 		createCard2CardOperation: '/sendua-external/Card2Card/CreateCard2CardOperation',
 		finishlookup: '/sendua-external/ConfirmLookUp/finishlookup',
