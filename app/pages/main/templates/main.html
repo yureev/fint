@@ -2,15 +2,18 @@
 <select ng-show="NODE_ENV == 'development'" ng-model="state" ng-options="k as v for (k, v) in STATES"></select>
 
 <div class="container pay">
-    <div class="row">
-        <div class="col-md-2 sidebar">
-            <div class="title">Перевод с карты на карту</div>
-            <div class="title">Перевод по номеру телефона</div>
+    <div class="wrapper">
+
+        <div class="send">Отправить</div>
+        <div class="from-card">Перевод с карты на карту</div>
+        <div class="from-phone">Перевод по номеру телефона</div>
+        <div class="sidebar">
+            <div class="get">Получить</div>
         </div>
-        <div class="col-md-10">
+        <div class="content">
             <div class="main" card-to-card></div>
+
         </div>
-    </div>
 </div>
 
 
