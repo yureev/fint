@@ -1,58 +1,33 @@
-.pay
-	//.wrapper
-	//	min-height: 480px
-	//	height: 1px
-	//	border-bottom: 1px solid black
-	//	position: relative
-	//	margin: 0 auto
-	//	width: 1024px
-
-	.send
-		color: #F79600
-		text-transform: uppercase
-		display: inline-block
-		width: 194px
-		border-top: 1px solid #626B72
-		padding: 8px 10px 19px 55px
-
-	.from-card
-		color: #F79600
-		text-transform: uppercase
-		display: inline-block
-		width: 400px
-		padding-left: 9%
-		height: 35px
-		padding-top: 8px
-		border-top: 1px solid #F79600
-		margin-bottom: 30px
-		margin-left: -3px
-	.from-phone
-		display: inline-block
-		color: #124068
-		text-transform: uppercase
-		width: 355px
-		padding-left: 8%
-		background-color: #BCD0E4
-		height: 35px
-		padding-top: 8px
-		border-top: 1px solid #626B72
-		margin-left: -5px
+.main
+	background-color: #BCD0E4
 
 	.sidebar
-		background-color: #BCD0E4
-		height: 60%
-		width: 194px
 		float: left
-		position: absolute
-		.title
-			text-transform: uppercase
-			height: 60px
-			padding: 20px
-
-		.get
+		width: 195px
+		text-align: center
+		.get, .send
 			color: #124068
 			text-transform: uppercase
-			padding: 8px 10px 19px 55px
+			padding: 20px
+			&.active
+				color: #F79600
+				background-color: #fff
 	.content
-		margin-left: 235px
+		margin-left: 195px
+		.menu
+			.item
+				width: 50%
+				display: inline-block
+				text-align: center
+				color: #124068
+				text-transform: uppercase
+				height: 35px
+				padding: 10px 5px
+				&.active
+					background-color: #fff
+					color: #F79600
+		.sub-main
+			background-color: #fff
+			padding: 40px
+
 
