@@ -1,10 +1,10 @@
 require('./index.sass');
 
-angular.module('main', [])
+angular.module('get.url', [])
 	.config(['$stateProvider',
 		function($stateProvider) {
 			$stateProvider
-				.state('app.get', {
+				.state('get.url', {
 					url: '/url',
 					controller: require('./controllers/main'),
 					template: require('./templates/main.html'),

@@ -12,7 +12,7 @@ angular.module('main', [
 
 			$stateProvider
 				.state('app.main', {
-					url: '/',
+					url: '/test',
 					controller: require('./controllers/main'),
 					template: require('./templates/main.html'),
 					data: {

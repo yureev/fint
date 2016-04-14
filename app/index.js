@@ -19,11 +19,11 @@ angular.module('app', [
 	require('component-utils'),
 
 	require('_modules/auth'),
+
 	require('_pages/send'),
 	require('_pages/get'),
 
-
-		// require('_pages/main'),
+		require('_pages/main'),
 		//require('_pages/payments'),
 		require('_pages/mobile')
 ])
@@ -59,17 +59,6 @@ angular.module('app', [
 
 			$urlRouterProvider
 				.otherwise('/send/card');
-
-			$stateProvider
-				.state('app', {
-					abstract: true,
-					template: require('./index.html'),
-					controller: 'AppCtrl',
-					controllerAs: 'ac',
-					data: {
-						access: {}
-					}
-				});
 
 			RestangularProvider.setBaseUrl('/api');
 

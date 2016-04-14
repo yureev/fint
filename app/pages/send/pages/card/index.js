@@ -1,10 +1,10 @@
 require('./index.sass');
 
-angular.module('main', [])
+angular.module('send.card', [])
 	.config(['$stateProvider',
 		function($stateProvider) {
 			$stateProvider
-				.state('app.send.card', {
+				.state('send.card', {
 					url: '/card',
 					controller: require('./controllers/main'),
 					template: require('./templates/main.html'),
