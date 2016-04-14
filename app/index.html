@@ -18,33 +18,31 @@
                         <li><a href="#">RU</a></li>
                         <li><a href="#">EN</a></li>
                     </ul>
-                    <form class="navbar-form navbar-left" role="search">
+                    <form class="form-inline pull-right" role="search">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Логин" id="login">
+                            <label><a href="#">Забыли логин?</a></label>
                         </div>
 
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Пароль" id="password">
+                            <label><a href="#" class="text-left">Регистрация</a></label>
                         </div>
                         <button type="submit" class="btn btn-warning">Войти</button>
                     </form>
-                    <a href="#" class="text-left">Забыли логин?</a>
-                    <a href="#" class="text-left">Забыли логин?</a>
+
+
                 </div>
-                <div class="top-menu">
-                    <div class="collapse navbar-collapse">
-                        <div class="navigation-links">
-                            <ul class="nav navbar-nav">
-                                <li><a href="#" scroll-to="services">{{ 'APP.MENU.ABOUT' | translate }}</a></li>
-                                <li><a href="#" scroll-to="tarif">{{ 'APP.MENU.TARIFFS' | translate }}</a></li>
-                                <li><a href="#" scroll-to="qaa">{{ 'APP.MENU.FAQ' | translate }}</a></li>
-                                <li><a href="#" scroll-to="contacts">{{ 'APP.MENU.CONTACTS' | translate }}</a></li>
-                                <li class="item login ng-binding"><a href="#">{{ 'APP.MENU.DASHBOARD' | translate }}</a>
-                                </li>
-                                <!--<div ng-class="lang" ng-click="ac.changeLanguage()">Translate</div>-->
-                            </ul>
-                        </div>
-                    </div>
+                <div class="collapse navbar-collapse pull-right">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#" scroll-to="services">{{ 'APP.MENU.ABOUT' | translate }}</a></li>
+                        <li><a href="#" scroll-to="tarif">{{ 'APP.MENU.TARIFFS' | translate }}</a></li>
+                        <li><a href="#" scroll-to="qaa">{{ 'APP.MENU.FAQ' | translate }}</a></li>
+                        <li><a href="#" scroll-to="contacts">{{ 'APP.MENU.CONTACTS' | translate }}</a></li>
+                        <li class="item login ng-binding"><a href="#">{{ 'APP.MENU.DASHBOARD' | translate }}</a>
+                        </li>
+                        <!--<div ng-class="lang" ng-click="ac.changeLanguage()">Translate</div>-->
+                    </ul>
                 </div>
             </div>
         </nav>
