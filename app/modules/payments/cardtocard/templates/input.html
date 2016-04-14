@@ -83,7 +83,10 @@
                     <label>Ваш номер телефона:</label>
                     <input type="text" name="phone" class="form-control" ui-mask="+380 (99) 999 99 99"
                            tabindex="7" ct-tabindex="checkPhone" ng-model="phone" tabindex="5" required
-                           placeholder="+380 (__) ___-__-__"/>
+                           placeholder="+380 (__) ___-__-__"
+                           tooltip-placement="right"
+                           uib-tooltip="{{ 'CARD2CARD.SOURCE.PHONE_TOOLTIP' | translate }}"
+                           tooltip-trigger="mouseenter: mouseenter"/>
                     <div class="error-phone">
                         <div ng-messages="c2cForm.phone.$error" ng-show="c2cForm.phone.$touched">
                             <div ng-message="required">{{ 'CARD2CARD.ERRORS.SOURCE.PHONE_REQUIRED' | translate
@@ -125,29 +128,28 @@
                     <input type="text" name="amount" class="form-control amount-input" tabindex="5"
                            ng-model="amount"
                            ng-change="calculate()" min="1" max="25000" required ct-currency/>
-                    <div class="text-center">
-                        <small>{{ 'CARD2CARD.AMOUNT.RANGE' | translate }} {{ config.tariff.total_max / 100 |
-                            currency:currency }}
-                        </small>
-                        <div class="error-amount">
-                            <div ng-messages="c2cForm.amount.$error">
-                                <div ng-message="required">{{ 'CARD2CARD.ERRORS.AMOUNT.AMOUNT_REQUIRED' |
-                                    translate
-                                    }}
-                                </div>
-                                <div ng-message="min">{{ 'CARD2CARD.ERRORS.AMOUNT.BIGGER_SUM' | translate }}
-                                </div>
-                                <div ng-message="max">{{ 'CARD2CARD.ERRORS.AMOUNT.SMALLER_SUM' | translate }}
-                                </div>
+
+                    <small>{{ 'CARD2CARD.AMOUNT.RANGE' | translate }} {{ config.tariff.total_max / 100 |
+                        currency:currency }}
+                    </small>
+                    <div class="error-amount">
+                        <div ng-messages="c2cForm.amount.$error">
+                            <div ng-message="required">{{ 'CARD2CARD.ERRORS.AMOUNT.AMOUNT_REQUIRED' |
+                                translate
+                                }}
+                            </div>
+                            <div ng-message="min">{{ 'CARD2CARD.ERRORS.AMOUNT.BIGGER_SUM' | translate }}
+                            </div>
+                            <div ng-message="max">{{ 'CARD2CARD.ERRORS.AMOUNT.SMALLER_SUM' | translate }}
                             </div>
                         </div>
-                        <span>{{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }}</span>
-                        <span>{{ commiss || 0 | currency:currency }}</span>
-                        <div>
-                            <small>( {{ config.tariff.comm_percent }}% + {{ config.tariff.comm_fixed / 100 |
-                                currency:currency }} )
-                            </small>
-                        </div>
+                    </div>
+                    <span>{{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }}</span>
+                    <span>{{ commiss || 0 | currency:currency }}</span>
+                    <div>
+                        <small>( {{ config.tariff.comm_percent }}% + {{ config.tariff.comm_fixed / 100 |
+                            currency:currency }} )
+                        </small>
                     </div>
                 </div>
             </div>
@@ -156,7 +158,7 @@
                     <strong>{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }}</strong>
                     <strong>{{ total || 0 | currency:currency }}</strong>
                 </div>
-                <div class="form-inline">
+                <div class="form-group">
                     <div class="checkbox">
                         <label>
                             <input type="checkbox" tabindex="8" ng-model="agreed" required>
