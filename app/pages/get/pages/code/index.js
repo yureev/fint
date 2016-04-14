@@ -4,7 +4,7 @@ angular.module('get.code', [])
 	.config(['$stateProvider',
 		function($stateProvider) {
 			$stateProvider
-				.state('get.code', {
+				.state('app.get.code', {
 					url: '/code',
 					controller: require('./controllers/main'),
 					template: require('./templates/main.html'),

@@ -60,6 +60,17 @@ angular.module('app', [
 			$urlRouterProvider
 				.otherwise('/send/card');
 
+			$stateProvider
+				.state('app', {
+					abstract: true,
+					template: require('./index.html'),
+					controller: 'AppCtrl',
+					controllerAs: 'ac',
+					data: {
+						access: {}
+					}
+				});
+
 			RestangularProvider.setBaseUrl('/api');
 
 			require('_data/locale-ua.json');

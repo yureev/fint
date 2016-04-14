@@ -1,12 +1,13 @@
 require('./index.sass');
-require('./pages/card');
-require('./pages/phone');
 
-angular.module('send', [])
+angular.module('send', [
+		require('./pages/card'),
+		require('./pages/phone')
+	])
 	.config(['$stateProvider',
 		function($stateProvider) {
 			$stateProvider
-				.state('send', {
+				.state('app.send', {
 					url: '/send',
 					controller: require('./controllers/main'),
 					template: require('./templates/main.html'),
