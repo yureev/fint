@@ -22,9 +22,6 @@ angular.module('app', [
 
 	require('_pages/send'),
 	require('_pages/get'),
-
-		require('_pages/main'),
-		//require('_pages/payments'),
 		require('_pages/mobile')
 ])
 	.run(['$rootScope', '$state', '$stateParams', 'session',
