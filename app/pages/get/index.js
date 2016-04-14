@@ -1,0 +1,20 @@
+require('./index.sass');
+require('./pages/code');
+require('./pages/url');
+
+angular.module('main', [])
+    .config(['$stateProvider',
+        function ($stateProvider) {
+            $stateProvider
+                .state('app.get', {
+                    url: '/get',
+                    controller: require('./controllers/main'),
+                    template: require('./templates/main.html'),
+                    data: {
+                        access: {}
+                    }
+                });
+        }
+    ]);
+
+module.exports = 'get';
