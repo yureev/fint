@@ -1,21 +1,32 @@
 <div class="state-success">
-    <div ng-click="goState(STATES.INPUT)">
-        {{ 'CARD2CARD.SUCCESS.TO_START' | translate }}
+    <div class="title">{{ 'CARD2CARD.SUCCESS.PAYMENT_SUCCESS' | translate }}</div>
+    <div id="print" class="print">
+        <div>{{ 'CARD2CARD.SUCCESS.TICKET_NUMBER' | translate }} <span class="pull-right">{{ transaction.operationNumber }}</span>
+        </div>
+        <div>{{ 'CARD2CARD.SUCCESS.TICKET_DATE' | translate }} <span class="pull-right">{{ currentDate | date:'dd-MM-yyyy HH:mm' }}</span>
+        </div>
+        <div>{{ 'CARD2CARD.SUCCESS.SENDER_CARD' | translate }} <span
+                class="pull-right">** {{ transaction.number }}</span></div>
+        <div>{{ 'CARD2CARD.SUCCESS.RES_CARD' | translate }} <span
+                class="pull-right">** {{ transaction.numberTarget }}</span></div>
+        <div>{{ 'CARD2CARD.SUCCESS.SUM_SEND' | translate }} <span
+                class="pull-right">{{ transaction.amount | currency }}</span></div>
+        <div>{{ 'CARD2CARD.SUCCESS.COMMISSION_DESC' | translate }} <span class="pull-right">{{ transaction.commiss | currency }}</span>
+        </div>
+        <div>{{ 'CARD2CARD.SUCCESS.SUM_ALL' | translate }} <span
+                class="pull-right">{{ transaction.total | currency }}</span></div>
     </div>
-    <div translate="">{{ 'CARD2CARD.SUCCESS.PAYMENT_SUCCESS' | translate }}</div>
-    <div id="print">
-        <div>{{ 'CARD2CARD.SUCCESS.TICKET_NUMBER' | translate }} {{ transaction.operationNumber }}</div>
-        <div>{{ 'CARD2CARD.SUCCESS.TICKET_DATE' | translate }} {{ currentDate | date:'dd-MM-yyyy HH:mm' }}</div>
-        <div>{{ 'CARD2CARD.SUCCESS.SENDER_CARD' | translate }} ** {{ transaction.number }}</div>
-        <div>{{ 'CARD2CARD.SUCCESS.RES_CARD' | translate }} ** {{ transaction.numberTarget }}</div>
-        <div>{{ 'CARD2CARD.SUCCESS.SUM_SEND' | translate }} {{ transaction.amount | currency }}</div>
-        <div>{{ 'CARD2CARD.SUCCESS.COMMISSION_DESC' | translate }} {{ transaction.commiss | currency }}</div>
-        <div>{{ 'CARD2CARD.SUCCESS.SUM_ALL' | translate }} {{ transaction.total | currency }}</div>
-    </div>
-    <div>
-        <button ng-click="printDiv('print')">{{ 'CARD2CARD.SUCCESS.PRINT_TICKET' | translate }}</button>
-        <a ng-href="mailto:?subject=Ticket&body=Receipt number: {{send.operationNumber}}. Date of operation: {{send.currentDate | date:'dd/MM/yyyy HH:mm'}}. Card sender: ** {{send.cardA.cardA4.value}}. Card recipient: ** {{send.cardB.cardB4.value}}. Transfer amount: {{send.summ.value}} grn. Commission: {{send.commiss}} grn. The amount of write-offs: {{send.summTotal}} grn.">
-            {{ 'CARD2CARD.SUCCESS.SEND_TO_EMAIL' | translate }}
-        </a>
+    <div class="text-center">
+        <button class="btn btn-primary" ng-click="printDiv('print')"><span
+                translate="CARD2CARD.SUCCESS.PRINT_TICKET"></span></button>
+        <button class="btn btn-primary">
+            <a class="pull-right"
+               ng-href="mailto:?subject=Ticket&body=Receipt number: {{send.operationNumber}}. Date of operation: {{send.currentDate | date:'dd/MM/yyyy HH:mm'}}. Card sender: ** {{send.cardA.cardA4.value}}. Card recipient: ** {{send.cardB.cardB4.value}}. Transfer amount: {{send.summ.value}} grn. Commission: {{send.commiss}} grn. The amount of write-offs: {{send.summTotal}} grn.">
+                <span translate="CARD2CARD.SUCCESS.SEND_TO_EMAIL"></span>
+            </a>
+        </button>
+        <button class="btn btn-default btn-back" ng-click="goState(STATES.INPUT)">{{'CARD2CARD.BUTTON_CLOSE' |
+            translate}}
+        </button>
     </div>
 </div>

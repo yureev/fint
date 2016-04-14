@@ -1,11 +1,17 @@
 <div class="state-error">
-    <div ng-click="goState(STATES.INPUT)">{{ 'CARD2CARD.ERROR.TO_START' | translate }}</div>
-    <div>{{ 'CARD2CARD.ERROR.TITLE' | translate }}</div>
-    <div>{{ 'CARD2CARD.ERROR.OPERATION_CODE' | translate }}</div>
-    <div>{{ transaction.operationNumber }}</div>
-    <div>{{ transaction.mPayStatus }}</div>
-    <div>{{ 'CARD2CARD.ERROR.SUPPORT_TEL' | translate }}</div>
-    <a ng-href="mailto:support@send.ua​?subject=Money transfer error&body=Code operation: {{$scope.operationNumber}}. Error: {{$scope.mPayStatus}}">
-        {{ 'CARD2CARD.ERROR.SEND_TO_SERVICE' | translate }}
-    </a>
+    <div class="title">{{ 'CARD2CARD.ERROR.TITLE' | translate }}</div>
+    <div class="code-title">{{ 'CARD2CARD.ERROR.OPERATION_CODE' | translate }}</div>
+    <div class="operation-number">{{ transaction.operationNumber }}</div>
+    <div class="operation-status">{{ transaction.mPayStatus }}</div>
+    <div class="phone-title">{{ 'CARD2CARD.ERROR.SUPPORT_TEL' | translate }}</div>
+    <div class="phone-number"><strong>(044) 390-08-85</strong></div>
+    <div class="pull-left">
+        <a ng-href="mailto:support@send.ua​?subject=Money transfer error&body=Code operation: {{$scope.operationNumber}}. Error: {{$scope.mPayStatus}}">
+            <span translate="CARD2CARD.ERROR.SEND_TO_SERVICE"></span>
+        </a>
+    </div>
+    <div class="pull-right">
+        <button class="btn btn-warning" ng-click="goState(STATES.INPUT)">{{ 'CARD2CARD.BUTTON_CLOSE' | translate }}
+        </button>
+    </div>
 </div>
