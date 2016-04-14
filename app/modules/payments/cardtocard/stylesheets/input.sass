@@ -1,5 +1,6 @@
 .state-input
-	text-align: center
+	input
+		height: 30px
 	.has-feedback
 		span
 			top: 17px
@@ -9,8 +10,9 @@
 	.play
 		margin-top: 87px
 		font-size: 3em
-		width: 4%
+		width: 90px
 		float: left
+		padding-left: 25px
 
 	.title
 		text-align: center
@@ -20,9 +22,13 @@
 
 	.card
 		border-radius: 10px
-		padding: 5px 30px
 		color: #003366
 		display: inline-block
+		width: 300px
+		height: 220px
+		float: left
+		padding: 15px
+
 		.form-group
 			margin-bottom: 0
 		label
@@ -32,8 +38,7 @@
 
 		&.target
 			border: 2px solid #f0ad4e
-			height: 218px
-			padding-top: 73px
+			padding-top: 78px
 
 		&.source
 			border: 2px solid #000080
@@ -64,18 +69,14 @@
 
 	.amount-block
 		margin-top: 25px
-		padding: 5px 30px
-		width: 70%
+		width: 175px
+		display: inline-block
+		float: left
 		.title
 			font-size: 12px
 			font-weight: 500
 			margin-bottom: 0px
 		.amount-range
-	.total-amount
-		margin-top: 25px
-		padding: 5px 30px
-
-		input
 
 	.description
 		width: 40%
@@ -87,7 +88,10 @@
 
 	.submit
 		margin-top: 30px
-		padding-left: 30px
+
+		float: right
+		.total-amount
+
 		.send-button
 			margin-left: 10px
 

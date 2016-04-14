@@ -1,5 +1,4 @@
 <div class="state-lookup" ct-spinner="lookup_loader">
-    <div ng-click="goState(STATES.INPUT)">Close</div>
     <div>{{ 'CARD2CARD.LOOKUP.TITLE' | translate }}</div>
     <form ng-submit="submit()">
         <div translate="CARD2CARD.LOOKUP.DESC.FOR_CHECK"></div>
@@ -15,8 +14,9 @@
                placeholder="XXXXXX"
                only-digits
                required/>
-        <button type="submit">
+        <button type="submit" class="btn btn-warning">
             {{ 'CARD2CARD.LOOKUP.CONTINUE' | translate }}
         </button>
+        <button ng-click="goState(STATES.INPUT)"></button>
     </form>
 </div>
