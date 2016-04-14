@@ -1,8 +1,13 @@
 <div class="menu">
-    <div class="item" ui-sref-active="active">
-        <a ui-sref="app.send.card">Перевод с карты на карту</a>
-    </div><div class="item" ui-sref-active="active">
-        <a ui-sref="app.send.phone">Перевод по номеру телефона</a>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="item col-xs-6" ui-sref-active="active">
+                <a ui-sref="app.send.card">Перевод с карты на карту</a>
+            </div>
+            <div class="item col-xs-6" ui-sref-active="active">
+                <a ui-sref="app.send.phone">Перевод по номеру телефона</a>
+            </div>
+        </div>
     </div>
 </div>
 <div class="sub-main" ui-view></div>

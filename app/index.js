@@ -22,7 +22,7 @@ angular.module('app', [
 
 	require('_pages/send'),
 	require('_pages/get'),
-		require('_pages/mobile')
+	require('_pages/mobile')
 ])
 	.run(['$rootScope', '$state', '$stateParams', 'session',
 		function ($rootScope, $state, $stateParams, session) {

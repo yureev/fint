@@ -1,7 +1,6 @@
 require('./index.sass');
 
 angular.module('mobile', [
-		require('_modules/payments/cardtocard'),
 	require('angular-ui-bootstrap/src/accordion')
 ])
 	.config(['$stateProvider',
