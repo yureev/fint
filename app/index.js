@@ -96,6 +96,10 @@ angular.module('app', [
             $translate.use(lang);
             tmhDynamicLocale.set('ua');
         };
+
+        $translate('CARD2CARD.AMOUNT.CURRENCY').then(function (value) {
+            $scope.currency = value;
+        });
     }]);
 
 $(document).ready(function () {

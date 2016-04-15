@@ -18,12 +18,8 @@
                                    ct-payments-main-card ct-payments-format-number ct-payments-validate-number/>
                             <div class="error-number">
                                 <div ng-messages="c2cForm.number.$error" ng-show="c2cForm.number.$touched">
-                                    <div ng-message="required">{{ 'CARD2CARD.ERRORS.SOURCE.NUMBER_REQUIRED' | translate
-                                        }}
-                                    </div>
-                                    <div ng-message="invalidNumber">{{ 'CARD2CARD.ERRORS.SOURCE.NUMBER_INVALID' |
-                                        translate }}
-                                    </div>
+                                    <div ng-message="required">{{ 'CARD2CARD.ERRORS.SOURCE.NUMBER_REQUIRED' | translate }}</div>
+                                    <div ng-message="invalidNumber">{{ 'CARD2CARD.ERRORS.SOURCE.NUMBER_INVALID' | translate }}</div>
                                 </div>
                             </div>
                         </div>
@@ -72,19 +68,13 @@
                         </div>
                         <div class="error-date pull-left">
                             <div ng-messages="c2cForm.expire.$error">
-                                <div ng-message="invalidExpire">{{ 'CARD2CARD.ERRORS.SOURCE.DATE_EXPIRE' |
-                                    translate }}
-                                </div>
+                                <div ng-message="invalidExpire">{{ 'CARD2CARD.ERRORS.SOURCE.DATE_EXPIRE' | translate }}</div>
                             </div>
                         </div>
                         <div class="error-cvc pull-right">
                             <div ng-messages="c2cForm.cvc.$error" ng-show="c2cForm.cvc.$touched">
-                                <div ng-message="required">{{ 'CARD2CARD.ERRORS.SOURCE.CVC_REQUIRED' | translate
-                                    }}
-                                </div>
-                                <div ng-message="invalidCvc">{{ 'CARD2CARD.ERRORS.SOURCE.CVC_INVALID' | translate
-                                    }}
-                                </div>
+                                <div ng-message="required">{{ 'CARD2CARD.ERRORS.SOURCE.CVC_REQUIRED' | translate }}</div>
+                                <div ng-message="invalidCvc">{{ 'CARD2CARD.ERRORS.SOURCE.CVC_INVALID' | translate }}</div>
                             </div>
                         </div>
                         <div class="clearfix"></div>
@@ -98,11 +88,8 @@
                                    tooltip-trigger="mouseenter: mouseenter"/>
                             <div class="error-phone">
                                 <div ng-messages="c2cForm.phone.$error" ng-show="c2cForm.phone.$touched">
-                                    <div ng-message="required">{{ 'CARD2CARD.ERRORS.SOURCE.PHONE_REQUIRED' | translate
-                                        }}
-                                    </div>
-                                    <div ng-message="mask">{{ 'CARD2CARD.ERRORS.SOURCE.PHONE_INVALID' | translate }}
-                                    </div>
+                                    <div ng-message="required">{{ 'CARD2CARD.ERRORS.SOURCE.PHONE_REQUIRED' | translate }}</div>
+                                    <div ng-message="mask">{{ 'CARD2CARD.ERRORS.SOURCE.PHONE_INVALID' | translate }}</div>
                                 </div>
                             </div>
                         </div>
@@ -113,24 +100,16 @@
                             <input type="text" name="amount" class="form-control amount-input" tabindex="7"
                                    ng-model="amount"
                                    ng-change="calculate()" min="1" max="25000" required ct-currency/>
-
-                            <span class="text-val-4">{{ 'CARD2CARD.AMOUNT.RANGE' | translate }} {{ config.tariff.total_max / 100 |
-                                currency:currency }}
-                            </span>
+                            <span class="text-val-4">{{ 'CARD2CARD.AMOUNT.RANGE' | translate }} {{ config.tariff.total_max / 100 | currency:currency }}</span>
                             <div class="error-amount">
                                 <div ng-messages="c2cForm.amount.$error">
-                                    <div ng-message="required">{{ 'CARD2CARD.ERRORS.AMOUNT.AMOUNT_REQUIRED' |
-                                        translate
-                                        }}
-                                    </div>
-                                    <div ng-message="min">{{ 'CARD2CARD.ERRORS.AMOUNT.BIGGER_SUM' | translate }}
-                                    </div>
-                                    <div ng-message="max">{{ 'CARD2CARD.ERRORS.AMOUNT.SMALLER_SUM' | translate }}
-                                    </div>
+                                    <div ng-message="required">{{ 'CARD2CARD.ERRORS.AMOUNT.AMOUNT_REQUIRED' | translate }}</div>
+                                    <div ng-message="min">{{ 'CARD2CARD.ERRORS.AMOUNT.BIGGER_SUM' | translate }}</div>
+                                    <div ng-message="max">{{ 'CARD2CARD.ERRORS.AMOUNT.SMALLER_SUM' | translate }}</div>
                                 </div>
                             </div>
-                            <span class="text-light">( {{ config.tariff.comm_percent }}% + {{ config.tariff.comm_fixed / 100 |
-                                    currency:currency }} )
+                            <span class="text-light">
+                                ( {{ config.tariff.comm_percent }}% + {{ config.tariff.comm_fixed / 100 | currency:currency }} )
                             </span>
                             <span class="text-light">{{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }}</span>
                             <span class="text-light">{{ commiss || 0 | currency:currency }}</span>
@@ -153,12 +132,8 @@
                                    ct-payments-validate-number/>
                             <div class="error-target">
                                 <div ng-messages="c2cForm.numberTarget.$error" ng-show="c2cForm.numberTarget.$touched">
-                                    <div ng-message="required">{{ 'CARD2CARD.ERRORS.TARGET.NUMBER_REQUIRED' | translate
-                                        }}
-                                    </div>
-                                    <div ng-message="invalidNumber">{{ 'CARD2CARD.ERRORS.TARGET.NUMBER_INVALID' |
-                                        translate }}
-                                    </div>
+                                    <div ng-message="required">{{ 'CARD2CARD.ERRORS.TARGET.NUMBER_REQUIRED' | translate }}</div>
+                                    <div ng-message="invalidNumber">{{ 'CARD2CARD.ERRORS.TARGET.NUMBER_INVALID' | translate }}</div>
                                 </div>
                             </div>
                         </div>

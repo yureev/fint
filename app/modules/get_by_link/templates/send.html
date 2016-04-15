@@ -1,0 +1,19 @@
+<div class="state-lookup" ct-spinner="send_loader">
+    <form name="sendForm" ng-submit="submit()">
+        <div class="form-group" ct-input-container>
+            <label>Link:</label>
+            <input type="text" name="link" class="form-control input-sm" ct-tabindex2="checkLink"
+                   tabindex="1" ng-model="link" required/>
+        </div>
+        <div class="form-group" ct-input-container>
+            <label>Email:</label>
+            <input type="text" name="email" class="form-control input-sm"
+                   tabindex="1" ng-model="link" required/>
+        </div>
+
+        <button type="submit" class="btn btn-warning" tabindex="3"
+                ng-disabled="sendForm.$invalid || sendForm.$pristine">
+            {{ 'CARD2CARD.SEND' | translate }}
+        </button>
+    </form>
+</div>

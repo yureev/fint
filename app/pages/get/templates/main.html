@@ -1,5 +1,13 @@
 <div class="menu">
-    <div class="item active">123123</div>
-    <div class="item">213123123123</div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="item col-xs-6" ui-sref-active="active">
+                <a ui-sref="app.get.url">Пополнение по ссылке</a>
+            </div>
+            <div class="item col-xs-6" ui-sref-active="active">
+                <a ui-sref="app.get.code">Получение по коду</a>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="sub-main" ui-view></div>
