@@ -1,7 +1,7 @@
 require('./index.sass');
 
 angular.module('send.card', [
-        require('_modules/cardtocard')
+        require('_modules/card_to_card')
     ])
     .config(['$stateProvider',
         function ($stateProvider) {
