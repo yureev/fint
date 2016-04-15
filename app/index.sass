@@ -18,18 +18,27 @@ a
 input:invalid
 	box-shadow: none
 
-.bold
-	font-weight: 600
-
 .app
 	header
+		.navbar-default
+			background-color: #ffffff
+			border: 0
 		.navbar
 			margin-bottom: 0
-
-		.navbar-default
-			background-color: #FFF
-			border: 0
+		.divider
+			border-bottom: 1px solid #cccccc
+			margin-left: 60px
+			padding-bottom: 20px
 			padding-top: 20px
+		.navigation
+			margin-left: 10%
+
+			.navbar-nav
+				float: none
+			.nav
+				&.navbar-nav > li
+						width: 18%
+						text-align: center
 
 	.information
 		.button-down
@@ -38,6 +47,7 @@ input:invalid
 			margin: 7px auto
 			width: 44px
 			height: 16px
+
 		.services, .tariffs, .questions
 			.title
 				color: #2f6fad
@@ -48,11 +58,13 @@ input:invalid
 			.images
 				margin-top: 10px
 				margin-left: 7%
+
 			.text
 				float: left
 				width: 40%
 				text-align: justify
 				margin-left: 10%
+
 		.tariffs
 			h3
 				color: #2f6fad
@@ -62,37 +74,40 @@ input:invalid
 			margin: 0 auto
 
 		.questions
-			.title
-
 			.block
 				width: 795px
 				margin: 0 auto
+
 		.contacts
 			width: 1024px
 			margin: 0 auto
 			text-align: center
 			border-bottom: 1px solid #4c4c4c
 			padding-bottom: 20px
+
 			.social
 				display: inline-block
 				float: left
+
 				.facebook-pic
 					width: 50px
 					height: 40px
 					background: url('assets/images/Sprite_sendua.png') -39px -24px
 					background-color: #4c4c4c
+
 			.phone
 				display: inline-block
 				float: none
 				margin: 0 auto
+
 			.mail
 				display: inline-block
 				float: right
+
 			.title
 				color: #2f6fad
 				font-size: 18px
 				margin-bottom: 20px
-
 	footer
 		width: 1024px
 		margin: 0 auto
@@ -102,19 +117,20 @@ input:invalid
 			height: 60px
 			background: url('assets/images/Sprite_sendua.png') no-repeat
 			text-align: center
+
 			&.master
 				margin: 35px 0 0 129px
 				width: 146px
 				background-position: -650px 0
+
 			&.money-send
 				margin: 33px 0 0 113px
 				width: 209px
 				background-position: -442px 0
+
 			&.veri-visa
 				width: 100px
 				background-position: -252px 0
-
-
 
 .main
 	background-color: #BCD0E4
@@ -124,6 +140,7 @@ input:invalid
 		width: 195px
 		text-align: center
 		border-top: 1px solid #124068
+		float: left
 
 		.item
 			color: #124068
@@ -158,13 +175,21 @@ input:invalid
 .text-val-1
 	font-size: 1.2em
 	font-weight: 600
+
 .text-val-2
 	font-size: 1.1em
 	font-weight: 500
+
 .text-val-3
 	font-size: 1.1em
 	font-weight: 400
+
 .text-val-4
 	font-size: 0.8em
 	font-weight: 400
 	color: #4c4c4c
+
+.bold
+	font-weight: 600
+.active
+	color: #F79600 !important
