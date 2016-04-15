@@ -11,6 +11,7 @@ angular.module('app', [
 	'restangular',
 	'pascalprecht.translate',
 
+	require('angular-dynamic-locale'),
 	require('angular-ui-bootstrap/src/tooltip'),
 
 	require('component-input'),
@@ -47,8 +48,8 @@ angular.module('app', [
 			});
 		}
 	])
-	.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 'RestangularProvider', '$translateProvider',
-		function ($stateProvider, $urlRouterProvider, $locationProvider, RestangularProvider, $translateProvider) {
+	.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 'RestangularProvider', '$translateProvider', 'tmhDynamicLocaleProvider',
+		function ($stateProvider, $urlRouterProvider, $locationProvider, RestangularProvider, $translateProvider, tmhDynamicLocaleProvider) {
 			$locationProvider.html5Mode({
 				enabled: true,
 				requireBase: false
@@ -62,7 +63,11 @@ angular.module('app', [
 					abstract: true,
 					template: require('./index.html'),
 					controller: 'AppCtrl',
-					controllerAs: 'ac',
+                    resolve: {
+                        locale: ['tmhDynamicLocale', function(tmhDynamicLocale) {
+                            return tmhDynamicLocale.set('ua');
+                        }]
+                    },
 					data: {
 						access: {}
 					}
@@ -78,22 +83,18 @@ angular.module('app', [
 				suffix: '.json'
 			});
 			$translateProvider.preferredLanguage('ua');
+
+			tmhDynamicLocaleProvider.localeLocationPattern('/angular/i18n/angular-locale_{{locale}}.js');
 		}
 	])
-	.controller('AppCtrl', ['$scope', '$translate', function($scope, $translate) {
-		var langKey = 'ua';
-		$scope.lang = 'lang ua';
-		this.changeLanguage = function () {
-			if (langKey == 'ua') {
-				langKey = 'ru';
-				$scope.lang = 'lang ru';
-				$translate.use(langKey);
-			}
-			else {
-				langKey = 'ua';
-				$scope.lang = 'lang ua';
-				$translate.use(langKey);
-			}
+	.controller('AppCtrl', ['$scope', '$translate', 'tmhDynamicLocale', function($scope, $translate, tmhDynamicLocale) {
+		var lang = 'ua';
+
+		$scope.changeLanguage = function () {
+			lang = lang == 'ua' ? 'ru' : 'ua';
+
+			$translate.use(lang);
+			tmhDynamicLocale.set('ua');
 		};
 	}]);
 

@@ -127,8 +127,9 @@ module.exports = function (_path) {
 				'window.jQuery': 'jquery'
 			}),
 			new CopyWebpackPlugin([
-            	{ from: 'app/assets/iframes', to: 'assets/iframes' }
-        	]),
+            	{ from: 'app/assets/iframes', to: 'assets/iframes' },
+				{ from: 'app/assets/locale', to: 'angular/i18n' }
+			]),
 
 			new webpack.optimize.CommonsChunkPlugin('vendors', 'assets/js/vendors.[chunkhash].js'),
 			new TextPlugin('assets/css/[name].[chunkhash].css'),

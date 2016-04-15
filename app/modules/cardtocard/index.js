@@ -16,12 +16,14 @@ angular.module('cardToCard', [
 
 config.$inject = ['CardToCardProvider'];
 function config(CardToCardProvider) {
+	var prefix = process.env.NODE_ENV == 'development' ? 'https://send.ua' : '';
+
 	CardToCardProvider.setUrls({
-		getTariffs: require('_data/tariffs.json'), //' /sendua-external/Info/GetTariffs?tarifftype=web', //TODO make proper link
-		getPayStatus: '/sendua-external/Info/GetPayStatus',
-		createCard2CardOperation: '/sendua-external/Card2Card/CreateCard2CardOperation',
-		finishlookup: '/sendua-external/ConfirmLookUp/finishlookup',
-		getDateTime: '/sendua-external/Info/GetDateTime'
+		getTariffs: prefix + '/sendua-external/Info/GetTariffs?tarifftype=web',
+		getPayStatus: prefix + '/sendua-external/Info/GetPayStatus',
+		createCard2CardOperation: prefix + '/sendua-external/Card2Card/CreateCard2CardOperation',
+		finishlookup: prefix + '/sendua-external/ConfirmLookUp/finishlookup',
+		getDateTime: prefix + '/sendua-external/Info/GetDateTime'
 	});
 }
 
