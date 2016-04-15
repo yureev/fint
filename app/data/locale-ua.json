@@ -43,7 +43,7 @@
   },
   "CARD2CARD": {
     "TITLE": "ПЕРЕКАЗ З КАРТКИ НА КАРТКУ",
-    "AGREEMENT": "Згоден з умовами <a href='/assets/iframes/terms_conditions.pdf' target='_blank'>Договору</a>",
+    "AGREEMENT": "Згоден з <a href='/assets/iframes/terms_conditions.pdf' target='_blank'>умовами</a>",
     "SEND": "ПЕРЕКАЗАТИ",
     "SOURCE": {
       "TITLE": "Картка відправника",
