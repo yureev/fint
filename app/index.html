@@ -13,20 +13,20 @@
                     <a class="navbar-brand" ui-sref="app.main"><img class="logo" src="./assets/images/logo_sendua.png" alt=""></a>
                 </div>
                 <div class="collapse navbar-collapse divider">
-                    <ul class="nav navbar-nav">
-                        <li><a href="#" class="active">UA</a></li>
-                        <li><a href="#">RU</a></li>
-                        <li><a href="#">EN</a></li>
+                    <ul class="nav navbar-nav translate">
+                        <li class="item"><a href="#" class="active">UA</a></li>
+                        <li class="item"><a href="#">RU</a></li>
+                        <li class="item"><a href="#">EN</a></li>
                     </ul>
-                    <form class="form-inline pull-right">
+                    <form class="form-inline pull-right authorization">
                         <div class="form-group">
-                            <div class="pull-left">
-                                <input type="text" class="form-control" />
+                            <div class="pull-left item">
+                                <input type="text" class="form-control" placeholder="Логин (Ваш e-mail)"/>
                                 <br />
                                 <a href="#">Забыли логин?</a>
                             </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" />
+                            <div class="form-group item">
+                                <input type="text" class="form-control" placeholder="Пароль"/>
                                 <br />
                                 <a href="#">Регистрация</a>
                             </div>
@@ -42,7 +42,7 @@
                         <li><a href="#" scroll-to="contacts">{{ 'APP.MENU.CONTACTS' | translate }}</a></li>
                         <li class="item login ng-binding"><a href="#">{{ 'APP.MENU.DASHBOARD' | translate }}</a>
                         </li>
-                        <!--<div ng-class="lang" ng-click="ac.changeLanguage()">Translate</div>-->
+                        <div ng-class="lang" ng-click="ac.changeLanguage()">Translate</div>
                     </ul>
                 </div>
             </div>
