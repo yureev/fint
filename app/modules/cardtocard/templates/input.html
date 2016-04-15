@@ -91,7 +91,7 @@
                         <div class="form-group" ct-input-container>
                             <label>Ваш номер телефона:</label>
                             <input type="text" name="phone" class="form-control input-sm" ui-mask="+380 (99) 999 99 99"
-                                   tabindex="7" ct-tabindex="checkPhone" ng-model="phone" tabindex="5" required
+                                   tabindex="5" ct-tabindex="checkPhone" ng-model="phone" required
                                    placeholder="+380 (__) ___-__-__"
                                    tooltip-placement="right"
                                    uib-tooltip="{{ 'CARD2CARD.SOURCE.PHONE_TOOLTIP' | translate }}"
@@ -110,7 +110,7 @@
                     <div class="amount">
                         <div class="form-group" ct-input-container>
                             <label>{{ 'CARD2CARD.AMOUNT.TITLE' | translate }}</label>
-                            <input type="text" name="amount" class="form-control amount-input" tabindex="5"
+                            <input type="text" name="amount" class="form-control amount-input" tabindex="7"
                                    ng-model="amount"
                                    ng-change="calculate()" min="1" max="25000" required ct-currency/>
 
