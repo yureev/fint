@@ -125,11 +125,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <span class="text-val-3">{{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }}</span>
-                            <span>{{ commiss || 0 | currency:currency }}</span><br/>
-                            <span class="text-val-4">( {{ config.tariff.comm_percent }}% + {{ config.tariff.comm_fixed / 100 |
+                            <span class="text-light">( {{ config.tariff.comm_percent }}% + {{ config.tariff.comm_fixed / 100 |
                                     currency:currency }} )
                             </span>
+                            <span class="text-light">{{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }}</span>
+                            <span class="text-light">{{ commiss || 0 | currency:currency }}</span>
                         </div>
                     </div>
                 </div>
@@ -159,19 +159,18 @@
                         </div>
                     </div>
                     <div class="total-amount">
-                        {{ 'CARD2CARD.AMOUNT.TOTAL' | translate }}
-                        <span class="text-val-1">{{ total || 0 | currency:currency }}</span>
-                    </div>
-                    <div class="form-group">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" tabindex="8" ng-model="agreed" required>
-                                <span translate="CARD2CARD.AGREEMENT"></span>
-                            </label>
-                            <button type="submit" class="btn btn-warning send-button" tabindex="9"
-                                    ng-disabled="c2cForm.$invalid || c2cForm.$pristine">
-                                {{ 'CARD2CARD.SEND' | translate }}
-                            </button>
+                        <span class="text-bold">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{ total || 0 | currency:currency }}</span>
+                        <div class="form-group send">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" tabindex="8" ng-model="agreed" required>
+                                    <span translate="CARD2CARD.AGREEMENT"></span>
+                                </label>
+                                <button type="submit" class="btn btn-warning send-button" tabindex="9"
+                                        ng-disabled="c2cForm.$invalid || c2cForm.$pristine">
+                                    {{ 'CARD2CARD.SEND' | translate }}
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
