@@ -38,7 +38,7 @@ input:invalid
 					margin-right: 20px
 					input
 						border-color: #BCD0E4
-						@include box-shadow-entry
+						box-shadow: 0 0 3px 0px rgba(19, 65, 103, 0.5)
 					a
 		.navigation
 			margin-left: 10%
@@ -144,6 +144,8 @@ input:invalid
 
 .main
 	background-color: #BCD0E4
+	a
+		text-decoration: none
 
 	.sidebar
 		position: absolute
@@ -158,8 +160,10 @@ input:invalid
 			padding: 20px
 
 			&.active
-				color: #F79600
 				background-color: #fff
+				a
+					color: #F79600
+					text-decoration: none
 
 	.content
 		margin-left: 195px
@@ -178,6 +182,9 @@ input:invalid
 				background-color: #fff
 				color: #F79600
 				border-top: 1px solid #F79600
+				a
+					color: #F79600
+
 	.sub-main
 		background-color: #fff
 		padding: 40px

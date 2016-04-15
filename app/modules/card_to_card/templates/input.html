@@ -10,7 +10,7 @@
                     <div class="card source">
                         <div class="card-logo" ng-class="c2cForm.number.cardType"></div>
                         <div class="form-group" ct-input-container>
-                            <label>Номер карты отправителя:</label>
+                            <label>{{ 'CARD2CARD.SOURCE.LABEL.CARD_NUMBER' | translate }}</label>
                             <input type="text" name="number" class="form-control input-sm" ct-tabindex="checkNumber"
                                    tabindex="1"
                                    ng-model="number" required
@@ -24,7 +24,7 @@
                             </div>
                         </div>
                         <div class="date-block">
-                            <label>Срок действия:</label>
+                            <label>{{ 'CARD2CARD.SOURCE.LABEL.DATE_EXPIRE' | translate }}</label>
                             <div class="form-group">
                                 <div ct-input-container class="date"
                                      ng-class="{'ct-input-invalid': c2cForm.expire.$error && c2cForm.expire.$error.invalidExpire}">
@@ -48,7 +48,7 @@
                         </div>
                         <div class="cvv" tooltip-placement="right"
                              uib-tooltip="{{ 'CARD2CARD.SOURCE.CVC_TOOLTIP' | translate }}">
-                            <label class="input-label">Код:</label>
+                            <label class="input-label">{{ 'CARD2CARD.SOURCE.LABEL.CODE' | translate }}</label>
                             <div class="has-feedback " ct-input-container>
                                 <input type="{{ cvcType }}" maxlength="3" id="cvc" name="cvc"
                                        class="form-control input-sm"
@@ -79,7 +79,7 @@
                         </div>
                         <div class="clearfix"></div>
                         <div class="form-group" ct-input-container>
-                            <label>Ваш номер телефона:</label>
+                            <label>{{ 'CARD2CARD.SOURCE.LABEL.PHONE_NUMBER' | translate }}</label>
                             <input type="text" name="phone" class="form-control input-sm" ui-mask="+380 (99) 999 99 99"
                                    tabindex="5" ct-tabindex="checkPhone" ng-model="phone" required
                                    placeholder="+380 (__) ___-__-__"
@@ -123,7 +123,7 @@
                     <div class="card target">
                         <div class="card-logo" ng-class="c2cForm.numberTarget.cardType"></div>
                         <div class="form-group" ct-input-container>
-                            <label>Номер картки одержувача</label>
+                            <label>{{ 'CARD2CARD.TARGET.LABEL.CARD_NUMBER' | translate }}</label>
                             <input type="text" name="numberTarget" class="form-control input-sm"
                                    ct-tabindex="checkTargetNumber"
                                    ng-model="numberTarget" required tabindex="6"

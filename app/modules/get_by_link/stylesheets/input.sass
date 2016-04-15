@@ -1,154 +1,55 @@
 .state-input
-  .has-feedback
-    span
-      top: 17px
-      color: #4c4c4c
-  .has-feedback .form-control
-    padding-right: 10px
-  .play
-    position: absolute
-    font-size: 3em
-    left: 48%
-    margin-top: 85px
-
-  .title
-    text-align: center
-    font-size: 25px
-    font-weight: normal
-    margin-bottom: 30px
-
   .card
-    border-radius: 10px
-    color: #003366
     padding: 15px
+    border-radius: 10px
     margin-bottom: 25px
+    border: 2px solid #f0ad4e
+    padding-top: 78px
+    height: 220px
+    position: relative
+
+    label
+      color: $main_color_inactive
+      font-size: 12px
+      font-weight: 500
+      margin-bottom: 0
 
     .card-logo
       display: none
       background-size: cover
       background-repeat: no-repeat
+      position: absolute
 
-    &.source
-      position: relative
-      .card-logo
-        position: absolute
-        &.visa
-          background-image: url(./images/visa_logo.svg)
-          display: block
-          width: 50px
-          height: 16px
-          right: 22px
-          top: 39px
+      &.visa
+        background-image: url(./images/visa_logo.svg)
+        display: block
+        width: 50px
+        height: 16px
+        right: 22px
+        top: 39px
 
-        &.mastercard
-          background-image: url(./images/masterCard_logo.svg)
-          display: block
-          width: 39px
-          height: 23px
-          right: 21px
-          top: 35px
-    &.target
-      position: relative
-      .card-logo
-        position: absolute
-        &.visa
-          background-image: url(./images/visa_logo.svg)
-          display: block
-          width: 50px
-          height: 16px
-          right: 22px
-          top: 102px
-
-        &.mastercard
-          background-image: url(./images/masterCard_logo.svg)
-          display: block
-          width: 39px
-          height: 23px
-          right: 21px
-          top: 99px
-
-    .form-group
-      margin-bottom: 0
-    label
-      font-size: 12px
-      font-weight: 500
-      margin-bottom: 0
-
-    &.target
-      border: 2px solid #f0ad4e
-      padding-top: 78px
-      height: 220px
-
-    &.source
-      border: 2px solid #000080
-
-      .card-data
-        margin-top: 35px
-
-        .cod
-          float: right
-          margin-right: 49px
-
-      .date-block
-        float: left
-        clear: both
-        position: relative
-        .date
-          display: inline-block
-          float: left
-          margin-right: 5px
-          width: 60px
-      .cvv
-        display: inline-block
-        float: right
-        width: 75px
-
-    label
-      float: left
+      &.mastercard
+        background-image: url(./images/masterCard_logo.svg)
+        display: block
+        width: 39px
+        height: 23px
+        right: 21px
+        top: 35px
 
   .amount
-    margin-left: 16px
-    .title
-      font-size: 12px
-      font-weight: 500
-      margin-bottom: 0
-    .amount-input
-      width: 175px
-  .total-amount
-    margin-left: 16px
-    .send
-      margin-top: 42px
-      .send-button
-        margin-left: 20px
+    margin-left: 20px
+    padding-top: 80px
+    width: 175px
 
-  .description
-    width: 40%
-    margin: 30px auto
-    .commission
-      padding: 10px 0
-    .text
-      padding: 10px 0
+    label
+      margin-bottom: 0
+    button
+      margin-top: 20px
 
   .error-number
     height: 15px
     line-height: 15px
 
-  .error-date
-    font-size: 12px
-    color: #d9534f
-    height: 15px
-
-  .error-cvc
-    font-size: 12px
-    color: #d9534f
-    height: 15px
-
-  .error-phone
-    height: 15px
-    line-height: 15px
   .error-amount
-    height: 15px
-    line-height: 15px
-  .error-target
     height: 15px
     line-height: 15px
