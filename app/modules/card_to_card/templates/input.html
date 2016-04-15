@@ -127,7 +127,8 @@
                             <input type="text" name="numberTarget" class="form-control input-sm"
                                    ct-tabindex="checkTargetNumber"
                                    ng-model="numberTarget" required tabindex="6"
-                                   ui-mask="9999 9999 9999 9999" placeholder="____ ____ ____ ____"
+                                   ng-disabled="numberTargetIsDisabled"
+                                   ui-mask="numberTargetMask" placeholder="____ ____ ____ ____"
                                    ct-payments-format-number
                                    ct-payments-validate-number/>
                             <div class="error-target">
@@ -149,6 +150,10 @@
                                 <button type="submit" class="btn btn-warning send-button" tabindex="9"
                                         ng-disabled="c2cForm.$invalid || c2cForm.$pristine">
                                     {{ 'CARD2CARD.SEND' | translate }}
+                                </button>
+                                <button type="button" class="btn btn-link" ng-click="cancel()"
+                                        ng-disabled="c2cForm.$pristine">
+                                    Cancel
                                 </button>
                             </div>
                         </div>

@@ -23,7 +23,8 @@ function config(CardToCardProvider) {
         getPayStatus: prefix + '/sendua-external/Info/GetPayStatus',
         createCard2CardOperation: prefix + '/sendua-external/Card2Card/CreateCard2CardOperation',
         finishlookup: prefix + '/sendua-external/ConfirmLookUp/finishlookup',
-        getDateTime: prefix + '/sendua-external/Info/GetDateTime'
+        getDateTime: prefix + '/sendua-external/Info/GetDateTime',
+        getlinkparams: prefix + '/sendua-external/Card2Card/getlinkparams'
     });
 }
 

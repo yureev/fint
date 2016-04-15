@@ -1,5 +1,17 @@
-Ctrl.$inject = ['$scope'];
-function Ctrl($scope) {
+Ctrl.$inject = ['$scope', '$stateParams'];
+function Ctrl($scope, $stateParams) {
+    if ($stateParams.payLink) {
+        $scope.$broadcast('GetLinkParams', {
+            link: $stateParams.payLink
+        });
+    }
+
+    $scope.$on('GetLinkParamsSuccess', onGetLinkParams);
+    
+    
+    $scope.numberTargetMask = '9999 9999 9999 9999';
+    $scope.numberTargetIsDisabled = false;
+    
     $scope.checkNumber = function (ctrl) {
         if (ctrl.$valid && ctrl.$modelValue && ctrl.$modelValue.length == 16) {
             return true;
@@ -30,6 +42,15 @@ function Ctrl($scope) {
             return true;
         }
     };
+
+    function onGetLinkParams(event, data) {
+        $scope.amount = data.amount;
+        $scope.numberTarget = data.mask;
+        $scope.numberTargetMask = '';
+        $scope.numberTargetIsDisabled = true;
+
+        $scope.$digest();
+    }
 }
 
 module.exports = Ctrl;

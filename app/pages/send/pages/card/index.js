@@ -10,8 +10,8 @@ angular.module('send.card', [
                     url: '/card',
                     controller: require('./controllers/main'),
                     template: require('./templates/main.html'),
-                    data: {
-                        access: {}
+                    params: {
+                        payLink: null
                     }
                 });
         }

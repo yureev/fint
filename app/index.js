@@ -27,12 +27,16 @@ angular.module('app', [
     ])
     .run(['$rootScope', '$state', '$stateParams', 'session',
         function ($rootScope, $state, $stateParams, session) {
+            window.$rootScope = $rootScope;
+
             $rootScope.NODE_ENV = process.env.NODE_ENV;
 
             $rootScope.$state = $state;
             $rootScope.$stateParams = $stateParams;
 
             $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState) {
+                return;
+
                 var access = toState.data.access;
 
                 if (access.isPublic) {
@@ -67,10 +71,11 @@ angular.module('app', [
                         locale: ['tmhDynamicLocale', function (tmhDynamicLocale) {
                             return tmhDynamicLocale.set('ua');
                         }]
-                    },
-                    data: {
-                        access: {}
                     }
+                })
+                .state('link', {
+                    url: '/link/:payLink',
+                    controller: 'LinkCtrl'
                 });
 
             RestangularProvider.setBaseUrl('/api');
@@ -99,6 +104,11 @@ angular.module('app', [
 
         $translate('CARD2CARD.AMOUNT.CURRENCY').then(function (value) {
             $scope.currency = value;
+        });
+    }])
+    .controller('LinkCtrl', ['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $stateParams) {
+        $state.go('app.send.card', {
+            payLink: $stateParams.payLink
         });
     }]);
 
