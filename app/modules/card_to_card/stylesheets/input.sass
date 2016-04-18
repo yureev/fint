@@ -1,9 +1,12 @@
 .state-input
+
   .has-feedback
     span
       color: #4c4c4c
+
   .has-feedback .form-control
     padding-right: 10px
+
   .play
     position: absolute
     font-size: 3em
@@ -17,9 +20,11 @@
     margin-bottom: 30px
 
   .card
+    height: 220px
+    max-width: 365px
     border-radius: 10px
     color: #003366
-    padding: 15px
+    padding: 10px 30px
     margin-bottom: 25px
 
     .card-logo
@@ -29,8 +34,10 @@
 
     &.source
       position: relative
+
       .card-logo
         position: absolute
+
         &.visa
           background-image: url(./images/visa_logo.svg)
           display: block
@@ -46,10 +53,13 @@
           height: 23px
           right: 21px
           top: 35px
+
     &.target
       position: relative
+
       .card-logo
         position: absolute
+
         &.visa
           background-image: url(./images/visa_logo.svg)
           display: block
@@ -68,6 +78,7 @@
 
     .form-group
       margin-bottom: 0
+
     label
       font-size: 12px
       font-weight: 500
@@ -75,8 +86,7 @@
 
     &.target
       border: 2px solid #f0ad4e
-      padding-top: 78px
-      height: 220px
+      padding-top: 77px
 
     &.source
       border: 2px solid #000080
@@ -92,11 +102,13 @@
         float: left
         clear: both
         position: relative
+
         .date
           display: inline-block
           float: left
           margin-right: 5px
           width: 60px
+
       .cvv
         display: inline-block
         float: right
@@ -108,20 +120,26 @@
       font-size: 12px
       font-weight: 500
       margin-bottom: 0
+
     .amount-input
       width: 175px
+
   .total-amount
     margin-left: 16px
+
     .send
       margin-top: 42px
+
       .send-button
         margin-left: 20px
 
   .description
     width: 40%
     margin: 30px auto
+
     .commission
       padding: 10px 0
+
     .text
       padding: 10px 0
 
@@ -142,9 +160,12 @@
   .error-phone
     height: 15px
     line-height: 15px
+
   .error-amount
     height: 15px
     line-height: 15px
+
   .error-target
     height: 15px
     line-height: 15px
+

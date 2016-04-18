@@ -1,12 +1,11 @@
 <div class="state-input" ct-spinner="tariffs_loader || input_loader">
     <form name="c2cForm" ct-payments ng-submit="submit()" autocomplete="off">
-        <!--source card-->
         <div class="row">
             <div class="hidden-xs hidden-sm">
                 <div class="play"><span class="glyphicon glyphicon-menu-right"></span></div>
             </div>
             <div class="col-md-6">
-                <div class="col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2">
+                <div class="col-md-10 col-lg-8">
                     <div class="card source">
                         <div class="card-logo" ng-class="c2cForm.number.cardType"></div>
                         <div class="form-group" ct-input-container>
@@ -46,11 +45,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="cvv" tooltip-placement="right"
-                             uib-tooltip="{{ 'CARD2CARD.SOURCE.CVC_TOOLTIP' | translate }}">
+                        <div class="cvv" >
                             <label class="input-label">{{ 'CARD2CARD.SOURCE.LABEL.CODE' | translate }}</label>
                             <div class="has-feedback " ct-input-container>
                                 <input type="{{ cvcType }}" maxlength="3" id="cvc" name="cvc"
+                                       uib-tooltip="{{ 'CARD2CARD.SOURCE.CVC_TOOLTIP' | translate }}" tooltip-placement="right"
                                        class="form-control input-sm"
                                        autocomplete="new-password" ng-model="cvc" required tabindex="4"
                                        ct-tabindex="checkCvc" placeholder="{{ 'CARD2CARD.SOURCE.CVC' | translate }}"
@@ -119,7 +118,7 @@
             </div>
             <!--end of source card-->
             <div class="col-md-6">
-                <div class="col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2">
+                <div class="col-md-10 col-lg-8">
                     <div class="card target">
                         <div class="card-logo" ng-class="c2cForm.numberTarget.cardType"></div>
                         <div class="form-group" ct-input-container>

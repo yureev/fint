@@ -7,6 +7,17 @@
       "CONTACTS": "КОНТАКТИ",
       "DASHBOARD": "ОСОБИСТИЙ КАБІНЕТ"
     },
+    "AUTH": {
+      "INPUT": {
+        "LOGIN": "Логін (Ваш email)",
+        "PASS": "Пароль"
+      },
+      "LINK": {
+        "FORGOT": "Забули пароль?",
+        "REGISTRATION": "Регістрація"
+      },
+      "ENTER": "Війти"
+    },
     "BUTTONS": {
       "SEND_MONEY": "Переказ з картки<br>на картку",
       "ROSTER_PAYMENT": "Реєстрові<br>перекази",

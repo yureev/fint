@@ -7,6 +7,17 @@
       "CONTACTS": "КОНТАКТЫ",
       "DASHBOARD": "ЛИЧНЫЙ КАБИНЕТ"
     },
+    "AUTH": {
+      "INPUT": {
+        "LOGIN": "Логин (Ваш email)",
+        "PASS": "Пароль"
+      },
+      "LINK": {
+        "FORGOT": "Забыли пароль?",
+        "REGISTRATION": "Регистрация"
+      },
+      "ENTER": "Войти"
+    },
     "BUTTONS": {
       "SEND_MONEY": "Перевод с карты<br>на карту",
       "ROSTER_PAYMENT": "Реестровые<br>переводы",

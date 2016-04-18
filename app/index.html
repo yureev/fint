@@ -1,5 +1,5 @@
 <div class="app">
-    <header>
+    <header id="top">
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -18,56 +18,65 @@
                         <li class="item"><a href="#">RU</a></li>
                         <li class="item"><a href="#">EN</a></li>
                     </ul>
+                    <div ng-class="lang" ng-click="changeLanguage()">Translate</div>
                     <form class="form-inline pull-right authorization">
                         <div class="form-group">
                             <div class="pull-left item">
-                                <input type="text" class="form-control" placeholder="Логин (Ваш e-mail)"/>
+                                <input type="text" class="form-control"
+                                       placeholder="{{ 'APP.AUTH.INPUT.LOGIN' | translate }}"/>
                                 <br />
-                                <a href="#">Забыли логин?</a>
+                                <a href="#">{{ 'APP.AUTH.LINK.FORGOT' | translate }}</a>
                             </div>
                             <div class="form-group item">
-                                <input type="text" class="form-control" placeholder="Пароль"/>
+                                <input type="text" class="form-control"
+                                       placeholder="{{ 'APP.AUTH.INPUT.PASS' | translate }}"/>
                                 <br />
-                                <a href="#">Регистрация</a>
+                                <a href="#">{{ 'APP.AUTH.LINK.REGISTRATION' | translate }}</a>
                             </div>
                         </div>
-                        <button class="btn btn-warning pull-right">ВОЙТИ</button>
+                        <button class="btn btn-warning pull-right">{{ 'APP.AUTH.ENTER' | translate }}</button>
                     </form>
                 </div>
                 <div class="collapse navbar-collapse navigation">
                     <ul class="nav navbar-nav">
+                        <li><a href="#" scroll-to="services">ПЕРЕВОДЫ</a></li>
                         <li><a href="#" scroll-to="services">{{ 'APP.MENU.ABOUT' | translate }}</a></li>
                         <li><a href="#" scroll-to="tarif">{{ 'APP.MENU.TARIFFS' | translate }}</a></li>
                         <li><a href="#" scroll-to="qaa">{{ 'APP.MENU.FAQ' | translate }}</a></li>
                         <li><a href="#" scroll-to="contacts">{{ 'APP.MENU.CONTACTS' | translate }}</a></li>
-                        <li class="item login ng-binding"><a href="#">{{ 'APP.MENU.DASHBOARD' | translate }}</a>
-                        </li>
-                        <div ng-class="lang" ng-click="changeLanguage()">Translate</div>
+                        <!--<li class="item login ng-binding"><a href="#">{{ 'APP.MENU.DASHBOARD' | translate }}</a>-->
+                        <!--</li>-->
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
     <div class="main">
-        <aside class="sidebar">
-            <div class="item" ui-sref-active="active">
-                <a ui-sref="app.send">{{'APP.CONTROLS.SEND.BTN_SEND' | translate}}</a>
+        <div class="row">
+            <div class="col-md-2">
+                <div class="row">
+                    <aside class="sidebar">
+                <div class="item" ui-sref-active="active">
+                    <a ui-sref="app.send">{{'APP.CONTROLS.SEND.BTN_SEND' | translate}}</a>
+                </div>
+                <div class="item" ui-sref-active="active">
+                    <a ui-sref="app.get">{{'APP.CONTROLS.RECEIVE.BTN_RECEIVE' | translate}}</a>
+                </div>
+            </aside>
+                </div>
             </div>
-            <div class="item" ui-sref-active="active">
-                <a ui-sref="app.get">{{'APP.CONTROLS.RECEIVE.BTN_RECEIVE' | translate}}</a>
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="content" ui-view></div>
+                </div>
             </div>
-        </aside>
-        <div class="content" ui-view>
         </div>
     </div>
     <div class="information">
-        <!--content-->
         <div class="services" id="services">
             <div class="title text-center">{{ 'APP.CONTENT.SERVICE.TITLE' | translate }}</div>
-            <div class="description">
-                <div class="text" translate="APP.CONTENT.SERVICE.TEXT"></div>
-            </div>
-            <img src="./assets/images/old/gear.jpg" class="images" height="300px">
+            <div class="text" translate="APP.CONTENT.SERVICE.TEXT"></div>
+            <img src="./assets/images/creat.png" class="images">
             <div class="clearfix"></div>
             <div class="button-down" scroll-to="tarif"></div>
         </div>
@@ -76,7 +85,7 @@
             <div class="title text-center">{{ 'APP.CONTENT.TARIFFS.TITLE' | translate }}</div>
             <div class="description text-left">
                 <div class="text" translate="APP.CONTENT.TARIFFS.TEXT"></div>
-                <img class="images" src="./assets/images/old/Calc_illustr.jpg" width="350" height="310">
+                <img class="images" src="./assets/images/calc.png">
                 <div class="clearfix"></div>
                 <div class="button-down" scroll-to="qaa"></div>
             </div>
@@ -84,7 +93,7 @@
         <div class="clearfix"></div>
         <div class="questions" id="qaa">
             <div class="title text-center">{{ 'APP.CONTENT.FAQ.TITLE' | translate }}</div>
-            <div class="block">
+            <div class="wrap">
                 <uib-accordion close-others="true">
                     <uib-accordion-group is-open="true">
                         <uib-accordion-heading>
@@ -108,54 +117,57 @@
                         <div translate="APP.CONTENT.FAQ.QUESTION_3.TEXT"></div>
                     </uib-accordion-group>
                 </uib-accordion>
-                <div class="button-up" scroll-to="navbarCollapse"></div>
             </div>
             <div class="clearfix"></div>
-            <div class="contacts" id="contacts">
-                <!--contacts block-->
-                <div class="social">
-                    <div class="title">Мы в соцсетях</div>
-                    <div class="row">
-                        <div class="facebook-pic"></div>
-                        <div class="twitter-pic"></div>
-                    </div>
-                </div>
-                <div class="phone">
-                    <div class="title">Телефон</div>
-                    <div class="row">
-                        <div class="phone">
-                            <a href="tel:380443900885">
-                                <div class="phone-pic"></div>
-                                <div class="phone-number">044 390-08-85</div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="mail">
-                    <div class="title">Почта</div>
-                    <div class="row">
-                        <div class="facebook-pic"></div>
-                        <div class="twitter-pic"></div>
-                        <div class="mail">
-                            <a href="mailto:support@send.ua">support@send.ua</a>
-                        </div>
-                    </div>
-                </div>
-                <!--end of contacts block-->
-            </div>
+            <div class="button-down" scroll-to="contacts"></div>
         </div>
     </div>
+    <div class="button-up"><span class="button" scroll-to="top"></span></div>
     <footer>
         <div class="footer-wrap">
-            <a href="http://www.visa.com.ua/ua/uk-ua/personal/security/onlineshopping.shtml" target="_blank">
-                <div class="veri-visa banner"></div>
-            </a>
-            <div class="master banner"></div>
-            <div class="money-send banner"></div>
-            <div class="master2 banner"></div>
-            <a href="http://www.mastercard.com/ua/consumer/secure-code.html" target="_blank">
-                <div class="secure banner"></div>
-            </a>
+            <div class="row contacts" id="contacts">
+                <div class="col-md-3 col-md-offset-1">
+                    <div class="social">
+                        <div class="title">Мы в соцсетях</div>
+                        <img class="facebook-pic" src="./assets/images/facebook_logo.svg">
+                        <img class="twitter-pic" src="./assets/images/twitter_logo.svg">
+                    </div>
+                </div>
+                <div class="col-md-3 col-md-offset-1">
+                    <div class="phone">
+                        <div class="title">Телефон</div>
+                        <a href="tel:380443900885">
+                            <div class="phone-number text-val-1">044 390-08-85</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-md-offset-1">
+                    <div class="mail">
+                        <div class="title">Почта</div>
+                        <div class="mail">
+                            <a href="mailto:support@send.ua" class="text-val-1">support@send.ua</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row banners">
+                <div class="col-md-3">
+                    <a href="http://www.visa.com.ua/ua/uk-ua/personal/security/onlineshopping.shtml" target="_blank">
+                        <img class="visa-verified" src="./assets/images/vbyvisa_blu.png">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <img class="mastercard" src="./assets/images/masterCard_logo.svg">
+                </div>
+                <div class="col-md-3">
+                    <img class="money-send" src="./assets/images/MoneySend.png">
+                </div>
+                <div class="col-md-2 col-md-offset-1">
+                    <a href="http://www.mastercard.com/ua/consumer/secure-code.html" target="_blank">
+                        <img class="secure-code" src="./assets/images/SecureCode.svg">
+                    </a>
+                </div>
+            </div>
         </div>
     </footer>
 </div>

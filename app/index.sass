@@ -12,207 +12,228 @@ $fa-font-path: "~font-awesome/fonts"
 @import "assets/stylesheets/components/uib_tooltip"
 
 // Misc
+html
+  font-size: 14px
+
+@media (min-width: 970px)
+  body
+    font-size: 1rem
+
+@media (min-width: 1170px)
+  body
+    font-size: 1.2rem
+
 a
-	cursor: pointer
+  cursor: pointer
 
 input:invalid
-	box-shadow: none
+  box-shadow: none
 
 .app
-	header
-		.navbar-default
-			background-color: #ffffff
-			border: 0
-		.navbar
-			margin-bottom: 0
-		.divider
-			border-bottom: 1px solid #cccccc
-			margin-left: 60px
-			padding-bottom: 20px
-			padding-top: 20px
-			.translate
-				.item
-					width: 30px
-			.authorization
-				.item
-					margin-right: 20px
-					input
-						border-color: #BCD0E4
-						box-shadow: 0 0 3px 0px rgba(19, 65, 103, 0.5)
-					a
-		.navigation
-			margin-left: 10%
+  header
+    .navbar-default
+      background-color: #ffffff
+      border: 0
+    .navbar
+      margin-bottom: 0
+    .divider
+      border-bottom: 1px solid #cccccc
+      margin: 0 60px
+      padding-bottom: 20px
+      padding-top: 20px
+      .translate
+        .item
+          width: 30px
+      .authorization
+        .item
+          margin-right: 20px
+          input
+            border-color: #BCD0E4
+            box-shadow: 0 0 3px 0 rgba(19, 65, 103, 0.5)
+        button
+          text-transform: uppercase
+    .navigation
+      margin-left: 14%
 
-			.navbar-nav
-				float: none
-			.nav
-				&.navbar-nav > li
-						width: 18%
-						text-align: center
+      .navbar-nav
+        text-align: center
+        width: 100%
+      .nav
+        &.navbar-nav > li
+          margin-right: 2%
+          float: none
+          display: inline-block
 
-	.information
-		.button-down
-			text-align: center
-			background: url('assets/images/Sprite_sendua.png') -148px -45px no-repeat
-			margin: 7px auto
-			width: 44px
-			height: 16px
+  .information
+    max-width: 1024px
+    margin: 0 auto
+    .button-down
+      text-align: center
+      background: url('assets/images/Sprite_sendua.png') -148px -45px no-repeat
+      margin: 7px auto
+      width: 44px
+      height: 16px
 
-		.services, .tariffs, .questions
-			.title
-				color: #2f6fad
-				font-size: 22px
-				margin-bottom: 40px
-				padding-top: 30px
+    .services, .tariffs, .questions
+      .title
+        color: #2f6fad
+        font-size: 22px
+        margin-bottom: 40px
+        padding-top: 30px
 
-			.images
-				margin-top: 10px
-				margin-left: 7%
+      .images
+        margin-top: 10px
+        margin-left: 7%
 
-			.text
-				float: left
-				width: 40%
-				text-align: justify
-				margin-left: 10%
+      .text
+        float: left
+        width: 40%
+        text-align: justify
+        margin-left: 10%
 
-		.tariffs
-			h3
-				color: #2f6fad
+    .tariffs
+      h3
+        color: #2f6fad
 
-		.services
-			width: 1024px
-			margin: 0 auto
+    .services
 
-		.questions
-			.block
-				width: 795px
-				margin: 0 auto
 
-		.contacts
-			width: 1024px
-			margin: 0 auto
-			text-align: center
-			border-bottom: 1px solid #4c4c4c
-			padding-bottom: 20px
+    .questions
+      max-width: 900px
+      margin: 0 auto
+      border-bottom: 1px solid #cccccc
+      .wrap
+        max-width: 794px
+        margin: 0 auto
+        margin-bottom: 30px
 
-			.social
-				display: inline-block
-				float: left
+  .button-up
+    width: 900px
+    margin: 0 auto
+    margin-bottom: 60px
 
-				.facebook-pic
-					width: 50px
-					height: 40px
-					background: url('assets/images/Sprite_sendua.png') -39px -24px
-					background-color: #4c4c4c
+    .button
+      text-align: center
+      background: url('assets/images/Sprite_sendua.png') -148px -45px no-repeat
+      transform: rotate(180deg)
+      float: right
+      margin: 7px auto
+      width: 44px
+      height: 16px
 
-			.phone
-				display: inline-block
-				float: none
-				margin: 0 auto
+  footer
+    max-width: 900px
+    margin: 0 auto
 
-			.mail
-				display: inline-block
-				float: right
+    .contacts
+      border-bottom: 1px solid #4c4c4c
+      margin-bottom: 30px
+      padding-bottom: 30px
 
-			.title
-				color: #2f6fad
-				font-size: 18px
-				margin-bottom: 20px
-	footer
-		width: 1024px
-		margin: 0 auto
+      .social
 
-		.banner
-			float: left
-			height: 60px
-			background: url('assets/images/Sprite_sendua.png') no-repeat
-			text-align: center
+        .facebook-pic, .twitter-pic
+          width: 40px
+          height: 30px
 
-			&.master
-				margin: 35px 0 0 129px
-				width: 146px
-				background-position: -650px 0
+      .phone
 
-			&.money-send
-				margin: 33px 0 0 113px
-				width: 209px
-				background-position: -442px 0
 
-			&.veri-visa
-				width: 100px
-				background-position: -252px 0
+      .mail
+
+
+      .title
+        color: #2f6fad
+        font-size: 18px
+        margin-bottom: 20px
+    .banners
+      img
+        margin-bottom: 20px
+      .visa-verified
+        margin-left: 5%
+
+      .mastercard
+        width: 80px
+
+      .money-send
+
+      .secure-code
+        width: 90px
+        margin-left: 20px
 
 .main
-	background-color: #BCD0E4
-	a
-		text-decoration: none
+  background-color: #BCD0E4
+  a
+    text-decoration: none
 
-	.sidebar
-		position: absolute
-		width: 195px
-		text-align: center
-		border-top: 1px solid #124068
-		float: left
+  .sidebar
+    //position: absolute
+    //width: 14%
+    text-align: center
+    border-top: 1px solid #124068
+    //float: left
 
-		.item
-			color: #124068
-			text-transform: uppercase
-			padding: 20px
+    .item
+      color: #124068
+      text-transform: uppercase
+      padding: 20px
 
-			&.active
-				background-color: #fff
-				a
-					color: #F79600
-					text-decoration: none
+      &.active
+        background-color: #fff
+        a
+          color: #F79600
+          text-decoration: none
 
-	.content
-		margin-left: 195px
+  .content
+    //margin-left: 14%
 
-	.menu
-		.item
-			text-align: center
-			color: #124068
-			text-transform: uppercase
-			height: 35px
-			padding-top: 7px
-			padding-bottom: 10px
-			border-top: 1px solid
+  .menu
+    .item
+      text-align: center
+      color: #124068
+      text-transform: uppercase
+      height: 35px
+      padding-top: 7px
+      padding-bottom: 10px
+      border-top: 1px solid
 
-			&.active
-				background-color: #fff
-				color: #F79600
-				border-top: 1px solid #F79600
-				a
-					color: #F79600
+      &.active
+        background-color: #fff
+        color: #F79600
+        border-top: 1px solid #F79600
+        a
+          color: #F79600
 
-	.sub-main
-		background-color: #fff
-		padding: 40px
+  .sub-main
+    background-color: #fff
+    padding: 40px
 
 .text-val-1
-	font-size: 1.2em
-	font-weight: 600
+  font-size: 18px
+  font-weight: 600
 
 .text-val-2
-	font-size: 1.1em
-	font-weight: 500
+  font-size: 1.1em
+  font-weight: 500
 
 .text-val-3
-	font-size: 1.1em
-	font-weight: 400
+  font-size: 1.1em
+  font-weight: 400
 
 .text-val-4
-	font-size: 0.8em
-	font-weight: 400
-	color: #4c4c4c
+  font-size: 0.8em
+  font-weight: 400
+  color: #4c4c4c
 
 .text-light
-	font-weight: 400
-	color: #4c4c4c
+  font-weight: 400
+  color: #4c4c4c
+
 .text-bold
-	font-weight: 600
+  font-weight: 600
 
 .bold
-	font-weight: 600
+  font-weight: 600
+
 .active
-	color: #F79600 !important
+  color: #F79600 !important
