@@ -85,6 +85,7 @@
       }
     },
     "BUTTON_CLOSE": "Закрыть",
+    "BUTTON_CANCEL": "Отменить",
     "ERRORS": {
       "SOURCE": {
         "NUMBER_REQUIRED": "Введите номер карты отправителя",

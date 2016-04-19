@@ -5,7 +5,7 @@
                 <div class="play"><span class="glyphicon glyphicon-menu-right"></span></div>
             </div>
             <div class="col-md-6">
-                <div class="col-md-10 col-lg-8">
+                <div class="col-md-10 col-lg-6 col-lg-offset-3">
                     <div class="card source">
                         <div class="card-logo" ng-class="c2cForm.number.cardType"></div>
                         <div class="form-group" ct-input-container>
@@ -95,11 +95,11 @@
                     </div>
                     <div class="amount">
                         <div class="form-group" ct-input-container>
-                            <label>{{ 'CARD2CARD.AMOUNT.TITLE' | translate }}</label>
+                            <label class="text-bold-normal">{{ 'CARD2CARD.AMOUNT.TITLE' | translate }}</label>
                             <input type="text" name="amount" class="form-control amount-input" tabindex="7"
                                    ng-model="amount"
                                    ng-change="calculate()" min="1" max="25000" required ct-currency/>
-                            <span class="text-val-4">{{ 'CARD2CARD.AMOUNT.RANGE' | translate }} {{ config.tariff.total_max / 100 | currency:currency }}</span>
+                            <span class="text-light-normal">{{ 'CARD2CARD.AMOUNT.RANGE' | translate }} {{ config.tariff.total_max / 100 | currency:currency }}</span>
                             <div class="error-amount">
                                 <div ng-messages="c2cForm.amount.$error">
                                     <div ng-message="required">{{ 'CARD2CARD.ERRORS.AMOUNT.AMOUNT_REQUIRED' | translate }}</div>
@@ -107,18 +107,18 @@
                                     <div ng-message="max">{{ 'CARD2CARD.ERRORS.AMOUNT.SMALLER_SUM' | translate }}</div>
                                 </div>
                             </div>
-                            <span class="text-light">
+                            <span class="text-light-normal">
                                 ( {{ config.tariff.comm_percent }}% + {{ config.tariff.comm_fixed / 100 | currency:currency }} )
                             </span>
-                            <span class="text-light">{{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }}</span>
-                            <span class="text-light">{{ commiss || 0 | currency:currency }}</span>
+                            <span class="text-light-normal">{{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }}</span>
+                            <span class="text-light-normal">{{ commiss || 0 | currency:currency }}</span>
                         </div>
                     </div>
                 </div>
             </div>
             <!--end of source card-->
             <div class="col-md-6">
-                <div class="col-md-10 col-lg-8">
+                <div class="col-md-10 col-lg-6 col-lg-offset-3">
                     <div class="card target">
                         <div class="card-logo" ng-class="c2cForm.numberTarget.cardType"></div>
                         <div class="form-group" ct-input-container>
@@ -139,7 +139,7 @@
                         </div>
                     </div>
                     <div class="total-amount">
-                        <span class="text-bold">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{ total || 0 | currency:currency }}</span>
+                        <span class="text-bold-normal">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{ total || 0 | currency:currency }}</span>
                         <div class="form-group send">
                             <div class="checkbox">
                                 <label>
@@ -152,7 +152,7 @@
                                 </button>
                                 <button type="button" class="btn btn-link" ng-click="cancel()"
                                         ng-disabled="c2cForm.$pristine">
-                                    Cancel
+                                    {{ 'CARD2CARD.BUTTON_CANCEL' | translate }}
                                 </button>
                             </div>
                         </div>

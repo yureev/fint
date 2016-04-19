@@ -85,6 +85,7 @@
       }
     },
     "BUTTON_CLOSE": "Закрити",
+    "BUTTON_CANCEL": "Відмінити",
     "ERRORS": {
       "SOURCE": {
         "NUMBER_REQUIRED": "Введіть номер картки відправника",
