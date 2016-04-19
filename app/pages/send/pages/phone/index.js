@@ -1,6 +1,8 @@
 require('./index.sass');
 
-angular.module('send.phone', [])
+angular.module('send.phone', [
+    require('_modules/card_to_phone')
+])
     .config(['$stateProvider',
         function ($stateProvider) {
             $stateProvider

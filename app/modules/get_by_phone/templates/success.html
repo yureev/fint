@@ -1,0 +1,47 @@
+<div class="state-success">
+    <div class="title">{{ 'CARD2CARD.SUCCESS.PAYMENT_SUCCESS' | translate }}</div>
+    <div id="print" class="content">
+        <div>
+            {{ 'CARD2CARD.SUCCESS.TICKET_NUMBER' | translate }}
+            <span class="pull-right">{{ transaction.operationNumber }}</span>
+        </div>
+        <div>
+            {{ 'CARD2CARD.SUCCESS.TICKET_DATE' | translate }}
+            <span class="pull-right">{{ currentDate | date:'dd-MM-yyyy HH:mm' }}</span>
+        </div>
+        <div ng-if="transaction.number">
+            {{ 'CARD2CARD.SUCCESS.SENDER_CARD' | translate }}
+            <span class="pull-right">** {{ transaction.number }}</span>
+        </div>
+        <div ng-if="transaction.numberTarget">
+            {{ 'CARD2CARD.SUCCESS.RES_CARD' | translate }}
+            <span class="pull-right">** {{ transaction.numberTarget }}</span>
+        </div>
+        <div ng-if="transaction.numberCard">
+            Phone Number
+            <span class="pull-right">** {{ transaction.numberCard }}</span>
+        </div>
+        <div>
+            {{ 'CARD2CARD.SUCCESS.SUM_SEND' | translate }}
+            <span class="pull-right">{{ transaction.amount | currency:currency }}</span>
+        </div>
+        <div ng-if="transaction.commiss">
+            {{ 'CARD2CARD.SUCCESS.COMMISSION_DESC' | translate }}
+            <span class="pull-right">{{ transaction.commiss | currency:currency }}</span>
+        </div>
+        <div ng-if="transaction.total">
+            {{ 'CARD2CARD.SUCCESS.SUM_ALL' | translate }}
+            <span class="pull-right">{{ transaction.total | currency:currency }}</span>
+        </div>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-primary" ng-click="printDiv('print')">
+            <span translate="CARD2CARD.SUCCESS.PRINT_TICKET"></span>
+        </button>
+        <button class="btn btn-default">
+            <a class="pull-right" ng-href="mailto:?subject=Ticket&body=Receipt number: {{ transaction.operationNumber }}. Date of operation: {{ currentDate | date:'dd/MM/yyyy HH:mm' }}. Card sender: ** {{ transaction.number }}. Card recipient: ** {{ transaction.numberTarget }}. Transfer amount: {{ transaction.amount | currency:'grn' }} . Commission: {{ transaction.commiss | currency:'grn' }}. The amount of write-offs: {{ transaction.total | currency:'grn' }} .">
+                <span translate="CARD2CARD.SUCCESS.SEND_TO_EMAIL"></span>
+            </a>
+        </button>
+    </div>
+</div>

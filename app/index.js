@@ -52,15 +52,15 @@ angular.module('app', [
             });
         }
     ])
-    .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 'RestangularProvider', '$translateProvider', 'tmhDynamicLocaleProvider',
-        function ($stateProvider, $urlRouterProvider, $locationProvider, RestangularProvider, $translateProvider, tmhDynamicLocaleProvider) {
+    .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 'RestangularProvider', '$translateProvider', 'tmhDynamicLocaleProvider', 'CardToCardProvider',
+        function ($stateProvider, $urlRouterProvider, $locationProvider, RestangularProvider, $translateProvider, tmhDynamicLocaleProvider, CardToCardProvider) {
             $locationProvider.html5Mode({
                 enabled: true,
                 requireBase: false
             });
 
-            $urlRouterProvider
-                .otherwise('/send/card');
+            // $urlRouterProvider
+            //     .otherwise('/send/card');
 
             $stateProvider
                 .state('app', {
@@ -90,6 +90,25 @@ angular.module('app', [
             $translateProvider.preferredLanguage('ua');
 
             tmhDynamicLocaleProvider.localeLocationPattern('/angular/i18n/angular-locale_{{locale}}.js');
+
+            
+            var prefix = process.env.NODE_ENV == 'development' ? 'https://send.ua' : '';
+
+            CardToCardProvider.setUrls({
+                getTariffs:                 prefix + '/sendua-external/Info/GetTariffs?tarifftype=web',
+                getPayStatus:               prefix + '/sendua-external/Info/GetPayStatus',
+                finishlookup:               prefix + '/sendua-external/ConfirmLookUp/finishlookup',
+                getDateTime:                prefix + '/sendua-external/Info/GetDateTime',
+                getlinkparams:              prefix + '/sendua-external/Card2Card/getlinkparams',
+                createCard2CardOperation:   prefix + '/sendua-external/Card2Card/CreateCard2CardOperation',
+                generateLink:               prefix + '/sendua-external/Card2Card/generateLink',
+                sendtomail:                 prefix + '/sendua-external/Card2Card/sendtomail',
+                createCard2PhoneOperation:  prefix + '/sendua-external/Card2Phone/CreateCard2PhoneOperation',
+                phone2Card:                 prefix + '/sendua-external/Phone2Card/CreatePhone2CardOperation'
+            });
+
+            CardToCardProvider.setType('web');
+
         }
     ])
     .controller('AppCtrl', ['$scope', '$translate', 'tmhDynamicLocale', function ($scope, $translate, tmhDynamicLocale) {

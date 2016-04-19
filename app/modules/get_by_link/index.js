@@ -5,22 +5,11 @@ angular.module('getByLink', [
         require('component-currency'),
         require('component-cardtocard')
     ])
-    .config(config)
     .directive('getByLink', getByLinkDirective)
     .directive('getByLinkInput', getByLinkInputDirective)
     .directive('getByLinkSend', getByLinkSendDirective)
     .directive('getByLinkError', getByLinkErrorDirective)
     .directive('getByLinkSuccess', getByLinkSuccessDirective);
-
-config.$inject = ['CardToCardProvider'];
-function config(CardToCardProvider) {
-    var prefix = process.env.NODE_ENV == 'development' ? 'https://send.ua' : '';
-
-    CardToCardProvider.setUrls({
-        generateLink: prefix + '/sendua-external/Card2Card/generateLink',
-        sendtomail: prefix + '/sendua-external/Card2Card/sendtomail'
-    });
-}
 
 function getByLinkDirective() {
     return {

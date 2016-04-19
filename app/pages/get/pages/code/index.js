@@ -1,6 +1,8 @@
 require('./index.sass');
 
-angular.module('get.code', [])
+angular.module('get.code', [
+    require('_modules/get_by_phone')
+])
     .config(['$stateProvider',
         function ($stateProvider) {
             $stateProvider

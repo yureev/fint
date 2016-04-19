@@ -120,20 +120,15 @@
             <div class="col-md-6">
                 <div class="col-md-10 col-lg-6 col-lg-offset-3">
                     <div class="card target">
-                        <div class="card-logo" ng-class="c2cForm.numberTarget.cardType"></div>
                         <div class="form-group" ct-input-container>
-                            <label>{{ 'CARD2CARD.TARGET.LABEL.CARD_NUMBER' | translate }}</label>
-                            <input type="text" name="numberTarget" class="form-control input-sm"
-                                   ct-tabindex="checkTargetNumber"
-                                   ng-model="target.card" required tabindex="6"
-                                   ng-disabled="numberTargetIsDisabled"
-                                   ui-mask="numberTargetMask" placeholder="____ ____ ____ ____"
-                                   ct-payments-format-number
-                                   ct-payments-validate-number/>
-                            <div class="error-target">
-                                <div ng-messages="c2cForm.numberTarget.$error" ng-show="c2cForm.numberTarget.$touched">
-                                    <div ng-message="required">{{ 'CARD2CARD.ERRORS.TARGET.NUMBER_REQUIRED' | translate }}</div>
-                                    <div ng-message="invalidNumber">{{ 'CARD2CARD.ERRORS.TARGET.NUMBER_INVALID' | translate }}</div>
+                            <div class="input-label">Title</div>
+                            <input type="text" name="phoneTarget" class="form-control" ui-mask="+380 (99) 999 99 99"
+                                   ct-tabindex="checkPhone" ng-model="target.phone" tabindex="5" required
+                                   placeholder="+380 (__) ___-__-__"/>
+                            <div class="error-phone">
+                                <div ng-messages="c2cForm.phoneTarget.$error" ng-show="c2cForm.phoneTarget.$touched">
+                                    <div ng-message="required">{{ 'CARD2CARD.ERRORS.SOURCE.PHONE_REQUIRED' | translate }}</div>
+                                    <div ng-message="mask">{{ 'CARD2CARD.ERRORS.SOURCE.PHONE_INVALID' | translate }}</div>
                                 </div>
                             </div>
                         </div>
