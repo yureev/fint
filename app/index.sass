@@ -63,23 +63,31 @@ input:invalid
           margin-right: 2%
           float: none
           display: inline-block
+  .color-wrap
+    background-color: #FBFBFB
+    border-bottom: 1px solid $border-color-entry
 
-  .information
-    max-width: 1024px
-    margin: 0 auto
     .button-down
       text-align: center
       background: url('assets/images/Sprite_sendua.png') -148px -45px no-repeat
-      margin: 7px auto
+      margin: 12px auto
       width: 44px
       height: 16px
 
     .services, .tariffs, .questions
       .title
-        color: #2f6fad
+        color: $main_color_active
+        background-color: #f8f8f8
         font-size: 22px
-        margin-bottom: 40px
-        padding-top: 30px
+        padding: 15px 0
+        width: 100%
+        border-top: 1px solid $border-color-entry
+        border-bottom: 1px solid $border-color-entry
+        margin-bottom: 20px
+
+      .description
+        max-width: 1024px
+        margin: 0 auto
 
       .images
         margin-top: 10px
@@ -93,22 +101,16 @@ input:invalid
 
     .tariffs
       h3
-        color: #2f6fad
-
-    .services
-
+        color: $main_color_inactive
 
     .questions
-      max-width: 900px
-      margin: 0 auto
-      border-bottom: 1px solid #cccccc
       .wrap
         max-width: 794px
         margin: 0 auto
         margin-bottom: 30px
 
   .button-up
-    width: 900px
+    max-width: 1600px
     margin: 0 auto
     margin-bottom: 60px
 
@@ -122,7 +124,7 @@ input:invalid
       height: 16px
 
   footer
-    max-width: 900px
+    max-width: 1024px
     margin: 0 auto
 
     .contacts
@@ -135,12 +137,6 @@ input:invalid
         .facebook-pic, .twitter-pic
           width: 40px
           height: 30px
-
-      .phone
-
-
-      .mail
-
 
       .title
         color: #2f6fad
@@ -185,7 +181,6 @@ input:invalid
           text-decoration: none
 
   .content
-    //margin-left: 14%
 
   .menu
     .item

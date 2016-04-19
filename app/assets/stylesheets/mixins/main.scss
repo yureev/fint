@@ -2,9 +2,7 @@ $main_color_inactive: #124068;
 
 $main_color_active: #F79600;
 
-@mixin border-color-entry {
-	border-color: #BCD0E4;
-}
+$border-color-entry: #BCD0E4;
 
 @mixin border-color-fail {
 	border-color: #FC908C;

@@ -69,55 +69,57 @@
             </div>
         </div>
     </div>
-    <div class="information">
-        <div class="services" id="services">
-            <div class="title text-center">{{ 'APP.CONTENT.SERVICE.TITLE' | translate }}</div>
-            <div class="text" translate="APP.CONTENT.SERVICE.TEXT"></div>
-            <img src="./assets/images/creat.png" class="images">
+    <div class="container-fluid color-wrap">
+            <div class="row services" id="services">
+                <div class="title text-center">{{ 'APP.CONTENT.SERVICE.TITLE' | translate }}</div>
+                <div class="description text-left">
+                    <div class="text" translate="APP.CONTENT.SERVICE.TEXT"></div>
+                    <img src="./assets/images/creat.png" class="images">
+                    <div class="clearfix"></div>
+                    <div class="button-down" scroll-to="tarif"></div>
+                </div>
+            </div>
             <div class="clearfix"></div>
-            <div class="button-down" scroll-to="tarif"></div>
-        </div>
-        <div class="clearfix"></div>
-        <div class="tariffs" id="tarif">
-            <div class="title text-center">{{ 'APP.CONTENT.TARIFFS.TITLE' | translate }}</div>
-            <div class="description text-left">
-                <div class="text" translate="APP.CONTENT.TARIFFS.TEXT"></div>
-                <img class="images" src="./assets/images/calc.png">
+            <div class="row tariffs" id="tarif">
+                <div class="title text-center">{{ 'APP.CONTENT.TARIFFS.TITLE' | translate }}</div>
+                <div class="description text-left">
+                    <div class="text" translate="APP.CONTENT.TARIFFS.TEXT"></div>
+                    <img class="images" src="./assets/images/calc.png">
+                    <div class="clearfix"></div>
+                    <div class="button-down" scroll-to="qaa"></div>
+                </div>
+            </div>
+
+            <div class="row questions" id="qaa">
+                <div class="title text-center">{{ 'APP.CONTENT.FAQ.TITLE' | translate }}</div>
+                <div class="wrap">
+                    <uib-accordion close-others="true">
+                        <uib-accordion-group is-open="true">
+                            <uib-accordion-heading>
+                                <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
+                                <span>{{ 'APP.CONTENT.FAQ.QUESTION_1.TITLE' | translate }}</span>
+                            </uib-accordion-heading>
+                            <div translate="APP.CONTENT.FAQ.QUESTION_1.TEXT"></div>
+                        </uib-accordion-group>
+                        <uib-accordion-group>
+                            <uib-accordion-heading>
+                                <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
+                                <span>{{ 'APP.CONTENT.FAQ.QUESTION_2.TITLE' | translate }}</span>
+                            </uib-accordion-heading>
+                            <div translate="APP.CONTENT.FAQ.QUESTION_2.TEXT"></div>
+                        </uib-accordion-group>
+                        <uib-accordion-group>
+                            <uib-accordion-heading>
+                                <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
+                                <span>{{ 'APP.CONTENT.FAQ.QUESTION_3.TITLE' | translate }}</span>
+                            </uib-accordion-heading>
+                            <div translate="APP.CONTENT.FAQ.QUESTION_3.TEXT"></div>
+                        </uib-accordion-group>
+                    </uib-accordion>
+                </div>
                 <div class="clearfix"></div>
-                <div class="button-down" scroll-to="qaa"></div>
+                <div class="button-down" scroll-to="contacts"></div>
             </div>
-        </div>
-        <div class="clearfix"></div>
-        <div class="questions" id="qaa">
-            <div class="title text-center">{{ 'APP.CONTENT.FAQ.TITLE' | translate }}</div>
-            <div class="wrap">
-                <uib-accordion close-others="true">
-                    <uib-accordion-group is-open="true">
-                        <uib-accordion-heading>
-                            <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
-                            <span>{{ 'APP.CONTENT.FAQ.QUESTION_1.TITLE' | translate }}</span>
-                        </uib-accordion-heading>
-                        <div translate="APP.CONTENT.FAQ.QUESTION_1.TEXT"></div>
-                    </uib-accordion-group>
-                    <uib-accordion-group>
-                        <uib-accordion-heading>
-                            <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
-                            <span>{{ 'APP.CONTENT.FAQ.QUESTION_2.TITLE' | translate }}</span>
-                        </uib-accordion-heading>
-                        <div translate="APP.CONTENT.FAQ.QUESTION_2.TEXT"></div>
-                    </uib-accordion-group>
-                    <uib-accordion-group>
-                        <uib-accordion-heading>
-                            <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
-                            <span>{{ 'APP.CONTENT.FAQ.QUESTION_3.TITLE' | translate }}</span>
-                        </uib-accordion-heading>
-                        <div translate="APP.CONTENT.FAQ.QUESTION_3.TEXT"></div>
-                    </uib-accordion-group>
-                </uib-accordion>
-            </div>
-            <div class="clearfix"></div>
-            <div class="button-down" scroll-to="contacts"></div>
-        </div>
     </div>
     <div class="button-up"><span class="button" scroll-to="top"></span></div>
     <footer>
