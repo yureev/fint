@@ -2,19 +2,19 @@
     <div class="container-fluid">
         <form name="c2cForm" ct-payments ng-submit="submit()" autocomplete="off">
             <div class="form-group" ct-input-container>
-                <div><strong>{{'PHONE2CARD.CONFIRM.TITLE' | translate}}</strong></div>
+                <label>{{'GET_BY_CODE.CONFIRM.INPUT_CODE' | translate}}</label>
                 <input type="text" name="otpcode" class="form-control" ct-tabindex2="checkNumber" tabindex="1"
                        ng-model="otpcode" required/>
                 <div class="error-number">
                     <div ng-messages="c2cForm.otpcode.$error" ng-show="c2cForm.otpcode.$touched">
-                        <div ng-message="required">{{'PHONE2CARD.CONFIRM.ERROR' | translate}}</div>
+                        <div ng-message="required">{{'GET_BY_CODE.CONFIRM.ERROR' | translate}}</div>
                     </div>
                 </div>
             </div>
-            <div class="submit">
-                <button type="submit" class="btn btn-primary btn-large send-button" tabindex="8"
+            <div class="text-right">
+                <button type="submit" class="btn btn-warning btn-large next" tabindex="8"
                         ng-disabled="c2cForm.$invalid || c2cForm.$pristine">
-                    {{'PHONE2CARD.CONFIRM.NEXT' | translate}}
+                    {{'GET_BY_CODE.CONFIRM.NEXT' | translate}}
                 </button>
             </div>
         </form>

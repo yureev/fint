@@ -1,9 +1,11 @@
 <div class="state-error">
     <div class="text-center">
         <div class="title">{{ 'CARD2CARD.ERROR.TITLE' | translate }}</div>
-        <div class="code-title">{{ 'CARD2CARD.ERROR.OPERATION_CODE' | translate }}</div>
-        <div class="operation-number">{{ transaction.operationNumber }}</div>
-        <div class="operation-status">{{ transaction.mPayStatus }}</div>
+        <div ng-if="transaction.operationNumber">
+            <div class="code-title">{{ 'CARD2CARD.ERROR.OPERATION_CODE' | translate }}</div>
+            <div class="operation-number">{{ transaction.operationNumber }}</div>
+            <div class="operation-status">{{ transaction.mPayStatus }}</div>
+        </div>
         <div class="phone-title">{{ 'CARD2CARD.ERROR.SUPPORT_TEL' | translate }}</div>
         <div class="phone-number"><strong>(044) 390-08-85</strong></div>
     </div>

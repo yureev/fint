@@ -121,7 +121,7 @@
                 <div class="col-md-10 col-lg-6 col-lg-offset-3">
                     <div class="card target">
                         <div class="form-group" ct-input-container>
-                            <div class="input-label">Title</div>
+                            <label>{{ 'CARD2PHONE.INPUT.TARGET_PHONE' | translate }}</label>
                             <input type="text" name="phoneTarget" class="form-control" ui-mask="+380 (99) 999 99 99"
                                    ct-tabindex="checkPhone" ng-model="target.phone" tabindex="5" required
                                    placeholder="+380 (__) ___-__-__"/>
@@ -141,6 +141,8 @@
                                     <input type="checkbox" tabindex="8" ng-model="agreed" required>
                                     <span translate="CARD2CARD.AGREEMENT"></span>
                                 </label>
+                            </div>
+                            <div class="buttons">
                                 <button type="submit" class="btn btn-warning send-button" tabindex="9"
                                         ng-disabled="c2cForm.$invalid || c2cForm.$pristine">
                                     {{ 'CARD2CARD.SEND' | translate }}
