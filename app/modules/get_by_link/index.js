@@ -1,10 +1,11 @@
 require('./index.sass');
 
 angular.module('getByLink', [
-        require('component-payments'),
-        require('component-currency'),
-        require('component-cardtocard')
-    ])
+    require('component-payments'),
+    require('component-currency'),
+    require('component-cardtocard'),
+    require('ngclipboard')
+])
     .directive('getByLink', getByLinkDirective)
     .directive('getByLinkInput', getByLinkInputDirective)
     .directive('getByLinkSend', getByLinkSendDirective)

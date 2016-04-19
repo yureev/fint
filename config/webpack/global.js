@@ -112,7 +112,9 @@ module.exports = function (_path) {
                 }
             ]
         },
-
+        sassLoader: {
+            precision: 8
+        },
         // post css
         postcss: [autoprefixer({browsers: ['last 5 versions']})],
         //Add to prod env

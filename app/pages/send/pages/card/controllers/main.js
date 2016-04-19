@@ -1,12 +1,14 @@
-Ctrl.$inject = ['$scope', '$stateParams'];
-function Ctrl($scope, $stateParams) {
+Ctrl.$inject = ['$rootScope', '$scope', '$stateParams', '$timeout'];
+function Ctrl($rootScope, $scope, $stateParams, $timeout) {
     if ($stateParams.payLink) {
-        $scope.$broadcast('GetLinkParams', {
+        $rootScope.$broadcast('GetLinkParams', {
             link: $stateParams.payLink
         });
     }
 
-    $scope.$on('GetLinkParamsSuccess', onGetLinkParams);
+    $scope.target = {};
+
+    $scope.$on('GetLinkParamsSuccess', onGetLinkParamsSuccess);
     
     
     $scope.numberTargetMask = '9999 9999 9999 9999';
@@ -43,13 +45,13 @@ function Ctrl($scope, $stateParams) {
         }
     };
 
-    function onGetLinkParams(event, data) {
-        $scope.amount = data.amount;
-        $scope.numberTarget = data.mask;
+    function onGetLinkParamsSuccess(event, data) {
         $scope.numberTargetMask = '';
         $scope.numberTargetIsDisabled = true;
+        $scope.amount = data.amount / 100;
+        $scope.target.card = data.mask;
 
-        $scope.$digest();
+        $rootScope.$broadcast('Card2CardCalculate');
     }
 }
 

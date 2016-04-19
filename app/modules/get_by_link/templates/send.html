@@ -4,19 +4,13 @@
             <div class="form-group" ct-input-container>
                 <label>{{ 'GET_BY_LINK.LOOKUP.LINK' | translate }}</label>
                 <div class="input-group">
-                    <textarea rows="1" class="form-control custom-control" style="resize:none"
-                              ct-tabindex2="checkLink"
-                              type="text" name="link"
-                              tabindex="1" ng-model="transaction.link" required>
-                    </textarea>
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-duplicate copy"></span>
+                    <input type="text" class="form-control" ng-model="transaction.link" readonly required>
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" ngclipboard data-clipboard-text="{{ transaction.link }}">
+                            <span class="glyphicon glyphicon-duplicate copy"></span>
+                        </button>
                     </span>
                 </div>
-                <!--<label>Link:</label>-->
-                <!--<span class="glyphicon glyphicon-duplicate input-group-addon"></span>-->
-                <!--<input type="text" name="link" class="form-control input-sm" ct-tabindex2="checkLink"-->
-                       <!--tabindex="1" ng-model="transaction.link" required/>-->
             </div>
             <div class="form-group" ct-input-container>
                 <label>{{ 'GET_BY_LINK.LOOKUP.EMAIL' | translate }}</label>

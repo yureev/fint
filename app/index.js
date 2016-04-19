@@ -28,8 +28,6 @@ angular.module('app', [
     ])
     .run(['$rootScope', '$state', '$stateParams', 'session',
         function ($rootScope, $state, $stateParams, session) {
-            window.$rootScope = $rootScope;
-
             $rootScope.NODE_ENV = process.env.NODE_ENV;
 
             $rootScope.$state = $state;
@@ -105,11 +103,12 @@ angular.module('app', [
                 generateLink:               prefix + '/sendua-external/Card2Card/generateLink',
                 sendtomail:                 prefix + '/sendua-external/Card2Card/sendtomail',
                 createCard2PhoneOperation:  prefix + '/sendua-external/Card2Phone/CreateCard2PhoneOperation',
-                phone2Card:                 prefix + '/sendua-external/Phone2Card/CreatePhone2CardOperation'
+                phone2Card:                 prefix + '/sendua-external/Phone2Card/CreatePhone2CardOperation',
+                tocardlink:                 prefix + '/sendua-external/Phone2Card/tocardlink'
             });
 
             CardToCardProvider.setType('web');
-
+            CardToCardProvider.setLinkPrefix(window.location.origin + '/link/');
         }
     ])
     .controller('AppCtrl', ['$scope', '$translate', 'tmhDynamicLocale', function ($scope, $translate, tmhDynamicLocale) {
@@ -127,8 +126,10 @@ angular.module('app', [
         });
     }])
     .controller('LinkCtrl', ['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $stateParams) {
+        var base64Url = require('base64-url');
+        
         $state.go('app.send.card', {
-            payLink: $stateParams.payLink
+            payLink: base64Url.unescape($stateParams.payLink)
         });
     }]);
 

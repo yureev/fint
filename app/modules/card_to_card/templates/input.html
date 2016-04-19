@@ -129,7 +129,7 @@
                                    ng-disabled="numberTargetIsDisabled"
                                    ui-mask="numberTargetMask" placeholder="____ ____ ____ ____"
                                    ct-payments-format-number
-                                   ct-payments-validate-number/>
+                                   ct-payments-validate-number="numberTargetIsDisabled"/>
                             <div class="error-target">
                                 <div ng-messages="c2cForm.numberTarget.$error" ng-show="c2cForm.numberTarget.$touched">
                                     <div ng-message="required">{{ 'CARD2CARD.ERRORS.TARGET.NUMBER_REQUIRED' | translate }}</div>
