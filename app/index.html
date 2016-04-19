@@ -14,11 +14,9 @@
                 </div>
                 <div class="collapse navbar-collapse divider">
                     <ul class="nav navbar-nav translate">
-                        <li class="item"><a href="#" class="active">UA</a></li>
-                        <li class="item"><a href="#">RU</a></li>
-                        <li class="item"><a href="#">EN</a></li>
+                        <li class="item"><a ng-model="lang" ng-change="onChangeLanguage()" uib-btn-radio="'ua'">UA</a></li>
+                        <li class="item"><a ng-model="lang" ng-change="onChangeLanguage()" uib-btn-radio="'ru'">RU</a></li>
                     </ul>
-                    <div ng-class="lang" ng-click="changeLanguage()">Translate</div>
                     <form class="form-inline pull-right authorization">
                         <div class="form-group">
                             <div class="pull-left item">
@@ -39,7 +37,6 @@
                 </div>
                 <div class="collapse navbar-collapse navigation">
                     <ul class="nav navbar-nav">
-                        <li><a href="#" scroll-to="services">ПЕРЕВОДЫ</a></li>
                         <li><a href="#" scroll-to="services">{{ 'APP.MENU.ABOUT' | translate }}</a></li>
                         <li><a href="#" scroll-to="tarif">{{ 'APP.MENU.TARIFFS' | translate }}</a></li>
                         <li><a href="#" scroll-to="qaa">{{ 'APP.MENU.FAQ' | translate }}</a></li>
@@ -51,16 +48,16 @@
             </div>
         </nav>
     </header>
-    <div class="main">
+    <div class="container-fluid main">
         <div class="row">
             <div class="col-md-2">
                 <div class="row">
                     <aside class="sidebar">
                 <div class="item" ui-sref-active="active">
-                    <a ui-sref="app.send">{{'APP.CONTROLS.SEND.BTN_SEND' | translate}}</a>
+                    <a ui-sref="app.send">{{'APP.CONTROLS.BTN_SEND' | translate}}</a>
                 </div>
                 <div class="item" ui-sref-active="active">
-                    <a ui-sref="app.get">{{'APP.CONTROLS.RECEIVE.BTN_RECEIVE' | translate}}</a>
+                    <a ui-sref="app.get">{{'APP.CONTROLS.BTN_RECEIVE' | translate}}</a>
                 </div>
             </aside>
                 </div>

@@ -13,6 +13,7 @@ angular.module('app', [
 
         require('angular-dynamic-locale'),
         require('angular-ui-bootstrap/src/tooltip'),
+        require('angular-ui-bootstrap/src/buttons'),
 
         require('component-input'),
         require('component-tabindex'),
@@ -112,13 +113,13 @@ angular.module('app', [
         }
     ])
     .controller('AppCtrl', ['$scope', '$translate', 'tmhDynamicLocale', function ($scope, $translate, tmhDynamicLocale) {
-        var lang = 'ua';
+        $scope.lang = 'ua';
 
-        $scope.changeLanguage = function () {
-            lang = lang == 'ua' ? 'ru' : 'ua';
+        $scope.onChangeLanguage = function () {
+            var lang = $scope.lang;
 
             $translate.use(lang);
-            tmhDynamicLocale.set('ua');
+            tmhDynamicLocale.set(lang);
         };
 
         $translate('CARD2CARD.AMOUNT.CURRENCY').then(function (value) {

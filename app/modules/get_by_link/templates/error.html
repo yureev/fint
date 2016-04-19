@@ -10,8 +10,6 @@
     <a ng-href="mailto:support@send.ua​?subject=Money transfer error&body=Code operation: {{$scope.operationNumber}}. Error: {{$scope.mPayStatus}}">
         <span translate="CARD2CARD.ERROR.SEND_TO_SERVICE"></span>
     </a>
-    <div class="pull-right">
-        <button class="btn btn-warning" ng-click="goState(STATES.INPUT)">{{ 'CARD2CARD.BUTTON_CLOSE' | translate }}
-        </button>
-    </div>
+    <button class="btn btn-warning" ng-click="goState(STATES.INPUT)">{{ 'CARD2CARD.BUTTON_CLOSE' | translate }}
+    </button>
 </div>

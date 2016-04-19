@@ -16,24 +16,16 @@
         "FORGOT": "Забули пароль?",
         "REGISTRATION": "Регістрація"
       },
-      "ENTER": "Війти"
+      "ENTER": "Увійти"
+    },
+    "CONTROLS": {
+      "BTN_SEND": "Відправити",
+      "BTN_RECEIVE": "Отримати"
     },
     "BUTTONS": {
       "SEND_MONEY": "Переказ з картки<br>на картку",
       "ROSTER_PAYMENT": "Реєстрові<br>перекази",
       "MOBILE_SEND": "Мобільний<br>Send.UA"
-    },
-    "CONTROLS": {
-      "SEND": {
-        "BTN_SEND": "Відправити",
-        "BTN_CARDTOCARD": "Переказ з картки на картку",
-        "BTN_PHONE": "Переказ за номером телефону"
-      },
-      "RECEIVE": {
-        "BTN_RECEIVE":"Отримати",
-        "BTN_URL": "Поповнення за номером телефону",
-        "BTN_CODE": "Отримати за кодом"
-      }
     },
     "CONTENT": {
       "SERVICE": {
@@ -65,6 +57,18 @@
     }
   },
   "CARD2CARD": {
+    "CONTROLS": {
+      "SEND": {
+        "BTN_SEND": "Відправити",
+        "BTN_CARDTOCARD": "Переказ з картки на картку",
+        "BTN_PHONE": "Переказ за номером телефону"
+      },
+      "RECEIVE": {
+        "BTN_RECEIVE":"Отримати",
+        "BTN_URL": "Поповнення за номером телефону",
+        "BTN_CODE": "Отримати за кодом"
+      }
+    },
     "TITLE": "ПЕРЕКАЗ З КАРТКИ НА КАРТКУ",
     "AGREEMENT": "Згоден з <a href='/assets/iframes/terms_conditions.pdf' target='_blank'>умовами</a>",
     "SEND": "ПЕРЕКАЗАТИ",
@@ -152,6 +156,35 @@
       "SEND_TO_EMAIL": "Квитанцію<br/> на пошту",
       "TO_START": "закрити",
       "UAH": "грн"
+    }
+  },
+  "GET_BY_LINK": {
+    "CONTROLS": {
+      "SEND": {
+        "BTN_CARDTOCARD": "Переказ з картки на картку",
+        "BTN_PHONE": "Переказ за номером телефону"
+      },
+      "RECEIVE": {
+        "BTN_URL": "Поповнення за посиланням",
+        "BTN_CODE": "Отримати за кодом"
+      }
+    },
+    "INPUT": {
+      "CARD_NUMBER": "Номер картки відправника:",
+      "AMOUNT": "Сума переказу",
+      "GET_LINK": "Отримати посилання"
+    },
+    "LOOKUP": {
+      "LINK": "Посилання для отримання переказу",
+      "EMAIL": "Введіть email користувача",
+      "CLOSE": "Закрити",
+      "SEND": "Відправити"
+    },
+    "SUCCESS": {
+      "TITLE": "Операція завершена вдало",
+      "MESSAGE": "Посилання відправлено на вказаний вами email, попередьте отримувача",
+      "PHONE_TITLE": "Телефон сервісної служби",
+      "CLOSE": "Закрити"
     }
   },
   "MOBILE": {

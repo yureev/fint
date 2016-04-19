@@ -18,22 +18,14 @@
       },
       "ENTER": "Войти"
     },
+    "CONTROLS": {
+      "BTN_SEND": "Отправить",
+      "BTN_RECEIVE": "Получить"
+    },
     "BUTTONS": {
       "SEND_MONEY": "Перевод с карты<br>на карту",
       "ROSTER_PAYMENT": "Реестровые<br>переводы",
       "MOBILE_SEND": "Мобильный<br>Send.UA"
-    },
-    "CONTROLS": {
-      "SEND": {
-        "BTN_SEND": "Отправить",
-        "BTN_CARDTOCARD": "Перевод с карты на карту",
-        "BTN_PHONE": "Перевод по номеру телефона"
-      },
-      "RECEIVE": {
-        "BTN_RECEIVE":"Получить",
-        "BTN_URL": "Пополнение по ссылке",
-        "BTN_CODE": "Получение по коду"
-      }
     },
     "CONTENT": {
       "SERVICE": {
@@ -65,6 +57,16 @@
     }
   },
   "CARD2CARD": {
+    "CONTROLS": {
+      "SEND": {
+        "BTN_CARDTOCARD": "Перевод с карты на карту",
+        "BTN_PHONE": "Перевод по номеру телефона"
+      },
+      "RECEIVE": {
+        "BTN_URL": "Пополнение по ссылке",
+        "BTN_CODE": "Получение по коду"
+      }
+    },
     "TITLE": "ПЕРЕВОД С КАРТЫ НА КАРТУ",
     "AGREEMENT": "Согласен с <a href='/assets/iframes/terms_conditions.pdf' target='_blank'>условиями</a>",
     "SEND": "ПЕРЕВЕСТИ",
@@ -152,6 +154,35 @@
       "SEND_TO_EMAIL": "Квитанцию<br/> на почту",
       "TO_START": "закрыть",
       "UAH": "грн"
+    }
+  },
+  "GET_BY_LINK": {
+    "CONTROLS": {
+      "SEND": {
+        "BTN_CARDTOCARD": "Перевод с карты на карту",
+        "BTN_PHONE": "Перевод по номеру телефона"
+      },
+      "RECEIVE": {
+        "BTN_URL": "Пополнение по ссылке",
+        "BTN_CODE": "Получение по коду"
+      }
+    },
+    "INPUT": {
+      "CARD_NUMBER": "Номер карты получателя:",
+      "AMOUNT": "Сумма перевода",
+      "GET_LINK": "Получить ссылку"
+    },
+    "LOOKUP": {
+      "LINK": "Ссылка для получения перевода",
+      "EMAIL": "Введите email пользователя",
+      "CLOSE": "Закрыть",
+      "SEND": "Отправить"
+    },
+    "SUCCESS": {
+      "TITLE": "Операция прошла успешно",
+      "MESSAGE": "Ссылка отправлена на указанный email, предупредите получателя",
+      "PHONE_TITLE": "Телефон сервисной службы",
+      "CLOSE": "Закрыть"
     }
   },
   "MOBILE": {
