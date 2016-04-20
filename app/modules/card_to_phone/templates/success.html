@@ -34,16 +34,10 @@
             <span class="pull-right">{{ transaction.total | currency:currency }}</span>
         </div>
     </div>
-    <div class="text-center buttons">
-        <button class="btn btn-primary" ng-click="printDiv('print')">
-            <span translate="CARD2CARD.SUCCESS.PRINT_TICKET"></span>
-        </button>
-        <button class="btn btn-primary">
-            <a class="pull-right" ng-href="mailto:?subject=Ticket&body=Receipt number: {{ transaction.operationNumber }}. Date of operation: {{ currentDate | date:'dd/MM/yyyy HH:mm' }}. Card sender: ** {{ transaction.number }}. Card recipient: ** {{ transaction.numberTarget }}. Transfer amount: {{ transaction.amount | currency:'grn' }} . Commission: {{ transaction.commiss | currency:'grn' }}. The amount of write-offs: {{ transaction.total | currency:'grn' }} .">
-                <span translate="CARD2CARD.SUCCESS.SEND_TO_EMAIL"></span>
-            </a>
-        </button>
-        <button class="btn btn-default btn-back" ng-click="goState(STATES.INPUT)">{{'CARD2CARD.BUTTON_CLOSE' |
+    <div class="form-group text-right">
+        <button class="btn btn-primary" ng-click="printDiv('print')"><span
+                translate="CARD2CARD.SUCCESS.PRINT_TICKET"></span></button>
+        <button class="btn btn-default" ng-click="goState(STATES.INPUT)">{{'CARD2CARD.BUTTON_CLOSE' |
             translate}}
         </button>
     </div>
