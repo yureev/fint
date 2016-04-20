@@ -53,11 +53,11 @@
             <div class="col-md-2">
                 <div class="row">
                     <aside class="sidebar">
-                <div class="item" ui-sref-active="active">
-                    <a ui-sref="app.send">{{'APP.CONTROLS.BTN_SEND' | translate}}</a>
+                <div class="item" ng-class="{active: $state.includes('app.card') || $state.includes('app.phone')}">
+                    <a ui-sref="app.card">{{'APP.CONTROLS.BTN_SEND' | translate}}</a>
                 </div>
-                <div class="item" ui-sref-active="active">
-                    <a ui-sref="app.get">{{'APP.CONTROLS.BTN_RECEIVE' | translate}}</a>
+                <div class="item" ng-class="{active: $state.includes('app.url') || $state.includes('app.code')}">
+                    <a ui-sref="app.url">{{'APP.CONTROLS.BTN_RECEIVE' | translate}}</a>
                 </div>
             </aside>
                 </div>

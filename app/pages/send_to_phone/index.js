@@ -1,20 +1,20 @@
 require('./index.sass');
 
-angular.module('send.card', [
-        require('_modules/card_to_card')
-    ])
+angular.module('send_to_phone', [
+    require('_modules/card_to_phone')
+])
     .config(['$stateProvider',
         function ($stateProvider) {
             $stateProvider
-                .state('app.send.card', {
-                    url: '/card',
+                .state('app.phone', {
+                    url: '/phone',
                     controller: require('./controllers/main'),
                     template: require('./templates/main.html'),
-                    params: {
-                        payLink: null
+                    data: {
+                        access: {}
                     }
                 });
         }
     ]);
 
-module.exports = 'send.card';
+module.exports = 'send_to_phone';

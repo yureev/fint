@@ -21,16 +21,18 @@ angular.module('app', [
         require('component-utils'),
 
         require('_modules/auth'),
-
-        require('_pages/send'),
-        require('_pages/get'),
+    
+        require('_pages/send_to_card'),
+        require('_pages/send_to_phone'),
+        require('_pages/get_by_code'),
+        require('_pages/get_by_url'),
         require('_pages/mobile')
     ])
     .run(['$rootScope', '$state', '$stateParams', 'session',
         function ($rootScope, $state, $stateParams, session) {
             $rootScope.NODE_ENV = process.env.NODE_ENV;
 
-            $rootScope.$state = $state;
+            window.$state = $rootScope.$state = $state;
             $rootScope.$stateParams = $stateParams;
 
             $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState) {
@@ -59,7 +61,7 @@ angular.module('app', [
             });
 
             $urlRouterProvider
-                .otherwise('/send/card');
+                .otherwise('/card');
 
             $stateProvider
                 .state('app', {
