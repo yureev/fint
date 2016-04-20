@@ -9,10 +9,7 @@ angular.module('get_by_code', [
                 .state('app.code', {
                     url: '/code',
                     controller: require('./controllers/main'),
-                    template: require('./templates/main.html'),
-                    data: {
-                        access: {}
-                    }
+                    template: require('./templates/main.html')
                 });
         }
     ]);

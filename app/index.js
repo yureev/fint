@@ -32,7 +32,7 @@ angular.module('app', [
         function ($rootScope, $state, $stateParams, session) {
             $rootScope.NODE_ENV = process.env.NODE_ENV;
 
-            window.$state = $rootScope.$state = $state;
+            $rootScope.$state = $state;
             $rootScope.$stateParams = $stateParams;
 
             $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState) {
@@ -127,10 +127,10 @@ angular.module('app', [
             $scope.currency = value;
         });
     }])
-    .controller('LinkCtrl', ['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $stateParams) {
+    .controller('LinkCtrl', ['$state', '$stateParams', function ($state, $stateParams) {
         var base64Url = require('base64-url');
-        
-        $state.go('app.send.card', {
+
+        $state.go('app.card', {
             payLink: base64Url.unescape($stateParams.payLink)
         });
     }]);
