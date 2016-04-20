@@ -1,20 +1,34 @@
 <div class="state-success" ct-spinner="loader">
     <div class="title">{{ 'CARD2CARD.SUCCESS.PAYMENT_SUCCESS' | translate }}</div>
     <div id="print" class="print">
-        <div>{{ 'CARD2CARD.SUCCESS.TICKET_NUMBER' | translate }} <span class="pull-right">{{ transaction.operationNumber }}</span>
+        <div>
+            {{ 'CARD2CARD.SUCCESS.TICKET_NUMBER' | translate }}
+            <span class="pull-right">{{ transaction.operationNumber }}</span>
         </div>
-        <div>{{ 'CARD2CARD.SUCCESS.TICKET_DATE' | translate }} <span class="pull-right">{{ currentDate | date:'dd-MM-yyyy HH:mm' }}</span>
+        <div>
+            {{ 'CARD2CARD.SUCCESS.TICKET_DATE' | translate }}
+            <span class="pull-right">{{ currentDate | date:'dd-MM-yyyy HH:mm' }}</span>
         </div>
-        <div>{{ 'CARD2CARD.SUCCESS.SENDER_CARD' | translate }} <span
-                class="pull-right">** {{ transaction.number }}</span></div>
-        <div>{{ 'CARD2CARD.SUCCESS.RES_CARD' | translate }} <span
-                class="pull-right">** {{ transaction.numberTarget }}</span></div>
-        <div>{{ 'CARD2CARD.SUCCESS.SUM_SEND' | translate }} <span
-                class="pull-right">{{ transaction.amount | currency }}</span></div>
-        <div>{{ 'CARD2CARD.SUCCESS.COMMISSION_DESC' | translate }} <span class="pull-right">{{ transaction.commiss | currency }}</span>
+        <div>
+            {{ 'CARD2CARD.SUCCESS.SENDER_CARD' | translate }}
+            <span class="pull-right">** {{ transaction.number }}</span>
         </div>
-        <div>{{ 'CARD2CARD.SUCCESS.SUM_ALL' | translate }} <span
-                class="pull-right">{{ transaction.total | currency }}</span></div>
+        <div>
+            {{ 'CARD2CARD.SUCCESS.RES_CARD' | translate }}
+            <span class="pull-right">** {{ transaction.numberTarget }}</span>
+        </div>
+        <div>
+            {{ 'CARD2CARD.SUCCESS.SUM_SEND' | translate }}
+            <span class="pull-right">{{ transaction.amount | currency:currency }}</span>
+        </div>
+        <div>
+            {{ 'CARD2CARD.SUCCESS.COMMISSION_DESC' | translate }}
+            <span class="pull-right">{{ transaction.commiss | currency:currency }}</span>
+        </div>
+        <div>
+            {{ 'CARD2CARD.SUCCESS.SUM_ALL' | translate }}
+            <span class="pull-right">{{ transaction.total | currency:currency }}</span>
+        </div>
     </div>
     <div class="form-group text-right">
         <button class="btn btn-primary" ng-click="printDiv('print')"><span
