@@ -1,13 +1,13 @@
 require('./index.sass');
 
-angular.module('send.phone', [
-    require('_modules/card_to_phone')
+angular.module('get_by_url', [
+    require('_modules/get_by_link')
 ])
     .config(['$stateProvider',
         function ($stateProvider) {
             $stateProvider
-                .state('app.send.phone', {
-                    url: '/phone',
+                .state('app.url', {
+                    url: '/url',
                     controller: require('./controllers/main'),
                     template: require('./templates/main.html'),
                     data: {
@@ -17,4 +17,4 @@ angular.module('send.phone', [
         }
     ]);
 
-module.exports = 'send.phone';
+module.exports = 'get_by_url';

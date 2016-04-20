@@ -20,10 +20,13 @@ angular.module('app', [
         require('component-spinner2'),
         require('component-utils'),
 
+        require('_modules/components/scroll_to'),
         require('_modules/auth'),
-
-        require('_pages/send'),
-        require('_pages/get'),
+    
+        require('_pages/send_to_card'),
+        require('_pages/send_to_phone'),
+        require('_pages/get_by_code'),
+        require('_pages/get_by_url'),
         require('_pages/mobile')
     ])
     .run(['$rootScope', '$state', '$stateParams', 'session',
@@ -59,7 +62,7 @@ angular.module('app', [
             });
 
             $urlRouterProvider
-                .otherwise('/send/card');
+                .otherwise('/card');
 
             $stateProvider
                 .state('app', {
@@ -98,6 +101,7 @@ angular.module('app', [
                 getPayStatus:               prefix + '/sendua-external/Info/GetPayStatus',
                 finishlookup:               prefix + '/sendua-external/ConfirmLookUp/finishlookup',
                 getDateTime:                prefix + '/sendua-external/Info/GetDateTime',
+                kvitanse:                   prefix + '/sendua-external/Info/kvitanse',
                 getlinkparams:              prefix + '/sendua-external/Card2Card/getlinkparams',
                 createCard2CardOperation:   prefix + '/sendua-external/Card2Card/CreateCard2CardOperation',
                 generateLink:               prefix + '/sendua-external/Card2Card/generateLink',
@@ -125,10 +129,10 @@ angular.module('app', [
             $scope.currency = value;
         });
     }])
-    .controller('LinkCtrl', ['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $stateParams) {
+    .controller('LinkCtrl', ['$state', '$stateParams', function ($state, $stateParams) {
         var base64Url = require('base64-url');
-        
-        $state.go('app.send.card', {
+
+        $state.go('app.card', {
             payLink: base64Url.unescape($stateParams.payLink)
         });
     }]);

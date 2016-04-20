@@ -7,9 +7,9 @@
             <div class="col-sm-6">
                 <div class="col-md-11 col-lg-9 col-lg-offset-2">
                     <div class="card source">
-                        <div class="card-logo" ng-class="c2cForm.number.cardType"></div>
                         <div class="form-group" ct-input-container>
                             <label>{{ 'CARD2CARD.SOURCE.LABEL.CARD_NUMBER' | translate }}</label>
+                            <div class="card-logo" ng-class="c2cForm.number.cardType"></div>
                             <input type="text" name="number" class="form-control input-sm" ct-tabindex="checkNumber"
                                    tabindex="1"
                                    ng-model="number" required
@@ -22,7 +22,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="date-block">
+                        <div class="expire">
                             <label>{{ 'CARD2CARD.SOURCE.LABEL.DATE_EXPIRE' | translate }}</label>
                             <div class="form-group">
                                 <div ct-input-container class="date"
@@ -45,11 +45,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="cvv" >
+                        <div class="cvv" uib-tooltip="{{ 'CARD2CARD.SOURCE.CVC_TOOLTIP' | translate }}" tooltip-placement="bottom">
                             <label class="input-label">{{ 'CARD2CARD.SOURCE.LABEL.CODE' | translate }}</label>
                             <div class="has-feedback " ct-input-container>
                                 <input type="{{ cvcType }}" maxlength="3" id="cvc" name="cvc"
-                                       uib-tooltip="{{ 'CARD2CARD.SOURCE.CVC_TOOLTIP' | translate }}" tooltip-placement="right"
                                        class="form-control input-sm"
                                        autocomplete="new-password" ng-model="cvc" required tabindex="4"
                                        ct-tabindex="checkCvc" placeholder="{{ 'CARD2CARD.SOURCE.CVC' | translate }}"
@@ -82,9 +81,8 @@
                             <input type="text" name="phone" class="form-control input-sm" ui-mask="+380 (99) 999 99 99"
                                    tabindex="5" ct-tabindex="checkPhone" ng-model="phone" required
                                    placeholder="+380 (__) ___-__-__"
-                                   tooltip-placement="right"
-                                   uib-tooltip="{{ 'CARD2CARD.SOURCE.PHONE_TOOLTIP' | translate }}"
-                                   tooltip-trigger="mouseenter: mouseenter"/>
+                                   tooltip-placement="bottom"
+                                   uib-tooltip="{{ 'CARD2CARD.SOURCE.PHONE_TOOLTIP' | translate }}"/>
                             <div class="error-phone">
                                 <div ng-messages="c2cForm.phone.$error" ng-show="c2cForm.phone.$touched">
                                     <div ng-message="required">{{ 'CARD2CARD.ERRORS.SOURCE.PHONE_REQUIRED' | translate }}</div>
@@ -120,14 +118,14 @@
             <div class="col-sm-6">
                 <div class="col-md-11 col-lg-9 col-lg-offset-1 col-md-offset-1">
                     <div class="card target">
-                        <div class="card-logo" ng-class="c2cForm.numberTarget.cardType"></div>
                         <div class="form-group" ct-input-container>
                             <label>{{ 'CARD2CARD.TARGET.LABEL.CARD_NUMBER' | translate }}</label>
+                            <div class="card-logo" ng-class="c2cForm.numberTarget.cardType"></div>
                             <input type="text" name="numberTarget" class="form-control input-sm"
                                    ct-tabindex="checkTargetNumber"
                                    ng-model="target.card" required tabindex="6"
                                    ng-disabled="numberTargetIsDisabled"
-                                   ui-mask="numberTargetMask" placeholder="____ ____ ____ ____"
+                                   ui-mask="{{ numberTargetMask }}" placeholder="____ ____ ____ ____"
                                    ct-payments-format-number
                                    ct-payments-validate-number="numberTargetIsDisabled"/>
                             <div class="error-target">
