@@ -26,54 +26,28 @@
     padding: 10px 30px
     margin-bottom: 25px
 
-    .card-logo
-      display: none
-      background-size: cover
-      background-repeat: no-repeat
-
-    &.source
-      position: relative
-
+    &.source, &.target
       .card-logo
+        background-size: cover
+        background-repeat: no-repeat
         position: absolute
+        display: block
 
         &.visa
           background-image: url(./images/visa_logo.svg)
           display: block
           width: 50px
           height: 16px
-          right: 22px
-          top: 39px
+          right: 60px
+          margin-top: 7px
 
         &.mastercard
           background-image: url(./images/masterCard_logo.svg)
           display: block
           width: 39px
           height: 23px
-          right: 21px
-          top: 35px
-
-    &.target
-      position: relative
-
-      .card-logo
-        position: absolute
-
-        &.visa
-          background-image: url(./images/visa_logo.svg)
-          display: block
-          width: 50px
-          height: 16px
-          right: 22px
-          top: 102px
-
-        &.mastercard
-          background-image: url(./images/masterCard_logo.svg)
-          display: block
-          width: 39px
-          height: 23px
-          right: 21px
-          top: 99px
+          right: 60px
+          margin-top: 3px
 
     .form-group
       margin-bottom: 0
