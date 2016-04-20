@@ -21,7 +21,7 @@ angular.module('app', [
         require('component-utils'),
 
         require('_modules/components/scroll_to'),
-        require('_modules/auth'),
+        // require('_modules/auth'),
     
         require('_pages/send_to_card'),
         require('_pages/send_to_phone'),
@@ -29,8 +29,8 @@ angular.module('app', [
         require('_pages/get_by_url'),
         require('_pages/mobile')
     ])
-    .run(['$rootScope', '$state', '$stateParams', 'session',
-        function ($rootScope, $state, $stateParams, session) {
+    .run(['$rootScope', '$state', '$stateParams',
+        function ($rootScope, $state, $stateParams) {
             $rootScope.NODE_ENV = process.env.NODE_ENV;
 
             $rootScope.$state = $state;
@@ -39,27 +39,27 @@ angular.module('app', [
             $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState) {
                 return;
 
-                var access = toState.data.access;
-
-                if (access.isPublic) {
-                    return;
-                }
-
-                if (session.isAuth()) {
-                    if (access.permission && !session.isGranted(access.permission)) {
-                        event.preventDefault();
-                        $state.go(session.getStateByCode('403'));
-                    }
-                }
+                // var access = toState.data.access;
+                //
+                // if (access.isPublic) {
+                //     return;
+                // }
+                //
+                // if (session.isAuth()) {
+                //     if (access.permission && !session.isGranted(access.permission)) {
+                //         event.preventDefault();
+                //         $state.go(session.getStateByCode('403'));
+                //     }
+                // }
             });
         }
     ])
     .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 'RestangularProvider', '$translateProvider', 'tmhDynamicLocaleProvider', 'CardToCardProvider',
         function ($stateProvider, $urlRouterProvider, $locationProvider, RestangularProvider, $translateProvider, tmhDynamicLocaleProvider, CardToCardProvider) {
-            $locationProvider.html5Mode({
-                enabled: true,
-                requireBase: false
-            });
+            // $locationProvider.html5Mode({
+            //     enabled: true,
+            //     requireBase: false
+            // });
 
             $urlRouterProvider
                 .otherwise('/card');
