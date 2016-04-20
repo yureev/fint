@@ -101,6 +101,7 @@ angular.module('app', [
                 getPayStatus:               prefix + '/sendua-external/Info/GetPayStatus',
                 finishlookup:               prefix + '/sendua-external/ConfirmLookUp/finishlookup',
                 getDateTime:                prefix + '/sendua-external/Info/GetDateTime',
+                kvitanse:                   prefix + '/sendua-external/Info/kvitanse',
                 getlinkparams:              prefix + '/sendua-external/Card2Card/getlinkparams',
                 createCard2CardOperation:   prefix + '/sendua-external/Card2Card/CreateCard2CardOperation',
                 generateLink:               prefix + '/sendua-external/Card2Card/generateLink',

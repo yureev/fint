@@ -125,7 +125,7 @@
                                    ct-tabindex="checkTargetNumber"
                                    ng-model="target.card" required tabindex="6"
                                    ng-disabled="numberTargetIsDisabled"
-                                   ui-mask="numberTargetMask" placeholder="____ ____ ____ ____"
+                                   ui-mask="{{ numberTargetMask }}" placeholder="____ ____ ____ ____"
                                    ct-payments-format-number
                                    ct-payments-validate-number="numberTargetIsDisabled"/>
                             <div class="error-target">

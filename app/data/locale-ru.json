@@ -151,7 +151,7 @@
       "COMMISSION_DESC": "Комиссия",
       "SUM_ALL": "Сумма списания",
       "PRINT_TICKET": "Печать<br/> квитанции",
-      "SEND_TO_EMAIL": "Квитанцию<br/> на почту",
+      "SEND_TO_EMAIL": "Квитанцию на почту",
       "TO_START": "закрыть",
       "UAH": "грн"
     }
