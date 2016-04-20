@@ -10,7 +10,9 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" ui-sref="app.main"><img class="logo" src="./assets/images/logo_sendua.png" alt=""></a>
+                    <div class="logo">
+                        <a ui-sref="app.main"><img src="./assets/images/logo_sendua.png" alt="SendUa"></a>
+                    </div>
                 </div>
                 <div class="collapse navbar-collapse divider">
                     <ul class="nav navbar-nav translate">
@@ -41,8 +43,6 @@
                         <li><a href="#" scroll-to="tarif">{{ 'APP.MENU.TARIFFS' | translate }}</a></li>
                         <li><a href="#" scroll-to="qaa">{{ 'APP.MENU.FAQ' | translate }}</a></li>
                         <li><a href="#" scroll-to="contacts">{{ 'APP.MENU.CONTACTS' | translate }}</a></li>
-                        <!--<li class="item login ng-binding"><a href="#">{{ 'APP.MENU.DASHBOARD' | translate }}</a>-->
-                        <!--</li>-->
                     </ul>
                 </div>
             </div>
@@ -72,9 +72,9 @@
     <div class="container-fluid color-wrap">
             <div class="row services" id="services">
                 <div class="title text-center">{{ 'APP.CONTENT.SERVICE.TITLE' | translate }}</div>
-                <div class="description text-left">
-                    <div class="text" translate="APP.CONTENT.SERVICE.TEXT"></div>
-                    <img src="./assets/images/creat.png" class="images">
+                <div class="description">
+                    <div class="col-md-5 col-md-offset-1" translate="APP.CONTENT.SERVICE.TEXT"></div>
+                    <div class="images text-center col-md-5 hidden-sm hidden-xs"><img src="./assets/images/creat.png"></div>
                     <div class="clearfix"></div>
                     <div class="button-down" scroll-to="tarif"></div>
                 </div>
@@ -82,9 +82,9 @@
             <div class="clearfix"></div>
             <div class="row tariffs" id="tarif">
                 <div class="title text-center">{{ 'APP.CONTENT.TARIFFS.TITLE' | translate }}</div>
-                <div class="description text-left">
-                    <div class="text" translate="APP.CONTENT.TARIFFS.TEXT"></div>
-                    <img class="images" src="./assets/images/calc.png">
+                <div class="description">
+                    <div class="col-md-5 col-md-offset-1" translate="APP.CONTENT.TARIFFS.TEXT"></div>
+                    <div class="images text-center col-md-5 hidden-sm hidden-xs"><img src="./assets/images/calc.png"></div>
                     <div class="clearfix"></div>
                     <div class="button-down" scroll-to="qaa"></div>
                 </div>
@@ -92,7 +92,7 @@
 
             <div class="row questions" id="qaa">
                 <div class="title text-center">{{ 'APP.CONTENT.FAQ.TITLE' | translate }}</div>
-                <div class="wrap">
+                <div class="wrap col-md-8 col-lg-6 col-lg-offset-3 col-md-offset-2">
                     <uib-accordion close-others="true">
                         <uib-accordion-group is-open="true">
                             <uib-accordion-heading>
