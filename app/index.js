@@ -58,8 +58,8 @@ angular.module('app', [
                 requireBase: false
             });
 
-            // $urlRouterProvider
-            //     .otherwise('/send/card');
+            $urlRouterProvider
+                .otherwise('/send/card');
 
             $stateProvider
                 .state('app', {
