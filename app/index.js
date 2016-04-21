@@ -112,7 +112,7 @@ angular.module('app', [
             });
 
             CardToCardProvider.setType('web');
-            CardToCardProvider.setLinkPrefix(window.location.origin + '/link/');
+            CardToCardProvider.setLinkPrefix(window.location.origin + '/#/link/');
         }
     ])
     .controller('AppCtrl', ['$scope', '$translate', 'tmhDynamicLocale', function ($scope, $translate, tmhDynamicLocale) {
