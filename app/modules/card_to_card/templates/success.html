@@ -30,19 +30,21 @@
             <span class="pull-right">{{ transaction.total | currency:currency }}</span>
         </div>
     </div>
+    <div class="form-group">
+        <div class="input-group">
+            <input type="text" class="form-control" ng-model="email">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" ng-click="toEmail()">
+                    <span translate="CARD2CARD.SUCCESS.SEND_TO_EMAIL"></span>
+                </button>
+            </span>
+        </div>
+    </div>
     <div class="form-group text-right">
         <button class="btn btn-primary" ng-click="printDiv('print')"><span
                 translate="CARD2CARD.SUCCESS.PRINT_TICKET"></span></button>
-        <button class="btn btn-default" ng-click="goState(STATES.INPUT)">{{'CARD2CARD.BUTTON_CLOSE' |
+        <button class="btn btn-link" ng-click="goState(STATES.INPUT)">{{'CARD2CARD.BUTTON_CLOSE' |
             translate}}
         </button>
-    </div>
-    <div class="input-group">
-        <input type="text" class="form-control" ng-model="email">
-        <span class="input-group-btn">
-            <button class="btn btn-default" type="button" ng-click="toEmail()">
-                <span translate="CARD2CARD.SUCCESS.SEND_TO_EMAIL"></span>
-            </button>
-        </span>
     </div>
 </div>

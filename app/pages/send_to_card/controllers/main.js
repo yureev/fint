@@ -8,6 +8,8 @@ function Ctrl($rootScope, $scope, $stateParams, $timeout) {
         });
     }
 
+    $scope.agreed = true;
+
     $scope.target = {};
 
     $scope.$on('GetLinkParamsSuccess', onGetLinkParamsSuccess);

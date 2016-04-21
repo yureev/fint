@@ -136,7 +136,8 @@
     },
     "ERROR": {
       "TITLE": "Ошибка",
-      "OPERATION_CODE": "Код операции ",
+      "OPERATION_CODE": "Код операции:",
+      "ERROR_CODE": "Код ошибки:",
       "SUPPORT_TEL": "Телефон сервисной службы",
       "SEND_TO_SERVICE": "Отправить в сервисную службу",
       "TO_START": "закрыть"

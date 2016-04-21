@@ -23,6 +23,9 @@ html
   body
     font-size: 1.2rem
 
+@media (max-height: 740px)
+  .button-up
+    display: none
 a
   cursor: pointer
 
@@ -45,7 +48,6 @@ input:invalid
     .divider
       border-bottom: 1px solid #cccccc
       margin: 0 60px
-      padding-bottom: 20px
       padding-top: 20px
 
       .translate
@@ -120,9 +122,9 @@ input:invalid
         margin-bottom: 30px
 
   .button-up
-    max-width: 1600px
-    margin: 0 auto
-    margin-bottom: 60px
+    position: fixed
+    bottom: 10%
+    right: 10%
 
     .button
       text-align: center
@@ -173,16 +175,14 @@ input:invalid
     text-decoration: none
 
   .sidebar
-    //position: absolute
-    //width: 14%
     text-align: center
     border-top: 1px solid #124068
-    //float: left
 
     .item
       color: #124068
       text-transform: uppercase
-      padding: 20px
+      padding: 20px 0
+      height: 60px
 
       &.active
         background-color: #fff
@@ -196,15 +196,15 @@ input:invalid
       text-align: center
       color: #124068
       text-transform: uppercase
-      height: 35px
-      padding-top: 7px
-      padding-bottom: 10px
+      height: 61px
+      padding: 20px 0
       border-top: 1px solid
 
       &.active
         background-color: #fff
         color: #F79600
         border-top: 1px solid #F79600
+
         a
           color: #F79600
 

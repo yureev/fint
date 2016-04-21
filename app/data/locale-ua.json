@@ -138,7 +138,8 @@
     },
     "ERROR": {
       "TITLE": "Помилка",
-      "OPERATION_CODE": "Код операції ",
+      "OPERATION_CODE": "Код операції:",
+      "ERROR_CODE": "Код помилки:",
       "SUPPORT_TEL": "Телефон сервісної служби",
       "SEND_TO_SERVICE": "Відправити до сервісної служби",
       "TO_START": "Закрити"
