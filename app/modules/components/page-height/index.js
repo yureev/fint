@@ -9,27 +9,28 @@
             link: postLink
         };
 
-        function postLink(scope, element, attrs) {
-            document.addEventListener("DOMContentLoaded", function() {
-                console.log('DOMContentLoaded');
-            });
-
-            //$rootScope.$on('$viewContentLoaded', function() {
-            //    {debugger}
-            //    console.log('$viewContentLoaded');
-            //});
+        function postLink(scope, element) {
+            var elem = element.find('[page-height-container]');
 
             angular.element($window).on('resize', function() {
-                console.log('resize');
-                //console.log(element[0].offsetTop);
-                //angular.element('body').scrollTop(0);
-                //element[0].style.height = window.innerHeight - element[0].offsetTop - 100 + 'px';
+                calulate();
             });
 
-            //$timeout(function() {
-            //    console.log('TOP:' + element[0].offsetTop);
-            //    element[0].style.height = window.innerHeight - element[0].offsetTop - 100 + 'px';
-            //}, 100)
+            $timeout(function() {
+                calulate();
+            }, 10);
+
+            function calulate() {
+                var offset = elem.offset().top,
+                    height = elem.height(),
+                    windowHeight = angular.element($window).height(),
+
+                    expand = windowHeight - offset - height - 50;
+
+                if (expand > 0) {
+                    element.height(height + expand);
+                }
+            }
         }
     }
 })();
