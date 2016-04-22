@@ -14,6 +14,7 @@ angular.module('app', [
         require('angular-dynamic-locale'),
         require('angular-ui-bootstrap/src/tooltip'),
         require('angular-ui-bootstrap/src/buttons'),
+        require('angular-ui-notification'),
 
         require('component-input'),
         require('component-tabindex'),
@@ -21,6 +22,7 @@ angular.module('app', [
         require('component-utils'),
 
         require('_modules/components/scroll_to'),
+        require('_modules/components/page-height'),
         // require('_modules/auth'),
     
         require('_pages/send_to_card'),
@@ -91,7 +93,7 @@ angular.module('app', [
             });
             $translateProvider.preferredLanguage('ua');
 
-            tmhDynamicLocaleProvider.localeLocationPattern('/angular/i18n/angular-locale_{{locale}}.js');
+            tmhDynamicLocaleProvider.localeLocationPattern('angular/i18n/angular-locale_{{locale}}.js');
 
             
             var prefix = process.env.NODE_ENV == 'development' ? 'https://send.ua' : '';
@@ -112,7 +114,7 @@ angular.module('app', [
             });
 
             CardToCardProvider.setType('web');
-            CardToCardProvider.setLinkPrefix(window.location.origin + '/link/');
+            CardToCardProvider.setLinkPrefix(window.location.origin + '/#/link/');
         }
     ])
     .controller('AppCtrl', ['$scope', '$translate', 'tmhDynamicLocale', function ($scope, $translate, tmhDynamicLocale) {

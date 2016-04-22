@@ -6,22 +6,33 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/"
 $fa-font-path: "~font-awesome/fonts"
 @import "~font-awesome/scss/font-awesome.scss"
 
+// Import Notification messages styles
+@import "~angular-ui-notification/dist/angular-ui-notification.css"
+
 // Import Mixins'
 @import "assets/stylesheets/mixins/index"
 
 @import "assets/stylesheets/components/uib_tooltip"
 
 // Misc
-html
-  font-size: 14px
+@media (min-width: 540px)
+  html
+    font-size: 14px
 
 @media (min-width: 970px)
-  body
-    font-size: 1rem
+  html
+    font-size: 14px
 
 @media (min-width: 1400px)
-  body
-    font-size: 1.2rem
+  html
+    font-size: 16px
+
+@media (max-height: 740px)
+  .button-up
+    display: none
+
+body
+  font-size: 1rem
 
 a
   cursor: pointer
@@ -45,7 +56,6 @@ input:invalid
     .divider
       border-bottom: 1px solid #cccccc
       margin: 0 60px
-      padding-bottom: 20px
       padding-top: 20px
 
       .translate
@@ -120,9 +130,9 @@ input:invalid
         margin-bottom: 30px
 
   .button-up
-    max-width: 1600px
-    margin: 0 auto
-    margin-bottom: 60px
+    position: fixed
+    bottom: 10%
+    right: 10%
 
     .button
       text-align: center
@@ -173,16 +183,14 @@ input:invalid
     text-decoration: none
 
   .sidebar
-    //position: absolute
-    //width: 14%
     text-align: center
     border-top: 1px solid #124068
-    //float: left
 
     .item
       color: #124068
       text-transform: uppercase
-      padding: 20px
+      padding: 20px 0
+      height: 60px
 
       &.active
         background-color: #fff
@@ -196,15 +204,17 @@ input:invalid
       text-align: center
       color: #124068
       text-transform: uppercase
-      height: 35px
-      padding-top: 7px
-      padding-bottom: 10px
+      height: 61px
       border-top: 1px solid
+
+      a
+        display: block
+        padding: 20px 0
 
       &.active
         background-color: #fff
-        color: #F79600
         border-top: 1px solid #F79600
+
         a
           color: #F79600
 
@@ -247,3 +257,8 @@ input:invalid
 
 .margin-small
   margin-bottom: 10px
+
+.page-height
+  background-color: #ffffff
+  margin-left: -15px
+  margin-right: -15px
