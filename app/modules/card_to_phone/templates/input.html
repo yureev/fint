@@ -104,11 +104,12 @@
                                     <div ng-message="max">{{ 'CARD2CARD.ERRORS.AMOUNT.SMALLER_SUM' | translate }}</div>
                                 </div>
                             </div>
-                            <span class="text-light-normal">
-                                ( {{ config.tariff.comm_percent }}% + {{ config.tariff.comm_fixed / 100 | currency:currency }} )
-                            </span>
-                            <span class="text-light-normal">{{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }}</span>
-                            <span class="text-light-normal">{{ commiss || 0 | currency:currency }}</span>
+                            <div class="text-light-normal">
+                                {{ 'CARD2CARD.AMOUNT.RATE' | translate }} {{ config.tariff.comm_percent }}% + {{ config.tariff.comm_fixed / 100 | currency:currency }}
+                            </div>
+                            <div class="text-light-normal">
+                                {{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commiss || 0 | currency:currency }}
+                            </div>
                         </div>
                     </div>
                 </div>
