@@ -155,6 +155,8 @@
       "SUM_ALL": "Сума списання",
       "PRINT_TICKET": "Друк квитанції",
       "SEND_TO_EMAIL": "Квитанцію на пошту",
+      "EMAIL_SENT_SUCCESS": "Квитанція відправлена на {{ email }}",
+      "EMAIL_SENT_ERROR": "Квитанція не відправлена",
       "TO_START": "закрити",
       "UAH": "грн"
     }

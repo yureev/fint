@@ -10,6 +10,7 @@ angular.module('app', [
         'ui.mask',
         'restangular',
         'pascalprecht.translate',
+        'ui-notification',
 
         require('angular-dynamic-locale'),
         require('angular-ui-bootstrap/src/tooltip'),

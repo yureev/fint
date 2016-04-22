@@ -1,5 +1,5 @@
-Ctrl.$inject = ['$scope', '$stateParams', '$timeout', 'Notification'];
-function Ctrl($scope, $stateParams, $timeout, Notification) {
+Ctrl.$inject = ['$scope', '$stateParams', '$timeout', '$translate', 'Notification'];
+function Ctrl($scope, $stateParams, $timeout, $translate, Notification) {
     if ($stateParams.payLink) {
         $timeout(function() {
             $scope.$broadcast('GetLinkParams', {
@@ -60,11 +60,15 @@ function Ctrl($scope, $stateParams, $timeout, Notification) {
     }
 
     function onCard2CardReceiptSendSuccess(event, data) {
-        Notification.success('success');
+        var email = data.email;
+
+        Notification.success($translate('CARD2CARD.SUCCESS.EMAIL_SENT_SUCCESS', {
+            email: email
+        }));
     }
 
     function onCard2CardReceiptSendError() {
-        Notification.error('error');
+        Notification.error($translate('CARD2CARD.SUCCESS.EMAIL_SENT_ERROR'));
     }
 }
 
