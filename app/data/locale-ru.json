@@ -162,7 +162,20 @@
       "EMAIL_SENT_SUCCESS": "Квитанция отправлена на {{ email }}",
       "EMAIL_SENT_ERROR": "Квитанция не отправлена",
       "TO_START": "закрыть",
-      "UAH": "грн"
+      "UAH": "грн",
+      "RECEIPT": {
+        "SUPPORT": "Служба поддержки",
+        "PHONE": "(044) 390-08-85",
+        "MAIL": "support@send.ua",
+        "PAID": "Оплачено:",
+        "OPERATION_MESSAGE": "Уведомление об операции №",
+        "TITLE": "Перевод с карты на карту",
+        "SOURCE_CARD": "Карта отправителя",
+        "TARGET_CARD": "Карта получателя",
+        "SUMM": "Сумма:",
+        "COMMISS": "Комиссия:",
+        "TOTAL": "Всего оплачено:"
+      }
     }
   },
   "CARD2PHONE": {
