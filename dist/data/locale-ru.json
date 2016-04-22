@@ -136,7 +136,8 @@
     },
     "ERROR": {
       "TITLE": "Ошибка",
-      "OPERATION_CODE": "Код операции ",
+      "OPERATION_CODE": "Код операции:",
+      "ERROR_CODE": "Код ошибки:",
       "SUPPORT_TEL": "Телефон сервисной службы",
       "SEND_TO_SERVICE": "Отправить в сервисную службу",
       "TO_START": "закрыть"
@@ -152,6 +153,8 @@
       "SUM_ALL": "Сумма списания",
       "PRINT_TICKET": "Печать квитанции",
       "SEND_TO_EMAIL": "Квитанцию на почту",
+      "EMAIL_SENT_SUCCESS": "Квитанция отправлена на {{ email }}",
+      "EMAIL_SENT_ERROR": "Квитанция не отправлена",
       "TO_START": "закрыть",
       "UAH": "грн"
     }
