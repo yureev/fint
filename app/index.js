@@ -115,6 +115,7 @@ angular.module('app', [
 
             CardToCardProvider.setType('web');
             CardToCardProvider.setLinkPrefix(window.location.origin + '/#/link/');
+            CardToCardProvider.setRecieptTemplate(require('_templates/reciept.html'));
         }
     ])
     .controller('AppCtrl', ['$scope', '$translate', 'tmhDynamicLocale', function ($scope, $translate, tmhDynamicLocale) {

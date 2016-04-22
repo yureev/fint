@@ -59,7 +59,8 @@ module.exports = function (_path) {
                 _modules: path.join(_path, 'app', 'modules'),
                 _pages: path.join(_path, 'app', 'pages'),
                 _images: path.join(_path, 'app', 'assets', 'images'),
-                _stylesheets: path.join(_path, 'app', 'assets', 'stylesheets')
+                _stylesheets: path.join(_path, 'app', 'assets', 'stylesheets'),
+                _templates: path.join(_path, 'app', 'assets', 'templates')
             }
         },
 
