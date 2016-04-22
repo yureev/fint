@@ -36,6 +36,10 @@
                         </div>
                         <button class="btn btn-warning pull-right">{{ 'APP.AUTH.ENTER' | translate }}</button>
                     </form>
+                    <div class="pull-right mobile">
+                        <a href="https://play.google.com/store/apps/details?id=com.sendua">Android</a>
+                        <a href="https://itunes.apple.com/us/app/send.ua/id995162040?mt=8">iOS</a>
+                    </div>
                 </div>
                 <div class="collapse navbar-collapse navigation">
                     <ul class="nav navbar-nav">
@@ -43,12 +47,13 @@
                         <li><a href="#" scroll-to="tarif">{{ 'APP.MENU.TARIFFS' | translate }}</a></li>
                         <li><a href="#" scroll-to="qaa">{{ 'APP.MENU.FAQ' | translate }}</a></li>
                         <li><a href="#" scroll-to="contacts">{{ 'APP.MENU.CONTACTS' | translate }}</a></li>
+                        <li><a href="#" scroll-to="pci-dss">{{ 'APP.MENU.PCI' | translate }}</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container-fluid main" page-height>
+    <div class="container-fluid main">
         <div class="row">
             <div class="col-md-2">
                 <div class="row">
@@ -64,62 +69,71 @@
             </div>
             <div class="col-md-10">
                 <div class="row">
-                    <div class="content" ui-view></div>
+                    <div class="content" page-height>
+                        <div ui-view page-height-container></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="container-fluid color-wrap">
-            <div class="row services" id="services">
-                <div class="title text-center">{{ 'APP.CONTENT.SERVICE.TITLE' | translate }}</div>
-                <div class="description">
-                    <div class="col-md-5 col-md-offset-1" translate="APP.CONTENT.SERVICE.TEXT"></div>
-                    <div class="images text-center col-md-5 hidden-sm hidden-xs"><img src="./assets/images/creat.png"></div>
-                    <div class="clearfix"></div>
-                    <div class="button-down" scroll-to="tarif"></div>
-                </div>
+        <div class="row services" id="services">
+            <div class="title text-center">{{ 'APP.CONTENT.SERVICE.TITLE' | translate }}</div>
+            <div class="description">
+                <div class="col-md-5 col-md-offset-1" translate="APP.CONTENT.SERVICE.TEXT"></div>
+                <div class="images text-center col-md-5 hidden-sm hidden-xs"><img src="./assets/images/creat.png"></div>
+                <div class="clearfix"></div>
+                <div class="button-down" scroll-to="tarif"></div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row tariffs" id="tarif">
+            <div class="title text-center">{{ 'APP.CONTENT.TARIFFS.TITLE' | translate }}</div>
+            <div class="description">
+                <div class="col-md-5 col-md-offset-1" translate="APP.CONTENT.TARIFFS.TEXT"></div>
+                <div class="images text-center col-md-5 hidden-sm hidden-xs"><img src="./assets/images/calc.png"></div>
+                <div class="clearfix"></div>
+                <div class="button-down" scroll-to="qaa"></div>
+            </div>
+        </div>
+        <div class="row questions" id="qaa">
+            <div class="title text-center">{{ 'APP.CONTENT.FAQ.TITLE' | translate }}</div>
+            <div class="wrap col-md-8 col-lg-6 col-lg-offset-3 col-md-offset-2">
+                <uib-accordion close-others="true">
+                    <uib-accordion-group is-open="true">
+                        <uib-accordion-heading>
+                            <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
+                            <span>{{ 'APP.CONTENT.FAQ.QUESTION_1.TITLE' | translate }}</span>
+                        </uib-accordion-heading>
+                        <div translate="APP.CONTENT.FAQ.QUESTION_1.TEXT"></div>
+                    </uib-accordion-group>
+                    <uib-accordion-group>
+                        <uib-accordion-heading>
+                            <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
+                            <span>{{ 'APP.CONTENT.FAQ.QUESTION_2.TITLE' | translate }}</span>
+                        </uib-accordion-heading>
+                        <div translate="APP.CONTENT.FAQ.QUESTION_2.TEXT"></div>
+                    </uib-accordion-group>
+                    <uib-accordion-group>
+                        <uib-accordion-heading>
+                            <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
+                            <span>{{ 'APP.CONTENT.FAQ.QUESTION_3.TITLE' | translate }}</span>
+                        </uib-accordion-heading>
+                        <div translate="APP.CONTENT.FAQ.QUESTION_3.TEXT"></div>
+                    </uib-accordion-group>
+                </uib-accordion>
             </div>
             <div class="clearfix"></div>
-            <div class="row tariffs" id="tarif">
-                <div class="title text-center">{{ 'APP.CONTENT.TARIFFS.TITLE' | translate }}</div>
-                <div class="description">
-                    <div class="col-md-5 col-md-offset-1" translate="APP.CONTENT.TARIFFS.TEXT"></div>
-                    <div class="images text-center col-md-5 hidden-sm hidden-xs"><img src="./assets/images/calc.png"></div>
-                    <div class="clearfix"></div>
-                    <div class="button-down" scroll-to="qaa"></div>
-                </div>
-            </div>
-
-            <div class="row questions" id="qaa">
-                <div class="title text-center">{{ 'APP.CONTENT.FAQ.TITLE' | translate }}</div>
-                <div class="wrap col-md-8 col-lg-6 col-lg-offset-3 col-md-offset-2">
-                    <uib-accordion close-others="true">
-                        <uib-accordion-group is-open="true">
-                            <uib-accordion-heading>
-                                <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
-                                <span>{{ 'APP.CONTENT.FAQ.QUESTION_1.TITLE' | translate }}</span>
-                            </uib-accordion-heading>
-                            <div translate="APP.CONTENT.FAQ.QUESTION_1.TEXT"></div>
-                        </uib-accordion-group>
-                        <uib-accordion-group>
-                            <uib-accordion-heading>
-                                <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
-                                <span>{{ 'APP.CONTENT.FAQ.QUESTION_2.TITLE' | translate }}</span>
-                            </uib-accordion-heading>
-                            <div translate="APP.CONTENT.FAQ.QUESTION_2.TEXT"></div>
-                        </uib-accordion-group>
-                        <uib-accordion-group>
-                            <uib-accordion-heading>
-                                <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
-                                <span>{{ 'APP.CONTENT.FAQ.QUESTION_3.TITLE' | translate }}</span>
-                            </uib-accordion-heading>
-                            <div translate="APP.CONTENT.FAQ.QUESTION_3.TEXT"></div>
-                        </uib-accordion-group>
-                    </uib-accordion>
-                </div>
+            <div class="button-down" scroll-to="contacts"></div>
+        </div>
+        <div class="row pci-dss" id="pci-dss">
+            <div class="title text-center">{{ 'APP.CONTENT.PCI_DSS.TITLE' | translate }}</div>
+            <div class="description">
+                <div class="col-md-10 col-md-offset-1" translate="APP.CONTENT.PCI_DSS.TEXT"></div>
                 <div class="clearfix"></div>
                 <div class="button-down" scroll-to="contacts"></div>
             </div>
+        </div>
     </div>
     <footer class="container-fluid">
         <div class="footer-wrap">
@@ -149,18 +163,23 @@
                 </div>
             </div>
             <div class="row banners">
-                <div class="col-md-3">
+                <div class="col-md-2 col-md-offset-1">
                     <a href="http://www.visa.com.ua/ua/uk-ua/personal/security/onlineshopping.shtml" target="_blank">
                         <img class="visa-verified" src="./assets/images/vbyvisa_blu.png">
                     </a>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <img class="mastercard" src="./assets/images/masterCard_logo.svg">
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
+                    <a href="https://send.ua/pcidss" target="_blank">
+                        <img class="pci" src="./assets/images/credibility_pci-logo.png">
+                    </a>
+                </div>
+                <div class="col-md-2">
                     <img class="money-send" src="./assets/images/MoneySend.png">
                 </div>
-                <div class="col-md-2 col-md-offset-1">
+                <div class="col-md-2">
                     <a href="http://www.mastercard.com/ua/consumer/secure-code.html" target="_blank">
                         <img class="secure-code" src="./assets/images/SecureCode.svg">
                     </a>

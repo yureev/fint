@@ -16,7 +16,7 @@ $fa-font-path: "~font-awesome/fonts"
 
 // Misc
 html
-  font-size: 12px
+  font-size: 14px
 
 @media (min-width: 970px)
   html
@@ -52,7 +52,7 @@ input:invalid
       border-bottom: 1px solid #cccccc
       margin: 0 60px
       padding-top: 20px
-      padding-bottom: 3px
+      padding-bottom: 8px
 
       .translate
         .item
@@ -81,6 +81,13 @@ input:invalid
           margin-right: 2%
           float: none
           display: inline-block
+    .mobile
+      padding-right: 20px
+      white-space: nowrap
+
+      a
+        display: inline-block
+        padding: 5px
 
   .color-wrap
     background-color: #FBFBFB
@@ -93,7 +100,7 @@ input:invalid
       width: 44px
       height: 16px
 
-    .services, .tariffs, .questions
+    .pci-dss, .services, .tariffs, .questions
       .title
         color: $main_color_active
         background-color: #f8f8f8
@@ -110,12 +117,6 @@ input:invalid
 
       .images
         margin-top: 10px
-
-      .text
-        float: left
-        width: 40%
-        text-align: justify
-        margin-left: 10%
 
     .tariffs
       h3
@@ -168,7 +169,8 @@ input:invalid
       .mastercard
         width: 80px
 
-      .money-send
+      .pci
+        width: 120px
 
       .secure-code
         width: 90px
@@ -206,6 +208,7 @@ input:invalid
       text-transform: uppercase
       height: 61px
       border-top: 1px solid
+      background-color: #BCD0E4
 
       a
         display: block
@@ -218,8 +221,10 @@ input:invalid
         a
           color: #F79600
 
-  .sub-main
+  .content
     background-color: #fff
+
+  .sub-main
     padding: 40px
 
 .text-bold-big
