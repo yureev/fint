@@ -95,9 +95,8 @@
                         <div class="form-group" ct-input-container>
                             <label class="text-bold-normal">{{ 'CARD2CARD.AMOUNT.TITLE' | translate }}</label>
                             <input type="text" name="amount" class="form-control amount-input" tabindex="7"
-                                   ng-model="amount"
+                                   ng-model="amount" placeholder="{{ 'CARD2CARD.AMOUNT.RANGE' | translate }}"
                                    ng-change="calculate()" min="1" max="25000" required ct-currency/>
-                            <span class="text-light-small">{{ 'CARD2CARD.AMOUNT.RANGE' | translate }} {{ config.tariff.total_max / 100 | currency:currency }}</span>
                             <div class="error-amount">
                                 <div ng-messages="c2cForm.amount.$error">
                                     <div ng-message="required">{{ 'CARD2CARD.ERRORS.AMOUNT.AMOUNT_REQUIRED' | translate }}</div>
