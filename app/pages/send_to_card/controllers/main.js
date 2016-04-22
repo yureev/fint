@@ -1,5 +1,7 @@
 Ctrl.$inject = ['$scope', '$stateParams', '$timeout', '$translate', 'Notification'];
 function Ctrl($scope, $stateParams, $timeout, $translate, Notification) {
+    window.Notification = Notification;
+
     if ($stateParams.payLink) {
         $timeout(function() {
             $scope.$broadcast('GetLinkParams', {
@@ -15,6 +17,10 @@ function Ctrl($scope, $stateParams, $timeout, $translate, Notification) {
     $scope.$on('GetLinkParamsSuccess', onGetLinkParamsSuccess);
     $scope.$on('Card2CardReceiptSendSuccess', onCard2CardReceiptSendSuccess);
     $scope.$on('Card2CardReceiptSendError', onCard2CardReceiptSendError);
+
+    $translate('HEADLINE').then(function (headline) {
+        $scope.headline = headline;
+    });
 
     $scope.numberTargetMask = '9999 9999 9999 9999';
     $scope.numberTargetIsDisabled = false;
@@ -62,13 +68,17 @@ function Ctrl($scope, $stateParams, $timeout, $translate, Notification) {
     function onCard2CardReceiptSendSuccess(event, data) {
         var email = data.email;
 
-        Notification.success($translate('CARD2CARD.SUCCESS.EMAIL_SENT_SUCCESS', {
+        $translate('CARD2CARD.SUCCESS.EMAIL_SENT_SUCCESS', {
             email: email
-        }));
+        }).then(function(value) {
+            Notification.success(value);
+        });
     }
 
     function onCard2CardReceiptSendError() {
-        Notification.error($translate('CARD2CARD.SUCCESS.EMAIL_SENT_ERROR'));
+        $translate('CARD2CARD.SUCCESS.EMAIL_SENT_ERROR').then(function(value) {
+            Notification.error(value);
+        });
     }
 }
 
