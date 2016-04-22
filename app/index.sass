@@ -1,3 +1,6 @@
+// Import Notification messages styles
+@import "/~angular-ui-notification/dist/angular-ui-notification.css"
+
 // Import Bootstrap styles'
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/"
 @import "~bootstrap-sass/assets/stylesheets/_bootstrap.scss"
@@ -12,20 +15,25 @@ $fa-font-path: "~font-awesome/fonts"
 @import "assets/stylesheets/components/uib_tooltip"
 
 // Misc
-html
-  font-size: 14px
+@media (min-width: 540px)
+  html
+    font-size: 14px
 
 @media (min-width: 970px)
-  body
-    font-size: 1rem
+  html
+    font-size: 14px
 
 @media (min-width: 1400px)
-  body
-    font-size: 1.2rem
+  html
+    font-size: 16px
 
 @media (max-height: 740px)
   .button-up
     display: none
+
+body
+  font-size: 1rem
+
 a
   cursor: pointer
 
