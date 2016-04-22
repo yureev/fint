@@ -15,9 +15,8 @@ $fa-font-path: "~font-awesome/fonts"
 @import "assets/stylesheets/components/uib_tooltip"
 
 // Misc
-@media (min-width: 540px)
-  html
-    font-size: 14px
+html
+  font-size: 12px
 
 @media (min-width: 970px)
   html
@@ -26,10 +25,6 @@ $fa-font-path: "~font-awesome/fonts"
 @media (min-width: 1400px)
   html
     font-size: 16px
-
-@media (max-height: 740px)
-  .button-up
-    display: none
 
 body
   font-size: 1rem
@@ -57,6 +52,7 @@ input:invalid
       border-bottom: 1px solid #cccccc
       margin: 0 60px
       padding-top: 20px
+      padding-bottom: 3px
 
       .translate
         .item
@@ -151,6 +147,7 @@ input:invalid
       border-bottom: 1px solid #4c4c4c
       margin-bottom: 30px
       padding-bottom: 30px
+      padding-top: 15px
 
       .social
 
@@ -189,8 +186,11 @@ input:invalid
     .item
       color: #124068
       text-transform: uppercase
-      padding: 20px 0
       height: 60px
+
+      a
+        display: block
+        padding: 20px 0
 
       &.active
         background-color: #fff
