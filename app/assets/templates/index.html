@@ -11,9 +11,24 @@
 </head>
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <body>
-<div class="wrapper" ui-view></div>
-    {% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
-      <script src="{%=o.htmlWebpackPlugin.files.chunks[chunk].entry %}"></script>
-    {% } %}
+  <div class="wrapper" ui-view></div>
+  <!--[if lt IE 9]>
+    <p class="browsehappy container text-center alert alert-warning">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/" class="alert-link">обновите ваш браузер</a> для продолжения работы.</p>
+  <![endif]-->
+
+  <!--[if gte IE 9]><!-->
+  {% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
+        <script src="{%=o.htmlWebpackPlugin.files.chunks[chunk].entry %}"></script>
+  {% } %}
+
+  <script type="text/javascript">
+      (function(w, d, s, u) {
+          w.RocketChat = function(c) { w.RocketChat._.push(c) }; w.RocketChat._ = []; w.RocketChat.url = u;
+          var h = d.getElementsByTagName(s)[0], j = d.createElement(s);
+          j.async = true; j.src = 'https://chat.ourdoma.in/packages/rocketchat_livechat/assets/rocket-livechat.js';
+          h.parentNode.insertBefore(j, h);
+      })(window, document, 'script', 'https://chat.ourdoma.in/livechat');
+  </script>
+  <!--<![endif]-->
 </body>
 </html>
