@@ -22,6 +22,7 @@ angular.module('app', [
         require('component-utils'),
 
         require('_modules/components/scroll_to'),
+        require('_modules/components/scroll_top'),
         require('_modules/components/page-height'),
         // require('_modules/auth'),
     
