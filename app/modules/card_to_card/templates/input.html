@@ -141,9 +141,14 @@
                         <div class="form-group send">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" tabindex="8" ng-model="agreed" required>
+                                    <input type="checkbox" tabindex="8" ng-model="agreed" name="agreed" required>
                                     <span translate="CARD2CARD.AGREEMENT"></span>
                                 </label>
+                            </div>
+                            <div class="error-agreed">
+                                <div ng-messages="c2cForm.agreed.$error">
+                                    <div ng-message="required">Check Agreed</div>
+                                </div>
                             </div>
                             <div class="buttons">
                                 <button type="submit" class="btn btn-warning send-button" tabindex="9"
