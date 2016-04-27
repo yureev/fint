@@ -32,9 +32,9 @@
     </div>
     <div class="form-group">
         <div class="input-group">
-            <input type="text" class="form-control" ng-model="email">
+            <input type="email" class="form-control" ng-model="email">
             <span class="input-group-btn">
-                <button class="btn btn-default" type="button" ng-click="toEmail()">
+                <button class="btn btn-default" type="button" ng-click="toEmail()" ng-disabled="!email">
                     <span translate="CARD2CARD.SUCCESS.SEND_TO_EMAIL"></span>
                 </button>
             </span>
