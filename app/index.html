@@ -36,13 +36,10 @@
                         </div>
                         <button class="btn btn-warning pull-right">{{ 'APP.AUTH.ENTER' | translate }}</button>
                     </form>
-                    <div class="pull-right mobile">
-                        <a href="https://play.google.com/store/apps/details?id=com.sendua"><img class="google-play" src="./assets/images/google_play.jpg"></a>
-                        <a href="https://itunes.apple.com/us/app/send.ua/id995162040?mt=8"><img class="app-store" src="./assets/images/app_store.png"></a>
-                    </div>
                 </div>
                 <div class="collapse navbar-collapse navigation">
                     <ul class="nav navbar-nav">
+                        <li><a href="#" scroll-to="apps">{{ 'APP.MENU.APPS' | translate }}</a></li>
                         <li><a href="#" scroll-to="services">{{ 'APP.MENU.ABOUT' | translate }}</a></li>
                         <li><a href="#" scroll-to="tarif">{{ 'APP.MENU.TARIFFS' | translate }}</a></li>
                         <li><a href="#" scroll-to="qaa">{{ 'APP.MENU.FAQ' | translate }}</a></li>
@@ -58,13 +55,13 @@
             <div class="col-md-2">
                 <div class="row">
                     <aside class="sidebar">
-                <div class="item" ng-class="{active: $state.includes('app.card') || $state.includes('app.phone')}">
-                    <a ui-sref="app.card">{{'APP.CONTROLS.BTN_SEND' | translate}}</a>
-                </div>
-                <div class="item" ng-class="{active: $state.includes('app.url') || $state.includes('app.code')}">
-                    <a ui-sref="app.url">{{'APP.CONTROLS.BTN_RECEIVE' | translate}}</a>
-                </div>
-            </aside>
+                        <div class="item" ng-class="{active: $state.includes('app.card') || $state.includes('app.phone')}">
+                            <a ui-sref="app.card">{{'APP.CONTROLS.BTN_SEND' | translate}}</a>
+                        </div>
+                        <div class="item" ng-class="{active: $state.includes('app.url') || $state.includes('app.code')}">
+                            <a ui-sref="app.url">{{'APP.CONTROLS.BTN_RECEIVE' | translate}}</a>
+                        </div>
+                    </aside>
                 </div>
             </div>
             <div class="col-md-10">
@@ -77,6 +74,22 @@
         </div>
     </div>
     <div class="container-fluid color-wrap">
+        <div class="row apps" id="apps">
+            <div class="title text-center">{{ 'APP.CONTENT.APPS.TITLE' | translate }}</div>
+            <div class="description">
+                <div class="col-md-5 col-md-offset-1">
+                    <div class="pull-right mobile">
+                        <h4>{{ 'MOBILE.BE_MOBILE' | translate }}</h4>
+                        <p>{{ 'MOBILE.DOWNLOAD' | translate }}</p>
+                        <a href="https://play.google.com/store/apps/details?id=com.sendua">{{ 'MOBILE.ANDROID' | translate }}</a><br/>
+                        <a href="https://itunes.apple.com/us/app/send.ua/id995162040?mt=8">{{ 'MOBILE.IOS' | translate }}</a>
+                    </div>
+                </div>
+                <div class="images text-center col-md-5 hidden-sm hidden-xs"><img src="./assets/images/apps.png"></div>
+                <div class="clearfix"></div>
+                <div class="button-down" scroll-to="services"></div>
+            </div>
+        </div>
         <div class="row services" id="services">
             <div class="title text-center">{{ 'APP.CONTENT.SERVICE.TITLE' | translate }}</div>
             <div class="description">
