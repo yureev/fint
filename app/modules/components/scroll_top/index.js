@@ -22,7 +22,7 @@
                 fadeout: 500,
                 opacity: 0.5,
                 marginX: 2,
-                marginY: 2
+                marginY: 4
             }, options);
 
             element.append('<a id="goTopAnchor"><span id="goTopSpan"/></a>');

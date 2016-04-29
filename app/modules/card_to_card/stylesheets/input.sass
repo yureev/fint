@@ -159,7 +159,29 @@
           .tooltip-arrow
             display: none
 
-@media (max-width: 768px)
+@media (max-width: 970px)
+  .state-input
+    .card
+      label
+        font-size: 1.2rem
+      input
+        height: 40px
+        font-size: 1.4rem
+      .card-logo
+        &.mastercard
+          margin-top: 8px
+          width: 49px
+          height: 29px
+        &.visa
+          margin-top: 16px
+      &.source
+        .cvv
+          width: 95px
+          .form-control-feedback
+            line-height: 42px
+            height: 41px
+
+@media (min-width: 1200px)
   .state-input
     .card
       input
@@ -176,24 +198,7 @@
         .cvv
           width: 75px
 
-@media (min-width: 768px)
-  .state-input
-    .card
-      input
-        height: 30px
-        font-size: 14px
-      .card-logo
-        &.mastercard
-          margin-top: 8px
-          width: 49px
-          height: 29px
-        &.visa
-          margin-top: 16px
-      &.source
-        .cvv
-          width: 75px
-
-@media screen and (min-width: 1400px)
+@media (min-width: 1400px)
 
   .state-input
 
@@ -204,7 +209,7 @@
 
       input
         height: 40px
-        font-size: 20px
+        font-size: 14px
 
       .card-logo
 
@@ -233,7 +238,7 @@
 
       input
         height: 40px
-        font-size: 18px
+        font-size: 14px
 
     .buttons
 
