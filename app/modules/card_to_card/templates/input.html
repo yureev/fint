@@ -27,7 +27,7 @@
                             <div class="form-group">
                                 <div ct-input-container class="date"
                                      ng-class="{'ct-input-invalid': c2cForm.expire.$error && c2cForm.expire.$error.invalidExpire}">
-                                    <input type="text" class="form-control input-sm" ct-tabindex="checkMonth"
+                                    <input type="text" class="form-control" ct-tabindex="checkMonth"
                                            maxlength="2"
                                            tabindex="2"
                                            required ng-model="viewExpire.month" name="month"
@@ -36,7 +36,7 @@
                                 </div>
                                 <div ct-input-container class="date"
                                      ng-class="{'ct-input-invalid': c2cForm.expire.$error && c2cForm.expire.$error.invalidExpire}">
-                                    <input type="text" class="form-control input-sm" ct-tabindex="checkYear"
+                                    <input type="text" class="form-control" ct-tabindex="checkYear"
                                            maxlength="2"
                                            tabindex="3"
                                            required ng-model="viewExpire.year" name="year"
@@ -79,7 +79,7 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-6">
+                        <div class="col-xs-12 col-sm-6">
                             <div class="amount" ct-input-container>
                                 <label>{{ 'CARD2CARD.AMOUNT.TITLE' | translate }}</label>
                                 <input type="text" name="amount" class="form-control amount-input" tabindex="6"
@@ -94,7 +94,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-6">
+                        <div class="col-xs-12 col-sm-6">
                             <div class="tariffs">
                                 <div class="text-light-normal">
                                     {{ 'CARD2CARD.AMOUNT.RATE' | translate }} {{ config.tariff.comm_percent }}% + {{ config.tariff.comm_fixed / 100 | currency:currency }}
@@ -106,10 +106,10 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-6">
+                        <div class="col-xs-12 col-sm-6">
                             <div class="form-group phone" ct-input-container>
                                 <label>{{ 'CARD2CARD.SOURCE.LABEL.PHONE_NUMBER' | translate }}</label>
-                                <input type="text" name="phone" class="form-control input-sm" ui-mask="+380 (99) 999 99 99"
+                                <input type="text" name="phone" class="form-control" ui-mask="+380 (99) 999 99 99"
                                        tabindex="7" ct-tabindex="checkPhone" ng-model="phone" required
                                        placeholder="+380 (__) ___-__-__"
                                        tooltip-placement="right"
@@ -132,7 +132,7 @@
                         <div class="form-group" ct-input-container ng-if="!transaction.link">
                             <label>{{ 'CARD2CARD.TARGET.LABEL.CARD_NUMBER' | translate }}</label>
                             <div class="card-logo" ng-class="c2cForm.numberTarget.cardType"></div>
-                            <input type="text" name="numberTarget" class="form-control input-sm"
+                            <input type="text" name="numberTarget" class="form-control"
                                    ct-tabindex="checkTargetNumber"
                                    ng-model="target.card" required tabindex="5"
                                    ng-disabled="numberTargetIsDisabled"
@@ -148,7 +148,7 @@
                         </div>
                         <div class="form-group" ct-input-container ng-if="transaction.link">
                             <label>{{ 'CARD2CARD.TARGET.LABEL.CARD_NUMBER' | translate }}</label>
-                            <input type="text" name="numberTarget" class="form-control input-sm" disabled tabindex="6"
+                            <input type="text" name="numberTarget" class="form-control" disabled tabindex="6"
                                    ct-tabindex="checkTargetNumber"
                                    ng-model="target.card"/>
                             <div class="error-target"></div>
