@@ -5,7 +5,7 @@
                 <div class="play"><span class="glyphicon glyphicon-menu-right"></span></div>
             </div>
             <div class="col-sm-6">
-                <div class="col-md-11 col-lg-9 col-lg-offset-2">
+                <div class="col-md-11 col-lg-8 col-lg-offset-2">
                     <div class="card source" card-height>
                         <div class="form-group" ct-input-container>
                             <label>{{ 'CARD2CARD.SOURCE.LABEL.CARD_NUMBER' | translate }}</label>
@@ -45,7 +45,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="cvv" uib-tooltip="{{ 'CARD2CARD.SOURCE.CVC_TOOLTIP' | translate }}" tooltip-placement="bottom">
+                        <div class="cvv" >
                             <label class="input-label">{{ 'CARD2CARD.SOURCE.LABEL.CODE' | translate }}</label>
                             <div class="has-feedback " ct-input-container>
                                 <input type="{{ cvcType }}" maxlength="3" id="cvc" name="cvc"
@@ -116,7 +116,7 @@
             </div>
             <!--end of source card-->
             <div class="col-sm-6">
-                <div class="col-md-11 col-lg-9 col-lg-offset-1 col-md-offset-1">
+                <div class="col-md-11 col-lg-8 col-lg-offset-1 col-md-offset-1">
                     <div class="card target" card-height>
                         <div class="form-group" ct-input-container ng-if="!transaction.link">
                             <label>{{ 'CARD2CARD.TARGET.LABEL.CARD_NUMBER' | translate }}</label>
