@@ -45,11 +45,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="cvv" uib-tooltip="{{ 'CARD2CARD.SOURCE.CVC_TOOLTIP' | translate }}" tooltip-placement="bottom">
+                        <div class="cvv">
                             <label class="input-label">{{ 'CARD2CARD.SOURCE.LABEL.CODE' | translate }}</label>
                             <div class="has-feedback " ct-input-container>
                                 <input type="{{ cvcType }}" maxlength="3" id="cvc" name="cvc"
-                                       class="form-control input-sm"
+                                       class="form-control"
+                                       uib-tooltip="{{ 'CARD2CARD.SOURCE.CVC_TOOLTIP' | translate }}" tooltip-placement="right"
                                        autocomplete="new-password" ng-model="cvc" required tabindex="4"
                                        ct-tabindex="checkCvc" placeholder="{{ 'CARD2CARD.SOURCE.CVC' | translate }}"
                                        ct-payments-format-cvc ct-payments-validate-cvc/>

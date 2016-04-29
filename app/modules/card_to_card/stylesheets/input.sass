@@ -1,43 +1,3 @@
-@media (min-width: 1024px)
-  .state-input
-    .card
-      input
-        height: 30px
-        font-size: 14px
-      .card-logo
-        &.mastercard
-          margin-top: 8px !important
-          width: 49px !important
-          height: 29px !important
-        &.visa
-          margin-top: 16px !important
-      &.source
-        .cvv
-          width: 75px !important
-
-@media (min-width: 1400px)
-  .state-input
-    .card
-      input
-          height: 45px
-          font-size: 20px
-      .card-logo
-        &.mastercard
-          margin-top: 8px !important
-          width: 49px !important
-          height: 29px !important
-        &.visa
-          margin-top: 16px !important
-      &.source
-        .cvv
-          width: 95px !important
-          .form-control-feedback
-            line-height: 46px !important
-
-
-
-
-
 .state-input
 
   .has-feedback
@@ -62,7 +22,7 @@
   .card
     border-radius: 10px
     color: #003366
-    padding: 4% 7%
+    padding: 10% 7%
     margin-bottom: 25px
 
     .form-control-feedback
@@ -79,18 +39,18 @@
         &.visa
           background-image: url(./images/visa_logo.svg)
           display: block
-          width: 50px
-          height: 16px
-          right: 60px
-          margin-top: 7px
+          //width: 50px
+          //height: 16px
+          //right: 60px
+          //margin-top: 7px
 
         &.mastercard
           background-image: url(./images/masterCard_logo.svg)
           display: block
-          width: 39px
-          height: 23px
-          right: 60px
-          margin-top: 3px
+          //width: 39px
+          //height: 23px
+          //right: 60px
+          //margin-top: 3px
 
     .form-group
       margin-bottom: 0
@@ -102,7 +62,6 @@
 
     &.target
       border: 2px solid #f0ad4e
-      padding-top: 77px
 
     &.source
       border: 2px solid #000080
@@ -130,10 +89,8 @@
         float: right
         width: 75px
 
-  .amount
-
-    .title
-      margin-bottom: 0
+  .tariffs
+    padding-top: 24px
 
   .total-amount
     margin-bottom: 22px
@@ -143,8 +100,6 @@
       .checkbox
         margin-bottom: 0
 
-      .buttons
-        margin-top: 25px
 
   .description
     width: 40%
@@ -162,3 +117,67 @@
     color: #d9534f
     font-size: 12px
 
+@media (min-width: 1024px)
+  .state-input
+    .card
+      input
+        height: 30px
+        font-size: 14px
+      .card-logo
+        &.mastercard
+          margin-top: 8px
+          width: 49px
+          height: 29px
+        &.visa
+          margin-top: 16px
+      &.source
+        .cvv
+          width: 75px
+
+@media screen and (min-width: 1400px)
+
+  .state-input
+
+    .card
+
+      label
+        font-size: 1rem
+
+      input
+        height: 40px
+        font-size: 20px
+
+      .card-logo
+
+        &.mastercard
+          width: 49px
+          height: 29px
+          right: 60px
+          margin-top: 5px
+
+        &.visa
+          width: 58px
+          height: 18px
+          right: 60px
+          margin-top: 13px
+
+      &.source
+
+        .cvv
+          width: 95px
+
+          .form-control-feedback
+            line-height: 42px
+            height: 41px
+
+    .amount, .phone
+
+      input
+        height: 40px
+        font-size: 18px
+
+    .buttons
+
+      button
+        height: 45px
+        font-size: 16px
