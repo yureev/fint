@@ -1,3 +1,43 @@
+@media (min-width: 1024px)
+  .state-input
+    .card
+      input
+        height: 30px
+        font-size: 14px
+      .card-logo
+        &.mastercard
+          margin-top: 8px !important
+          width: 49px !important
+          height: 29px !important
+        &.visa
+          margin-top: 16px !important
+      &.source
+        .cvv
+          width: 75px !important
+
+@media (min-width: 1400px)
+  .state-input
+    .card
+      input
+          height: 45px
+          font-size: 20px
+      .card-logo
+        &.mastercard
+          margin-top: 8px !important
+          width: 49px !important
+          height: 29px !important
+        &.visa
+          margin-top: 16px !important
+      &.source
+        .cvv
+          width: 95px !important
+          .form-control-feedback
+            line-height: 46px !important
+
+
+
+
+
 .state-input
 
   .has-feedback
@@ -24,6 +64,10 @@
     color: #003366
     padding: 4% 7%
     margin-bottom: 25px
+
+    .form-control-feedback
+      pointer-events: all
+      cursor: pointer
 
     &.source, &.target
       .card-logo

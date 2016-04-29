@@ -13,19 +13,19 @@
             var elem = element.find('[page-height-container]');
 
             angular.element($window).on('resize', function() {
-                calulate();
+                calculate();
             });
 
             $timeout(function() {
-                calulate();
+                calculate();
             }, 10);
 
-            function calulate() {
+            function calculate() {
                 var offset = elem.offset().top,
                     height = elem.height(),
                     windowHeight = angular.element($window).height(),
 
-                    expand = windowHeight - offset - height - 50;
+                    expand = windowHeight - offset - height;
 
                 if (expand > 0) {
                     element.height(height + expand);
