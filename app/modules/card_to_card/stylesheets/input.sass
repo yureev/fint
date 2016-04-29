@@ -117,7 +117,66 @@
     color: #d9534f
     font-size: 12px
 
-@media (min-width: 1024px)
+
+@media (max-width: 750px)
+
+  .state-input
+    .card
+      padding-bottom: 10px
+
+      label
+        font-size: 1rem
+
+      .tooltip
+        .tooltip-inner
+          width: 300px
+          padding: 5px
+
+
+        &.tooltip.right
+          top: -63px !important
+          left: -133px !important
+
+          .tooltip-arrow
+            display: none
+
+    .tariffs
+      padding-top: 0
+      margin-bottom: 20px
+
+    .phone
+
+      .tooltip
+        .tooltip-inner
+          width: 300px
+          padding: 5px
+
+
+        &.tooltip.right
+          top: -21px !important
+          left: 72px !important
+
+          .tooltip-arrow
+            display: none
+
+@media (max-width: 768px)
+  .state-input
+    .card
+      input
+        height: 30px
+        font-size: 14px
+      .card-logo
+        &.mastercard
+          margin-top: 8px
+          width: 49px
+          height: 29px
+        &.visa
+          margin-top: 16px
+      &.source
+        .cvv
+          width: 75px
+
+@media (min-width: 768px)
   .state-input
     .card
       input
