@@ -78,31 +78,25 @@
                         </div>
                         <div class="clearfix"></div>
                     </div>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-6">
-                            <div class="amount" ct-input-container>
-                                <label>{{ 'CARD2CARD.AMOUNT.TITLE' | translate }}</label>
-                                <input type="text" name="amount" class="form-control amount-input" tabindex="6"
-                                       ng-model="amount" placeholder="{{ 'CARD2CARD.AMOUNT.RANGE' | translate }}"
-                                       ng-change="calculate()" min="1" max="25000" required ct-currency/>
-                                <div class="error-amount">
-                                    <div ng-messages="c2cForm.amount.$error">
-                                        <div ng-message="required">{{ 'CARD2CARD.ERRORS.AMOUNT.AMOUNT_REQUIRED' | translate }}</div>
-                                        <div ng-message="min">{{ 'CARD2CARD.ERRORS.AMOUNT.BIGGER_SUM' | translate }}</div>
-                                        <div ng-message="max">{{ 'CARD2CARD.ERRORS.AMOUNT.SMALLER_SUM' | translate }}</div>
-                                    </div>
-                                </div>
+                    <div class="amount" ct-input-container>
+                        <label>{{ 'CARD2CARD.AMOUNT.TITLE' | translate }}</label>
+                        <input type="text" name="amount" class="form-control amount-input" tabindex="6"
+                               ng-model="amount" placeholder="{{ 'CARD2CARD.AMOUNT.RANGE' | translate }}"
+                               ng-change="calculate()" min="1" max="25000" required ct-currency/>
+                        <div class="error-amount">
+                            <div ng-messages="c2cForm.amount.$error">
+                                <div ng-message="required">{{ 'CARD2CARD.ERRORS.AMOUNT.AMOUNT_REQUIRED' | translate }}</div>
+                                <div ng-message="min">{{ 'CARD2CARD.ERRORS.AMOUNT.BIGGER_SUM' | translate }}</div>
+                                <div ng-message="max">{{ 'CARD2CARD.ERRORS.AMOUNT.SMALLER_SUM' | translate }}</div>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-6">
-                            <div class="tariffs">
-                                <div class="text-light-normal">
-                                    {{ 'CARD2CARD.AMOUNT.RATE' | translate }} {{ config.tariff.comm_percent }}% + {{ config.tariff.comm_fixed / 100 | currency:currency }}
-                                </div>
-                                <div class="text-light-normal">
-                                    {{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commiss || 0 | currency:currency }}
-                                </div>
-                            </div>
+                        <div class="tariffs">
+                            <span class="text-light-normal">
+                                {{ 'CARD2CARD.AMOUNT.RATE' | translate }} {{ config.tariff.comm_percent }}% + {{ config.tariff.comm_fixed / 100 | currency:currency }}
+                            </span>
+                            <span class="text-light-normal">
+                                {{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commiss || 0 | currency:currency }}
+                            </span>
                         </div>
                     </div>
                     <div class="row">
