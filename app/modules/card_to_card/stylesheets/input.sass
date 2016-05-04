@@ -22,7 +22,7 @@
   .card
     border-radius: 10px
     color: #003366
-    padding: 10% 7%
+    padding: 6% 7%
     margin-bottom: 25px
 
     .form-control-feedback
@@ -172,17 +172,24 @@
         font-size: 1.4rem
       .card-logo
         &.mastercard
-          margin-top: 8px
+          margin-top: 6px
           width: 49px
           height: 29px
+          right: 60px
         &.visa
           margin-top: 16px
+          width: 49px
+          height: 29px
       &.source
         .cvv
           width: 95px
           .form-control-feedback
             line-height: 42px
             height: 41px
+
+      .has-feedback
+        span
+          font-size: 0.8rem
 
 @media (min-width: 1200px)
   .state-input
@@ -200,6 +207,14 @@
       &.source
         .cvv
           width: 75px
+    .has-feedback
+      span
+        font-size: 0.8rem
+      .form-control-feedback
+          width: 32px
+          height: 32px
+          right: -3px
+          line-height: 31px
 
 @media (min-width: 1400px)
 
