@@ -3,6 +3,7 @@
   .has-feedback
     span
       color: #4c4c4c
+      font-size: 1rem
 
   .has-feedback .form-control
     padding-right: 10px
@@ -11,7 +12,7 @@
     position: absolute
     font-size: 3em
     left: 48%
-    margin-top: 85px
+    margin-top: 7%
 
   .title
     text-align: center
@@ -21,8 +22,8 @@
 
   .card
     border-radius: 10px
-    color: #003366
-    padding: 10% 7%
+    color: $main_color_inactive
+    padding: 6% 7%
     margin-bottom: 25px
 
     .form-control-feedback
@@ -39,24 +40,16 @@
         &.visa
           background-image: url(./images/visa_logo.svg)
           display: block
-          //width: 50px
-          //height: 16px
-          //right: 60px
-          //margin-top: 7px
 
         &.mastercard
           background-image: url(./images/masterCard_logo.svg)
           display: block
-          //width: 39px
-          //height: 23px
-          //right: 60px
-          //margin-top: 3px
 
     .form-group
       margin-bottom: 0
 
     label
-      font-size: 12px
+      font-size: 1rem
       font-weight: 500
       margin-bottom: 0
 
@@ -121,14 +114,38 @@
     font-size: 12px
 
 
-@media (max-width: 750px)
+@media (max-width: 767px)
 
   .state-input
+
     .card
       padding-bottom: 10px
 
+      input
+        height: 40px
+        font-size: 1.2rem
+
       label
-        font-size: 1rem
+        font-size: 1.2rem
+
+      &.source
+
+        .cvv
+          width: 90px
+
+      .card-logo
+
+        &.mastercard
+          width: 49px
+          height: 29px
+          right: 65px
+          margin-top: 5px
+
+        &.visa
+          width: 58px
+          height: 18px
+          right: 65px
+          margin-top: 11px
 
       .tooltip
         .tooltip-inner
@@ -142,6 +159,18 @@
 
           .tooltip-arrow
             display: none
+
+    .has-feedback
+
+      span
+        font-size: 1.2rem
+
+      .form-control-feedback
+        margin-top: 3px
+        width: 34px
+        height: 34px
+        right: 0
+        line-height: 34px
 
     .tariffs
       padding-top: 0
@@ -162,46 +191,88 @@
           .tooltip-arrow
             display: none
 
-@media (max-width: 970px)
+@media (min-width: 768px)
   .state-input
+
     .card
+
       label
-        font-size: 1.2rem
+        font-size: 1rem
+
       input
-        height: 40px
-        font-size: 1.4rem
+        height: 34px
+        font-size: 1.1rem
+
       .card-logo
+
         &.mastercard
-          margin-top: 8px
-          width: 49px
-          height: 29px
+          width: 42px
+          height: 25px
+          right: 50px
+          margin-top: 4px
+
         &.visa
-          margin-top: 16px
+          width: 58px
+          height: 18px
+          right: 50px
+          margin-top: 8px
+
       &.source
         .cvv
-          width: 95px
-          .form-control-feedback
-            line-height: 42px
-            height: 41px
+          width: 80px
+
+      .has-feedback
+
+        .form-control-feedback
+          top: -3px
+          line-height: 42px
+          height: 41px
 
 @media (min-width: 1200px)
   .state-input
+
     .card
+
+      label
+        font-size: 0.9rem
+
       input
         height: 30px
         font-size: 14px
+
       .card-logo
+
         &.mastercard
-          margin-top: 8px
-          width: 49px
-          height: 29px
+          margin-top: 3px
+          width: 37px
+          height: 23px
+          right: 43px
+
         &.visa
-          margin-top: 16px
+          margin-top: 8px
+          width: 44px
+          height: 14px
+          right: 45px
+
       &.source
+
         .cvv
           width: 75px
 
-@media (min-width: 1400px)
+    .has-feedback
+
+      span
+        font-size: 0.8rem
+
+      .form-control-feedback
+        margin-top: -3px
+        width: 32px
+        height: 32px
+        right: -3px
+        line-height: 31px
+
+
+@media (min-width: 1440px)
 
   .state-input
 
@@ -212,7 +283,7 @@
 
       input
         height: 40px
-        font-size: 16px
+        font-size: 1.2rem
 
       .card-logo
 
@@ -225,17 +296,25 @@
         &.visa
           width: 58px
           height: 18px
-          right: 60px
-          margin-top: 13px
+          right: 56px
+          margin-top: 11px
 
       &.source
 
         .cvv
           width: 95px
 
-          .form-control-feedback
-            line-height: 42px
-            height: 41px
+      .has-feedback
+
+        span
+          font-size: 1rem
+
+        .form-control-feedback
+          width: 34px
+          height: 40px
+          right: 0
+          top: 4px
+          line-height: 40px
 
     .amount, .phone
 

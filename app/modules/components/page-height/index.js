@@ -25,8 +25,8 @@
                     height = elem.height(),
                     windowHeight = angular.element($window).height(),
 
-                    expand = windowHeight - offset - height;
-
+                    expand = windowHeight - offset - height - 50;
+                    console.log(expand);
                 if (expand > 0) {
                     element.height(height + expand);
                 }
