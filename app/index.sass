@@ -16,23 +16,6 @@ $fa-font-path: "~font-awesome/fonts"
 
 // Misc
 
-@media(max-width: 767px)
-  html
-    font-size: 14px
-
-@media(min-width: 768px)
-  html
-    font-size: 13px
-
-@media(min-width: 992px)
-  html
-    font-size: 14px
-
-@media(min-width: 1200px)
-  html
-    font-size: 16px
-
-
 body
   font-size: 1rem
 
@@ -303,3 +286,30 @@ input:invalid
 
 .margin-top-big
   margin-top: 30px
+
+
+@media(max-width: 767px)
+  html
+    font-size: 14px
+
+@media(min-width: 768px)
+  html
+    font-size: 13px
+
+  .app
+
+    header
+
+      .navigation
+        margin-left: 0
+
+      .nav > li > a
+        padding: 10px 0
+
+@media(min-width: 992px)
+  html
+    font-size: 14px
+
+@media(min-width: 1400px)
+  html
+    font-size: 16px
