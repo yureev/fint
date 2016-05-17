@@ -36,7 +36,10 @@ module.exports = function (_path) {
                 'angular-translate',
                 'angular-translate-loader-static-files',
                 'restangular',
-                'angular-sanitize'
+                'angular-sanitize',
+                'angulartics',
+                'angulartics-google-analytics',
+                'angulartics-piwik'
             ]
         },
 
