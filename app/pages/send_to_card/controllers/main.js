@@ -1,7 +1,5 @@
 Ctrl.$inject = ['$scope', '$stateParams', '$timeout', '$translate', 'Notification'];
 function Ctrl($scope, $stateParams, $timeout, $translate, Notification) {
-    window.Notification = Notification;
-
     if ($stateParams.payLink) {
         $timeout(function() {
             $scope.$broadcast('GetLinkParams', {
