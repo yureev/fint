@@ -24,8 +24,18 @@ function cardToCardInputDirective() {
     return {
         restrict: 'A',
         controller: 'CardToCardInput',
-        template: require('./templates/input.html')
+        template: require('./templates/input.html'),
+        link: postLink
     };
+
+    function postLink(scope) {
+        scope.$on('CardToCardClearForm', onCardToCardClearForm);
+
+        function onCardToCardClearForm() {
+            scope.c2cForm.$setUntouched();
+            scope.c2cForm.$setPristine();
+        }
+    }
 }
 
 function cardToCardLookupDirective() {
