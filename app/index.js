@@ -11,6 +11,10 @@ angular.module('app', [
         'restangular',
         'pascalprecht.translate',
 
+        'angulartics',
+        'angulartics.google.analytics',
+        'angulartics.piwik',
+
         require('angular-dynamic-locale'),
         require('angular-ui-bootstrap/src/tooltip'),
         require('angular-ui-bootstrap/src/buttons'),
