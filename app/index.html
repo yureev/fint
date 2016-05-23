@@ -12,7 +12,7 @@
                         <li class="item"><a ng-model="lang" ng-change="onChangeLanguage()" uib-btn-radio="'ua'">UA</a></li>
                         <li class="item"><a ng-model="lang" ng-change="onChangeLanguage()" uib-btn-radio="'ru'">RU</a></li>
                     </ul>
-                        <ul class="nav navbar-nav navigation">
+                        <ul class="nav navbar-nav navigation pull-right">
                             <li><a href="#" scroll-to="apps">{{ 'APP.MENU.APPS' | translate }}</a></li>
                             <li><a href="#" scroll-to="services">{{ 'APP.MENU.ABOUT' | translate }}</a></li>
                             <li><a href="#" scroll-to="tarif">{{ 'APP.MENU.TARIFFS' | translate }}</a></li>
@@ -41,6 +41,7 @@
             </div>
         </nav>
     </header>
+    <div class="clearfix"></div>
     <div class="container-fluid main">
         <div class="row">
             <div class="col-md-2">
