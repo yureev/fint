@@ -27,6 +27,8 @@ input:invalid
 
 .app
   header
+    height: 80px
+
     .navbar-default
       background-color: #ffffff
       border: 0
@@ -37,12 +39,6 @@ input:invalid
     .logo
       margin-left: 70px
       margin-top: 10px
-
-    .divider
-      border-bottom: 1px solid #cccccc
-      margin: 0 60px
-      padding-top: 20px
-      padding-bottom: 8px
 
       .translate
         .item
@@ -61,15 +57,17 @@ input:invalid
 
     .navigation
       margin-left: 14%
+      float: left
 
-      .navbar-nav
+      &.navbar-nav
         text-align: center
-        width: 100%
+        width: 85%
+        padding-left: 5%
+        padding-top: 22px
 
-      .nav
+      &.nav
         &.navbar-nav > li
-          margin-right: 2%
-          float: none
+          margin-right: 5%
           display: inline-block
 
     .mobile
