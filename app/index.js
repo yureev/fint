@@ -2,6 +2,7 @@
 
 // Stylesheet entrypoint
 require('./index.sass');
+require('./favicon.ico');
 
 angular.module('app', [
         'ngMessages',

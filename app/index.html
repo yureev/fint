@@ -7,37 +7,35 @@
                         <a ui-sref="app.card"><img src="./assets/images/logo_sendua.png" alt="SendUa"></a>
                     </div>
                 </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav translate">
-                        <li class="item"><a ng-model="lang" ng-change="onChangeLanguage()" uib-btn-radio="'ua'">UA</a></li>
-                        <li class="item"><a ng-model="lang" ng-change="onChangeLanguage()" uib-btn-radio="'ru'">RU</a></li>
-                    </ul>
-                        <ul class="nav navbar-nav navigation pull-right">
-                            <li><a href="#" scroll-to="apps">{{ 'APP.MENU.APPS' | translate }}</a></li>
-                            <li><a href="#" scroll-to="services">{{ 'APP.MENU.ABOUT' | translate }}</a></li>
-                            <li><a href="#" scroll-to="tarif">{{ 'APP.MENU.TARIFFS' | translate }}</a></li>
-                            <li><a href="#" scroll-to="qaa">{{ 'APP.MENU.FAQ' | translate }}</a></li>
-                            <li><a href="#" scroll-to="contacts">{{ 'APP.MENU.CONTACTS' | translate }}</a></li>
-                            <li><a href="#" scroll-to="pci-dss">{{ 'APP.MENU.PCI' | translate }}</a></li>
-                        </ul>
-                    <!-- <form class="form-inline pull-right authorization">
-                        <div class="form-group">
-                            <div class="pull-left item">
-                                <input type="text" class="form-control"
-                                       placeholder="{{ 'APP.AUTH.INPUT.LOGIN' | translate }}"/>
-                                <br />
-                                <a href="#">{{ 'APP.AUTH.LINK.FORGOT' | translate }}</a>
-                            </div>
-                            <div class="form-group item">
-                                <input type="text" class="form-control"
-                                       placeholder="{{ 'APP.AUTH.INPUT.PASS' | translate }}"/>
-                                <br />
-                                <a href="#">{{ 'APP.AUTH.LINK.REGISTRATION' | translate }}</a>
-                            </div>
-                        </div>
-                        <button class="btn btn-warning pull-right">{{ 'APP.AUTH.ENTER' | translate }}</button>
-                    </form> -->
+                <div class="translate">
+                    <span class="item"><a ng-model="lang" ng-change="onChangeLanguage()" uib-btn-radio="'ua'">UA</a></span>
+                    <span class="item"><a ng-model="lang" ng-change="onChangeLanguage()" uib-btn-radio="'ru'">RU</a></span>
                 </div>
+                    <ul class="nav navbar-nav navigation">
+                        <li><a href="#" scroll-to="apps">{{ 'APP.MENU.APPS' | translate }}</a></li>
+                        <li><a href="#" scroll-to="services">{{ 'APP.MENU.ABOUT' | translate }}</a></li>
+                        <li><a href="#" scroll-to="tarif">{{ 'APP.MENU.TARIFFS' | translate }}</a></li>
+                        <li><a href="#" scroll-to="qaa">{{ 'APP.MENU.FAQ' | translate }}</a></li>
+                        <li><a href="#" scroll-to="contacts">{{ 'APP.MENU.CONTACTS' | translate }}</a></li>
+                        <li><a href="#" scroll-to="pci-dss">{{ 'APP.MENU.PCI' | translate }}</a></li>
+                    </ul>
+                <!-- <form class="form-inline pull-right authorization">
+                    <div class="form-group">
+                        <div class="pull-left item">
+                            <input type="text" class="form-control"
+                                   placeholder="{{ 'APP.AUTH.INPUT.LOGIN' | translate }}"/>
+                            <br />
+                            <a href="#">{{ 'APP.AUTH.LINK.FORGOT' | translate }}</a>
+                        </div>
+                        <div class="form-group item">
+                            <input type="text" class="form-control"
+                                   placeholder="{{ 'APP.AUTH.INPUT.PASS' | translate }}"/>
+                            <br />
+                            <a href="#">{{ 'APP.AUTH.LINK.REGISTRATION' | translate }}</a>
+                        </div>
+                    </div>
+                    <button class="btn btn-warning pull-right">{{ 'APP.AUTH.ENTER' | translate }}</button>
+                </form> -->
             </div>
         </nav>
     </header>
