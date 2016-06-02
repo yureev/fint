@@ -4,21 +4,33 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <div class="logo">
-                        <a ui-sref="app.card"><img src="./assets/images/logo_sendua.png" alt="SendUa"></a>
+                        <a class="navbar-brand" ui-sref="app.card"><img src="./assets/images/logo_sendua.png" alt="SendUa"></a>
+                    </div>
+                    <div class="translate">
+                        <span class="item"><a ng-model="lang" ng-change="onChangeLanguage()" uib-btn-radio="'ua'">UA</a></span>
+                        <span class="item"><a ng-model="lang" ng-change="onChangeLanguage()" uib-btn-radio="'ru'">RU</a></span>
+                    </div>
+                    <div class="navigation-toggle">
+                        <button type="button" class="navbar-toggle collapsed" ng-click="isCollapsed = !isCollapsed">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
                     </div>
                 </div>
-                <div class="translate">
-                    <span class="item"><a ng-model="lang" ng-change="onChangeLanguage()" uib-btn-radio="'ua'">UA</a></span>
-                    <span class="item"><a ng-model="lang" ng-change="onChangeLanguage()" uib-btn-radio="'ru'">RU</a></span>
+                <div class="collapse navbar-collapse" uib-collapse="!isCollapsed">
+                    <div class="navigation">
+                        <ul class="nav nav-justified">
+                            <li><a href="#" scroll-to="apps">{{ 'APP.MENU.APPS' | translate }}</a></li>
+                            <li><a href="#" scroll-to="services">{{ 'APP.MENU.ABOUT' | translate }}</a></li>
+                            <li><a href="#" scroll-to="tarif">{{ 'APP.MENU.TARIFFS' | translate }}</a></li>
+                            <li><a href="#" scroll-to="qaa">{{ 'APP.MENU.FAQ' | translate }}</a></li>
+                            <li><a href="#" scroll-to="contacts">{{ 'APP.MENU.CONTACTS' | translate }}</a></li>
+                            <li><a href="#" scroll-to="pci-dss">{{ 'APP.MENU.PCI' | translate }}</a></li>
+                        </ul>
+                    </div>
                 </div>
-                    <ul class="nav navbar-nav navigation">
-                        <li><a href="#" scroll-to="apps">{{ 'APP.MENU.APPS' | translate }}</a></li>
-                        <li><a href="#" scroll-to="services">{{ 'APP.MENU.ABOUT' | translate }}</a></li>
-                        <li><a href="#" scroll-to="tarif">{{ 'APP.MENU.TARIFFS' | translate }}</a></li>
-                        <li><a href="#" scroll-to="qaa">{{ 'APP.MENU.FAQ' | translate }}</a></li>
-                        <li><a href="#" scroll-to="contacts">{{ 'APP.MENU.CONTACTS' | translate }}</a></li>
-                        <li><a href="#" scroll-to="pci-dss">{{ 'APP.MENU.PCI' | translate }}</a></li>
-                    </ul>
                 <!-- <form class="form-inline pull-right authorization">
                     <div class="form-group">
                         <div class="pull-left item">
