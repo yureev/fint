@@ -17,6 +17,7 @@ angular.module('app', [
         'angulartics.piwik',
 
         require('angular-dynamic-locale'),
+        require('angular-ui-bootstrap/src/collapse'),
         require('angular-ui-bootstrap/src/tooltip'),
         require('angular-ui-bootstrap/src/buttons'),
         require('angular-ui-notification'),
