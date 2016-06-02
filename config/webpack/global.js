@@ -98,8 +98,12 @@ module.exports = function (_path) {
                     loader: TextPlugin.extract('style', 'css?sourceMap!postcss!sass?sourceComments=true')
                 },
                 {
-                    test: /\.(ttf|eot|woff|woff2|png|ico|jpg|jpeg|gif|svg)$/i,
+                    test: /\.(ttf|eot|woff|woff2|png|jpg|jpeg|gif|svg)$/i,
                     loaders: ['file?context=' + rootAssetPath + '&name=assets/static/[ext]/[name].[hash].[ext]']
+                },
+                {
+                    test: /\.ico$/,
+                    loader: 'file?name=[name].[ext]'
                 },
                 {
                     test: /\.(json)$/i,

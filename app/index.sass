@@ -36,12 +36,13 @@ input:invalid
     .navbar
       margin-bottom: 0
 
-    .logo
-      margin-left: 70px
-      margin-top: 10px
+      .navbar-header
+        display: inline-block
 
     .translate
-      margin-top: 20px
+      float: left
+      display: inline-block
+      margin-top: 28px
       margin-left: 15px
 
       .item
@@ -59,18 +60,17 @@ input:invalid
           text-transform: uppercase
 
     .navigation
-      margin-left: 14%
+      margin-left: 3%
       float: left
 
       &.navbar-nav
         text-align: center
-        width: 85%
+        width: 75%
         padding-left: 5%
         padding-top: 22px
 
       &.nav
         &.navbar-nav > li
-          margin-right: 5%
           display: inline-block
 
     .mobile
@@ -298,26 +298,47 @@ input:invalid
     header
 
       .logo
-        margin: 20px
+        margin-left: 0
+        margin-top: 10px
+
+      .translate
+        float: none
+
+      .navigation
+        display: none
 
 @media(min-width: 768px)
   html
     font-size: 13px
 
-  .app
+    .logo
+      margin-left: 0
+      margin-top: 10px
 
-    header
+    .navigation
+      display: none
 
-      .navigation
-        margin-left: 0
-
-      .nav > li > a
-        padding: 10px 0
 
 @media(min-width: 992px)
   html
     font-size: 14px
 
+    .logo
+      margin-left: 70px
+      margin-top: 10px
+
+    .navigation
+      display: flex
+      justify-content: space-between
+
 @media(min-width: 1400px)
   html
     font-size: 16px
+
+    .logo
+      margin-left: 70px
+      margin-top: 10px
+
+    .navigation
+      display: flex
+      justify-content: space-between
