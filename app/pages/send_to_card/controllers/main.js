@@ -3,7 +3,9 @@ function Ctrl($scope, $stateParams, $timeout, $translate, Notification) {
     if ($stateParams.payLink) {
         $timeout(function() {
             $scope.$broadcast('GetLinkParams', {
-                link: $stateParams.payLink
+                link: $stateParams.payLink,
+                phone: $stateParams.phone,
+                amount: $stateParams.amount
             });
         });
     }
@@ -57,8 +59,9 @@ function Ctrl($scope, $stateParams, $timeout, $translate, Notification) {
     function onGetLinkParamsSuccess(event, data) {
         $scope.numberTargetMask = '';
         $scope.numberTargetIsDisabled = true;
-        $scope.amount = data.amount / 100;
+        $scope.amount = data.amount / 100 || $stateParams.amount;
         $scope.target.card = data.mask;
+        $scope.phone = $stateParams.phone;
 
         $scope.$broadcast('Card2CardCalculate');
     }

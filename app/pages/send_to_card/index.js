@@ -11,7 +11,9 @@ angular.module('send_to_card', [
                     controller: require('./controllers/main'),
                     template: require('./templates/main.html'),
                     params: {
-                        payLink: null
+                        payLink: null,
+                        phone: null,
+                        amount: null
                     }
                 });
         }

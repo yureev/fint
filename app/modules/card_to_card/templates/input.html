@@ -119,7 +119,7 @@
                                 <div class="form-group" ct-input-container ng-if="transaction.link">
                                     <label>{{ 'CARD2CARD.SOURCE.LABEL.PHONE_NUMBER' | translate }}</label>
                                     <input type="text" name="phone" class="form-control" tabindex="7"
-                                           ct-tabindex="checkPhone"
+                                           ct-tabindex="checkPhone" ui-mask="+380 (99) 999 99 99"
                                            ng-model="phone" required/>
                                     <div class="error-phone">
                                         <div ng-messages="c2cForm.phone.$error" ng-show="c2cForm.phone.$touched">
