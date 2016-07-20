@@ -14,11 +14,20 @@
                 </div>
             </div>
         </div>
+        <div class="phone">
+            <div class="from-group" ct-input-container>
+                <label>{{'GET_BY_LINK.INPUT.PHONE_NUMBER' | translate}}</label>
+                <input type="text" name="phoneNumber" class="form-control" ct-tabindex="checkPhone"
+                       tabindex="2"
+                       ng-model="phoneNumber"
+                       ui-mask="+380 (99) 999 99 99" placeholder="+380 (__) ___-__-__" />
+            </div>
+        </div>
         <div class="amount">
             <div class="form-group" ct-input-container>
                 <label>{{'GET_BY_LINK.INPUT.AMOUNT' | translate}}</label>
-                <input class="form-control amount-input" type="text" name="amount" tabindex="2"
-                       ng-model="amount" required ct-currency/>
+                <input class="form-control amount-input" type="text" name="amount" tabindex="3"
+                       ng-model="amount" ct-currency/>
                 <div class="error-amount">
                     <div ng-messages="getByLinkForm.amount.$error">
                         <div ng-message="required">{{ 'CARD2CARD.ERRORS.AMOUNT.AMOUNT_REQUIRED' | translate }}</div>
@@ -26,7 +35,7 @@
                 </div>
             </div>
             <div class="text-right">
-                <button type="submit" class="btn btn-warning get-link" tabindex="3"
+                <button type="submit" class="btn btn-warning get-link" tabindex="4"
                         ng-disabled="getByLinkForm.$invalid || getByLinkForm.$pristine">
                     {{'GET_BY_LINK.INPUT.GET_LINK' | translate}}
                 </button>
