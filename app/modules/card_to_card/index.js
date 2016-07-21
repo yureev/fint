@@ -29,6 +29,7 @@ function cardToCardInputDirective() {
     };
 
     function postLink(scope) {
+
         scope.$on('CardToCardClearForm', onCardToCardClearForm);
 
         function onCardToCardClearForm() {
