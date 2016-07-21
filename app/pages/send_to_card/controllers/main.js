@@ -59,7 +59,11 @@ function Ctrl($scope, $stateParams, $timeout, $translate, Notification) {
     function onGetLinkParamsSuccess(event, data) {
         $scope.numberTargetMask = '';
         $scope.numberTargetIsDisabled = true;
-        $scope.amount = data.amount / 100 || $stateParams.amount;
+        if($stateParams.amount) {
+            $scope.amount = $stateParams.amount;
+        } else {
+            $scope.amount = data.amount / 100;
+        }
         $scope.target.card = data.mask;
         $scope.phone = $stateParams.phone;
 
