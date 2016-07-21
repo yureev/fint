@@ -144,7 +144,8 @@
                         </div>
                         <div class="form-group" ct-input-container ng-if="transaction.link">
                             <label>{{ 'CARD2CARD.TARGET.LABEL.CARD_NUMBER' | translate }}</label>
-                            <input type="text" name="numberTarget" class="form-control" disabled
+                            <input type="text" name="numberTarget" class="form-control" disabled tabindex="5"
+                                   ct-tabindex="checkTargetNumber"
                                    ng-model="target.card"/>
                             <div class="error-target"></div>
                         </div>
