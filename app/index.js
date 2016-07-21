@@ -86,7 +86,7 @@ angular.module('app', [
                     }
                 })
                 .state('link', {
-                    url: '/link/:payLink',
+                    url: '/link/:payLink?phone&amount',
                     controller: 'LinkCtrl'
                 });
 
@@ -142,9 +142,10 @@ angular.module('app', [
     }])
     .controller('LinkCtrl', ['$state', '$stateParams', function ($state, $stateParams) {
         var base64Url = require('base64-url');
-
         $state.go('app.card', {
-            payLink: base64Url.unescape($stateParams.payLink)
+            payLink: base64Url.unescape($stateParams.payLink),
+            phone: $stateParams.phone,
+            amount: $stateParams.amount
         });
     }]);
 
