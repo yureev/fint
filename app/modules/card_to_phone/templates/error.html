@@ -1,5 +1,8 @@
 <div class="state-error">
     <div class="title">{{ 'CARD2CARD.ERROR.TITLE' | translate }}</div>
+    <div ng-if="transaction.state.message == 'Bad OTP Code'">
+        <div class="code-title">{{ 'CARD2CARD.ERROR.OPERATION_CODE' | translate }}</div>
+    </div>
     <div ng-if="transaction.operationNumber">
         <div class="code-title">{{ 'CARD2CARD.ERROR.OPERATION_CODE' | translate }}</div>
         <div class="operation-number">{{ transaction.operationNumber }}</div>
