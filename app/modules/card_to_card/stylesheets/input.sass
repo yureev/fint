@@ -1,5 +1,15 @@
 .state-input
 
+  .row
+    position: relative
+
+  .row-crossboard
+    position: relative
+    z-index: 1
+    top: -114px
+    background-color: white
+    height: 100px
+
   .has-feedback
     span
       color: #4c4c4c
@@ -82,6 +92,22 @@
         float: right
         width: 75px
 
+  .amount
+
+    .amount-input-c2c
+      display: inline-block
+      float: left
+      width: 79%
+      margin-right: 7px
+
+    .amount-buttons-field-c2c
+
+      .amount-buttons-c2c
+        padding: 10px 3px
+        text-decoration: none
+
+
+
   .total-amount
     margin-bottom: 22px
 
@@ -106,6 +132,61 @@
 
     .text
       padding: 10px 0
+
+  .caret-c2c
+    text-align: center
+    position: relative
+    display: block
+    top: 22px
+    left: 630px
+    width: 250px
+
+    .caret-c2c-block
+      text-align: left
+      position: relative
+      top: -13px
+      left: -67px
+
+      i
+        color: #bbd0e3
+        display: inline-block
+        float: left
+
+      .text-line-crossboard
+        position: relative
+        top: 4px
+        font-size: 14px
+        color: #f0ad4e
+        padding-left: 17px
+        margin-left: 5px
+
+        .text-line-crossboard1
+          //position: relative
+          //top: -8px
+          //font-size: 14px
+          //color: #f0ad4e
+          //padding-left: 10px
+
+        .text-line-crossboard2
+          //position: relative
+          //top: -8px
+          //font-size: 14px
+          color: #ff7d79
+          //padding-left: 10px
+
+  .line-crossboard
+    color: #bbd0e3
+    background-color: #bbd0e3
+    height: 1px
+    border-top: 0px
+    position: relative
+    top: -50px
+
+  .crossboard-left, .crossboard-right
+    width: 68%
+
+  //.crossboard-right
+  //  text-align: right
 
   .error-number, .error-date, .error-cvc, .error-phone, .error-amount, .error-target, .error-agreed
     height: 15px
@@ -321,6 +402,8 @@
       input
         height: 40px
         font-size: 16px
+
+
 
     .buttons
 
