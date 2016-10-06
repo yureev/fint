@@ -79,21 +79,22 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="amount" ct-input-container>
+
                         <label>{{ 'CARD2CARD.AMOUNT.TITLE' | translate }}</label>
-                        <div class="amount-input-currency">
+                        <div class="col-md-9 amount-input-currency">
                             <input type="text" name="amount" class="form-control amount-input-c2c" tabindex="6"
                                    ng-model="amount" placeholder="{{ 'CARD2CARD.AMOUNT.RANGE' | translate }}"
                                    ng-change="calculate()" min="1" max="25000" required ct-currency/>
-                            <div class="amount-buttons-field-c2c">
-                                <button type="button" class="btn btn-link amount-buttons-c2c">
-                                    UAH
-                                </button>
-                                <button type="button" class="btn btn-link amount-buttons-c2c">
-                                    EUR
-                                </button>
-                            </div>
                         </div>
+                        <div class="amount-buttons-field-c2c">
+                            <button type="button" class="col-md-1 btn btn-link amount-buttons-c2c">
+                                UAH
+                            </button>
+                            <button type="button" class="col-md-2 btn btn-link amount-buttons-c2c-eur">
+                                EUR
+                            </button>
 
+                        </div>
                         <div class="error-amount">
                             <div ng-messages="c2cForm.amount.$error">
                                 <div ng-message="required">{{ 'CARD2CARD.ERRORS.AMOUNT.AMOUNT_REQUIRED' | translate }}</div>
@@ -218,16 +219,22 @@
                             <div class="crossboard-left-field">
                                 <div class="text-light-normal">{{ 'CARD2CARD.DATA_SOURCE' | translate }}</div>
                                 <input type="text" name="nameSource" class="form-control data-input" tabindex="6"
+                                       uib-tooltip="{{ 'CARD2CARD.DATA_NAME_TOOLTIP' | translate }}" tooltip-placement="right"
                                        placeholder="{{ 'CARD2CARD.DATA_NAME' | translate }}" required />
                                 <input type="text" name="surnameSource" class="form-control data-input" tabindex="6"
+                                       uib-tooltip="{{ 'CARD2CARD.DATA_SURNAME_TOOLTIP' | translate }}" tooltip-placement="right"
                                        placeholder="{{ 'CARD2CARD.DATA_SURNAME' | translate }}" required />
                                 <input type="text" name="country" class="form-control data-input" tabindex="6"
+                                       uib-tooltip="{{ 'CARD2CARD.DATA_COUNTRY_TOOLTIP' | translate }}" tooltip-placement="right"
                                        placeholder="{{ 'CARD2CARD.DATA_COUNTRY' | translate }}" required />
                                 <input type="text" name="city" class="form-control data-input" tabindex="6"
+                                       uib-tooltip="{{ 'CARD2CARD.DATA_CITY_TOOLTIP' | translate }}" tooltip-placement="right"
                                        placeholder="{{ 'CARD2CARD.DATA_CITY' | translate }}" required />
                                 <input type="text" name="street" class="form-control data-input" tabindex="6"
+                                       uib-tooltip="{{ 'CARD2CARD.DATA_STREET_TOOLTIP' | translate }}" tooltip-placement="right"
                                        placeholder="{{ 'CARD2CARD.DATA_STREET' | translate }}" required />
                                 <input type="text" name="postIndex" class="form-control data-input" tabindex="6"
+                                       uib-tooltip="{{ 'CARD2CARD.DATA_INDEX_TOOLTIP' | translate }}" tooltip-placement="right"
                                        placeholder="{{ 'CARD2CARD.DATA_INDEX' | translate }}" required />
                             </div>
 
@@ -241,8 +248,10 @@
                             <div class="crossboard-right-field">
                                 <div class="text-light-normal">{{ 'CARD2CARD.DATA_TARGET' | translate }}</div>
                                 <input type="text" name="nameTarget" class="form-control data-input" tabindex="6"
+                                       uib-tooltip="{{ 'CARD2CARD.DATA_NAME_T_TOOLTIP' | translate }}" tooltip-placement="left"
                                        placeholder="{{ 'CARD2CARD.DATA_NAME' | translate }}" required />
                                 <input type="text" name="surnameTarget" class="form-control data-input" tabindex="6"
+                                       uib-tooltip="{{ 'CARD2CARD.DATA_SURNAME_T_TOOLTIP' | translate }}" tooltip-placement="left"
                                        placeholder="{{ 'CARD2CARD.DATA_SURNAME' | translate }}" required />
                             </div>
                         </div>
