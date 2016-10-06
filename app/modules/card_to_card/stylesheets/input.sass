@@ -6,9 +6,9 @@
   .row-crossboard
     position: relative
     z-index: 1
-    top: -114px
+    top: -120px
     background-color: white
-    height: 100px
+    //height: 100px
 
   .has-feedback
     span
@@ -34,7 +34,7 @@
     border-radius: 10px
     color: $main_color_inactive
     padding: 6% 7%
-    margin-bottom: 25px
+    margin-bottom: 10px
 
     .form-control-feedback
       pointer-events: all
@@ -116,12 +116,20 @@
       .checkbox
         margin-bottom: 0
 
-      .buttons
-        margin-top: 54px
+      //.buttons
+      //  margin-top: 54px
 
 
   .tariffs
     margin-bottom: 20px
+    font-size: 16px
+    //margin-left: 5px
+
+    .text-commiss
+      font-weight: 300
+
+    .text-bank
+      font-weight: 100
 
   .description
     width: 40%
@@ -137,9 +145,9 @@
     text-align: center
     position: relative
     display: block
-    top: 22px
+    top: -2px
     left: 630px
-    width: 250px
+    width: 285px
 
     .caret-c2c-block
       text-align: left
@@ -155,7 +163,7 @@
       .text-line-crossboard
         position: relative
         top: 4px
-        font-size: 14px
+        font-size: 16px
         color: #f0ad4e
         padding-left: 17px
         margin-left: 5px
@@ -180,13 +188,38 @@
     height: 1px
     border-top: 0px
     position: relative
-    top: -50px
+    top: -79px
 
-  .crossboard-left, .crossboard-right
-    width: 68%
+  .field-data
+    position: relative
+    top: -90px
 
-  //.crossboard-right
-  //  text-align: right
+    .test
+      padding-left: 0
+
+    .crossboard-right, .crossboard-left
+
+
+      .crossboard-left-field, .crossboard-right-field
+        width: 68%
+
+
+      .crossboard-right-field
+        position: absolute
+        right: 0px
+
+
+      .crossboard-left-field
+        position: relative
+        left: 0px
+
+      .data-input
+        margin-bottom: 5px
+
+
+
+
+
 
   .error-number, .error-date, .error-cvc, .error-phone, .error-amount, .error-target, .error-agreed
     height: 15px

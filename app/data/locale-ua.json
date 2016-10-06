@@ -109,6 +109,16 @@
     },
     "BUTTON_CLOSE": "Закрити",
     "BUTTON_CANCEL": "Відмінити",
+    "CARET_UP": "Введіть дані для переказу",
+    "CARET_DOWN": "Дані відправника і одержувача не повинні збігатися",
+    "DATA_SOURCE": "Дані відправника",
+    "DATA_TARGET": "Дані одержувача",
+    "DATA_NAME": "Iм'я",
+    "DATA_SURNAME": "Прізвище",
+    "DATA_COUNTRY": "Країна",
+    "DATA_CITY": "Місто",
+    "DATA_STREET": "Вулиця, будинок",
+    "DATA_INDEX": "Iндекс",
     "ERRORS": {
       "SOURCE": {
         "NUMBER_REQUIRED": "Введіть номер картки відправника",
@@ -143,10 +153,12 @@
       "TITLE": "Сума переказу",
       "RANGE": "від 1 до 25 000 грн",
       "RATE": "Тариф: ",
-      "COMMISSION": "Комісія: ",
+      "COMMISSION": "Комісія за переказ на карту:",
       "PERCENT": "(1% + 5грн)",
       "TOTAL": "До сплати:",
-      "CURRENCY": "грн"
+      "CURRENCY": "грн",
+      "UKRAINE_BANK": "українського банку:",
+      "FOREIGN_BANK": "закордонного банку:"
     },
     "LOOKUP": {
       "TITLE": "Авторизація переказу",
