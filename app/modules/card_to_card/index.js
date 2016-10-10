@@ -36,6 +36,7 @@ function cardToCardInputDirective() {
             scope.c2cForm.$setUntouched();
             scope.c2cForm.$setPristine();
         }
+
     }
 }
 

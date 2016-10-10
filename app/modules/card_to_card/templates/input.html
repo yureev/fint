@@ -1,12 +1,12 @@
 <div class="state-input" ct-spinner="tariffs_loader || input_loader">
-    <div class="text" ng-show="true">Международные переводы доступны только для карт MasterCard/Maestro Диамантбанка на карты MasterCard/Maestro, эмитированная зарубежными банками <a href="http://diamantbank.ua/cards.html">http://diamantbank.ua/cards.html</a></div>
-
     <form name="c2cForm" ct-payments ng-submit="submit()" autocomplete="off">
+        <div class="text" ng-show="crossboardText">Международные переводы доступны только для карт MasterCard/Maestro Диамантбанка на карты MasterCard/Maestro, эмитированная зарубежными банками <a href="http://diamantbank.ua/cards.html">http://diamantbank.ua/cards.html</a></div>
         <div class="row">
             <div class="hidden-xs hidden-sm">
                 <div class="play"><span class="glyphicon glyphicon-menu-right"></span></div>
             </div>
             <div class="col-sm-6">
+
                 <div class="col-md-11 col-lg-8 col-lg-offset-2">
                     <div class="card source" card-height>
                         <div class="form-group" ct-input-container>
@@ -80,15 +80,17 @@
                         </div>
                         <div class="clearfix"></div>
                     </div>
-                    <div class="amount" ct-input-container>
 
+                    <div class="amount" ct-input-container>
                         <label>{{ 'CARD2CARD.AMOUNT.TITLE' | translate }}</label>
+
                         <div class="col-md-9 amount-input-currency">
                             <input type="text" name="amount" class="form-control amount-input-c2c" tabindex="6"
                                    ng-model="amount" placeholder="{{ 'CARD2CARD.AMOUNT.RANGE' | translate }}"
                                    ng-change="calculate()" min="1" max="25000" required ct-currency/>
                         </div>
-                        <div class="amount-buttons-field-c2c">
+
+                        <div class="col-md-3 amount-buttons-field-c2c">
                             <!--<div class="item" ui-sref-active="active">-->
 
                                 <!--<a  class="col-md-1 btn btn-link amount-buttons-c2c">UAH</a>-->
@@ -97,14 +99,14 @@
 
                                 <!--<a ng-click="metka = true" class="col-md-2 btn btn-link amount-buttons-c2c-eur">EUR</a>-->
                             <!--</div>-->
-
-                            <button type="button" class="col-md-1 btn btn-link amount-buttons-c2c">
-                                UAH
-                            </button>
-                            <button type="button" class="col-md-2 btn btn-link amount-buttons-c2c-eur">
-                                EUR
-                            </button>
-
+                            <div class="row">
+                                <button type="button" class="col-md-6 btn btn-link amount-buttons-c2c">
+                                    UAH
+                                </button>
+                                <button type="button" class="col-md-6 btn btn-link amount-buttons-c2c-eur" ng-show="crossboard">
+                                    EUR
+                                </button>
+                            </div>
                         </div>
                         <div class="error-amount">
                             <div ng-messages="c2cForm.amount.$error">
@@ -118,8 +120,6 @@
                             <div class="text-bank">{{ 'CARD2CARD.AMOUNT.UKRAINE_BANK' | translate }} {{ config.tariff.comm_percent }}% + {{ config.tariff.comm_fixed / 100 | currency:currency }}</div>
                             <div class="text-bank">{{ 'CARD2CARD.AMOUNT.FOREIGN_BANK' | translate }} 2% min 50 грн</div>
 
-
-
                             <!--<span class="text-light-normal">-->
                                 <!--{{ 'CARD2CARD.AMOUNT.RATE' | translate }} {{ config.tariff.comm_percent }}% + {{ config.tariff.comm_fixed / 100 | currency:currency }}-->
                             <!--</span>-->
@@ -128,6 +128,7 @@
                             <!--</span>-->
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="phone">
@@ -211,7 +212,7 @@
             <!--end of target card-->
         </div>
 
-        <div class="row-crossboard" ng-show="true">
+        <div class="row-crossboard" ng-show="crossboard">
             <hr class="line-crossboard">
             <div class="col-md-4"></div>
             <div class="col-md-4 caret-c2c">
@@ -230,27 +231,79 @@
                     <div class="col-md-11 col-lg-8 col-lg-offset-2 test">
                         <div class="crossboard-left">
                             <div class="crossboard-left-field">
-                                <div class="text-light-normal">{{ 'CARD2CARD.DATA_SOURCE' | translate }}</div>
-                                <input type="text" name="nameSource" class="form-control data-input" tabindex="9"
-                                       uib-tooltip="{{ 'CARD2CARD.DATA_NAME_TOOLTIP' | translate }}" tooltip-placement="right"
-                                       placeholder="{{ 'CARD2CARD.DATA_NAME' | translate }}" required />
+                                <div class="text-light-normal text-data-cross">{{ 'CARD2CARD.DATA_SOURCE' | translate }}</div>
+
+                                <!--<div class="row">-->
+
+                                    <input type="text" name="nameSource" class="form-control data-input" tabindex="9"
+                                           uib-tooltip="{{ 'CARD2CARD.DATA_NAME_TOOLTIP' | translate }}" tooltip-placement="right"
+                                           ng-model="nameSource"
+                                           placeholder="{{ 'CARD2CARD.DATA_NAME' | translate }}" required />
+                                    <!--<div class="error-block" ng-messages="c2cForm.nameSource.$error" ng-show="c2cForm.nameSource.$touched">-->
+                                        <!--&lt;!&ndash;<div ng-messages="c2cForm.nameSource.$error">&ndash;&gt;-->
+                                            <!--<div ng-message="required">{{ 'CARD2CARD.DATA_NAME_TOOLTIP' | translate }}</div>-->
+                                            <!--<div class="arrow-num"><i class="fa fa-caret-left fa-2x" aria-hidden="true"></i></div>-->
+                                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                    <!--</div>-->
+
+                                    <div class="error-number">
+                                        <div ng-messages="c2cForm.nameSource.$error" ng-show="c2cForm.nameSource.$touched">
+                                            <div ng-message="required">{{ 'CARD2CARD.DATA_NAME_ERRORS' | translate }}</div>
+                                        </div>
+                                    </div>
+                                <!--</div>-->
+                                <!--<div class="icon-close" ng-click="$parent.numberError = !numberError"><img src="./../../../assets/images/close.svg"></div>-->
+                                <!--<span class="error-heading">Ошибка!</span>-->
+                                <!--<p>Введите номер карты</p>-->
+
+
 
 
                                 <input type="text" name="surnameSource" class="form-control data-input" tabindex="10"
                                        uib-tooltip="{{ 'CARD2CARD.DATA_SURNAME_TOOLTIP' | translate }}" tooltip-placement="right"
+                                       ng-model="surnameSource"
                                        placeholder="{{ 'CARD2CARD.DATA_SURNAME' | translate }}" required />
+                                <div class="error-number">
+                                    <div ng-messages="c2cForm.surnameSource.$error" ng-show="c2cForm.surnameSource.$touched">
+                                        <div ng-message="required">{{ 'CARD2CARD.DATA_SURNAME_ERRORS' | translate }}</div>
+                                    </div>
+                                </div>
                                 <input type="text" name="country" class="form-control data-input" tabindex="11"
                                        uib-tooltip="{{ 'CARD2CARD.DATA_COUNTRY_TOOLTIP' | translate }}" tooltip-placement="right"
+                                       ng-model="country"
                                        placeholder="{{ 'CARD2CARD.DATA_COUNTRY' | translate }}" required />
+                                <div class="error-number">
+                                    <div ng-messages="c2cForm.country.$error" ng-show="c2cForm.country.$touched">
+                                        <div ng-message="required">{{ 'CARD2CARD.DATA_COUNTRY_ERRORS' | translate }}</div>
+                                    </div>
+                                </div>
                                 <input type="text" name="city" class="form-control data-input" tabindex="12"
                                        uib-tooltip="{{ 'CARD2CARD.DATA_CITY_TOOLTIP' | translate }}" tooltip-placement="right"
+                                       ng-model="city"
                                        placeholder="{{ 'CARD2CARD.DATA_CITY' | translate }}" required />
+                                <div class="error-number">
+                                    <div ng-messages="c2cForm.city.$error" ng-show="c2cForm.city.$touched">
+                                        <div ng-message="required">{{ 'CARD2CARD.DATA_CITY_ERRORS' | translate }}</div>
+                                    </div>
+                                </div>
                                 <input type="text" name="street" class="form-control data-input" tabindex="13"
                                        uib-tooltip="{{ 'CARD2CARD.DATA_STREET_TOOLTIP' | translate }}" tooltip-placement="right"
+                                       ng-model="street"
                                        placeholder="{{ 'CARD2CARD.DATA_STREET' | translate }}" required />
+                                <div class="error-number">
+                                    <div ng-messages="c2cForm.street.$error" ng-show="c2cForm.street.$touched">
+                                        <div ng-message="required">{{ 'CARD2CARD.DATA_STREET_ERRORS' | translate }}</div>
+                                    </div>
+                                </div>
                                 <input type="text" name="postIndex" class="form-control data-input" tabindex="14"
                                        uib-tooltip="{{ 'CARD2CARD.DATA_INDEX_TOOLTIP' | translate }}" tooltip-placement="right"
+                                       ng-model="postIndex"
                                        placeholder="{{ 'CARD2CARD.DATA_INDEX' | translate }}" required />
+                                <div class="error-number">
+                                    <div ng-messages="c2cForm.postIndex.$error" ng-show="c2cForm.postIndex.$touched">
+                                        <div ng-message="required">{{ 'CARD2CARD.DATA_INDEX_ERRORS' | translate }}</div>
+                                    </div>
+                                </div>
                             </div>
 
                         </div>
@@ -258,16 +311,28 @@
                 </div>
 
                 <div class="col-sm-6">
-                    <div class="col-md-11 col-lg-8 col-lg-offset-2">
+                    <div class="col-md-11 col-lg-8 col-lg-offset-2 test">
                         <div class="crossboard-right">
                             <div class="crossboard-right-field">
-                                <div class="text-light-normal">{{ 'CARD2CARD.DATA_TARGET' | translate }}</div>
+                                <div class="text-light-normal text-data-cross">{{ 'CARD2CARD.DATA_TARGET' | translate }}</div>
                                 <input type="text" name="nameTarget" class="form-control data-input" tabindex="15"
                                        uib-tooltip="{{ 'CARD2CARD.DATA_NAME_T_TOOLTIP' | translate }}" tooltip-placement="left"
+                                       ng-model="nameTarget"
                                        placeholder="{{ 'CARD2CARD.DATA_NAME' | translate }}" required />
+                                <div class="error-number">
+                                    <div ng-messages="c2cForm.nameTarget.$error" ng-show="c2cForm.nameTarget.$touched">
+                                        <div ng-message="required">{{ 'CARD2CARD.DATA_NAME_T_ERRORS' | translate }}</div>
+                                    </div>
+                                </div>
                                 <input type="text" name="surnameTarget" class="form-control data-input" tabindex="16"
                                        uib-tooltip="{{ 'CARD2CARD.DATA_SURNAME_T_TOOLTIP' | translate }}" tooltip-placement="left"
+                                       ng-model="surnameTarget"
                                        placeholder="{{ 'CARD2CARD.DATA_SURNAME' | translate }}" required />
+                                <div class="error-number">
+                                    <div ng-messages="c2cForm.surnameTarget.$error" ng-show="c2cForm.surnameTarget.$touched">
+                                        <div ng-message="required">{{ 'CARD2CARD.DATA_SURNAME_T_ERRORS' | translate }}</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
