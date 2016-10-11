@@ -118,7 +118,9 @@ angular.module('app', [
                 sendtomail:                 prefix + '/sendua-external/Card2Card/sendtomail',
                 createCard2PhoneOperation:  prefix + '/sendua-external/Card2Phone/CreateCard2PhoneOperation',
                 phone2Card:                 prefix + '/sendua-external/Phone2Card/CreatePhone2CardOperation',
-                tocardlink:                 prefix + '/sendua-external/Card2Card/tocardlink'
+                tocardlink:                 prefix + '/sendua-external/Card2Card/tocardlink',
+                crossboardlink:             prefix + '/cardzone/check'
+
             });
 
             CardToCardProvider.setType('web');
