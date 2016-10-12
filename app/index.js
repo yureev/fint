@@ -119,7 +119,8 @@ angular.module('app', [
                 createCard2PhoneOperation:  prefix + '/sendua-external/Card2Phone/CreateCard2PhoneOperation',
                 phone2Card:                 prefix + '/sendua-external/Phone2Card/CreatePhone2CardOperation',
                 tocardlink:                 prefix + '/sendua-external/Card2Card/tocardlink',
-                crossboardlink:             prefix + '/cardzone/check'
+                crossboardlink:             prefix + '/cardzone/check/',
+                crossboardAmount:           'https://test.send.ua/sendua-api/cross/checkCross'
 
             });
 

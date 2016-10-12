@@ -16,7 +16,7 @@
                             <div class="card-logo" ng-class="c2cForm.number.cardType"></div>
                             <input type="text" name="number" class="form-control" ct-tabindex="checkNumber"
                                    tabindex="1"
-                                   ng-model="number" required ng-change="setValid('source')"
+                                   ng-model="number" required ng-change="validDiamantMaster()"
                                    ui-mask="9999 9999 9999 9999" placeholder="____ ____ ____ ____"
                                    ct-payments-main-card ct-payments-format-number ct-payments-validate-number/>
                             <div class="error-number">
@@ -85,14 +85,18 @@
 
                     <div class="amount" ct-input-container>
                         <label>{{ 'CARD2CARD.AMOUNT.TITLE' | translate }}</label>
-
-                        <div class="col-md-9 amount-input-currency">
+                        <div class="col-md-9 amount-input-currency" >
                             <input type="text" name="amount" class="form-control amount-input-c2c" tabindex="6"
                                    ng-model="amount" placeholder="{{ 'CARD2CARD.AMOUNT.RANGE' | translate }}"
-                                   ng-change="calculate()" min="1" max="25000" required ct-currency/>
+                                   ng-change="calculate()" ng-blur="setAmount()" min="1" max="25000" required ct-currency />
                         </div>
+                        <!--<div class="col-md-9 amount-input-currency" ct-input-container ng-show="currencyEUR">-->
+                            <!--<input type="text" name="amount" class="form-control amount-input-c2c" tabindex="6"-->
+                                   <!--ng-model="amount" placeholder="1 1000 eur"-->
+                                   <!--ng-change="calculate()" min="1" max="25000" required ct-currency />-->
+                        <!--</div>-->
 
-                        <div class="col-md-3 amount-buttons-field-c2c">
+                        <div class="col-md-3 amount-buttons-field-c2c" ng-show="crossboard">
                             <!--<div class="item" ui-sref-active="active">-->
 
                                 <!--<a  class="col-md-1 btn btn-link amount-buttons-c2c">UAH</a>-->
@@ -101,15 +105,16 @@
 
                                 <!--<a ng-click="metka = true" class="col-md-2 btn btn-link amount-buttons-c2c-eur">EUR</a>-->
                             <!--</div>-->
-                            <div class="row">
-                                <button type="radio" checked class="col-md-6 btn btn-link amount-buttons-c2c">
+                            <div class="row" >
+                                <a  class="col-md-6 btn btn-link amount-buttons-c2c" ng-click="convertAmount(980)" >
                                     UAH
-                                </button>
-                                <button type="radio" class="col-md-6 btn btn-link amount-buttons-c2c-eur" ng-if="crossboard">
+                                </a>
+                                <a   class="col-md-6 btn btn-link amount-buttons-c2c-eur" ng-click="convertAmount(978)" >
                                     EUR
-                                </button>
+                                </a>
                             </div>
                         </div>
+                        <div class="clearfix"></div>
                         <div class="error-amount">
                             <div ng-messages="c2cForm.amount.$error">
                                 <div ng-message="required">{{ 'CARD2CARD.ERRORS.AMOUNT.AMOUNT_REQUIRED' | translate }}</div>
@@ -162,7 +167,7 @@
                             <div class="card-logo" ng-class="c2cForm.numberTarget.cardType"></div>
                             <input type="text" name="numberTarget" class="form-control"
                                    ct-tabindex="checkTargetNumber"
-                                   ng-model="target.card" required tabindex="5" ng-change="setValid('target')"
+                                   ng-model="target.card" required tabindex="5" ng-change="validCardZone()"
                                    ng-disabled="numberTargetIsDisabled"
                                    ui-mask="9999 9999 9999 9999" placeholder="____ ____ ____ ____"
                                    ct-payments-format-number
@@ -183,7 +188,10 @@
                         </div>
                     </div>
                     <div class="total-amount">
-                        <span class="text-bold-big">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{ total || 0 | currency:currency }}</span>
+                        <span class="text-bold-big">Курс конвертации {{ total || 0 | currency:currency }}</span>
+                        <br><span class="text-bold-big">Получателю будет отправлено {{ total || 0 | currency:currency }}</span>
+                        <br><span class="text-bold-big">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{ total || 0 | currency:currency }}</span>
+
                         <div class="form-group send">
                             <div class="checkbox">
                                 <label>
@@ -214,7 +222,7 @@
             <!--end of target card-->
         </div>
 
-        <div class="row-crossboard" ng-if="true">
+        <div class="row-crossboard" ng-if="crossboard">
             <hr class="line-crossboard">
             <div class="col-md-4"></div>
             <div class="col-md-4 caret-c2c">
