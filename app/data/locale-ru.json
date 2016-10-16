@@ -125,14 +125,15 @@
     "DATA_INDEX_TOOLTIP": "Введите Ваш почтовый индекс",
     "DATA_NAME_T_TOOLTIP": "Введите имя получателя латинницей",
     "DATA_SURNAME_T_TOOLTIP": "Введите фамилию получателя латинницей",
-    "DATA_NAME_ERRORS": "Введите Ваше имя латинницей",
-    "DATA_SURNAME_ERRORS": "Введите Вашу фамилию латинницей",
-    "DATA_COUNTRY_ERRORS": "Введите Вашу страну проживания латинницей",
-    "DATA_CITY_ERRORS": "Введите Ваш город проживания латинницей",
-    "DATA_STREET_ERRORS": "Введите Вашу улицу и дом проживания латинницей",
+    "DATA_NAME_ERRORS": "Введите Ваше имя",
+    "DATA_SURNAME_ERRORS": "Введите Вашу фамилию",
+    "DATA_COUNTRY_ERRORS": "Введите Вашу страну",
+    "DATA_CITY_ERRORS": "Введите Ваш город",
+    "DATA_STREET_ERRORS": "Введите Вашу улицу и дом ",
     "DATA_INDEX_ERRORS": "Введите Ваш почтовый индекс",
-    "DATA_NAME_T_ERRORS": "Введите имя получателя латинницей",
-    "DATA_SURNAME_T_ERRORS": "Введите фамилию получателя латинницей",
+    "DATA_NAME_T_ERRORS": "Введите имя получателя",
+    "DATA_SURNAME_T_ERRORS": "Введите фамилию получателя",
+    "CROSSBOARD_TEXT": "Международные переводы доступны только для карт MasterCard/Maestro Диамантбанка на карты MasterCard/Maestro, эмитированные зарубежными банками",
 
     "CURRENCY": {
       "UA": "грн",
@@ -178,7 +179,11 @@
       "TOTAL": "К оплате:",
       "CURRENCY": "грн",
       "UKRAINE_BANK": "украинского банка:",
-      "FOREIGN_BANK": "зарубежного банка:"
+      "FOREIGN_BANK": "зарубежного банка:",
+      "EXCHANGE": "Курс конвертации UAH > EUR =",
+      "RECIPIENT_SEND": "Получателю будет отправлено:",
+      "CURRENCY_EURO": "евро"
+
     },
     "LOOKUP": {
       "TITLE": "Авторизация перевода",

@@ -10,8 +10,6 @@ function Ctrl($rootScope, $scope, $http, CardToCard) {
         card: ''
     };
 
-
-
     $scope.$on('GetLinkParams', onGetLinkParams);
     $scope.$on('Card2CardCalculate', onCard2CardCalculate);
 
@@ -44,13 +42,39 @@ function Ctrl($rootScope, $scope, $http, CardToCard) {
         })
     }
 
+    // $scope.validLetters = function (input) {
+    //
+    //         var value = input.value;
+    //         console.log(input.value);
+    //         var rep = /[a-zA-Z]/;
+    //         console.log(rep);
+    //         if (!rep.test(value)) {
+    //             value = value.replace(rep, '');
+    //             input.value = value;
+    //         }
+    //
+    // }
+
     $scope.convertAmount = function (code) {
         if(code == 980 && $scope.currentCurrency != code) {
             $scope.currentCurrency = 980;
-            $scope.amount = $scope.currencyRate.forward * $scope.amount
+            $scope.amount = '';
+            $scope.commiss  = '';
+            $scope.total  = '';
+            $scope.totalAmountCrossBeforeCheck  = '';
+            $scope.totalAmountCrossBeforeCheck  = '';
+            $scope.totalAmountCross  = '';
+            $scope.calculate();
+            // $scope.amount = $scope.currencyRate.forward * $scope.amount
         } else if (code == 978 && $scope.currentCurrency != code) {
-            $scope.currentCurrency = 978
-            $scope.amount = $scope.amount / $scope.currencyRate.backward
+            $scope.currentCurrency = 978;
+            $scope.amount = '';
+            $scope.commiss  = '';
+            $scope.total  = '';
+            $scope.totalAmountCrossBeforeCheck  = '';
+            $scope.totalAmountCross  = '';
+            $scope.calculate();
+            // $scope.amount = $scope.amount / $scope.currencyRate.backward
         }
     }
     $scope.amountEUR;
@@ -120,6 +144,7 @@ function Ctrl($rootScope, $scope, $http, CardToCard) {
     };
 
     $scope.validDiamantMaster = function () {
+        $scope.input_loader = true;
 
         if ($scope.number) {
             $http({
@@ -144,20 +169,23 @@ function Ctrl($rootScope, $scope, $http, CardToCard) {
                             $scope.commissCross = '';
                             $scope.totalAmountCrossBeforeCheck = '';
 
-                        } else if ($scope.sourceCardZone == 'DOMESTIC' && $scope.targetCardZone == 'DOMESTIC') {
+                        } else if ($scope.targetCardZone == 'DOMESTIC') {
                             $scope.crossboard = false;
                             $scope.crossboardText = false;
+                            $scope.currentCurrency = 980;
                         } else {
                             $scope.crossboard = false;
                             $scope.crossboardText = true;
+                            $scope.currentCurrency = 980;
                         }
                     }
+                    $scope.calculate();
                 },
                 function errorCallback(response) {
                     // $scope.goState($scope.STATES.ERROR);
                 }
             ).finally(function () {
-                // $scope.calcLoader = false;
+                $scope.input_loader = false;
             });
         }
 
@@ -165,6 +193,7 @@ function Ctrl($rootScope, $scope, $http, CardToCard) {
     }
 
     $scope.validCardZone = function() {
+        $scope.input_loader = true;
 
         if ($scope.target.card) {
             $http({
@@ -190,21 +219,23 @@ function Ctrl($rootScope, $scope, $http, CardToCard) {
                             $scope.amountEUR = '';
                             $scope.commissCross = '';
                             $scope.totalAmountCrossBeforeCheck = '';
-                        } else if ($scope.sourceCardZone == 'DOMESTIC' && $scope.targetCardZone == 'DOMESTIC') {
+                        } else if ($scope.targetCardZone == 'DOMESTIC') {
                             $scope.crossboard = false;
                             $scope.crossboardText = false;
+                            $scope.currentCurrency = 980;
                         } else {
                             $scope.crossboard = false;
                             $scope.crossboardText = true;
+                            $scope.currentCurrency = 980;
                         }
                     }
-
+                    $scope.calculate();
                 },
                 function errorCallback(response) {
                     // $scope.goState($scope.STATES.ERROR);
                 }
             ).finally(function () {
-                // $scope.calcLoader = false;
+                $scope.input_loader = false;
             });
         }
 
