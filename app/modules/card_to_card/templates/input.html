@@ -87,7 +87,7 @@
                         <label>{{ 'CARD2CARD.AMOUNT.TITLE' | translate }}</label>
                         <div class="col-md-9 amount-input-currency" >
                             <input type="text" name="amount" class="form-control amount-input-c2c" tabindex="6"
-                                   ng-model="amount" placeholder="{{currentCurrency == 980 ? 'От 1 до 25000 грн' : 'От 1 евро'}}"
+                                   ng-model="amount" placeholder = "{{currentCurrency == 980 ? 'CARD2CARD.AMOUNT.RANGE' : 'CARD2CARD.AMOUNT.RANGE_EUR' | translate}}"
                                    ng-change="calculate()" ng-blur="setAmount()" min="1" max="25000" required ct-currency ng-click="crossboardAllowed = false" />
                         </div>
                         <!--<div class="col-md-9 amount-input-currency" ct-input-container ng-show="currencyEUR">-->
