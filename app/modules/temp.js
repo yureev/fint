@@ -58,23 +58,25 @@ function Ctrl($rootScope, $scope, $http, CardToCard) {
     $scope.convertAmount = function (code) {
         if(code == 980 && $scope.currentCurrency != code) {
             $scope.currentCurrency = 980;
-            $scope.amount = '';
-            $scope.commiss  = '';
-            $scope.total  = '';
-            $scope.totalAmountCrossBeforeCheck  = '';
-            $scope.totalAmountCrossBeforeCheck  = '';
-            $scope.totalAmountCross  = '';
+            // $scope.amount = '';
+            // $scope.commiss  = '';
+            // $scope.total  = '';
+
+            // $scope.totalAmountCrossBeforeCheck  = '';
+            // $scope.totalAmountCross  = '';
+
+            $scope.amount = $scope.currencyRate.forward * $scope.amount
             $scope.calculate();
-            // $scope.amount = $scope.currencyRate.forward * $scope.amount
         } else if (code == 978 && $scope.currentCurrency != code) {
             $scope.currentCurrency = 978;
-            $scope.amount = '';
-            $scope.commiss  = '';
-            $scope.total  = '';
-            $scope.totalAmountCrossBeforeCheck  = '';
-            $scope.totalAmountCross  = '';
+            // $scope.amount = '';
+            // $scope.commiss  = '';
+            // $scope.total  = '';
+            // $scope.totalAmountCrossBeforeCheck  = '';
+            // $scope.totalAmountCross  = '';
+
+            $scope.amount = $scope.amount / $scope.currencyRate.forward
             $scope.calculate();
-            // $scope.amount = $scope.amount / $scope.currencyRate.backward
         }
     }
     $scope.amountEUR;
@@ -82,8 +84,8 @@ function Ctrl($rootScope, $scope, $http, CardToCard) {
 
         if ($scope.currentCurrency == 980){
             $scope.amountEUR = Math.round(($scope.amount * 100) / $scope.currencyRate.forward)
-            $scope.commissCross = Math.round(($scope.amount*2/100)+50)*100
-            $scope.totalAmountCrossBeforeCheck = (+$scope.amountEUR) + (+$scope.commissCross)
+            $scope.commissCross = Math.round((($scope.amount*2/100)+50)*100)
+            $scope.totalAmountCrossBeforeCheck = $scope.amountEUR*$scope.currencyRate.forward + (+$scope.commissCross)
         } else {
             $scope.amountEUR = Math.round($scope.amount * 100)
             $scope.commissCross = Math.round(((($scope.amount*$scope.currencyRate.forward)*2/100)+50)*100)
@@ -193,7 +195,7 @@ function Ctrl($rootScope, $scope, $http, CardToCard) {
     }
 
     $scope.validCardZone = function() {
-        $scope.input_loader = true;
+        // $scope.input_loader = true;
 
         if ($scope.target.card) {
             $http({
@@ -235,7 +237,7 @@ function Ctrl($rootScope, $scope, $http, CardToCard) {
                     // $scope.goState($scope.STATES.ERROR);
                 }
             ).finally(function () {
-                $scope.input_loader = false;
+                // $scope.input_loader = false;
             });
         }
 
@@ -244,7 +246,7 @@ function Ctrl($rootScope, $scope, $http, CardToCard) {
 
     $scope.setAmount = function() {
 
-        if ($scope.number && $scope.target.card) {
+        if ($scope.crossboard) {
             $http({
                 method: 'POST',
                 url: CardToCard.urls.crossboardAmount,
@@ -276,23 +278,26 @@ function Ctrl($rootScope, $scope, $http, CardToCard) {
     };
 
 
-    // function getState(operationNumber) {
-    //
-    //     $http({
-    //         method: 'POST',
-    //         url: CardToCard.urls.getlinkparams'https://test.send.ua/sendua-api/info/getState/',
-    //         data: operationNumber
-    //     }).then(function successCallback(response) {
-    //             if (data.state.code == 1) {
-    //                 $scope.goState($scope.STATES.LOOKUP);
-    //             } else if (data.state.code == 2) {
-    //                 $scope.goState($scope.STATES.ERROR);
-    //             } else {
-    //
-    //             }
-    //         }
-    //     )
-    // }
+    function getState(operationNumber) {
+
+        $http({
+            method: 'POST',
+            url: CardToCard.urls.getState,
+            data: {
+                payNumber : operationNumber
+            }
+        }).then(function successCallback(response) {
+                if (data.state.code == 3) {
+                    transaction.md = response.data.md;
+                    transaction.code = response.data.operationNumber;
+
+                    $scope.goState($scope.STATES.LOOKUP);
+                } else  {
+                    $scope.goState($scope.STATES.ERROR);
+                }
+            }
+        )
+    }
 
 
 
@@ -499,6 +504,108 @@ function Ctrl($rootScope, $scope, $http, CardToCard) {
         $scope.calculate();
     }
 
+}
+
+module.exports = Ctrl;
+
+
+
+// ---------------------------
+
+
+Ctrl.$inject = ['$scope', '$http', 'CardToCard'];
+function Ctrl($scope, $http, CardToCard) {
+    var self = this;
+
+    $scope.submit = function () {
+        self.submit();
+    };
+
+
+    function getState(payNumber) {
+        $scope.lookup_loader = true;
+        $http({
+            method: 'POST',
+            url: CardToCard.urls.getState,
+            data: {
+                payNumder: payNumber
+            }
+        }).then(function successCallback(response) {
+            if (data.state.code == 1) {
+                transaction.md = response.data.md;
+                transaction.code = response.data.operationNumber;
+
+                $scope.goState($scope.STATES.SUCCESS);
+            } else  {
+                $scope.goState($scope.STATES.ERROR);
+            }
+        }, function errorCallback(response) {
+            $scope.goState($scope.STATES.ERROR);
+        }).finally(function () {
+            $scope.lookup_loader = false;
+        });
+    }
+
+    function lookupContinue(md, code) {
+        $scope.lookup_loader = true;
+        $http({
+            method: 'POST',
+            url: CardToCard.urls.lookupContinue,
+            data: {
+                md: md,
+                paRes: code
+            }
+        }).then(function successCallback(response) {
+            getState(response.data.operationNumber)
+        }, function errorCallback(response) {
+            $scope.goState($scope.STATES.ERROR);
+        }).finally(function () {
+            $scope.lookup_loader = false;
+
+        });
+
+    }
+
+    this.submit = function () {
+        $scope.lookup_loader = true;
+
+
+        if (crossboard) {
+            lookupContinue($scope.transaction.md, $scope.transaction.code)
+        } else {
+
+
+            $http({
+                method: 'POST',
+                url: CardToCard.urls.finishlookup,
+                data: {
+                    md: $scope.transaction.md,
+                    paRes: $scope.lookupCode,
+                    cvv: '000'
+                }
+            }).then(function successCallback(response) {
+
+                var data = response.data,
+                    transaction = {};
+
+                transaction.operationNumber = data.idClient || data.operationNumber || data.mPayNumber;
+
+                if (data.state.code == 0) {
+                    $scope.goState($scope.STATES.SUCCESS);
+                } else {
+                    transaction.mPayStatus = data.state.code;
+                    $scope.goState($scope.STATES.ERROR);
+                }
+
+                $scope.saveTransaction(transaction);
+            }, function errorCallback(response) {
+                $scope.goState($scope.STATES.ERROR);
+            }).finally(function () {
+                $scope.lookup_loader = false;
+
+            });
+        }
+    }
 }
 
 module.exports = Ctrl;

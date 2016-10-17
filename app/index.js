@@ -122,7 +122,8 @@ angular.module('app', [
                 crossboardlink:             prefix + '/cardzone/check/',
                 crossboardAmount:           'https://test.send.ua/sendua-api/cross/checkCross',
                 createCross:                'https://test.send.ua/sendua-api/cross/createCross',
-                getState:                   'https://test.send.ua/sendua-api/info/getState/'
+                getState:                   'https://test.send.ua/sendua-api/info/getState/',
+                lookupContinue:             'https://test.send.ua/sendua-api/Lookup/continue/'
 
             });
 

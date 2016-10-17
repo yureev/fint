@@ -296,7 +296,7 @@
                                 <div class="form-group" ct-input-container>
                                     <input type="text" name="city" class="form-control data-input" tabindex="12"
                                            uib-tooltip="{{ 'CARD2CARD.DATA_CITY_TOOLTIP' | translate }}" tooltip-placement="right"
-                                           ng-model="city" onkeypress = "if ((event.keyCode >64 && event.keyCode < 91) || (event.keyCode >96 && event.keyCode < 123)){} else {return false;}"
+                                           ng-model="city" onkeypress = "if ((event.keyCode >64 && event.keyCode < 91) || (event.keyCode >96 && event.keyCode < 123) || (event.keyCode==45)){} else {return false;}"
                                            placeholder="{{ 'CARD2CARD.DATA_CITY' | translate }}" ng-required="crossboard" />
                                     <div class="error-number">
                                         <div ng-messages="c2cForm.city.$error" ng-show="c2cForm.city.$touched">
@@ -307,7 +307,7 @@
                                 <div class="form-group" ct-input-container>
                                     <input type="text" name="street" class="form-control data-input" tabindex="13"
                                            uib-tooltip="{{ 'CARD2CARD.DATA_STREET_TOOLTIP' | translate }}" tooltip-placement="right"
-                                           ng-model="street" onkeypress = "if ((event.keyCode >64 && event.keyCode < 91) || (event.keyCode >96 && event.keyCode < 123) || (event.keyCode>47 && event.keyCode<58)){} else {return false;}"
+                                           ng-model="street" onkeypress = "if ((event.keyCode >64 && event.keyCode < 91) || (event.keyCode >96 && event.keyCode < 123) || (event.keyCode>46 && event.keyCode<58) || (event.keyCode==45) || (event.keyCode==32)){} else {return false;}"
                                            placeholder="{{ 'CARD2CARD.DATA_STREET' | translate }}" ng-required="crossboard" />
                                     <div class="error-number">
                                         <div ng-messages="c2cForm.street.$error" ng-show="c2cForm.street.$touched">
@@ -318,7 +318,7 @@
                                 <div class="form-group" ct-input-container>
                                     <input type="text" name="postIndex" class="form-control data-input" tabindex="14"
                                            uib-tooltip="{{ 'CARD2CARD.DATA_INDEX_TOOLTIP' | translate }}" tooltip-placement="right"
-                                           ng-model="postIndex" maxlength=5 onkeypress = "if (event.keyCode>47 && event.keyCode<58) {} else {return false;}"
+                                           ng-model="postIndex" maxlength=5 minlength=5 onkeypress = "if (event.keyCode>47 && event.keyCode<58) {} else {return false;}"
                                            placeholder="{{ 'CARD2CARD.DATA_INDEX' | translate }}" ng-required="crossboard" />
                                     <div class="error-number">
                                         <div ng-messages="c2cForm.postIndex.$error" ng-show="c2cForm.postIndex.$touched">
