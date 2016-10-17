@@ -107,6 +107,39 @@
     },
     "BUTTON_CLOSE": "Закрыть",
     "BUTTON_CANCEL": "Отменить",
+    "CARET_UP": "Введите данные для перевода",
+    "CARET_DOWN": "Данные отправителя и получателя не должны совпадать",
+    "DATA_SOURCE": "Данные отправителя",
+    "DATA_TARGET": "Данные получателя",
+    "DATA_NAME": "Имя",
+    "DATA_SURNAME": "Фамилия",
+    "DATA_COUNTRY": "Страна",
+    "DATA_CITY": "Город",
+    "DATA_STREET": "Улица, дом",
+    "DATA_INDEX": "Индекс",
+    "DATA_NAME_TOOLTIP": "Введите Ваше имя латинницей, как указано на лицевой стороне карты",
+    "DATA_SURNAME_TOOLTIP": "Введите Вашу фамилию латинницей, как указано на лицевой стороне карты",
+    "DATA_COUNTRY_TOOLTIP": "Введите Вашу страну проживания латинницей",
+    "DATA_CITY_TOOLTIP": "Введите Ваш город проживания латинницей",
+    "DATA_STREET_TOOLTIP": "Введите Вашу улицу и дом проживания латинницей",
+    "DATA_INDEX_TOOLTIP": "Введите Ваш почтовый индекс",
+    "DATA_NAME_T_TOOLTIP": "Введите имя получателя латинницей",
+    "DATA_SURNAME_T_TOOLTIP": "Введите фамилию получателя латинницей",
+    "DATA_NAME_ERRORS": "Введите Ваше имя",
+    "DATA_SURNAME_ERRORS": "Введите Вашу фамилию",
+    "DATA_COUNTRY_ERRORS": "Введите Вашу страну",
+    "DATA_CITY_ERRORS": "Введите Ваш город",
+    "DATA_STREET_ERRORS": "Введите Вашу улицу и дом ",
+    "DATA_INDEX_ERRORS": "Введите Ваш почтовый индекс",
+    "DATA_NAME_T_ERRORS": "Введите имя получателя",
+    "DATA_SURNAME_T_ERRORS": "Введите фамилию получателя",
+    "CROSSBOARD_TEXT": "Международные переводы доступны только для карт MasterCard/Maestro Диамантбанка на карты MasterCard/Maestro, эмитированные зарубежными банками",
+
+    "CURRENCY": {
+      "UA": "грн",
+      "EU": "евро"
+    },
+
     "ERRORS": {
       "SOURCE": {
         "NUMBER_REQUIRED": "Введите номер карты отправителя",
@@ -140,11 +173,18 @@
     "AMOUNT": {
       "TITLE": "Сумма перевода",
       "RANGE": "от 1 до 25 000 грн",
+      "RANGE_EUR": "от 1 евро",
       "RATE": "Тариф: ",
-      "COMMISSION": "Комиссия: ",
+      "COMMISSION": "Комиссия за перевод на карту:",
       "PERCENT": "(1% + 5грн)",
       "TOTAL": "К оплате:",
-      "CURRENCY": "грн"
+      "CURRENCY": "грн",
+      "UKRAINE_BANK": "украинского банка:",
+      "FOREIGN_BANK": "зарубежного банка:",
+      "EXCHANGE": "Курс конвертации UAH > EUR =",
+      "RECIPIENT_SEND": "Получателю будет отправлено:",
+      "CURRENCY_EURO": "евро"
+
     },
     "LOOKUP": {
       "TITLE": "Авторизация перевода",
@@ -160,6 +200,7 @@
       "OPERATION_CODE": "Код операции:",
       "ERROR_CODE": "Код ошибки:",
       "SUPPORT_TEL": "Телефон сервисной службы",
+      "BAD_OTP": "Неправильный код СМС",
       "SEND_TO_SERVICE": "Отправить в сервисную службу",
       "TO_START": "закрыть"
     },
