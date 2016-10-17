@@ -28,6 +28,7 @@ function cardToCardInputDirective() {
         link: postLink
     };
 
+
     function postLink(scope) {
 
         scope.$on('CardToCardClearForm', onCardToCardClearForm);
@@ -36,6 +37,7 @@ function cardToCardInputDirective() {
             scope.c2cForm.$setUntouched();
             scope.c2cForm.$setPristine();
         }
+
     }
 }
 

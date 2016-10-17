@@ -6,7 +6,11 @@
     "comm_type": "web",
     "id": 4,
     "total_max": 99999999,
-    "total_min": 500
+    "total_min": 500,
+    "comm_fixed_cross": 5000,
+    "comm_percent_cross": 2,
+    "total_max_cross": 99999999,
+    "total_min_cross": 5000
   },
   {
     "card_type": "phone",
@@ -15,7 +19,11 @@
     "comm_type": "web",
     "id": 6,
     "total_max": 99999999,
-    "total_min": 500
+    "total_min": 500,
+    "comm_fixed_cross": 5000,
+    "comm_percent_cross": 2,
+    "total_max_cross": 99999999,
+    "total_min_cross": 5000
   },
   {
     "card_type": "other",
@@ -24,6 +32,10 @@
     "comm_type": "web",
     "id": 5,
     "total_max": 99999999,
-    "total_min": 500
+    "total_min": 500,
+    "comm_fixed_cross": 5000,
+    "comm_percent_cross": 2,
+    "total_max_cross": 99999999,
+    "total_min_cross": 5000
   }
 ]
