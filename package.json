@@ -57,7 +57,7 @@
     "angulartics-piwik": "^1.0.2",
     "base64-url": "^1.2.2",
     "bootstrap-sass": "^3.3.6",
-    "component-cardtocard": "1.4.0",
+    "component-cardtocard": "1.4.1",
     "component-currency": "1.0.1",
     "component-input": "^1.0.6",
     "component-payments": "1.2.4",
