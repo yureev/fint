@@ -104,7 +104,7 @@ angular.module('app', [
             tmhDynamicLocaleProvider.localeLocationPattern('angular/i18n/angular-locale_{{locale}}.js');
 
 
-            var prefix = process.env.NODE_ENV == 'development' ? 'https://send.ua' : '';
+            var prefix = process.env.NODE_ENV == 'development' ? '//send.ua' : '';
 
             CardToCardProvider.setUrls({
                 getTariffs:                 prefix + '/sendua-external/Info/GetTariffs?tarifftype=web',
@@ -120,12 +120,12 @@ angular.module('app', [
                 phone2Card:                 prefix + '/sendua-external/Phone2Card/CreatePhone2CardOperation',
                 tocardlink:                 prefix + '/sendua-external/Card2Card/tocardlink',
                 crossboardlink:             prefix + '/cardzone/check/',
-                crossboardAmount:           'https://test.send.ua/sendua-api/cross/checkCross',
-                createCross:                'https://test.send.ua/sendua-api/cross/createCross',
-                getState:                   'https://test.send.ua/sendua-api/info/getState/',
-                lookupContinue:             'https://test.send.ua/sendua-api/Lookup/continue/',
-                getCurrencyrates:           'https://test.send.ua/sendua-api/cross/currency',
-                validDiamantMaster:         'https://test.send.ua/sendua-api/cross/isDiamant'
+                crossboardAmount:           '//stage.send.ua/sendua-api/cross/checkCross',
+                createCross:                '//stage.send.ua/sendua-api/cross/createCross',
+                getState:                   '//stage.send.ua/sendua-api/info/getState/',
+                lookupContinue:             '//stage.send.ua/sendua-api/Lookup/continue/',
+                getCurrencyrates:           '//stage.send.ua/sendua-api/cross/currency',
+                validDiamantMaster:         'https://stage.send.ua/sendua-api/cross/isDiamant'
 
             });
 
