@@ -123,7 +123,9 @@ angular.module('app', [
                 crossboardAmount:           'https://test.send.ua/sendua-api/cross/checkCross',
                 createCross:                'https://test.send.ua/sendua-api/cross/createCross',
                 getState:                   'https://test.send.ua/sendua-api/info/getState/',
-                lookupContinue:             'https://test.send.ua/sendua-api/Lookup/continue/'
+                lookupContinue:             'https://test.send.ua/sendua-api/Lookup/continue/',
+                getCurrencyrates:           'https://test.send.ua/sendua-api/cross/currency',
+                validDiamantMaster:         'https://test.send.ua/sendua-api/cross/isDiamant'
 
             });
 
