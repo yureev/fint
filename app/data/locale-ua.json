@@ -135,7 +135,7 @@
     "DATA_INDEX_ERRORS": "Введіть Ваш поштовий індекс",
     "DATA_NAME_T_ERRORS": "Введіть ім'я одержувача",
     "DATA_SURNAME_T_ERRORS": "Введіть прізвище одержувача",
-    "CROSSBOARD_TEXT": "Міжнародні перекази доступні тільки для карток MasterCard/Maestro Діамантбанку на картки MasterCard/Maestro, емітовані закордонними банками",
+    "CROSSBOARD_TEXT": "Міжнародні перекази доступні тільки з карток Mastercard та Maestro <a href='http://diamantbank.ua/cards.html'> Діамантбанку </a> на картки Mastercard та Maestro закордоннних банків",
 
     "CURRENCY": {
       "UA": "грн",
