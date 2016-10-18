@@ -1,10 +1,14 @@
 <div class="state-input" ct-spinner="tariffs_loader || input_loader">
     <form name="c2cForm" ct-payments ng-submit="submit()" autocomplete="off">
+        <div class="empty">
+            <div class="text" ng-show="crossboardText">{{ 'CARD2CARD.CROSSBOARD_TEXT' | translate }} <a href="http://diamantbank.ua/cards.html">http://diamantbank.ua/cards.html</a></div>
+        </div>
         <div class="row">
             <div class="hidden-xs hidden-sm">
                 <div class="play"><span class="glyphicon glyphicon-menu-right"></span></div>
             </div>
             <div class="col-sm-6">
+
                 <div class="col-md-11 col-lg-8 col-lg-offset-2">
                     <div class="card source" card-height>
                         <div class="form-group" ct-input-container>
@@ -12,7 +16,7 @@
                             <div class="card-logo" ng-class="c2cForm.number.cardType"></div>
                             <input type="text" name="number" class="form-control" ct-tabindex="checkNumber"
                                    tabindex="1"
-                                   ng-model="number" required
+                                   ng-model="number" required ng-change="validDiamantMaster()"
                                    ui-mask="9999 9999 9999 9999" placeholder="____ ____ ____ ____"
                                    ct-payments-main-card ct-payments-format-number ct-payments-validate-number/>
                             <div class="error-number">
@@ -78,11 +82,25 @@
                         </div>
                         <div class="clearfix"></div>
                     </div>
+
                     <div class="amount" ct-input-container>
                         <label>{{ 'CARD2CARD.AMOUNT.TITLE' | translate }}</label>
-                        <input type="text" name="amount" class="form-control amount-input" tabindex="6"
-                               ng-model="amount" placeholder="{{ 'CARD2CARD.AMOUNT.RANGE' | translate }}"
-                               ng-change="calculate()" min="1" max="25000" required ct-currency/>
+                        <div class="col-md-9 amount-input-currency" >
+                            <input type="text" name="amount" class="form-control amount-input-c2c" tabindex="6"
+                                   ng-model="amount" placeholder = "{{currentCurrency == 980 ? 'CARD2CARD.AMOUNT.RANGE' : 'CARD2CARD.AMOUNT.RANGE_EUR' | translate}}"
+                                   ng-change="calculate()" ng-blur="setAmount()" min="1" max="25000" required ct-currency ng-click="crossboardAllowed = false" />
+                        </div>
+                        <div class="col-md-3 amount-buttons-field-c2c" ng-show="crossboard">
+                            <div class="row" >
+                                <a  class="col-md-6 btn btn-link amount-buttons-c2c" ng-click="convertAmount(980)" ng-class="{activeCurrency: currentCurrency == 980}">
+                                    UAH
+                                </a>
+                                <a   class="col-md-6 btn btn-link amount-buttons-c2c-eur" ng-click="convertAmount(978)" ng-class="{activeCurrency: currentCurrency == 978}">
+                                    EUR
+                                </a>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
                         <div class="error-amount">
                             <div ng-messages="c2cForm.amount.$error">
                                 <div ng-message="required">{{ 'CARD2CARD.ERRORS.AMOUNT.AMOUNT_REQUIRED' | translate }}</div>
@@ -91,12 +109,17 @@
                             </div>
                         </div>
                         <div class="tariffs">
-                            <span class="text-light-normal">
-                                {{ 'CARD2CARD.AMOUNT.RATE' | translate }} {{ config.tariff.comm_percent }}% + {{ config.tariff.comm_fixed / 100 | currency:currency }}
-                            </span>
-                            <span class="text-light-normal">
-                                {{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commiss || 0 | currency:currency }}
-                            </span>
+                            <div class="text-commiss" ng-show="!crossboard">{{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commiss || 0 | currency:currency }}</div>
+                            <div class="text-commiss" ng-show="crossboard">{{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commissCross/100 || 0 | currency:currency }}</div>
+                            <div class="text-bank">{{ 'CARD2CARD.AMOUNT.UKRAINE_BANK' | translate }} {{ config.tariff.comm_percent }}% + {{ config.tariff.comm_fixed / 100 | currency:currency }}</div>
+                            <div class="text-bank">{{ 'CARD2CARD.AMOUNT.FOREIGN_BANK' | translate }} 2% + 50 грн</div>
+
+                            <!--<span class="text-light-normal">-->
+                                <!--{{ 'CARD2CARD.AMOUNT.RATE' | translate }} {{ config.tariff.comm_percent }}% + {{ config.tariff.comm_fixed / 100 | currency:currency }}-->
+                            <!--</span>-->
+                            <!--<span class="text-light-normal">-->
+                                <!--{{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commiss || 0 | currency:currency }}-->
+                            <!--</span>-->
                         </div>
                     </div>
                     <div class="row">
@@ -130,7 +153,7 @@
                             <div class="card-logo" ng-class="c2cForm.numberTarget.cardType"></div>
                             <input type="text" name="numberTarget" class="form-control"
                                    ct-tabindex="checkTargetNumber"
-                                   ng-model="target.card" required tabindex="5"
+                                   ng-model="target.card" required tabindex="5" ng-change="validCardZone()"
                                    ng-disabled="numberTargetIsDisabled"
                                    ui-mask="9999 9999 9999 9999" placeholder="____ ____ ____ ____"
                                    ct-payments-format-number
@@ -151,7 +174,13 @@
                         </div>
                     </div>
                     <div class="total-amount">
-                        <span class="text-bold-big">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{ total || 0 | currency:currency }}</span>
+                        <span class="text-exchange" ng-show="crossboard">{{ 'CARD2CARD.AMOUNT.EXCHANGE' | translate }} {{currencyRate.forward }} <br></span>
+                        <span class="text-target-amount" ng-show="crossboard ">{{ 'CARD2CARD.AMOUNT.RECIPIENT_SEND' | translate }} {{amountEUR/100 || 0}} {{ 'CARD2CARD.AMOUNT.CURRENCY_EURO' | translate }} <br></span>
+                        <span class="text-bold-big" ng-show="crossboard && !crossboardAllowed">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{totalAmountCrossBeforeCheck/100 || 0 | currency:currency}}</span>
+                        <span class="text-bold-big" ng-show="crossboard && crossboardAllowed">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{totalAmountCross/100 || 0 | currency:currency}}</span>
+
+                        <span class="text-bold-big" ng-show="!crossboard">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{ total || 0 | currency:currency }}</span>
+
                         <div class="form-group send">
                             <div class="checkbox">
                                 <label>
@@ -165,7 +194,7 @@
                                 </div>
                             </div>
                             <div class="buttons">
-                                <button type="submit" class="btn btn-warning send-button" tabindex="9"
+                                <button type="submit" class="btn btn-warning send-button" tabindex="17"
                                         ng-disabled="c2cForm.$invalid || c2cForm.$pristine">
                                     {{ 'CARD2CARD.SEND' | translate }}
                                 </button>
@@ -178,7 +207,147 @@
                     </div>
                 </div>
             </div>
+            <div class="clearfix"></div>
             <!--end of target card-->
+        </div>
+        <div class="row-crossboard" ng-show="crossboard">
+            <hr class="line-crossboard">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 caret-c2c">
+                <div class="caret-c2c-block">
+                    <i class="fa fa-caret-up fa-2x" aria-hidden="true"></i>
+                    <div class="text-line-crossboard">
+                        <span class="text-line-crossboard1">{{ 'CARD2CARD.CARET_UP' | translate }}</span>
+                        <span class="text-line-crossboard2"><br>{{ 'CARD2CARD.CARET_DOWN' | translate }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+
+            <div class="field-data">
+                <div class="col-sm-6">
+                    <div class="col-md-11 col-lg-8 col-lg-offset-2 test">
+                        <div class="crossboard-left" >
+                            <div class="crossboard-left-field">
+                                <div class="text-light-normal text-data-cross" >{{ 'CARD2CARD.DATA_SOURCE' | translate }}</div>
+                                <!--<div class="row">-->
+                                <div class="form-group" ct-input-container>
+
+                                    <input type="text" name="nameSource" class="form-control data-input" tabindex="9"
+                                           uib-tooltip="{{ 'CARD2CARD.DATA_NAME_TOOLTIP' | translate }}" tooltip-placement="right"
+                                           ng-model="nameSource" onkeypress = "if ((event.keyCode >64 && event.keyCode < 91) || (event.keyCode >96 && event.keyCode < 123)){} else {return false;}"
+
+                                    placeholder="{{ 'CARD2CARD.DATA_NAME' | translate }}" ng-required="crossboard" />
+                                    <!--<div class="error-block" ng-messages="c2cForm.nameSource.$error" ng-show="c2cForm.nameSource.$touched">-->
+                                        <!--&lt;!&ndash;<div ng-messages="c2cForm.nameSource.$error">&ndash;&gt;-->
+                                            <!--<div ng-message="required">{{ 'CARD2CARD.DATA_NAME_TOOLTIP' | translate }}</div>-->
+                                            <!--<div class="arrow-num"><i class="fa fa-caret-left fa-2x" aria-hidden="true"></i></div>-->
+                                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                    <!--</div>-->
+
+                                    <div class="error-number">
+                                        <div ng-messages="c2cForm.nameSource.$error" ng-show="c2cForm.nameSource.$touched">
+                                            <div ng-message="required">{{ 'CARD2CARD.DATA_NAME_ERRORS' | translate }}</div>
+                                        </div>
+                                    </div>
+                                    <!--</div>-->
+                                    <!--<div class="icon-close" ng-click="$parent.numberError = !numberError"><img src="./../../../assets/images/close.svg"></div>-->
+                                    <!--<span class="error-heading">Ошибка!</span>-->
+                                    <!--<p>Введите номер карты</p>-->
+                                </div>
+                                <div class="form-group" ct-input-container>
+                                    <input type="text" name="surnameSource" class="form-control data-input" tabindex="10"
+                                           uib-tooltip="{{ 'CARD2CARD.DATA_SURNAME_TOOLTIP' | translate }}" tooltip-placement="right"
+                                           ng-model="surnameSource" onkeypress = "if ((event.keyCode >64 && event.keyCode < 91) || (event.keyCode >96 && event.keyCode < 123)){} else {return false;}"
+                                           placeholder="{{ 'CARD2CARD.DATA_SURNAME' | translate }}" ng-required="crossboard" />
+                                    <div class="error-number">
+                                        <div ng-messages="c2cForm.surnameSource.$error" ng-show="c2cForm.surnameSource.$touched">
+                                            <div ng-message="required">{{ 'CARD2CARD.DATA_SURNAME_ERRORS' | translate }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group" ct-input-container>
+                                    <input type="text" name="country" class="form-control data-input" tabindex="11"
+                                           uib-tooltip="{{ 'CARD2CARD.DATA_COUNTRY_TOOLTIP' | translate }}" tooltip-placement="right"
+                                           ng-model="country" onkeypress = "if ((event.keyCode >64 && event.keyCode < 91) || (event.keyCode >96 && event.keyCode < 123)){} else {return false;}"
+                                           placeholder="{{ 'CARD2CARD.DATA_COUNTRY' | translate }}" ng-required="crossboard" />
+                                    <div class="error-number">
+                                        <div ng-messages="c2cForm.country.$error" ng-show="c2cForm.country.$touched">
+                                            <div ng-message="required">{{ 'CARD2CARD.DATA_COUNTRY_ERRORS' | translate }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group" ct-input-container>
+                                    <input type="text" name="city" class="form-control data-input" tabindex="12"
+                                           uib-tooltip="{{ 'CARD2CARD.DATA_CITY_TOOLTIP' | translate }}" tooltip-placement="right"
+                                           ng-model="city" onkeypress = "if ((event.keyCode >64 && event.keyCode < 91) || (event.keyCode >96 && event.keyCode < 123) || (event.keyCode==45)){} else {return false;}"
+                                           placeholder="{{ 'CARD2CARD.DATA_CITY' | translate }}" ng-required="crossboard" />
+                                    <div class="error-number">
+                                        <div ng-messages="c2cForm.city.$error" ng-show="c2cForm.city.$touched">
+                                            <div ng-message="required">{{ 'CARD2CARD.DATA_CITY_ERRORS' | translate }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group" ct-input-container>
+                                    <input type="text" name="street" class="form-control data-input" tabindex="13"
+                                           uib-tooltip="{{ 'CARD2CARD.DATA_STREET_TOOLTIP' | translate }}" tooltip-placement="right"
+                                           ng-model="street" onkeypress = "if ((event.keyCode >64 && event.keyCode < 91) || (event.keyCode >96 && event.keyCode < 123) || (event.keyCode>46 && event.keyCode<58) || (event.keyCode==45) || (event.keyCode==32)){} else {return false;}"
+                                           placeholder="{{ 'CARD2CARD.DATA_STREET' | translate }}" ng-required="crossboard" />
+                                    <div class="error-number">
+                                        <div ng-messages="c2cForm.street.$error" ng-show="c2cForm.street.$touched">
+                                            <div ng-message="required">{{ 'CARD2CARD.DATA_STREET_ERRORS' | translate }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group" ct-input-container>
+                                    <input type="text" name="postIndex" class="form-control data-input" tabindex="14"
+                                           uib-tooltip="{{ 'CARD2CARD.DATA_INDEX_TOOLTIP' | translate }}" tooltip-placement="right"
+                                           ng-model="postIndex" maxlength=5 minlength=5 onkeypress = "if (event.keyCode>47 && event.keyCode<58) {} else {return false;}"
+                                           placeholder="{{ 'CARD2CARD.DATA_INDEX' | translate }}" ng-required="crossboard" />
+                                    <div class="error-number">
+                                        <div ng-messages="c2cForm.postIndex.$error" ng-show="c2cForm.postIndex.$touched">
+                                            <div ng-message="required">{{ 'CARD2CARD.DATA_INDEX_ERRORS' | translate }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="col-md-11 col-lg-8 col-lg-offset-2 test">
+                        <div class="crossboard-right">
+                            <div class="crossboard-right-field">
+                                <div class="text-light-normal text-data-cross">{{ 'CARD2CARD.DATA_TARGET' | translate }}</div>
+                                <div class="form-group" ct-input-container>
+                                    <input type="text" name="nameTarget" class="form-control data-input" tabindex="15"
+                                           uib-tooltip="{{ 'CARD2CARD.DATA_NAME_T_TOOLTIP' | translate }}" tooltip-placement="left"
+                                           ng-model="nameTarget" onkeypress = "if ((event.keyCode >64 && event.keyCode < 91) || (event.keyCode >96 && event.keyCode < 123)){} else {return false;}"
+                                           placeholder="{{ 'CARD2CARD.DATA_NAME' | translate }}" ng-required="crossboard" />
+                                    <div class="error-number">
+                                        <div ng-messages="c2cForm.nameTarget.$error" ng-show="c2cForm.nameTarget.$touched">
+                                            <div ng-message="required">{{ 'CARD2CARD.DATA_NAME_T_ERRORS' | translate }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group" ct-input-container>
+                                    <input type="text" name="surnameTarget" class="form-control data-input" tabindex="16"
+                                           uib-tooltip="{{ 'CARD2CARD.DATA_SURNAME_T_TOOLTIP' | translate }}" tooltip-placement="left"
+                                           ng-model="surnameTarget" onkeypress = "if ((event.keyCode >64 && event.keyCode < 91) || (event.keyCode >96 && event.keyCode < 123)){} else {return false;}"
+                                           placeholder="{{ 'CARD2CARD.DATA_SURNAME' | translate }}" ng-required="crossboard" />
+                                    <div class="error-number">
+                                        <div ng-messages="c2cForm.surnameTarget.$error" ng-show="c2cForm.surnameTarget.$touched">
+                                            <div ng-message="required">{{ 'CARD2CARD.DATA_SURNAME_T_ERRORS' | translate }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="clearfix"></div>
     </form>
