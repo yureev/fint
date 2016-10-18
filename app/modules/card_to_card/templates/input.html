@@ -90,21 +90,7 @@
                                    ng-model="amount" placeholder = "{{currentCurrency == 980 ? 'CARD2CARD.AMOUNT.RANGE' : 'CARD2CARD.AMOUNT.RANGE_EUR' | translate}}"
                                    ng-change="calculate()" ng-blur="setAmount()" min="1" max="25000" required ct-currency ng-click="crossboardAllowed = false" />
                         </div>
-                        <!--<div class="col-md-9 amount-input-currency" ct-input-container ng-show="currencyEUR">-->
-                            <!--<input type="text" name="amount" class="form-control amount-input-c2c" tabindex="6"-->
-                                   <!--ng-model="amount" placeholder="1 1000 eur"-->
-                                   <!--ng-change="calculate()" min="1" max="25000" required ct-currency />-->
-                        <!--</div>-->
-
                         <div class="col-md-3 amount-buttons-field-c2c" ng-show="crossboard">
-                            <!--<div class="item" ui-sref-active="active">-->
-
-                                <!--<a  class="col-md-1 btn btn-link amount-buttons-c2c">UAH</a>-->
-                            <!--</div>-->
-                            <!--<div class="item" ui-sref-active="active">-->
-
-                                <!--<a ng-click="metka = true" class="col-md-2 btn btn-link amount-buttons-c2c-eur">EUR</a>-->
-                            <!--</div>-->
                             <div class="row" >
                                 <a  class="col-md-6 btn btn-link amount-buttons-c2c" ng-click="convertAmount(980)" ng-class="{activeCurrency: currentCurrency == 980}">
                                     UAH
@@ -136,7 +122,6 @@
                             <!--</span>-->
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="phone">
@@ -225,7 +210,6 @@
             <div class="clearfix"></div>
             <!--end of target card-->
         </div>
-
         <div class="row-crossboard" ng-show="crossboard">
             <hr class="line-crossboard">
             <div class="col-md-4"></div>
