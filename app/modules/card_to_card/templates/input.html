@@ -214,7 +214,7 @@
             <div class="clearfix"></div>
             <!--end of target card-->
         </div>
-        <div class="row-crossboard" ng-show="true">
+        <div class="row-crossboard" ng-show="crossboard">
             <hr class="line-crossboard">
             <div class="col-md-4"></div>
             <div class="col-md-4 caret-c2c">
@@ -241,6 +241,7 @@
                                            uib-tooltip="{{ 'CARD2CARD.DATA_NAME_TOOLTIP' | translate }}" tooltip-placement="right"
                                            ng-model="nameSource"
                                            ng-keypress = "getChar($event, 'letters')"
+                                           ng-change="getPaste()" ng-paste = "flags1 = true"
                                            placeholder="{{ 'CARD2CARD.DATA_NAME' | translate }}" ng-required="crossboard" />
                                     <!--<div class="error-block" ng-messages="c2cForm.nameSource.$error" ng-show="c2cForm.nameSource.$touched">-->
                                         <!--&lt;!&ndash;<div ng-messages="c2cForm.nameSource.$error">&ndash;&gt;-->
@@ -251,6 +252,7 @@
                                     <div class="error-number">
                                         <div ng-messages="c2cForm.nameSource.$error" ng-show="c2cForm.nameSource.$touched">
                                             <div ng-message="required">{{ 'CARD2CARD.DATA_NAME_ERRORS' | translate }}</div>
+                                            <div ng-message="errorInputCross">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>
                                         </div>
                                     </div>
                                     <!--</div>-->
@@ -263,10 +265,12 @@
                                            uib-tooltip="{{ 'CARD2CARD.DATA_SURNAME_TOOLTIP' | translate }}" tooltip-placement="right"
                                            ng-model="surnameSource"
                                            ng-keypress = "getChar($event, 'letters')"
+                                           ng-change="getPaste()" ng-paste = "flags1 = true"
                                            placeholder="{{ 'CARD2CARD.DATA_SURNAME' | translate }}" ng-required="crossboard" />
                                     <div class="error-number">
                                         <div ng-messages="c2cForm.surnameSource.$error" ng-show="c2cForm.surnameSource.$touched">
                                             <div ng-message="required">{{ 'CARD2CARD.DATA_SURNAME_ERRORS' | translate }}</div>
+                                            <div ng-message="errorInputCross">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -275,10 +279,12 @@
                                            uib-tooltip="{{ 'CARD2CARD.DATA_COUNTRY_TOOLTIP' | translate }}" tooltip-placement="right"
                                            ng-model="country"
                                            ng-keypress = "getChar($event, 'letters')"
+                                           ng-change="getPaste()" ng-paste = "flags1 = true"
                                            placeholder="{{ 'CARD2CARD.DATA_COUNTRY' | translate }}" ng-required="crossboard" />
                                     <div class="error-number">
                                         <div ng-messages="c2cForm.country.$error" ng-show="c2cForm.country.$touched">
                                             <div ng-message="required">{{ 'CARD2CARD.DATA_COUNTRY_ERRORS' | translate }}</div>
+                                            <div ng-message="errorInputCross">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -287,10 +293,12 @@
                                            uib-tooltip="{{ 'CARD2CARD.DATA_CITY_TOOLTIP' | translate }}" tooltip-placement="right"
                                            ng-model="city"
                                            ng-keypress = "getChar($event, 'letters')"
+                                           ng-change="getPaste()" ng-paste = "flags1 = true"
                                            placeholder="{{ 'CARD2CARD.DATA_CITY' | translate }}" ng-required="crossboard" />
                                     <div class="error-number">
                                         <div ng-messages="c2cForm.city.$error" ng-show="c2cForm.city.$touched">
                                             <div ng-message="required">{{ 'CARD2CARD.DATA_CITY_ERRORS' | translate }}</div>
+                                            <div ng-message="errorInputCross">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -299,10 +307,12 @@
                                            uib-tooltip="{{ 'CARD2CARD.DATA_STREET_TOOLTIP' | translate }}" tooltip-placement="right"
                                            ng-model="street"
                                            ng-keypress = "getChar($event, 'street')"
+                                           ng-change="getPaste()" ng-paste = "flags1 = true"
                                            placeholder="{{ 'CARD2CARD.DATA_STREET' | translate }}" ng-required="crossboard" />
                                     <div class="error-number">
                                         <div ng-messages="c2cForm.street.$error" ng-show="c2cForm.street.$touched">
                                             <div ng-message="required">{{ 'CARD2CARD.DATA_STREET_ERRORS' | translate }}</div>
+                                            <div ng-message="errorInputCross">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -311,10 +321,12 @@
                                            uib-tooltip="{{ 'CARD2CARD.DATA_INDEX_TOOLTIP' | translate }}" tooltip-placement="right"
                                            ng-model="postIndex" maxlength=5 minlength=5
                                            ng-keypress = "getChar($event, 'number')"
+                                           ng-change="getPaste()" ng-paste = "flags1 = true"
                                            placeholder="{{ 'CARD2CARD.DATA_INDEX' | translate }}" ng-required="crossboard" />
                                     <div class="error-number">
                                         <div ng-messages="c2cForm.postIndex.$error" ng-show="c2cForm.postIndex.$touched">
                                             <div ng-message="required">{{ 'CARD2CARD.DATA_INDEX_ERRORS' | translate }}</div>
+                                            <div ng-message="errorInputCross">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -334,10 +346,12 @@
                                            uib-tooltip="{{ 'CARD2CARD.DATA_NAME_T_TOOLTIP' | translate }}" tooltip-placement="left"
                                            ng-model="nameTarget"
                                            ng-keypress = "getChar($event, 'letters')"
+                                           ng-change="getPaste()" ng-paste = "flags1 = true"
                                            placeholder="{{ 'CARD2CARD.DATA_NAME' | translate }}" ng-required="crossboard" />
                                     <div class="error-number">
                                         <div ng-messages="c2cForm.nameTarget.$error" ng-show="c2cForm.nameTarget.$touched">
                                             <div ng-message="required">{{ 'CARD2CARD.DATA_NAME_T_ERRORS' | translate }}</div>
+                                            <div ng-message="errorInputCross">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -346,10 +360,12 @@
                                            uib-tooltip="{{ 'CARD2CARD.DATA_SURNAME_T_TOOLTIP' | translate }}" tooltip-placement="left"
                                            ng-model="surnameTarget"
                                            ng-keypress = "getChar($event, 'letters')"
+                                           ng-change="getPaste()" ng-paste = "flags1 = true"
                                            placeholder="{{ 'CARD2CARD.DATA_SURNAME' | translate }}" ng-required="crossboard" />
                                     <div class="error-number">
                                         <div ng-messages="c2cForm.surnameTarget.$error" ng-show="c2cForm.surnameTarget.$touched">
                                             <div ng-message="required">{{ 'CARD2CARD.DATA_SURNAME_T_ERRORS' | translate }}</div>
+                                            <div ng-message="errorInputCross">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>
                                         </div>
                                     </div>
                                 </div>
