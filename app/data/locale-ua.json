@@ -139,6 +139,7 @@
     "DATA_NAME_T_ERRORS": "Введіть ім'я одержувача",
     "DATA_SURNAME_T_ERRORS": "Введіть прізвище одержувача",
     "DATA_INPUT_ERRORS": "Дані введені некоректно",
+    "DATA_INPUT_ERROR": "Введіть дані",
     "CROSSBOARD_TEXT": "Міжнародні перекази доступні тільки з карток Mastercard та Maestro <a href='http://diamantbank.ua/cards.html'> Діамантбанку </a> на картки Mastercard та Maestro закордоннних банків",
 
     "CURRENCY": {
