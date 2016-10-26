@@ -209,7 +209,7 @@
       "CURRENCY": "грн",
       "UKRAINE_BANK": "українського банку:",
       "FOREIGN_BANK": "закордонного банку:",
-      "EXCHANGE": "Курс конвертації UAH > EUR =",
+      "EXCHANGE": "Курс конвертації EUR > UAH =",
       "RECIPIENT_SEND": "Одержувачу буде відправлено:",
       "CURRENCY_EURO": "євро"
     },
