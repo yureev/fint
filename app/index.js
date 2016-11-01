@@ -120,12 +120,12 @@ angular.module('app', [
                 phone2Card:                 prefix + '/sendua-external/Phone2Card/CreatePhone2CardOperation',
                 tocardlink:                 prefix + '/sendua-external/Card2Card/tocardlink',
                 crossboardlink:             prefix + '/cardzone/check/',
-                crossboardAmount:           'https://stage.send.ua/sendua-api/cross/checkCross',
-                createCross:                'https://stage.send.ua/sendua-api/cross/createCross',
-                getState:                   'https://stage.send.ua/sendua-api/info/getState/',
-                lookupContinue:             'https://stage.send.ua/sendua-api/Lookup/continue/',
-                getCurrencyrates:           'https://stage.send.ua/sendua-api/cross/currency',
-                validDiamantMaster:         'https://stage.send.ua/sendua-api/cross/isDiamant'
+                crossboardAmount:           prefix + '/sendua-api/cross/checkCross',
+                createCross:                prefix + '/sendua-api/cross/createCross',
+                getState:                   prefix + '/sendua-api/info/getState/',
+                lookupContinue:             prefix + '/sendua-api/Lookup/continue/',
+                getCurrencyrates:           prefix + '/sendua-api/cross/currency',
+                validDiamantMaster:         prefix + '/sendua-api/cross/isDiamant'
 
             });
 
