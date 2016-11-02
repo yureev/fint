@@ -113,7 +113,11 @@ angular.module('app', [
                 getDateTime:                prefix + '/sendua-external/Info/GetDateTime',
                 kvitanse:                   prefix + '/sendua-external/Info/kvitanse',
                 getlinkparams:              prefix + '/sendua-external/Card2Card/getlinkparams',
-                createCard2CardOperation:   prefix + '/sendua-external/Card2Card/CreateCard2CardOperation',
+
+                createCard2CardOperation:   prefix + '/sendua-api/Card2Card/createCard2CardOperation',
+
+                // createCard2CardOperation:   prefix + '/sendua-external/Card2Card/CreateCard2CardOperation',
+
                 generateLink:               prefix + '/sendua-external/Card2Card/generateLink',
                 sendtomail:                 prefix + '/sendua-external/Card2Card/sendtomail',
                 createCard2PhoneOperation:  prefix + '/sendua-external/Card2Phone/CreateCard2PhoneOperation',
@@ -125,9 +129,11 @@ angular.module('app', [
                 getState:                   prefix + '/sendua-api/info/getState/',
                 lookupContinue:             prefix + '/sendua-api/Lookup/continue/',
                 getCurrencyrates:           prefix + '/sendua-api/cross/currency',
-                validDiamantMaster:         prefix + '/sendua-api/cross/isDiamant'
+                validDiamantMaster:         prefix + '/sendua-api/cross/isDiamant',
+                calc:                       prefix + '/sendua-api/Card2Card/calcCommission'
 
             });
+
 
             CardToCardProvider.setType('web');
             CardToCardProvider.setLinkPrefix(window.location.origin + '/#/link/');
