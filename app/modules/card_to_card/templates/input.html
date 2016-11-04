@@ -383,7 +383,7 @@
                                            ng-model="country"
                                            value="Ukraine"
                                            readonly
-                                           placeholder="Ukraine" />
+                                           placeholder="{{ 'CARD2CARD.DATA_COUNTRY' | translate }} - Ukraine" />
                                         <div class="error-number">
                                             <div ng-messages="c2cForm.country.$error" ng-show="c2cForm.country.$touched">
                                                 <div ng-message="required">{{ 'CARD2CARD.DATA_COUNTRY_ERRORS' | translate }}</div>
