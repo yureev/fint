@@ -225,8 +225,15 @@
                         <div class="tariffs">
                             <div class="text-commiss" ng-show="!crossboard">{{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commiss || 0 | currency:currency }}</div>
                             <div class="text-commiss" ng-show="crossboard">{{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commissCross/100 || 0 | currency:currency }}</div>
-                            <div class="text-bank">{{ 'CARD2CARD.AMOUNT.UKRAINE_BANK' | translate }} {{ config.tariff.comm_percent }}% + {{ config.tariff.comm_fixed / 100 | currency:currency }}</div>
+
+                            <div class="text-bank">{{ 'CARD2CARD.AMOUNT.UKRAINE_BANK' | translate }} {{+tariffs.percent}}% + {{tariffs.fixCommission / 100 | currency:currency }}</div>
                             <div class="text-bank">{{ 'CARD2CARD.AMOUNT.FOREIGN_BANK' | translate }} 2% min 50 грн</div>
+
+
+
+
+                            <!--<div class="text-bank">{{ 'CARD2CARD.AMOUNT.UKRAINE_BANK' | translate }} {{ config.tariff.comm_percent }}% + {{ config.tariff.comm_fixed / 100 | currency:currency }}</div>-->
+                            <!--<div class="text-bank">{{ 'CARD2CARD.AMOUNT.FOREIGN_BANK' | translate }} 2% min 50 грн</div>-->
 
                             <!--<span class="text-light-normal">-->
                             <!--{{ 'CARD2CARD.AMOUNT.RATE' | translate }} {{ config.tariff.comm_percent }}% + {{ config.tariff.comm_fixed / 100 | currency:currency }}-->
