@@ -200,7 +200,8 @@
                         <div class="col-md-9 amount-input-currency" >
                             <input type="text" name="amount" class="form-control amount-input-c2c" tabindex="6"
                                    ng-model="amount" placeholder = "{{!crossboard ? 'CARD2CARD.AMOUNT.RANGE' : (currentCurrency == 980 ? 'CARD2CARD.AMOUNT.RANGE_CROSS' : 'CARD2CARD.AMOUNT.RANGE_EUR') | translate}}"
-                                   ng-change="calculate(); validAmount()" ng-blur="setAmount()" min="1"  required ct-currency ng-click="crossboardAllowed = false" />
+                                   ng-change="getPaste(); calculate(); validAmount()"
+                                   ng-blur="setAmount()" min="1"  required ct-currency ng-click="crossboardAllowed = false"/>
                         </div>
 
                         <div class="col-md-3 amount-buttons-field-c2c" ng-show="crossboard">
@@ -215,13 +216,16 @@
                         </div>
                         <div class="clearfix"></div>
                         <div class="error-amount">
-                            <div ng-messages="c2cForm.amount.$error">
+                            <div ng-messages="c2cForm.amount.$error" ng-show="c2cForm.amount.$touched">
                                 <div ng-message="required">{{ 'CARD2CARD.ERRORS.AMOUNT.AMOUNT_REQUIRED' | translate }}</div>
+                                <div ng-message="errorInputAmount">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>
                                 <div ng-message="min">{{ 'CARD2CARD.ERRORS.AMOUNT.BIGGER_SUM' | translate }}</div>
                                 <div ng-message="max">{{ 'CARD2CARD.ERRORS.AMOUNT.SMALLER_SUM' | translate }}</div>
                                 <div ng-message="errorMax">{{ 'CARD2CARD.ERRORS.AMOUNT.SMALLER_SUM' | translate }}</div>
+
                             </div>
                         </div>
+
                         <div class="tariffs">
                             <div class="text-commiss" ng-show="!crossboard">{{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commiss || 0 | currency:currency }}</div>
                             <div class="text-commiss" ng-show="crossboard">{{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commissCross/100 || 0 | currency:currency }}</div>
