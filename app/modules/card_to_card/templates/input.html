@@ -201,7 +201,7 @@
                             <input type="text" name="amount" class="form-control amount-input-c2c" tabindex="6"
                                    ng-model="amount" placeholder = "{{!crossboard ? 'CARD2CARD.AMOUNT.RANGE' : (currentCurrency == 980 ? 'CARD2CARD.AMOUNT.RANGE_CROSS' : 'CARD2CARD.AMOUNT.RANGE_EUR') | translate}}"
                                    ng-change="getPaste(); calculate(); validAmount()"
-                                   ng-paste="amountPaste()"
+                                   ng-paste="amountPaste(amount)"
                                    ng-blur="setAmount()" min="1"  required ct-currency ng-click="crossboardAllowed = false"/>
                         </div>
 
