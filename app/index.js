@@ -111,17 +111,27 @@ angular.module('app', [
                 getPayStatus:               prefix + '/sendua-external/Info/GetPayStatus',
                 finishlookup:               prefix + '/sendua-external/ConfirmLookUp/finishlookup',
                 getDateTime:                prefix + '/sendua-external/Info/GetDateTime',
-                kvitanse:                   prefix + '/sendua-external/Info/kvitanse',
+
                 getlinkparams:              prefix + '/sendua-external/Card2Card/getlinkparams',
 
                 createCard2CardOperation:   prefix + '/sendua-api/Card2Card/createCard2CardOperation',
+                createCard2PhoneOperation:  prefix + '/sendua-api/Card2Phone/createCard2PhoneOperation',
+                getPayment:                 prefix + '/sendua-api/Card2Phone/getPayment',
+                getStatePhone:              prefix + '/sendua-api/Card2Phone/getStatePhone',
+                getReceipt:                 prefix + '/sendua-api/info/getReceipt',
+
+
+                // phone2Card:                 prefix + '/sendua-external/Phone2Card/CreatePhone2CardOperation',
 
                 // createCard2CardOperation:   prefix + '/sendua-external/Card2Card/CreateCard2CardOperation',
+                // createCard2PhoneOperation:  prefix + '/sendua-external/Card2Phone/CreateCard2PhoneOperation',
+                // phone2Card:                 prefix + '/sendua-external/Phone2Card/CreatePhone2CardOperation',
+                // kvitanse:                   prefix + '/sendua-external/Info/kvitanse',
 
                 generateLink:               prefix + '/sendua-external/Card2Card/generateLink',
                 sendtomail:                 prefix + '/sendua-external/Card2Card/sendtomail',
-                createCard2PhoneOperation:  prefix + '/sendua-external/Card2Phone/CreateCard2PhoneOperation',
-                phone2Card:                 prefix + '/sendua-external/Phone2Card/CreatePhone2CardOperation',
+
+
                 tocardlink:                 prefix + '/sendua-external/Card2Card/tocardlink',
                 crossboardlink:             prefix + '/cardzone/check/',
                 crossboardAmount:           prefix + '/sendua-api/cross/checkCross',

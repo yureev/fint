@@ -88,7 +88,7 @@
       }
     },
     "TITLE": "ПЕРЕВОД С КАРТЫ НА КАРТУ",
-    "AGREEMENT": "Подтвердите, что Вы ознакомились и принимаете <a href='/assets/iframes/new_terms_conditions.pdf' target='_blank'>условия</a> публичной оферты",
+    "AGREEMENT": "Подтвердите, что Вы ознакомились и принимаете <a href='/assets/iframes/terms_conditions.pdf' target='_blank'>условия</a> публичной оферты",
     "SEND": "ПЕРЕВЕСТИ",
     "SOURCE": {
       "TITLE": "Карта отправителя",
