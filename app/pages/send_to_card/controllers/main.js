@@ -85,6 +85,8 @@ function Ctrl($scope, $stateParams, $timeout, $translate, Notification) {
             Notification.error(value);
         });
     }
+
+
 }
 
 module.exports = Ctrl;
