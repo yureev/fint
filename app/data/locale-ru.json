@@ -88,7 +88,7 @@
       }
     },
     "TITLE": "ПЕРЕВОД С КАРТЫ НА КАРТУ",
-    "AGREEMENT": "Подтвердите, что Вы ознакомились и принимаете <a href='/assets/iframes/terms_conditions.pdf' target='_blank'>условия</a> публичной оферты",
+    "AGREEMENT": "Подтвердите, что Вы ознакомились и принимаете <a href='/assets/iframes/offer.pdf' target='_blank'>условия</a> публичной оферты",
     "SEND": "ПЕРЕВЕСТИ",
     "SOURCE": {
       "TITLE": "Карта отправителя",
@@ -157,6 +157,8 @@
     "CROSSBOARD_TEXT_MTN": "Черногория",
     "CROSSBOARD_TEXT_POL": "Польша",
     "CROSSBOARD_TEXT_ROM": "Румыния",
+    "NO_CROSSBOARD_TEXT": "Международные переводы доступны только с карт Mastercard и Maestro Диамантбанка на карты Mastercard и Maestro зарубежных банков",
+
 
 
 
