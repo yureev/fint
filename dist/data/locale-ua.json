@@ -92,7 +92,7 @@
       }
     },
     "TITLE": "ПЕРЕКАЗ З КАРТКИ НА КАРТКУ",
-    "AGREEMENT": "Підтвердіть, що Ви ознайомились та приймаєте <a href='/assets/iframes/new_terms_conditions.pdf' target='_blank'>умови</a> публічної оферти",
+    "AGREEMENT": "Підтвердіть, що Ви ознайомились та приймаєте <a href='/assets/iframes/terms_conditions.pdf' target='_blank'>умови</a> публічної оферти",
     "SEND": "ПЕРЕКАЗАТИ",
     "SOURCE": {
       "TITLE": "Картка відправника",
