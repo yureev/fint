@@ -64,7 +64,9 @@ function Ctrl($scope, $stateParams, $timeout, $translate, Notification) {
         } else {
             $scope.amount = data.amount / 100;
         }
-        $scope.target.card = data.mask;
+
+        $scope.target.card = data.card;
+        //console.log($scope.target.card);
         $scope.phone = $stateParams.phone;
 
         $scope.$broadcast('Card2CardCalculate');

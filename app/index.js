@@ -110,38 +110,41 @@ angular.module('app', [
                 getTariffs:                 prefix + '/sendua-external/Info/GetTariffs?tarifftype=web',
                 getPayStatus:               prefix + '/sendua-external/Info/GetPayStatus',
                 finishlookup:               prefix + '/sendua-external/ConfirmLookUp/finishlookup',
-                getDateTime:                prefix + '/sendua-external/Info/GetDateTime',
 
-                getlinkparams:              prefix + '/sendua-external/Card2Card/getlinkparams',
 
+
+
+                getDateTime:                prefix + '/sendua-api/info/GetDateTime',
                 createCard2CardOperation:   prefix + '/sendua-api/Card2Card/createCard2CardOperation',
                 createCard2PhoneOperation:  prefix + '/sendua-api/Card2Phone/createCard2PhoneOperation',
                 getPayment:                 prefix + '/sendua-api/Card2Phone/getPayment',
                 getStatePhone:              prefix + '/sendua-api/Card2Phone/getStatePhone',
                 getReceipt:                 prefix + '/sendua-api/info/getReceipt',
+                generateLink:               prefix + '/sendua-api/info/generateLink',
+                sendLinkToMail:             prefix + '/sendua-api/info/sendLinkToMail',
+                getlinkparams:              prefix + '/sendua-api/info/getLinkParams',
 
 
                 // phone2Card:                 prefix + '/sendua-external/Phone2Card/CreatePhone2CardOperation',
-
                 // createCard2CardOperation:   prefix + '/sendua-external/Card2Card/CreateCard2CardOperation',
                 // createCard2PhoneOperation:  prefix + '/sendua-external/Card2Phone/CreateCard2PhoneOperation',
                 // phone2Card:                 prefix + '/sendua-external/Phone2Card/CreatePhone2CardOperation',
                 // kvitanse:                   prefix + '/sendua-external/Info/kvitanse',
+                // getDateTime:                prefix + '/sendua-external/Info/GetDateTime',
+                // generateLink:               prefix + '/sendua-external/Card2Card/generateLink',
+                // sendtomail:                 prefix + '/sendua-external/Card2Card/sendtomail',
+                // getlinkparams:              prefix + '/sendua-external/Card2Card/getlinkparams',
+                // tocardlink:                 prefix + '/sendua-external/Card2Card/tocardlink',
 
-                generateLink:               prefix + '/sendua-external/Card2Card/generateLink',
-                sendtomail:                 prefix + '/sendua-external/Card2Card/sendtomail',
 
-
-                tocardlink:                 prefix + '/sendua-external/Card2Card/tocardlink',
                 crossboardlink:             prefix + '/cardzone/check/',
                 crossboardAmount:           prefix + '/sendua-api/cross/checkCross',
                 createCross:                prefix + '/sendua-api/cross/createCross',
                 getState:                   prefix + '/sendua-api/info/getState/',
-                lookupContinue:             prefix + '/sendua-api/Lookup/continue/',
+                lookupContinue:             prefix + '/sendua-api/Lookup/continue',
                 getCurrencyrates:           prefix + '/sendua-api/cross/currency',
                 validDiamantMaster:         prefix + '/sendua-api/cross/isDiamant',
                 calc:                       prefix + '/sendua-api/Card2Card/calcCommission',
-
                 getTariffsNew:              prefix + '/sendua-api/info/getTariffs'
 
             });
