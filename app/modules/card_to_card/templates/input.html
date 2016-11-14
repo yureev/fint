@@ -307,10 +307,10 @@
                         <span class="text-exchange" ng-show="crossboard">{{ 'CARD2CARD.AMOUNT.EXCHANGE' | translate }} {{currencyRate.forward }} <br></span>
                         <span class="text-target-amount" ng-show="crossboard ">{{ 'CARD2CARD.AMOUNT.RECIPIENT_SEND' | translate }} {{amountEUR/100 || 0}} {{ 'CARD2CARD.AMOUNT.CURRENCY_EURO' | translate }} <br></span>
 
-                        <!--<span class="text-bold-big" ng-show="crossboard && !crossboardAllowed">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{totalAmountCrossBeforeCheck/100 || 0 | currency:currency}}</span>-->
-                        <!--<span class="text-bold-big" ng-show="crossboard && crossboardAllowed">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{totalAmountCross/100 || 0 | currency:currency}}</span>-->
+                        <span class="text-bold-big" ng-show="crossboard && !crossboardAllowed">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{totalAmountCrossBeforeCheck/100 || 0 | currency:currency}}</span>
+                        <span class="text-bold-big" ng-show="crossboard && crossboardAllowed">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{totalAmountCross/100 || 0 | currency:currency}}</span>
 
-                        <span class="text-bold-big" ng-show="crossboard ">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{totalAmountCross/100 || 0 | currency:currency}}</span>
+                        <!--<span class="text-bold-big" ng-show="crossboard ">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{totalAmountCross/100 || 0 | currency:currency}}</span>-->
                         <span class="text-bold-big" ng-show="!crossboard">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{ total || 0 | currency:currency }}</span>
 
 
