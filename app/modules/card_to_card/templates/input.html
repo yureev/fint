@@ -299,7 +299,7 @@
                             <label>{{ 'CARD2CARD.TARGET.LABEL.CARD_NUMBER' | translate }}</label>
                             <input type="text" name="numberTarget" class="form-control" disabled tabindex="5"
                                    ct-tabindex="checkTargetNumber"
-                                   ng-model="target.card"/>
+                                   ng-model="transaction.numberTarget"/>
                             <div class="error-target"></div>
                         </div>
                     </div>
@@ -310,9 +310,9 @@
                         <!--<span class="text-bold-big" ng-show="crossboard && !crossboardAllowed">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{totalAmountCrossBeforeCheck/100 || 0 | currency:currency}}</span>-->
                         <!--<span class="text-bold-big" ng-show="crossboard && crossboardAllowed">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{totalAmountCross/100 || 0 | currency:currency}}</span>-->
 
-
                         <span class="text-bold-big" ng-show="crossboard ">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{totalAmountCross/100 || 0 | currency:currency}}</span>
                         <span class="text-bold-big" ng-show="!crossboard">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{ total || 0 | currency:currency }}</span>
+
 
                         <div class="form-group send">
                             <div class="checkbox">

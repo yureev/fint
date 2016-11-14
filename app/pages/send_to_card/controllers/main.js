@@ -1,5 +1,6 @@
 Ctrl.$inject = ['$scope', '$stateParams', '$timeout', '$translate', 'Notification'];
 function Ctrl($scope, $stateParams, $timeout, $translate, Notification) {
+
     if ($stateParams.payLink) {
         $timeout(function() {
             $scope.$broadcast('GetLinkParams', {
@@ -57,6 +58,7 @@ function Ctrl($scope, $stateParams, $timeout, $translate, Notification) {
     };
 
     function onGetLinkParamsSuccess(event, data) {
+        console.log(data.card);
         $scope.numberTargetMask = '';
         $scope.numberTargetIsDisabled = true;
         if($stateParams.amount) {
@@ -66,7 +68,7 @@ function Ctrl($scope, $stateParams, $timeout, $translate, Notification) {
         }
 
         $scope.target.card = data.card;
-        //console.log($scope.target.card);
+
         $scope.phone = $stateParams.phone;
 
         $scope.$broadcast('Card2CardCalculate');
