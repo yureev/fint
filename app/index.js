@@ -159,6 +159,7 @@ angular.module('app', [
     .controller('AppCtrl', ['$scope', '$translate', 'tmhDynamicLocale', function ($scope, $translate, tmhDynamicLocale) {
         $scope.lang = 'ua';
 
+
         $scope.onChangeLanguage = function () {
             var lang = $scope.lang;
 
