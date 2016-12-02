@@ -109,8 +109,8 @@ angular.module('app', [
 
             CardToCardProvider.setUrls({
 
-                getPayStatus:               prefix + '/sendua-external/Info/GetPayStatus',
-                finishlookup:               prefix + '/sendua-external/ConfirmLookUp/finishlookup',
+                // getPayStatus:               prefix + '/sendua-external/Info/GetPayStatus',
+                // finishlookup:               prefix + '/sendua-external/ConfirmLookUp/finishlookup',
 
 
 
