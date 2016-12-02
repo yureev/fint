@@ -204,9 +204,9 @@
                         <div class="col-md-9 amount-input-currency" >
                             <input type="text" name="amount" class="form-control amount-input-c2c" tabindex="6"
                                    ng-model="amount" placeholder = "{{!crossboard ? 'CARD2CARD.AMOUNT.RANGE' : (currentCurrency == 980 ? 'CARD2CARD.AMOUNT.RANGE_CROSS' : 'CARD2CARD.AMOUNT.RANGE_EUR') | translate}}"
-                                   ng-change="getPaste(); calculate(); validAmount()"
+                                   ng-change="getPaste(); calculate(); validAmount(); setAmount()"
                                    ng-paste="amountPaste(amount)"
-                                   ng-blur="setAmount()" min="1"  required ct-currency ng-click="crossboardAllowed = false"/>
+                                   min="1"  required ct-currency ng-click="crossboardAllowed = false"/>
                         </div>
 
                         <div class="col-md-3 amount-buttons-field-c2c" ng-show="crossboard">
@@ -326,9 +326,19 @@
                                     <div ng-message="required">{{ 'CARD2CARD.ERRORS.AGREED' | translate }}</div>
                                 </div>
                             </div>
-                            <div class="buttons">
+                            <div class="buttons" ng-show="!crossboard">
                                 <button type="submit" class="btn btn-warning send-button" tabindex="17"
                                         ng-disabled="c2cForm.$invalid || c2cForm.$pristine">
+                                    {{ 'CARD2CARD.SEND' | translate }}
+                                </button>
+                                <button type="button" class="btn btn-link" ng-click="cancel()"
+                                        ng-disabled="c2cForm.$pristine">
+                                    {{ 'CARD2CARD.BUTTON_CANCEL' | translate }}
+                                </button>
+                            </div>
+                            <div class="buttons" ng-show="crossboard">
+                                <button type="submit" class="btn btn-warning send-button" tabindex="17"
+                                        ng-disabled="!crossboardAllowed || c2cForm.$invalid || c2cForm.$pristine">
                                     {{ 'CARD2CARD.SEND' | translate }}
                                 </button>
                                 <button type="button" class="btn btn-link" ng-click="cancel()"
