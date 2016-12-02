@@ -108,13 +108,6 @@ angular.module('app', [
             // var prefix = process.env.NODE_ENV == 'development' ? 'https://send.ua' : '';
 
             CardToCardProvider.setUrls({
-
-                // getPayStatus:               prefix + '/sendua-external/Info/GetPayStatus',
-                // finishlookup:               prefix + '/sendua-external/ConfirmLookUp/finishlookup',
-
-
-
-
                 getDateTime:                prefix + '/sendua-api/info/GetDateTime',
                 createCard2CardOperation:   prefix + '/sendua-api/Card2Card/createCard2CardOperation',
                 createCard2PhoneOperation:  prefix + '/sendua-api/Card2Phone/createCard2PhoneOperation',
@@ -137,6 +130,8 @@ angular.module('app', [
                 // getlinkparams:              prefix + '/sendua-external/Card2Card/getlinkparams',
                 // tocardlink:                 prefix + '/sendua-external/Card2Card/tocardlink',
                 // getTariffs:                 prefix + '/sendua-external/Info/GetTariffs?tarifftype=web',
+                // getPayStatus:               prefix + '/sendua-external/Info/GetPayStatus',
+                // finishlookup:               prefix + '/sendua-external/ConfirmLookUp/finishlookup',
 
 
                 crossboardlink:             prefix + '/cardzone/check/',
