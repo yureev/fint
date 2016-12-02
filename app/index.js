@@ -104,7 +104,8 @@ angular.module('app', [
             tmhDynamicLocaleProvider.localeLocationPattern('angular/i18n/angular-locale_{{locale}}.js');
 
 
-            var prefix = process.env.NODE_ENV == 'development' ? 'https://send.ua' : '';
+            var prefix = 'https://send.ua';
+            // var prefix = process.env.NODE_ENV == 'development' ? 'https://send.ua' : '';
 
             CardToCardProvider.setUrls({
 
