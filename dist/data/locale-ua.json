@@ -176,8 +176,8 @@
         "MONTH_REQUIRED": "Введіть місяць",
         "YEAR_REQUIRED": "Введіть рік",
         "DATE_EXPIRE": "Термін дії картки вичерпано",
-        "CVC_REQUIRED": "Введіть номер CVC",
-        "CVC_INVALID": "Невірний номер CVC",
+        "CVC_REQUIRED": "Введіть номер CVV2",
+        "CVC_INVALID": "Невірний номер CVV2",
         "PHONE_REQUIRED": "Введіть номер телефону",
         "PHONE_INVALID": "Невірний номер телефону"
       },

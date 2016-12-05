@@ -174,8 +174,8 @@
         "MONTH_REQUIRED": "Введите месяц",
         "YEAR_REQUIRED": "Введите год",
         "DATE_EXPIRE": "Срок действия карты истек",
-        "CVC_REQUIRED": "Введите номер CVC",
-        "CVC_INVALID": "Неверный номер CVC",
+        "CVC_REQUIRED": "Введите номер CVV2",
+        "CVC_INVALID": "Неверный номер CVV2",
         "PHONE_REQUIRED": "Введите номер телефона",
         "PHONE_INVALID": "Неверный номер телефона"
       },
