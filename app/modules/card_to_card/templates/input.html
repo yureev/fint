@@ -130,7 +130,9 @@
                             <div class="card-logo" ng-class="c2cForm.number.cardType"></div>
                             <input type="text" name="number" class="form-control" ct-tabindex="checkNumber"
                                    tabindex="1"
-                                   ng-model="number" required ng-change="validDiamantMaster(); validCardZoneSource()"
+                                   ng-model="number" required ng-change="validDiamantMaster(number); validCardZoneSource(number)"
+                                   ng-keyup="validDiamantMaster(number); validCardZoneSource(number)"
+
                                    ui-mask="9999 9999 9999 9999" placeholder="____ ____ ____ ____"
                                    ct-payments-main-card ct-payments-format-number ct-payments-validate-number/>
                             <div class="error-number">
@@ -283,7 +285,8 @@
                             <div class="card-logo" ng-class="c2cForm.numberTarget.cardType"></div>
                             <input type="text" name="numberTarget" class="form-control"
                                    ct-tabindex="checkTargetNumber"
-                                   ng-model="target.card" required tabindex="5" ng-change="validCardZoneTarget()"
+                                   ng-model="target.card" required tabindex="5" ng-change="validCardZoneTarget(target.card)"
+                                   ng-keyup="validCardZoneTarget(target.card)"
                                    ng-disabled="numberTargetIsDisabled"
                                    ui-mask="9999 9999 9999 9999" placeholder="____ ____ ____ ____"
                                    ct-payments-format-number
