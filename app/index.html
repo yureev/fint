@@ -4,8 +4,21 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <div class="logo">
-                        <a class="navbar-brand" ui-sref="app.card"><img src="./assets/images/logo_sendua.png" alt="SendUa"></a>
+                        <div>
+                            <a class="navbar-brand" ui-sref="app.card">
+                                <div class="logo-img"><img src="./assets/images/logo_sendua.png" alt="SendUa"></div>
+                                <div class="logo-text"><img src="./assets/images/send_ua_logo.svg" alt="SendUa"></div>
+                            </a>
+                        </div>
                     </div>
+
+                    <div class="buttons">
+                        <button type="submit" class="btn btn-warning send-button">
+                            {{ 'CARD2CARD.SEND' | translate }}
+                        </button>
+
+                    </div>
+
 
                     <!--<div class="navigation-toggle">-->
                         <!--<button type="button" class="navbar-toggle collapsed" ng-click="isCollapsed = !isCollapsed">-->

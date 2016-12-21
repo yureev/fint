@@ -16,6 +16,9 @@ $fa-font-path: "~font-awesome/fonts"
 
 // Misc
 
+html
+  font-size: 16px
+
 body
   font-size: 1rem
 
@@ -29,12 +32,43 @@ input:invalid
 
   .top
     min-width: 220px
+    margin: 0
+    padding: 0
+
+
+    .navbar-header
+      margin-bottom: 20px
+      width: 100%
+
+      .navbar-brand
+        .logo-text, .logo-img
+          display: inline-block
+
+
+        .logo-img
+          margin-left: 20px
+
+        .logo-text
+          img
+            width: 200%
+
+      .buttons
+        text-align: center
+
+
+        button
+          margin-top: 40px
+          height: 45px
+          width: 80%
+          font-size: 16px
+          background-color: #f79601
+
 
     .navigation-toggle
       margin-top: 15px
 
     .navbar-default
-      background-color: #ffffff
+      background-color: rgba(0, 40, 84, 0.8)
       border: 0
 
 
@@ -48,6 +82,7 @@ input:invalid
 
       > li
         > a
+          text-align: left
           color: #777777
 
     .translate
@@ -286,79 +321,79 @@ input:invalid
   margin-top: 30px
 
 
-@media(max-width: 767px)
-
-  html
-    font-size: 14px
-
-  .app
-
-    header
-
-      .logo
-        float: left
-        margin-left: 30px
-        height: 80px
-
-    .navigation
-      margin-left: 0
-
-    .nav-justified
-
-      > li
-        > a
-          text-align: left
-
-  .rocketchat-widget
-    right: 0px !important
-    width: 100% !important
-
-
-@media(min-width: 768px)
-
-  html
-    font-size: 13px
-
-    .app
-
-      header
-
-        .logo
-          float: left
-          margin-left: 30px
-          height: 80px
-
-      .navigation
-        margin-left: 18%
-
-  .rocketchat-widget
-    right: 100px !important
-
-
-@media(min-width: 992px)
-
-  html
-    font-size: 14px
-
-    .app
-
-      header
-
-        .logo
-          float: left
-          margin-left: 70px
-          height: 80px
-
-@media(min-width: 1400px)
-
-  html
-    font-size: 16px
-
-    .app
-
-      header
-
-        .logo
-          float: left
-          margin-left: 70px
-          height: 80px
+//@media(max-width: 767px)
+//
+//  html
+//    font-size: 14px
+//
+//  .app
+//
+//    header
+//
+//      .logo
+//        float: left
+//        margin-left: 30px
+//        height: 80px
+//
+//    .navigation
+//      margin-left: 0
+//
+//    .nav-justified
+//
+//      > li
+//        > a
+//          text-align: left
+//
+//  .rocketchat-widget
+//    right: 0px !important
+//    width: 100% !important
+//
+//
+//@media(min-width: 768px)
+//
+//  html
+//    font-size: 13px
+//
+//    .app
+//
+//      header
+//
+//        .logo
+//          float: left
+//          margin-left: 30px
+//          height: 80px
+//
+//      .navigation
+//        //margin-left: 18%
+//
+//  .rocketchat-widget
+//    right: 100px !important
+//
+//
+//@media(min-width: 992px)
+//
+//  html
+//    font-size: 14px
+//
+//    .app
+//
+//      header
+//
+//        .logo
+//          float: left
+//          margin-left: 70px
+//          height: 80px
+//
+//@media(min-width: 1400px)
+//
+//  html
+//    font-size: 16px
+//
+//    .app
+//
+//      header
+//
+//        .logo
+//          float: left
+//          margin-left: 70px
+//          height: 80px
