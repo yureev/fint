@@ -17,7 +17,7 @@ $fa-font-path: "~font-awesome/fonts"
 // Misc
 
 html
-  font-size: 16px
+  font-size: 14px
 
 body
   font-size: 1rem
@@ -36,32 +36,60 @@ input:invalid
     padding: 0
 
 
-    .navbar-header
+    .navigation
       margin-bottom: 20px
       width: 100%
 
       .navbar-brand
+        padding: 0
+        //padding-left: 20px
+
         .logo-text, .logo-img
           display: inline-block
 
 
         .logo-img
-          margin-left: 20px
+          //margin-left: 20px
 
         .logo-text
           img
             width: 200%
 
       .buttons
-        text-align: center
+        text-align: left
+        padding: 0
 
 
         button
-          margin-top: 40px
+          //margin-top: 40px
           height: 45px
-          width: 80%
+          width: 100%
           font-size: 16px
           background-color: #f79601
+
+      .social, .support
+        //margin-bottom: 20px
+
+        .facebook-pic, .twitter-pic
+          width: 40px
+          height: 30px
+
+        i
+          color: #d8d8d8
+          font-size: 30px
+
+        i:first-child
+          margin-right: 20px
+
+        .title
+          color: #4a90e2
+          font-size: 14px
+          margin-bottom: 20px
+
+      .line-up
+        border-top: 1px solid #9b9b9b
+        width: 100%
+        margin-bottom: 10px
 
 
     .navigation-toggle
@@ -70,6 +98,7 @@ input:invalid
     .navbar-default
       background-color: rgba(0, 40, 84, 0.8)
       border: 0
+      border-radius: 0
 
 
     .navbar
@@ -79,17 +108,18 @@ input:invalid
       margin-top: 18px
 
     .nav-justified
+      margin-bottom: 20px
 
-      > li
-        > a
-          text-align: left
-          color: #777777
+      a
+        text-align: left
+        color: #d8d8d8
+        //padding: 10px 0
 
     .translate
       float: left
       display: inline-block
-      margin-top: 28px
-      margin-left: 15px
+      margin-top: 40px
+      //margin-left: 15px
 
       .item
         width: 30px
