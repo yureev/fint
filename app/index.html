@@ -23,10 +23,18 @@
                         </a>
                     </div>
                     <div class="nav nav-justified">
-                        <a ui-sref="app.card">{{'APP.CONTROLS.BTN_SEND' | translate}}</a>
+                        <a ui-sref="app.card" ng-class="{active: $state.includes('app.card') || $state.includes('app.phone')}">{{'APP.CONTROLS.BTN_SEND' | translate}}</a>
+                        <div class="nav nav-inside" ng-class="{active: $state.includes('app.card') || $state.includes('app.phone')}">
+                            <div><a ui-sref="app.card" ng-class="{active: $state.includes('app.card') }">{{'CARD2CARD.CONTROLS.SEND.BTN_CARDTOCARD' | translate}}</a></div>
+                            <div><a ui-sref="app.phone" ng-class="{active: $state.includes('app.phone')}">{{'CARD2CARD.CONTROLS.SEND.BTN_PHONE' | translate}}</a></div>
+                        </div>
                     </div>
                     <div class="nav nav-justified">
-                        <a ui-sref="app.url">{{'APP.CONTROLS.BTN_RECEIVE' | translate}}</a>
+                        <a ui-sref="app.url" ng-class="{active: $state.includes('app.url') || $state.includes('app.code')}">{{'APP.CONTROLS.BTN_RECEIVE' | translate}}</a>
+                        <div class="nav nav-inside" ng-class="{active: $state.includes('app.url') || $state.includes('app.code')}">
+                            <div><a ui-sref="app.url" ng-class="{active: $state.includes('app.url') }">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_URL' | translate}}</a></div>
+                            <div><a ui-sref="app.code" ng-class="{active: $state.includes('app.code')}">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_CODE' | translate}}</a></div>
+                        </div>
                     </div>
 
                     <div class="line-up"></div>
@@ -64,8 +72,6 @@
                             <!--<img class="twitter-pic" src="./assets/images/twitter_logo.svg" alt="Twitter">-->
                             <a><i class="fa fa-twitter" aria-hidden="true"></i></a>
                             <a><i class="fa fa-facebook" aria-hidden="true"></i></a>
-
-
                         </div>
                     </div>
                     <div class="nav nav-justified">

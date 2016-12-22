@@ -105,6 +105,7 @@ angular.module('app', [
 
 
             var prefix = 'https://send.ua';
+
             // var prefix = process.env.NODE_ENV == 'development' ? 'https://send.ua' : '';
 
             CardToCardProvider.setUrls({
@@ -166,6 +167,7 @@ angular.module('app', [
         $translate('CARD2CARD.AMOUNT.CURRENCY').then(function (value) {
             $scope.currency = value;
         });
+
     }])
     .controller('LinkCtrl', ['$state', '$stateParams', function ($state, $stateParams) {
         var base64Url = require('base64-url');
