@@ -119,13 +119,13 @@
 
         </div>
         <div class="row">
-            <div class="hidden-xs hidden-sm">
-                <div class="play"><span class="glyphicon glyphicon-menu-right"></span></div>
-            </div>
+            <!--<div class="hidden-xs hidden-sm">-->
+                <!--<div class="play"><span class="glyphicon glyphicon-menu-right"></span></div>-->
+            <!--</div>-->
             <div class="col-sm-6">
                 <!--<div class="col-md-11 col-lg-8 col-lg-offset-2">-->
-                    <div class="card source" ng-class="{'cross-card-left' : crossboard}" card-height>
-                        <div class="form-group" ct-input-container>
+                    <div class="card source " ng-class="{'cross-card-left' : crossboard}" card-height>
+                        <div class="form-group col-xs-12" ct-input-container>
                             <label>{{ 'CARD2CARD.SOURCE.LABEL.CARD_NUMBER' | translate }}</label>
                             <div class="card-logo" ng-class="c2cForm.number.cardType"></div>
                             <input type="text" name="number" class="form-control" ct-tabindex="checkNumber"
@@ -142,30 +142,31 @@
                                     <div ng-message="errorCross">Беда</div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="expire">
-                            <label>{{ 'CARD2CARD.SOURCE.LABEL.DATE_EXPIRE' | translate }}</label>
-                            <div class="form-group">
-                                <div ct-input-container class="date"
-                                     ng-class="{'ct-input-invalid': c2cForm.expire.$error && c2cForm.expire.$error.invalidExpire}">
-                                    <input type="text" class="form-control" ct-tabindex="checkMonth"
-                                           maxlength="2"
-                                           tabindex="2"
-                                           required ng-model="viewExpire.month" name="month"
-                                           placeholder="{{ 'CARD2CARD.SOURCE.MONTH' | translate }}"
-                                           ct-payments-format-expire-month-text/>
-                                </div>
-                                <div ct-input-container class="date"
-                                     ng-class="{'ct-input-invalid': c2cForm.expire.$error && c2cForm.expire.$error.invalidExpire}">
-                                    <input type="text" class="form-control" ct-tabindex="checkYear"
-                                           maxlength="2"
-                                           tabindex="3"
-                                           required ng-model="viewExpire.year" name="year"
-                                           placeholder="{{ 'CARD2CARD.SOURCE.YEAR' | translate }}"
-                                           ct-payments-format-expire-year-text/>
+                            <div class="expire ">
+                                <label>{{ 'CARD2CARD.SOURCE.LABEL.DATE_EXPIRE' | translate }}</label>
+                                <div class="form-group">
+                                    <div ct-input-container class="date"
+                                         ng-class="{'ct-input-invalid': c2cForm.expire.$error && c2cForm.expire.$error.invalidExpire}">
+                                        <input type="text" class="form-control" ct-tabindex="checkMonth"
+                                               maxlength="2"
+                                               tabindex="2"
+                                               required ng-model="viewExpire.month" name="month"
+                                               placeholder="{{ 'CARD2CARD.SOURCE.MONTH' | translate }}"
+                                               ct-payments-format-expire-month-text/>
+                                    </div>
+                                    <div ct-input-container class="date"
+                                         ng-class="{'ct-input-invalid': c2cForm.expire.$error && c2cForm.expire.$error.invalidExpire}">
+                                        <input type="text" class="form-control" ct-tabindex="checkYear"
+                                               maxlength="2"
+                                               tabindex="3"
+                                               required ng-model="viewExpire.year" name="year"
+                                               placeholder="{{ 'CARD2CARD.SOURCE.YEAR' | translate }}"
+                                               ct-payments-format-expire-year-text/>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
                         <div class="cvv">
                             <label class="input-label">{{ 'CARD2CARD.SOURCE.LABEL.CODE' | translate }}</label>
                             <div class="has-feedback " ct-input-container>
@@ -198,6 +199,22 @@
                             </div>
                         </div>
                         <div class="clearfix"></div>
+                        <div class="phone">
+                            <div class="form-group" ct-input-container>
+                                <label>{{ 'CARD2CARD.SOURCE.LABEL.PHONE_NUMBER' | translate }}</label>
+                                <input type="text" name="phone" class="form-control" ui-mask="+380 (99) 999 99 99"
+                                       tabindex="7" ct-tabindex="checkPhone" ng-model="phone" required
+                                       placeholder="+380 (__) ___-__-__"
+                                       tooltip-placement="top-left"
+                                       uib-tooltip="{{ 'CARD2CARD.SOURCE.PHONE_TOOLTIP' | translate }}"/>
+                                <div class="error-phone">
+                                    <div ng-messages="c2cForm.phone.$error" ng-show="c2cForm.phone.$touched">
+                                        <div ng-message="required">{{ 'CARD2CARD.ERRORS.SOURCE.PHONE_REQUIRED' | translate }}</div>
+                                        <div ng-message="mask">{{ 'CARD2CARD.ERRORS.SOURCE.PHONE_INVALID' | translate }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="amount" ct-input-container>
