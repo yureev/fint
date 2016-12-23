@@ -64,6 +64,8 @@
 
   .row
     position: relative
+    margin: 0
+    padding: 20px
 
   .row-crossboard
     position: relative
@@ -95,12 +97,15 @@
     margin-bottom: 30px
 
   .card
-    margin: 0
+    //margin: 0
     padding: 10px
     //border-radius: 10px
     //color: $main_color_inactive
     //padding: 6% 7%
     margin-bottom: 10px
+    //border: 1px solid #9b9b9b
+    border-radius: 3px
+    width: 50%
 
 
     .form-control-feedback
@@ -125,6 +130,8 @@
     .form-group
       margin-bottom: 0
 
+
+
     label
       font-size: 1rem
       font-weight: 500
@@ -132,9 +139,24 @@
 
     &.target
       //border: 2px solid #f0ad4e
+      padding-right: 10px
+      border-left: none
+      float: right
+      box-shadow: 4px 1px 10px 0 rgba(0, 0, 0, 0.25)
+
 
     &.source
-      //border: 2px solid #000080
+      //border: 1px solid #9b9b9b
+      background-color: #ededed
+      padding-left: 10px
+      border-right: none
+      float: left
+      box-shadow: -4px 1px 10px 0 rgba(0, 0, 0, 0.25)
+      //margin-left: 10px
+
+      .source-input
+        width: 80%
+        float: left
 
       .card-data
         margin-top: 35px
@@ -144,18 +166,38 @@
           margin-right: 49px
 
       .expire
-        //float: left
+        float: right
+        width: 20%
         //clear: both
         //position: relative
 
         .date
-          display: inline-block
+          //display: inline-block
           //float: left
-          margin-right: 5px
-          width: 60px
+          //margin-right: 5px
+          width: 50%
+
+
+          input
+            //width: 50%
+            border-radius: 0
+
+        .date:first-child
+          float: left
+          input
+            border-right: none
+
+
+
+        .date:last-child
+          float: right
+          input
+            border-left: none
+
+
 
       .cvv
-        display: inline-block
+        //display: inline-block
         //float: right
         width: 75px
 
