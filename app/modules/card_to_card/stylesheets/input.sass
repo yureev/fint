@@ -15,8 +15,6 @@
 
     .crossboard-blink
       color: red
-      //a
-      //  color: red
 
   .popup
     position: absolute
@@ -27,7 +25,6 @@
     z-index: 1000
     padding: 5px
     font-size: 14px
-    //overflow: auto
 
     .popup-table
       margin-bottom: 10px
@@ -40,9 +37,7 @@
 
   .popupCross
     position: absolute
-    //min-height: 100px
     border: 1px solid #d9534f
-    //border-radius: 10px
     background: #d9534f
     text-align: left
     z-index: 1000
@@ -56,22 +51,15 @@
       right: 1px
       top: 1px
 
-
-
-
-
-
-
   .row
     position: relative
-    margin: 0
+    //margin: 0
     padding: 20px
+    width: 75%
+    margin-left: 12%
 
   .row-crossboard
     position: relative
-    //z-index: 1
-    //top: -13px
-    //background-color: white
     height: 0px
     .form-group
       margin-bottom: 0px
@@ -97,16 +85,10 @@
     margin-bottom: 30px
 
   .card
-    //margin: 0
-    padding: 10px
-    //border-radius: 10px
-    //color: $main_color_inactive
-    //padding: 6% 7%
+    padding: 25px
     margin-bottom: 10px
-    //border: 1px solid #9b9b9b
     border-radius: 3px
     width: 50%
-
 
     .form-control-feedback
       pointer-events: all
@@ -130,33 +112,30 @@
     .form-group
       margin-bottom: 0
 
-
-
     label
       font-size: 1rem
       font-weight: 500
       margin-bottom: 0
 
     &.target
-      //border: 2px solid #f0ad4e
-      padding-right: 10px
       border-left: none
       float: right
       box-shadow: 4px 1px 10px 0 rgba(0, 0, 0, 0.25)
 
-
     &.source
-      //border: 1px solid #9b9b9b
       background-color: #ededed
-      padding-left: 10px
       border-right: none
       float: left
       box-shadow: -4px 1px 10px 0 rgba(0, 0, 0, 0.25)
-      //margin-left: 10px
 
       .source-input
-        width: 80%
+        width: 70%
         float: left
+
+        input
+          border-radius: 4px 0 0 4px
+          border-right: none
+          //text-align: center
 
       .card-data
         margin-top: 35px
@@ -167,19 +146,12 @@
 
       .expire
         float: right
-        width: 20%
-        //clear: both
-        //position: relative
+        width: 30%
 
         .date
-          //display: inline-block
-          //float: left
-          //margin-right: 5px
           width: 50%
 
-
           input
-            //width: 50%
             border-radius: 0
 
         .date:first-child
@@ -187,21 +159,21 @@
           input
             border-right: none
 
-
-
         .date:last-child
           float: right
           input
             border-left: none
-
-
+            border-radius: 0 4px 4px 0
 
       .cvv
-        //display: inline-block
-        //float: right
-        width: 75px
+        width: 25%
+
+      .phone
+        width: 70%
 
   .amount
+    width: 40%
+    float: left
 
     .amount-input-currency
       padding: 0
@@ -209,7 +181,6 @@
     .amount-input-c2c
       width: 100%
       margin-right: 7px
-
 
     .amount-buttons-field-c2c
 
@@ -222,48 +193,33 @@
         padding: 10px 5px
         text-decoration: none
 
-
       .activeCurrency
         color: #23527c
 
-      .amount-buttons-c2c
-      //margin-right: 5px
-      //padding-left: 5px
+  .tariffs
+    margin-bottom: 20px
+    font-size: 14px
+    float: right
 
-      .amount-buttons-c2c-eur
-  //text-align: left
-  //padding-left: 10px
+    .text-commiss
+      font-weight: 300
 
+    .text-bank
+      font-weight: 100
 
 
   .total-amount
-    margin-bottom: 22px
+    //margin-bottom: 22px
+    height: 0
 
     .text-exchange, .text-target-amount
       font-weight: bold
-
-
 
     .send
 
       .checkbox
         margin-bottom: 0
 
-      .buttons
-  //margin-top: 54px
-
-
-  .tariffs
-    margin-bottom: 20px
-    font-size: 14px
-    //margin-left: 5px
-
-    .text-commiss
-      font-weight: 300
-    //padding-top: 40px
-
-    .text-bank
-      font-weight: 100
 
   .description
     width: 40%
@@ -279,13 +235,11 @@
     text-align: center
     width: 285px
 
-
     .caret-c2c-block
       text-align: left
       position: relative
       top: -48px
       left: 40px
-
 
       i
         color: #bbd0e3
@@ -295,30 +249,18 @@
       .text-line-crossboard
         position: relative
         top: 4px
-        //font-size: 16px
         color: #f0ad4e
         padding-left: 17px
         margin-left: 5px
 
-        .text-line-crossboard1
-        //position: relative
-        //top: -8px
-        //font-size: 14px
-        //color: #f0ad4e
-        //padding-left: 10px
-
         .text-line-crossboard2
-          //position: relative
-          //top: -8px
-          //font-size: 14px
           color: #ff7d79
-  //padding-left: 10px
 
   .line-crossboard
     color: #bbd0e3
     background-color: #bbd0e3
     height: 1px
-    border-top: 0px
+    border-top: 0
     position: relative
     top: -5px
 
@@ -332,18 +274,10 @@
       padding-top: 5px
 
     .crossboard-right, .crossboard-left
-      //.data-input
-      //  margin-bottom: 0px
-
-      .crossboard-left-field, .crossboard-right-field
-
-
-
 
       .crossboard-right-field
         position: absolute
         right: 0px
-
 
       .crossboard-left-field
         position: relative
@@ -351,9 +285,6 @@
 
       .text-data-cross
         margin-bottom: 5px
-
-      //.data-input
-      //  margin-bottom: 5px
 
   .error-number, .error-date, .error-cvc, .error-phone, .error-amount, .error-target, .error-agreed
     height: 15px
@@ -379,7 +310,6 @@
       left: -16px
       font-size: 16px
       position: relative
-//color: #ffffff
 
 
 @media (max-width: 320px)
@@ -434,8 +364,8 @@
 
       &.source
 
-        .cvv
-          width: 90px
+        //.cvv
+        //  width: 90px
 
       .card-logo
 
@@ -567,8 +497,8 @@
 
       &.source
 
-        .cvv
-          width: 90px
+        //.cvv
+        //  width: 90px
 
       .card-logo
 
@@ -759,8 +689,8 @@
           margin-top: 8px
 
       &.source
-        .cvv
-          width: 80px
+        //.cvv
+        //  width: 80px
 
       .has-feedback
 
@@ -822,8 +752,8 @@
 
       &.source
 
-        .cvv
-          width: 75px
+        //.cvv
+        //  width: 75px
 
     .has-feedback
 
@@ -875,8 +805,8 @@
 
       &.source
 
-        .cvv
-          width: 95px
+        //.cvv
+        //  width: 95px
 
       .has-feedback
 

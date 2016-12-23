@@ -119,248 +119,229 @@
 
         </div>
         <div class="row">
-            <!--<div class="hidden-xs hidden-sm">-->
-                <!--<div class="play"><span class="glyphicon glyphicon-menu-right"></span></div>-->
-            <!--</div>-->
-            <!--<div class="col-sm-6">-->
-                <!--<div class="col-md-11 col-lg-8 col-lg-offset-2">-->
-                    <div class="card source " ng-class="{'cross-card-left' : crossboard}" card-height>
-                        <label>{{ 'CARD2CARD.SOURCE.LABEL.CARD_NUMBER' | translate }}</label>
-                        <div class="form-group source-input" ct-input-container>
-
-                            <div class="card-logo" ng-class="c2cForm.number.cardType"></div>
-                            <input type="text" name="number" class="form-control" ct-tabindex="checkNumber"
-                                   tabindex="1"
-                                   ng-model="number" required ng-change="validDiamantMaster(number); validCardZoneSource(number)"
-                                   ng-keyup="validDiamantMaster(number); validCardZoneSource(number)"
-                                   ui-mask="9999 9999 9999 9999" placeholder="____ ____ ____ ____"
-                                   ct-payments-main-card ct-payments-format-number ct-payments-validate-number/>
-                            <div class="error-number">
-                                <div ng-messages="c2cForm.number.$error" ng-show="c2cForm.number.$touched">
-                                    <div ng-message="required">{{ 'CARD2CARD.ERRORS.SOURCE.NUMBER_REQUIRED' | translate }}</div>
-                                    <div ng-message="invalidNumber">{{ 'CARD2CARD.ERRORS.SOURCE.NUMBER_INVALID' | translate }}</div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="expire">
-                            <!--<label>{{ 'CARD2CARD.SOURCE.LABEL.DATE_EXPIRE' | translate }}</label>-->
-                            <div class="form-group">
-                                <div ct-input-container class="date"
-                                     ng-class="{'ct-input-invalid': c2cForm.expire.$error && c2cForm.expire.$error.invalidExpire}">
-                                    <input type="text" class="form-control" ct-tabindex="checkMonth"
-                                           maxlength="2"
-                                           tabindex="2"
-                                           required ng-model="viewExpire.month" name="month"
-                                           placeholder="{{ 'CARD2CARD.SOURCE.MONTH' | translate }}"
-                                           ct-payments-format-expire-month-text/>
-                                </div>
-                                <div ct-input-container class="date"
-                                     ng-class="{'ct-input-invalid': c2cForm.expire.$error && c2cForm.expire.$error.invalidExpire}">
-                                    <input type="text" class="form-control" ct-tabindex="checkYear"
-                                           maxlength="2"
-                                           tabindex="3"
-                                           required ng-model="viewExpire.year" name="year"
-                                           placeholder="{{ 'CARD2CARD.SOURCE.YEAR' | translate }}"
-                                           ct-payments-format-expire-year-text/>
-                                </div>
-                            </div>
-                            <div ct-input-container>
-                                <input type="hidden" name="expire" ng-model="expire" required
-                                       ct-payments-validate-expire="viewExpire"/>
-                            </div>
-                            <div class="error-date pull-left">
-                                <div ng-messages="c2cForm.expire.$error">
-                                    <div ng-message="invalidExpire">{{ 'CARD2CARD.ERRORS.SOURCE.DATE_EXPIRE' | translate }}</div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="cvv">
-                            <label class="input-label">{{ 'CARD2CARD.SOURCE.LABEL.CODE' | translate }}</label>
-                            <div class="has-feedback " ct-input-container>
-                                <input type="{{ cvcType }}" maxlength="3" id="cvc" name="cvc"
-                                       class="form-control"
-                                       uib-tooltip="{{ 'CARD2CARD.SOURCE.CVC_TOOLTIP' | translate }}" tooltip-placement="top-right"
-                                       autocomplete="new-password" ng-model="cvc" required tabindex="4"
-                                       ct-tabindex="checkCvc" placeholder="{{ 'CARD2CARD.SOURCE.CVC' | translate }}"
-                                       ct-payments-format-cvc ct-payments-validate-cvc/>
-                                <span class="glyphicon form-control-feedback"
-                                      ng-class="{'glyphicon-eye-open': cvcType == 'text', 'glyphicon-eye-close': cvcType == 'password'}"
-                                      ng-click="toggleCvc()">
-                                </span>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-
-                        <div class="error-cvc pull-right">
-                            <div ng-messages="c2cForm.cvc.$error" ng-show="c2cForm.cvc.$touched">
-                                <div ng-message="required">{{ 'CARD2CARD.ERRORS.SOURCE.CVC_REQUIRED' | translate }}</div>
-                                <div ng-message="invalidCvc">{{ 'CARD2CARD.ERRORS.SOURCE.CVC_INVALID' | translate }}</div>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="phone">
-                            <div class="form-group" ct-input-container>
-                                <label>{{ 'CARD2CARD.SOURCE.LABEL.PHONE_NUMBER' | translate }}</label>
-                                <input type="text" name="phone" class="form-control" ui-mask="+380 (99) 999 99 99"
-                                       tabindex="7" ct-tabindex="checkPhone" ng-model="phone" required
-                                       placeholder="+380 (__) ___-__-__"
-                                       tooltip-placement="top-left"
-                                       uib-tooltip="{{ 'CARD2CARD.SOURCE.PHONE_TOOLTIP' | translate }}"/>
-                                <div class="error-phone">
-                                    <div ng-messages="c2cForm.phone.$error" ng-show="c2cForm.phone.$touched">
-                                        <div ng-message="required">{{ 'CARD2CARD.ERRORS.SOURCE.PHONE_REQUIRED' | translate }}</div>
-                                        <div ng-message="mask">{{ 'CARD2CARD.ERRORS.SOURCE.PHONE_INVALID' | translate }}</div>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="card source " ng-class="{'cross-card-left' : crossboard}" card-height>
+                <label>{{ 'CARD2CARD.SOURCE.LABEL.CARD_NUMBER' | translate }}</label>
+                <div class="form-group source-input" ct-input-container>
+                    <div class="card-logo" ng-class="c2cForm.number.cardType"></div>
+                    <input type="text" name="number" class="form-control" ct-tabindex="checkNumber"
+                           tabindex="1"
+                           ng-model="number" required ng-change="validDiamantMaster(number); validCardZoneSource(number)"
+                           ng-keyup="validDiamantMaster(number); validCardZoneSource(number)"
+                           ui-mask="9999 9999 9999 9999" placeholder="____ ____ ____ ____"
+                           ct-payments-main-card ct-payments-format-number ct-payments-validate-number/>
+                    <div class="error-number">
+                        <div ng-messages="c2cForm.number.$error" ng-show="c2cForm.number.$touched">
+                            <div ng-message="required">{{ 'CARD2CARD.ERRORS.SOURCE.NUMBER_REQUIRED' | translate }}</div>
+                            <div ng-message="invalidNumber">{{ 'CARD2CARD.ERRORS.SOURCE.NUMBER_INVALID' | translate }}</div>
                         </div>
                     </div>
 
+                </div>
+                <div class="expire">
+                    <!--<label>{{ 'CARD2CARD.SOURCE.LABEL.DATE_EXPIRE' | translate }}</label>-->
+                    <div class="form-group">
+                        <div ct-input-container class="date"
+                             ng-class="{'ct-input-invalid': c2cForm.expire.$error && c2cForm.expire.$error.invalidExpire}">
+                            <input type="text" class="form-control" ct-tabindex="checkMonth"
+                                   maxlength="2"
+                                   tabindex="2"
+                                   required ng-model="viewExpire.month" name="month"
+                                   placeholder="{{ 'CARD2CARD.SOURCE.MONTH' | translate }}"
+                                   ct-payments-format-expire-month-text/>
+                        </div>
+                        <div ct-input-container class="date"
+                             ng-class="{'ct-input-invalid': c2cForm.expire.$error && c2cForm.expire.$error.invalidExpire}">
+                            <input type="text" class="form-control" ct-tabindex="checkYear"
+                                   maxlength="2"
+                                   tabindex="3"
+                                   required ng-model="viewExpire.year" name="year"
+                                   placeholder="{{ 'CARD2CARD.SOURCE.YEAR' | translate }}"
+                                   ct-payments-format-expire-year-text/>
+                        </div>
+                    </div>
+                    <div ct-input-container>
+                        <input type="hidden" name="expire" ng-model="expire" required
+                               ct-payments-validate-expire="viewExpire"/>
+                    </div>
+                    <div class="error-date pull-left">
+                        <div ng-messages="c2cForm.expire.$error">
+                            <div ng-message="invalidExpire">{{ 'CARD2CARD.ERRORS.SOURCE.DATE_EXPIRE' | translate }}</div>
+                        </div>
+                    </div>
+                </div>
 
 
-                <!--</div>-->
-            <!--</div>-->
+                <div class="cvv">
+                    <label class="input-label">{{ 'CARD2CARD.SOURCE.LABEL.CODE' | translate }}</label>
+                    <div class="has-feedback " ct-input-container>
+                        <input type="{{ cvcType }}" maxlength="3" id="cvc" name="cvc"
+                               class="form-control"
+                               uib-tooltip="{{ 'CARD2CARD.SOURCE.CVC_TOOLTIP' | translate }}" tooltip-placement="top-right"
+                               autocomplete="new-password" ng-model="cvc" required tabindex="4"
+                               ct-tabindex="checkCvc" placeholder="{{ 'CARD2CARD.SOURCE.CVC' | translate }}"
+                               ct-payments-format-cvc ct-payments-validate-cvc/>
+                        <span class="glyphicon form-control-feedback"
+                              ng-class="{'glyphicon-eye-open': cvcType == 'text', 'glyphicon-eye-close': cvcType == 'password'}"
+                              ng-click="toggleCvc()">
+                        </span>
+                    </div>
+                    <div class="error-cvc pull-right">
+                        <div ng-messages="c2cForm.cvc.$error" ng-show="c2cForm.cvc.$touched">
+                            <div ng-message="required">{{ 'CARD2CARD.ERRORS.SOURCE.CVC_REQUIRED' | translate }}</div>
+                            <div ng-message="invalidCvc">{{ 'CARD2CARD.ERRORS.SOURCE.CVC_INVALID' | translate }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="phone">
+                    <div class="form-group" ct-input-container>
+                        <label>{{ 'CARD2CARD.SOURCE.LABEL.PHONE_NUMBER' | translate }}</label>
+                        <input type="text" name="phone" class="form-control" ui-mask="+380 (99) 999 99 99"
+                               tabindex="7" ct-tabindex="checkPhone" ng-model="phone" required
+                               placeholder="+380 (__) ___-__-__"
+                               tooltip-placement="top-left"
+                               uib-tooltip="{{ 'CARD2CARD.SOURCE.PHONE_TOOLTIP' | translate }}"/>
+                        <div class="error-phone">
+                            <div ng-messages="c2cForm.phone.$error" ng-show="c2cForm.phone.$touched">
+                                <div ng-message="required">{{ 'CARD2CARD.ERRORS.SOURCE.PHONE_REQUIRED' | translate }}</div>
+                                <div ng-message="mask">{{ 'CARD2CARD.ERRORS.SOURCE.PHONE_INVALID' | translate }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!--end of source card-->
-            <!--<div class="col-sm-6">-->
-                <!--<div class="col-md-11 col-lg-8 col-lg-offset-2 col-md-offset-1">-->
-                    <div class="card target " ng-class="{'cross-card-right' : crossboard}" card-height>
-                        <div class="form-group" ct-input-container ng-if="!transaction.link">
-                            <label>{{ 'CARD2CARD.TARGET.LABEL.CARD_NUMBER' | translate }}</label>
-                            <div class="card-logo" ng-class="c2cForm.numberTarget.cardType"></div>
-                            <input type="text" name="numberTarget" class="form-control"
-                                   ct-tabindex="checkTargetNumber"
-                                   ng-model="target.card" required tabindex="5" ng-change="validCardZoneTarget(target.card)"
-                                   ng-keyup="validCardZoneTarget(target.card)"
-                                   ng-disabled="numberTargetIsDisabled"
-                                   ui-mask="9999 9999 9999 9999" placeholder="____ ____ ____ ____"
-                                   ct-payments-format-number
-                                   ct-payments-validate-number="numberTargetIsDisabled"/>
-                            <div class="error-target">
-                                <div ng-messages="c2cForm.numberTarget.$error" ng-show="c2cForm.numberTarget.$touched">
-                                    <div ng-message="required">{{ 'CARD2CARD.ERRORS.TARGET.NUMBER_REQUIRED' | translate }}</div>
-                                    <div ng-message="invalidNumber">{{ 'CARD2CARD.ERRORS.TARGET.NUMBER_INVALID' | translate }}</div>
-                                </div>
-                            </div>
+
+            <div class="card target " ng-class="{'cross-card-right' : crossboard}" card-height>
+                <div class="form-group" ct-input-container ng-if="!transaction.link">
+                    <label>{{ 'CARD2CARD.TARGET.LABEL.CARD_NUMBER' | translate }}</label>
+                    <div class="card-logo" ng-class="c2cForm.numberTarget.cardType"></div>
+                    <input type="text" name="numberTarget" class="form-control"
+                           ct-tabindex="checkTargetNumber"
+                           ng-model="target.card" required tabindex="5" ng-change="validCardZoneTarget(target.card)"
+                           ng-keyup="validCardZoneTarget(target.card)"
+                           ng-disabled="numberTargetIsDisabled"
+                           ui-mask="9999 9999 9999 9999" placeholder="____ ____ ____ ____"
+                           ct-payments-format-number
+                           ct-payments-validate-number="numberTargetIsDisabled"/>
+                    <div class="error-target">
+                        <div ng-messages="c2cForm.numberTarget.$error" ng-show="c2cForm.numberTarget.$touched">
+                            <div ng-message="required">{{ 'CARD2CARD.ERRORS.TARGET.NUMBER_REQUIRED' | translate }}</div>
+                            <div ng-message="invalidNumber">{{ 'CARD2CARD.ERRORS.TARGET.NUMBER_INVALID' | translate }}</div>
                         </div>
-                        <div class="form-group" ct-input-container ng-if="transaction.link">
-                            <label>{{ 'CARD2CARD.TARGET.LABEL.CARD_NUMBER' | translate }}</label>
-                            <input type="text" name="numberTarget" class="form-control" disabled tabindex="5"
-                                   ct-tabindex="checkTargetNumber"
-                                   ng-model="transaction.numberTarget"/>
-                            <div class="error-target"></div>
-                        </div>
+                    </div>
+                </div>
+                <div class="form-group" ct-input-container ng-if="transaction.link">
+                    <label>{{ 'CARD2CARD.TARGET.LABEL.CARD_NUMBER' | translate }}</label>
+                    <input type="text" name="numberTarget" class="form-control" disabled tabindex="5"
+                           ct-tabindex="checkTargetNumber"
+                           ng-model="transaction.numberTarget"/>
+                    <div class="error-target"></div>
+                </div>
 
-                        <div class="amount" ct-input-container>
-                            <label>{{ 'CARD2CARD.AMOUNT.TITLE' | translate }}</label>
-
-                            <div class="col-md-9 amount-input-currency" >
-                                <input type="text" name="amount" class="form-control amount-input-c2c" tabindex="6"
-                                       ng-model="amount" placeholder = "{{!crossboard ? 'CARD2CARD.AMOUNT.RANGE' : (currentCurrency == 980 ? 'CARD2CARD.AMOUNT.RANGE_CROSS' : 'CARD2CARD.AMOUNT.RANGE_EUR') | translate}}"
-                                       ng-change="getPaste(); calculate(); validAmount(); setAmount()"
-                                       ng-paste="amountPaste(amount)"
-                                       min="1"  required ct-currency ng-click="crossboardAllowed = false"/>
-                            </div>
-
-                            <div class="col-md-3 amount-buttons-field-c2c" ng-show="crossboard">
-                                <div class="row" >
-                                    <a  class="col-md-6 btn btn-link amount-buttons-c2c" ng-click="convertAmount(980)" ng-class="{activeCurrency: currentCurrency == 980}">
-                                        UAH
-                                    </a>
-                                    <a   class="col-md-6 btn btn-link amount-buttons-c2c-eur" ng-click="convertAmount(978)" ng-class="{activeCurrency: currentCurrency == 978}">
-                                        EUR
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="error-amount">
-                                <div ng-messages="c2cForm.amount.$error" ng-show="c2cForm.amount.$touched">
-                                    <div ng-message="required">{{ 'CARD2CARD.ERRORS.AMOUNT.AMOUNT_REQUIRED' | translate }}</div>
-                                    <div ng-message="errorInputAmount">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>
-                                    <div ng-message="min">{{ 'CARD2CARD.ERRORS.AMOUNT.BIGGER_SUM' | translate }}</div>
-                                    <div ng-message="max">{{ 'CARD2CARD.ERRORS.AMOUNT.SMALLER_SUM' | translate }}</div>
-                                    <div ng-message="errorMax">{{ 'CARD2CARD.ERRORS.AMOUNT.SMALLER_SUM' | translate }}</div>
-                                    <div ng-message="errorMin">{{ 'CARD2CARD.ERRORS.AMOUNT.BIGGER_SUM' | translate }}</div>
-
-                                </div>
-                            </div>
-
-                            <div class="tariffs">
-                                <div class="text-commiss" ng-show="!crossboard">{{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commiss || 0 | currency:currency }}</div>
-                                <div class="text-commiss" ng-show="crossboard">{{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commissCross/100 || 0 | currency:currency }}</div>
-
-                                <div class="text-bank">{{ 'CARD2CARD.AMOUNT.UKRAINE_BANK' | translate }} {{+tariffs.percent}}% + {{tariffs.fixCommission / 100 | currency:currency }}</div>
-                                <div class="text-bank">{{ 'CARD2CARD.AMOUNT.FOREIGN_BANK' | translate }} {{+tariffs.crossPercent}}% min {{tariffs.crossMinCommission / 100 | currency:currency }}</div>
-
-
-
-
-                                <!--<div class="text-bank">{{ 'CARD2CARD.AMOUNT.UKRAINE_BANK' | translate }} {{ config.tariff.comm_percent }}% + {{ config.tariff.comm_fixed / 100 | currency:currency }}</div>-->
-                                <!--<div class="text-bank">{{ 'CARD2CARD.AMOUNT.FOREIGN_BANK' | translate }} 2% min 50 грн</div>-->
-
-                                <!--<span class="text-light-normal">-->
-                                <!--{{ 'CARD2CARD.AMOUNT.RATE' | translate }} {{ config.tariff.comm_percent }}% + {{ config.tariff.comm_fixed / 100 | currency:currency }}-->
-                                <!--</span>-->
-                                <!--<span class="text-light-normal">-->
-                                <!--{{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commiss || 0 | currency:currency }}-->
-                                <!--</span>-->
-                            </div>
-                        </div>
-
-                        <div class="total-amount">
-                            <span class="text-exchange" ng-show="crossboard">{{ 'CARD2CARD.AMOUNT.EXCHANGE' | translate }} {{currencyRate.forward }} <br></span>
-                            <span class="text-target-amount" ng-show="crossboard ">{{ 'CARD2CARD.AMOUNT.RECIPIENT_SEND' | translate }} {{amountEUR/100 || 0}} {{ 'CARD2CARD.AMOUNT.CURRENCY_EURO' | translate }} <br></span>
-
-                            <span class="text-bold-big" ng-show="crossboard && !crossboardAllowed">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{totalAmountCrossBeforeCheck/100 || 0 | currency:currency}}</span>
-                            <span class="text-bold-big" ng-show="crossboard && crossboardAllowed">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{totalAmountCross/100 || 0 | currency:currency}}</span>
-
-                            <span class="text-bold-big" ng-show="!crossboard">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{ total || 0 | currency:currency }}</span>
-
-
-                            <div class="form-group send">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" tabindex="8" ng-model="agreed" name="agreed" required>
-                                        <span translate="CARD2CARD.AGREEMENT" class="text-light-normal"></span>
-                                    </label>
-                                </div>
-                                <div class="error-agreed">
-                                    <div ng-messages="c2cForm.agreed.$error">
-                                        <div ng-message="required">{{ 'CARD2CARD.ERRORS.AGREED' | translate }}</div>
-                                    </div>
-                                </div>
-                                <div class="buttons" ng-show="!crossboard">
-                                    <button type="submit" class="btn btn-warning send-button" tabindex="17"
-                                            ng-disabled="c2cForm.$invalid || c2cForm.$pristine">
-                                        {{ 'CARD2CARD.SEND' | translate }}
-                                    </button>
-                                    <button type="button" class="btn btn-link" ng-click="cancel()"
-                                            ng-disabled="c2cForm.$pristine">
-                                        {{ 'CARD2CARD.BUTTON_CANCEL' | translate }}
-                                    </button>
-                                </div>
-                                <div class="buttons" ng-show="crossboard">
-                                    <button type="submit" class="btn btn-warning send-button" tabindex="17"
-                                            ng-disabled="!crossboardAllowed || c2cForm.$invalid || c2cForm.$pristine">
-                                        {{ 'CARD2CARD.SEND' | translate }}
-                                    </button>
-                                    <button type="button" class="btn btn-link" ng-click="cancel()"
-                                            ng-disabled="c2cForm.$pristine">
-                                        {{ 'CARD2CARD.BUTTON_CANCEL' | translate }}
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-
+                <div class="amount" ct-input-container>
+                    <label>{{ 'CARD2CARD.AMOUNT.TITLE' | translate }}</label>
+                    <div class="amount-input-currency" >
+                        <input type="text" name="amount" class="form-control amount-input-c2c" tabindex="6"
+                               ng-model="amount" placeholder = "{{!crossboard ? 'CARD2CARD.AMOUNT.RANGE' : (currentCurrency == 980 ? 'CARD2CARD.AMOUNT.RANGE_CROSS' : 'CARD2CARD.AMOUNT.RANGE_EUR') | translate}}"
+                               ng-change="getPaste(); calculate(); validAmount(); setAmount()"
+                               ng-paste="amountPaste(amount)"
+                               min="1"  required ct-currency ng-click="crossboardAllowed = false"/>
                     </div>
 
-                <!--</div>-->
-            <!--</div>-->
-            <div class="clearfix"></div>
+                    <div class="amount-buttons-field-c2c" ng-show="crossboard">
+                        <div class="row" >
+                            <a  class="col-md-6 btn btn-link amount-buttons-c2c" ng-click="convertAmount(980)" ng-class="{activeCurrency: currentCurrency == 980}">
+                                UAH
+                            </a>
+                            <a   class="col-md-6 btn btn-link amount-buttons-c2c-eur" ng-click="convertAmount(978)" ng-class="{activeCurrency: currentCurrency == 978}">
+                                EUR
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="error-amount">
+                        <div ng-messages="c2cForm.amount.$error" ng-show="c2cForm.amount.$touched">
+                            <div ng-message="required">{{ 'CARD2CARD.ERRORS.AMOUNT.AMOUNT_REQUIRED' | translate }}</div>
+                            <div ng-message="errorInputAmount">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>
+                            <div ng-message="min">{{ 'CARD2CARD.ERRORS.AMOUNT.BIGGER_SUM' | translate }}</div>
+                            <div ng-message="max">{{ 'CARD2CARD.ERRORS.AMOUNT.SMALLER_SUM' | translate }}</div>
+                            <div ng-message="errorMax">{{ 'CARD2CARD.ERRORS.AMOUNT.SMALLER_SUM' | translate }}</div>
+                            <div ng-message="errorMin">{{ 'CARD2CARD.ERRORS.AMOUNT.BIGGER_SUM' | translate }}</div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tariffs">
+                    <div class="text-commiss" ng-show="!crossboard">{{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commiss || 0 | currency:currency }}</div>
+                    <div class="text-commiss" ng-show="crossboard">{{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commissCross/100 || 0 | currency:currency }}</div>
+
+                    <div class="text-bank">{{ 'CARD2CARD.AMOUNT.UKRAINE_BANK' | translate }} {{+tariffs.percent}}% + {{tariffs.fixCommission / 100 | currency:currency }}</div>
+                    <div class="text-bank">{{ 'CARD2CARD.AMOUNT.FOREIGN_BANK' | translate }} {{+tariffs.crossPercent}}% min {{tariffs.crossMinCommission / 100 | currency:currency }}</div>
+
+                    <!--<div class="text-bank">{{ 'CARD2CARD.AMOUNT.UKRAINE_BANK' | translate }} {{ config.tariff.comm_percent }}% + {{ config.tariff.comm_fixed / 100 | currency:currency }}</div>-->
+                    <!--<div class="text-bank">{{ 'CARD2CARD.AMOUNT.FOREIGN_BANK' | translate }} 2% min 50 грн</div>-->
+
+                    <!--<span class="text-light-normal">-->
+                    <!--{{ 'CARD2CARD.AMOUNT.RATE' | translate }} {{ config.tariff.comm_percent }}% + {{ config.tariff.comm_fixed / 100 | currency:currency }}-->
+                    <!--</span>-->
+                    <!--<span class="text-light-normal">-->
+                    <!--{{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commiss || 0 | currency:currency }}-->
+                    <!--</span>-->
+                </div>
+
+                <div class="total-amount">
+                    <div class="form-group send">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" tabindex="8" ng-model="agreed" name="agreed" required>
+                                <span translate="CARD2CARD.AGREEMENT" class="text-light-normal"></span>
+                            </label>
+                        </div>
+                        <div class="error-agreed">
+                            <div ng-messages="c2cForm.agreed.$error">
+                                <div ng-message="required">{{ 'CARD2CARD.ERRORS.AGREED' | translate }}</div>
+                            </div>
+                        </div>
+                        <div class="buttons" ng-show="!crossboard">
+                            <button type="submit" class="btn btn-warning send-button" tabindex="17"
+                                    ng-disabled="c2cForm.$invalid || c2cForm.$pristine">
+                                <span class="text-exchange" ng-show="crossboard">{{ 'CARD2CARD.AMOUNT.EXCHANGE' | translate }} {{currencyRate.forward }} <br></span>
+                                <span class="text-target-amount" ng-show="crossboard ">{{ 'CARD2CARD.AMOUNT.RECIPIENT_SEND' | translate }} {{amountEUR/100 || 0}} {{ 'CARD2CARD.AMOUNT.CURRENCY_EURO' | translate }} <br></span>
+
+                                <span class="text-bold-big" ng-show="crossboard && !crossboardAllowed">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{totalAmountCrossBeforeCheck/100 || 0 | currency:currency}}</span>
+                                <span class="text-bold-big" ng-show="crossboard && crossboardAllowed">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{totalAmountCross/100 || 0 | currency:currency}}</span>
+
+                                <span class="text-bold-big" ng-show="!crossboard">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{ total || 0 | currency:currency }}</span>
+                                <!--{{ 'CARD2CARD.SEND' | translate }}-->
+                            </button>
+                            <!--<button type="button" class="btn btn-link" ng-click="cancel()"-->
+                                    <!--ng-disabled="c2cForm.$pristine">-->
+                                <!--{{ 'CARD2CARD.BUTTON_CANCEL' | translate }}-->
+                            <!--</button>-->
+                        </div>
+                        <div class="buttons" ng-show="crossboard">
+                            <button type="submit" class="btn btn-warning send-button" tabindex="17"
+                                    ng-disabled="!crossboardAllowed || c2cForm.$invalid || c2cForm.$pristine">
+                                <span class="text-exchange" ng-show="crossboard">{{ 'CARD2CARD.AMOUNT.EXCHANGE' | translate }} {{currencyRate.forward }} <br></span>
+                                <span class="text-target-amount" ng-show="crossboard ">{{ 'CARD2CARD.AMOUNT.RECIPIENT_SEND' | translate }} {{amountEUR/100 || 0}} {{ 'CARD2CARD.AMOUNT.CURRENCY_EURO' | translate }} <br></span>
+
+                                <span class="text-bold-big" ng-show="crossboard && !crossboardAllowed">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{totalAmountCrossBeforeCheck/100 || 0 | currency:currency}}</span>
+                                <span class="text-bold-big" ng-show="crossboard && crossboardAllowed">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{totalAmountCross/100 || 0 | currency:currency}}</span>
+
+                                <span class="text-bold-big" ng-show="!crossboard">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{ total || 0 | currency:currency }}</span>
+                                <!--{{ 'CARD2CARD.SEND' | translate }}-->fdbgfg
+                            </button>
+                            <!--<button type="button" class="btn btn-link" ng-click="cancel()"-->
+                                    <!--ng-disabled="c2cForm.$pristine">-->
+                                <!--{{ 'CARD2CARD.BUTTON_CANCEL' | translate }}-->
+                            <!--</button>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!--end of target card-->
+            <div class="clearfix"></div>
         </div>
         <div class="row-crossboard" ng-show="crossboard">
             <hr class="line-crossboard">
