@@ -185,7 +185,7 @@
                               ng-click="toggleCvc()">
                         </span>
                     </div>
-                    <div class="error-cvc pull-right">
+                    <div class="error-cvc">
                         <div ng-messages="c2cForm.cvc.$error" ng-show="c2cForm.cvc.$touched">
                             <div ng-message="required">{{ 'CARD2CARD.ERRORS.SOURCE.CVC_REQUIRED' | translate }}</div>
                             <div ng-message="invalidCvc">{{ 'CARD2CARD.ERRORS.SOURCE.CVC_INVALID' | translate }}</div>
@@ -289,6 +289,8 @@
                     <!--{{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commiss || 0 | currency:currency }}-->
                     <!--</span>-->
                 </div>
+                <div class="clearfix"></div>
+
 
                 <div class="total-amount">
                     <div class="form-group send">
@@ -320,6 +322,7 @@
                                 <!--{{ 'CARD2CARD.BUTTON_CANCEL' | translate }}-->
                             <!--</button>-->
                         </div>
+                        <div class="clearfix"></div>
                         <div class="buttons" ng-show="crossboard">
                             <button type="submit" class="btn btn-warning send-button" tabindex="17"
                                     ng-disabled="!crossboardAllowed || c2cForm.$invalid || c2cForm.$pristine">
@@ -330,7 +333,7 @@
                                 <span class="text-bold-big" ng-show="crossboard && crossboardAllowed">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{totalAmountCross/100 || 0 | currency:currency}}</span>
 
                                 <span class="text-bold-big" ng-show="!crossboard">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{ total || 0 | currency:currency }}</span>
-                                <!--{{ 'CARD2CARD.SEND' | translate }}-->fdbgfg
+                                <!--{{ 'CARD2CARD.SEND' | translate }}-->
                             </button>
                             <!--<button type="button" class="btn btn-link" ng-click="cancel()"-->
                                     <!--ng-disabled="c2cForm.$pristine">-->
@@ -343,6 +346,7 @@
             <!--end of target card-->
             <div class="clearfix"></div>
         </div>
+        <div class="clearfix"></div>
         <div class="row-crossboard" ng-show="crossboard">
             <hr class="line-crossboard">
             <!--<div class="col-md-4"></div>-->
