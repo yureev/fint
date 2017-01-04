@@ -121,14 +121,16 @@
         <div class="row">
             <div class="card source " ng-class="{'cross-card-left' : crossboard}" card-height>
                 <label>{{ 'CARD2CARD.SOURCE.LABEL.CARD_NUMBER' | translate }}</label>
+                <div class="card-logo " ng-class="c2cForm.number.cardType"></div>
+                <!---->
                 <div class="form-group source-input" ct-input-container>
-                    <div class="card-logo" ng-class="c2cForm.number.cardType"></div>
+
                     <input type="text" name="number" class="form-control" ct-tabindex="checkNumber"
                            tabindex="1"
                            ng-model="number" required ng-change="validDiamantMaster(number); validCardZoneSource(number)"
                            ng-keyup="validDiamantMaster(number); validCardZoneSource(number)"
                            ui-mask="9999 9999 9999 9999" placeholder="____ ____ ____ ____"
-                           ct-payments-main-card ct-payments-format-number ct-payments-validate-number/>
+                            ct-payments-format-number ct-payments-validate-number/>
                     <div class="error-number">
                         <div ng-messages="c2cForm.number.$error" ng-show="c2cForm.number.$touched">
                             <div ng-message="required">{{ 'CARD2CARD.ERRORS.SOURCE.NUMBER_REQUIRED' | translate }}</div>
@@ -151,6 +153,15 @@
                         </div>
                         <div ct-input-container class="date"
                              ng-class="{'ct-input-invalid': c2cForm.expire.$error && c2cForm.expire.$error.invalidExpire}">
+                            <input type="text" class="form-control"
+                                   readonly
+
+                                   required ng-model="slash" name="slash"
+                                   placeholder="/"
+                                   ct-payments-format-expire-month-text/>
+                        </div>
+                        <div ct-input-container class="date"
+                             ng-class="{'ct-input-invalid': c2cForm.expire.$error && c2cForm.expire.$error.invalidExpire}">
                             <input type="text" class="form-control" ct-tabindex="checkYear"
                                    maxlength="2"
                                    tabindex="3"
@@ -158,6 +169,7 @@
                                    placeholder="{{ 'CARD2CARD.SOURCE.YEAR' | translate }}"
                                    ct-payments-format-expire-year-text/>
                         </div>
+                        <div class="clearfix"></div>
                     </div>
                     <div ct-input-container>
                         <input type="hidden" name="expire" ng-model="expire" required
@@ -176,7 +188,7 @@
                     <div class="has-feedback " ct-input-container>
                         <input type="{{ cvcType }}" maxlength="3" id="cvc" name="cvc"
                                class="form-control"
-                               uib-tooltip="{{ 'CARD2CARD.SOURCE.CVC_TOOLTIP' | translate }}" tooltip-placement="top-right"
+                               uib-tooltip="{{ 'CARD2CARD.SOURCE.CVC_TOOLTIP' | translate }}"
                                autocomplete="new-password" ng-model="cvc" required tabindex="4"
                                ct-tabindex="checkCvc" placeholder="{{ 'CARD2CARD.SOURCE.CVC' | translate }}"
                                ct-payments-format-cvc ct-payments-validate-cvc/>
@@ -198,7 +210,6 @@
                         <input type="text" name="phone" class="form-control" ui-mask="+380 (99) 999 99 99"
                                tabindex="7" ct-tabindex="checkPhone" ng-model="phone" required
                                placeholder="+380 (__) ___-__-__"
-                               tooltip-placement="top-left"
                                uib-tooltip="{{ 'CARD2CARD.SOURCE.PHONE_TOOLTIP' | translate }}"/>
                         <div class="error-phone">
                             <div ng-messages="c2cForm.phone.$error" ng-show="c2cForm.phone.$touched">
@@ -276,8 +287,8 @@
                     <div class="text-commiss" ng-show="!crossboard">{{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commiss || 0 | currency:currency }}</div>
                     <div class="text-commiss" ng-show="crossboard">{{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commissCross/100 || 0 | currency:currency }}</div>
 
-                    <div class="text-bank">{{ 'CARD2CARD.AMOUNT.UKRAINE_BANK' | translate }} {{+tariffs.percent}}% + {{tariffs.fixCommission / 100 | currency:currency }}</div>
-                    <div class="text-bank">{{ 'CARD2CARD.AMOUNT.FOREIGN_BANK' | translate }} {{+tariffs.crossPercent}}% min {{tariffs.crossMinCommission / 100 | currency:currency }}</div>
+                    <div class="text-bank" ng-class="{'text-bank-active' : crossboard}">{{ 'CARD2CARD.AMOUNT.UKRAINE_BANK' | translate }} {{+tariffs.percent}}% + {{tariffs.fixCommission / 100 | currency:currency }}</div>
+                    <div class="text-bank " ng-class="{'text-bank-active' : !crossboard}">{{ 'CARD2CARD.AMOUNT.FOREIGN_BANK' | translate }} {{+tariffs.crossPercent}}% min {{tariffs.crossMinCommission / 100 | currency:currency }}</div>
 
                     <!--<div class="text-bank">{{ 'CARD2CARD.AMOUNT.UKRAINE_BANK' | translate }} {{ config.tariff.comm_percent }}% + {{ config.tariff.comm_fixed / 100 | currency:currency }}</div>-->
                     <!--<div class="text-bank">{{ 'CARD2CARD.AMOUNT.FOREIGN_BANK' | translate }} 2% min 50 грн</div>-->
