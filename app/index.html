@@ -1,5 +1,5 @@
 <div class="app">
-    <menu id="top" class="top">
+    <div id="top" class="top">
         <nav class="navbar navbar-default">
             <div class="collapse navbar-collapse">
                 <div class="navigation">
@@ -23,40 +23,40 @@
                         </a>
                     </div>
                     <div class="nav nav-justified">
-                        <a ui-sref="app.card" ng-class="{active: $state.includes('app.card') || $state.includes('app.phone')}">{{'APP.CONTROLS.BTN_SEND' | translate}}</a>
+                        <a ui-sref="app.card" scroll-to="main" ng-class="{active: $state.includes('app.card') || $state.includes('app.phone')}">{{'APP.CONTROLS.BTN_SEND' | translate}}</a>
                         <div class="nav nav-inside" ng-class="{active: $state.includes('app.card') || $state.includes('app.phone')}">
-                            <div><a ui-sref="app.card" ng-class="{active: $state.includes('app.card') }">{{'CARD2CARD.CONTROLS.SEND.BTN_CARDTOCARD' | translate}}</a></div>
-                            <div><a ui-sref="app.phone" ng-class="{active: $state.includes('app.phone')}">{{'CARD2CARD.CONTROLS.SEND.BTN_PHONE' | translate}}</a></div>
+                            <div><a ui-sref="app.card" scroll-to="main" ng-class="{active: $state.includes('app.card') }">{{'CARD2CARD.CONTROLS.SEND.BTN_CARDTOCARD' | translate}}</a></div>
+                            <div><a ui-sref="app.phone" scroll-to="main" ng-class="{active: $state.includes('app.phone')}">{{'CARD2CARD.CONTROLS.SEND.BTN_PHONE' | translate}}</a></div>
                         </div>
                     </div>
                     <div class="nav nav-justified">
-                        <a ui-sref="app.url" ng-class="{active: $state.includes('app.url') || $state.includes('app.code')}">{{'APP.CONTROLS.BTN_RECEIVE' | translate}}</a>
+                        <a ui-sref="app.url" scroll-to="main" ng-class="{active: $state.includes('app.url') || $state.includes('app.code')}">{{'APP.CONTROLS.BTN_RECEIVE' | translate}}</a>
                         <div class="nav nav-inside" ng-class="{active: $state.includes('app.url') || $state.includes('app.code')}">
-                            <div><a ui-sref="app.url" ng-class="{active: $state.includes('app.url') }">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_URL' | translate}}</a></div>
-                            <div><a ui-sref="app.code" ng-class="{active: $state.includes('app.code')}">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_CODE' | translate}}</a></div>
+                            <div><a ui-sref="app.url" scroll-to="main" ng-class="{active: $state.includes('app.url') }">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_URL' | translate}}</a></div>
+                            <div><a ui-sref="app.code" scroll-to="main" ng-class="{active: $state.includes('app.code')}">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_CODE' | translate}}</a></div>
                         </div>
                     </div>
 
                     <div class="line-up"></div>
 
                     <div class="nav nav-justified">
-                        <a href="#" scroll-to="apps">{{ 'APP.MENU.APPS' | translate }}</a>
+                        <a scroll-to="apps">{{ 'APP.MENU.APPS' | translate }}</a>
                     </div>
 
                     <div class="nav nav-justified">
-                        <a href="#" scroll-to="services">{{ 'APP.MENU.ABOUT' | translate }}</a>
+                        <a  scroll-to="services">{{ 'APP.MENU.ABOUT' | translate }}</a>
                     </div>
                     <div class="nav nav-justified">
-                        <a href="#" scroll-to="tarif">{{ 'APP.MENU.TARIFFS' | translate }}</a>
+                        <a  scroll-to="tarif">{{ 'APP.MENU.TARIFFS' | translate }}</a>
                     </div>
                     <div class="nav nav-justified">
-                        <a href="#" scroll-to="qaa">{{ 'APP.MENU.FAQ' | translate }}</a>
+                        <a  scroll-to="qaa">{{ 'APP.MENU.FAQ' | translate }}</a>
                     </div>
                     <div class="nav nav-justified">
-                        <a href="#" scroll-to="contacts">{{ 'APP.MENU.CONTACTS' | translate }}</a>
+                        <a  scroll-to="contacts">{{ 'APP.MENU.CONTACTS' | translate }}</a>
                     </div>
                     <div class="nav nav-justified">
-                        <a href="#" scroll-to="pci-dss">{{ 'APP.MENU.PCI' | translate }}</a>
+                        <a  scroll-to="pci-dss">{{ 'APP.MENU.PCI' | translate }}</a>
                     </div>
                     <div class="nav nav-justified">
                         <div class="translate">
@@ -70,17 +70,19 @@
                             <div class="title">{{ 'APP.CONTACTS.SOCIAL' | translate }}</div>
                             <!--<img class="facebook-pic" src="./assets/images/facebook_logo.svg" alt="Facebook">-->
                             <!--<img class="twitter-pic" src="./assets/images/twitter_logo.svg" alt="Twitter">-->
+                            <a href="tel:380443900885"><i class="fa fa-phone" aria-hidden="true"></i></a>
+                            <a href="mailto:support@send.ua" ><i class="fa fa-envelope" aria-hidden="true"></i></a>
                             <a><i class="fa fa-twitter" aria-hidden="true"></i></a>
                             <a><i class="fa fa-facebook" aria-hidden="true"></i></a>
                         </div>
                     </div>
-                    <div class="nav nav-justified">
-                        <div class="support">
-                            <div class="title">{{ 'APP.CONTACTS.SUPPORT' | translate }}</div>
-                            <a href="tel:380443900885"><i class="fa fa-phone" aria-hidden="true"></i></a>
-                            <a href="mailto:support@send.ua" ><i class="fa fa-envelope" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
+                    <!--<div class="nav nav-justified">-->
+                        <!--<div class="support">-->
+                            <!--<div class="title">{{ 'APP.CONTACTS.SUPPORT' | translate }}</div>-->
+                            <!--<a href="tel:380443900885"><i class="fa fa-phone" aria-hidden="true"></i></a>-->
+                            <!--<a href="mailto:support@send.ua" ><i class="fa fa-envelope" aria-hidden="true"></i></a>-->
+                        <!--</div>-->
+                    <!--</div>-->
                 </div>
 
             </div>
@@ -103,9 +105,9 @@
             </form> -->
 
         </nav>
-    </menu>
+    </div>
     <!--<div class="clearfix"></div>-->
-    <div class="container-fluid main">
+    <div id="main" class="container-fluid main">
         <div class="row">
             <!--<div class="item" ng-class="{active: $state.includes('app.card') || $state.includes('app.phone')}">-->
             <!--</div>-->
@@ -120,46 +122,156 @@
     </div>
     <div class="clearfix"></div>
     <div class="container-fluid color-wrap">
+
+        <div  class="top">
+            <nav class="navbar navbar-default">
+                <div class="collapse navbar-collapse">
+                    <div class="navigation">
+                        <div class="nav nav-justified">
+                            <div class="logo">
+                                <div>
+                                    <a class="navbar-brand" ui-sref="app.card">
+                                        <div class="logo-img"><img src="./assets/images/logo_sendua.png" alt="SendUa"></div>
+                                        <div class="logo-text"><img src="./assets/images/send_ua_logo.svg" alt="SendUa"></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nav nav-justified">
+                            <a ui-sref="app.card">
+                                <div class="buttons">
+                                    <button type="submit" class="btn btn-warning send-button">
+                                        {{ 'APP.MENU.ENTER' | translate }}
+                                    </button>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="nav nav-justified">
+                            <a ui-sref="app.card" scroll-to="main" ng-class="{active: $state.includes('app.card') || $state.includes('app.phone')}">{{'APP.CONTROLS.BTN_SEND' | translate}}</a>
+                            <div class="nav nav-inside" ng-class="{active: $state.includes('app.card') || $state.includes('app.phone')}">
+                                <div><a ui-sref="app.card" scroll-to="main" ng-class="{active: $state.includes('app.card') }">{{'CARD2CARD.CONTROLS.SEND.BTN_CARDTOCARD' | translate}}</a></div>
+                                <div><a ui-sref="app.phone" scroll-to="main" ng-class="{active: $state.includes('app.phone')}">{{'CARD2CARD.CONTROLS.SEND.BTN_PHONE' | translate}}</a></div>
+                            </div>
+                        </div>
+                        <div class="nav nav-justified">
+                            <a ui-sref="app.url" scroll-to="main" ng-class="{active: $state.includes('app.url') || $state.includes('app.code')}">{{'APP.CONTROLS.BTN_RECEIVE' | translate}}</a>
+                            <div class="nav nav-inside" ng-class="{active: $state.includes('app.url') || $state.includes('app.code')}">
+                                <div><a ui-sref="app.url" scroll-to="main" ng-class="{active: $state.includes('app.url') }">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_URL' | translate}}</a></div>
+                                <div><a ui-sref="app.code" scroll-to="main" ng-class="{active: $state.includes('app.code')}">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_CODE' | translate}}</a></div>
+                            </div>
+                        </div>
+
+                        <div class="line-up"></div>
+
+                        <div class="nav nav-justified">
+                            <a scroll-to="apps">{{ 'APP.MENU.APPS' | translate }}</a>
+                        </div>
+
+                        <div class="nav nav-justified">
+                            <a  scroll-to="services">{{ 'APP.MENU.ABOUT' | translate }}</a>
+                        </div>
+                        <div class="nav nav-justified">
+                            <a  scroll-to="tarif">{{ 'APP.MENU.TARIFFS' | translate }}</a>
+                        </div>
+                        <div class="nav nav-justified">
+                            <a  scroll-to="qaa">{{ 'APP.MENU.FAQ' | translate }}</a>
+                        </div>
+                        <div class="nav nav-justified">
+                            <a  scroll-to="contacts">{{ 'APP.MENU.CONTACTS' | translate }}</a>
+                        </div>
+                        <div class="nav nav-justified">
+                            <a  scroll-to="pci-dss">{{ 'APP.MENU.PCI' | translate }}</a>
+                        </div>
+                        <div class="nav nav-justified">
+                            <div class="translate">
+                                <span class="item"><a ng-model="lang" ng-change="onChangeLanguage()" uib-btn-radio="'ua'">UA</a></span>
+                                <span class="item"><a ng-model="lang" ng-change="onChangeLanguage()" uib-btn-radio="'ru'">RU</a></span>
+                            </div>
+                        </div>
+                        <div class="line-up"></div>
+                        <div class="nav nav-justified">
+                            <div class="social">
+                                <div class="title">{{ 'APP.CONTACTS.SOCIAL' | translate }}</div>
+                                <!--<img class="facebook-pic" src="./assets/images/facebook_logo.svg" alt="Facebook">-->
+                                <!--<img class="twitter-pic" src="./assets/images/twitter_logo.svg" alt="Twitter">-->
+                                <a href="tel:380443900885"><i class="fa fa-phone" aria-hidden="true"></i></a>
+                                <a href="mailto:support@send.ua" ><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                                <a><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                        <!--<div class="nav nav-justified">-->
+                        <!--<div class="support">-->
+                        <!--<div class="title">{{ 'APP.CONTACTS.SUPPORT' | translate }}</div>-->
+                        <!--<a href="tel:380443900885"><i class="fa fa-phone" aria-hidden="true"></i></a>-->
+                        <!--<a href="mailto:support@send.ua" ><i class="fa fa-envelope" aria-hidden="true"></i></a>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                    </div>
+
+                </div>
+                <!-- <form class="form-inline pull-right authorization">
+                    <div class="form-group">
+                        <div class="pull-left item">
+                            <input type="text" class="form-control"
+                                   placeholder="{{ 'APP.AUTH.INPUT.LOGIN' | translate }}"/>
+                            <br />
+                            <a href="#">{{ 'APP.AUTH.LINK.FORGOT' | translate }}</a>
+                        </div>
+                        <div class="form-group item">
+                            <input type="text" class="form-control"
+                                   placeholder="{{ 'APP.AUTH.INPUT.PASS' | translate }}"/>
+                            <br />
+                            <a href="#">{{ 'APP.AUTH.LINK.REGISTRATION' | translate }}</a>
+                        </div>
+                    </div>
+                    <button class="btn btn-warning pull-right">{{ 'APP.AUTH.ENTER' | translate }}</button>
+                </form> -->
+
+            </nav>
+        </div>
+
         <div class="row apps" id="apps">
-            <div class="title text-center">{{ 'APP.CONTENT.APPS.TITLE' | translate }}</div>
+            <!--<div class="title text-center">{{ 'APP.CONTENT.APPS.TITLE' | translate }}</div>-->
             <div class="description">
+                <div class="images text-center col-md-5 col-md-offset-1 hidden-sm hidden-xs"><img src="./assets/images/apps.png"></div>
                 <div class="col-md-5 col-md-offset-1">
                     <div class="pull-right mobile">
                         <h4>{{ 'MOBILE.BE_MOBILE' | translate }}</h4>
                         <p>{{ 'MOBILE.DOWNLOAD' | translate }}</p>
-                        <img src="./assets/images/qr_2016.png" width="200px" class="img-responsive pull-left">
+                        <!--<img src="./assets/images/qr_2016.png" width="200px" class="img-responsive pull-left">-->
                         <div class="margin-top-big">
-                            <a href="https://itunes.apple.com/us/app/send.ua/id995162040?mt=8">{{ 'MOBILE.IOS' | translate }}</a><br/>
-                            <a href="https://play.google.com/store/apps/details?id=com.sendua">{{ 'MOBILE.ANDROID' | translate }}</a>
+                            <a href="https://itunes.apple.com/us/app/send.ua/id995162040?mt=8"><img src="./assets/images/app_store_badge.svg" ></a>
+                            <a href="https://play.google.com/store/apps/details?id=com.sendua"  class="google-play"><img src="./assets/images/google_play_badge.png" ></a>
                         </div>
                     </div>
                 </div>
-                <div class="images text-center col-md-5 col-md-offset-1 hidden-sm hidden-xs"><img src="./assets/images/apps.png"></div>
+
                 <div class="clearfix"></div>
-                <div class="button-down" scroll-to="services"></div>
+                <!--<div class="button-down" scroll-to="services"></div>-->
             </div>
         </div>
         <div class="row services" id="services">
-            <div class="title text-center">{{ 'APP.CONTENT.SERVICE.TITLE' | translate }}</div>
+            <!--<div class="title text-center">{{ 'APP.CONTENT.SERVICE.TITLE' | translate }}</div>-->
             <div class="description">
                 <div class="col-md-5 col-md-offset-1" translate="APP.CONTENT.SERVICE.TEXT"></div>
                 <div class="images text-center col-md-5 col-md-offset-1 hidden-sm hidden-xs"><img src="./assets/images/sendUaService.png"></div>
                 <div class="clearfix"></div>
-                <div class="button-down" scroll-to="tarif"></div>
+                <!--<div class="button-down" scroll-to="tarif"></div>-->
             </div>
         </div>
         <div class="clearfix"></div>
         <div class="row tariffs" id="tarif">
-            <div class="title text-center">{{ 'APP.CONTENT.TARIFFS.TITLE' | translate }}</div>
+            <!--<div class="title text-center">{{ 'APP.CONTENT.TARIFFS.TITLE' | translate }}</div>-->
             <div class="description">
                 <div class="col-md-5 col-md-offset-1" translate="APP.CONTENT.TARIFFS.TEXT"></div>
                 <div class="text-center col-md-5 col-md-offset-1 hidden-sm hidden-xs"><img src="./assets/images/percent.png" width="250px" class="images percent"></div>
                 <div class="clearfix"></div>
-                <div class="button-down" scroll-to="qaa"></div>
+                <!--<div class="button-down" scroll-to="qaa"></div>-->
             </div>
         </div>
         <div class="row questions" id="qaa">
-            <div class="title text-center">{{ 'APP.CONTENT.FAQ.TITLE' | translate }}</div>
+            <!--<div class="title text-center">{{ 'APP.CONTENT.FAQ.TITLE' | translate }}</div>-->
             <div class="wrap col-md-8 col-lg-6 col-lg-offset-3 col-md-offset-2">
                 <uib-accordion close-others="true">
                     <uib-accordion-group is-open="true">
@@ -200,14 +312,14 @@
                 </uib-accordion>
             </div>
             <div class="clearfix"></div>
-            <div class="button-down" scroll-to="contacts"></div>
+            <!--<div class="button-down" scroll-to="contacts"></div>-->
         </div>
         <div class="row pci-dss" id="pci-dss">
-            <div class="title text-center">{{ 'APP.CONTENT.PCI_DSS.TITLE' | translate }}</div>
+            <!--<div class="title text-center">{{ 'APP.CONTENT.PCI_DSS.TITLE' | translate }}</div>-->
             <div class="description">
                 <div class="col-md-10 col-md-offset-1" translate="APP.CONTENT.PCI_DSS.TEXT"></div>
                 <div class="clearfix"></div>
-                <div class="button-down" scroll-to="contacts"></div>
+                <!--<div class="button-down" scroll-to="contacts"></div>-->
             </div>
         </div>
     </div>

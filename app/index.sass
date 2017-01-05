@@ -41,6 +41,9 @@ input:invalid
     margin: 0
     padding: 0
     float: left
+    //position: fixed
+    height: 100%
+
 
 
     .navigation
@@ -100,6 +103,8 @@ input:invalid
       background-color: rgba(0, 40, 84, 0.8)
       border: 0
       border-radius: 0
+      height: 100%
+
 
 
     .navbar
@@ -158,19 +163,33 @@ input:invalid
         button
           text-transform: uppercase
 
-    .mobile
-      padding-right: 25px
-      white-space: nowrap
+  .mobile
+    //padding-right: 25px
+    //white-space: nowrap
 
-      .google-play
-        width: 50px
+    .google-play
+      img
+        width: 151px
 
-      .app-store
-        width: 56px
+    //.app-store
+    //  width: 56px
+
+  .main
+    //margin-left: 17%
+    height: 100%
+    .row
+      height: 100%
 
   .color-wrap
     background-color: #FBFBFB
     border-bottom: 1px solid $border-color-entry
+    padding: 0
+
+    .navbar-default
+      background-color: rgba(255, 255, 255, 0)
+      border: 0
+      border-radius: 0
+      height: 100%
 
     .button-down
       text-align: center
@@ -193,6 +212,8 @@ input:invalid
       .description
         max-width: 1024px
         margin: 0 auto
+        margin-top: 11%
+
 
       .images
         margin-top: 10px
@@ -200,6 +221,15 @@ input:invalid
         &.percent
           padding-top: 130px
 
+    .apps
+      //width: 1280px
+      min-height: 760px
+      background-image: linear-gradient(298deg, #f79601, #ffb23a 100%)
+
+
+    .services
+      min-height: 760px
+      background-image: linear-gradient(118deg, #325276, #245184)
     .tariffs
       h3
         color: $main_color_inactive
@@ -253,8 +283,6 @@ input:invalid
 
       img
         margin-bottom: 20px
-
-      .visa-verified
 
       .visa-direct
         height: 46px
