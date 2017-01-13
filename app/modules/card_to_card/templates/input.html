@@ -1,10 +1,8 @@
 <div class="state-input" ct-spinner="tariffs_loader || input_loader" ng-click="notcross = false">
     <form name="c2cForm" ct-payments ng-submit="submit()" autocomplete="off"  ng-class="{'popup-height' : popup}">
         <div class="crossboard-text" >
-            <!--<div class="text">{{ 'CARD2CARD.CROSSBOARD_TEXT' | translate }}</div>-->
             <span class="text" translate="CARD2CARD.CROSSBOARD_TEXT" ng-class="{'crossboard-blink' : notcross}"></span>
             <span class="text" ng-class="{'crossboard-blink' : notcross}"><a id='1'>{{ 'CARD2CARD.CROSSBOARD_TEXT_COUNTRY' | translate }}</a></span>
-            <!--<span class="text" translate="CARD2CARD.CROSSBOARD_TEXT_COUNTRY" uib-tooltip="{{ 'CARD2CARD.CROSSBOARD_TEXT_COUNTRY_TOOLTIP' | translate }}"  tooltip-placement="bottom-right"></span>-->
 
 
             <div class='popup' ng-show="popup">
@@ -79,33 +77,6 @@
                             <td class="popup-mobile">{{ 'CARD2CARD.CROSSBOARD_TEXT_GRZ' | translate }}</td><td class="popup-mobile"><img src="./../images/flaggrz.png" width="22px"></td>
                             <td class="two-td popup-mobile">{{ 'CARD2CARD.CROSSBOARD_TEXT_ROM' | translate }}</td><td class="popup-mobile"><img src="./../images/flagrom.png" width="22px"></td>
                         </tr>
-                        <!--<tr>-->
-                            <!--<td>{{ 'CARD2CARD.CROSSBOARD_TEXT_GBL' | translate }}</td><td><img src="./../images/flaggbl.png" width="22px"></td>-->
-                        <!--</tr>-->
-                        <!--<tr>-->
-                            <!--<td>{{ 'CARD2CARD.CROSSBOARD_TEXT_HUN' | translate }}</td><td><img src="./../images/flaghun.png" width="22px"></td>-->
-                        <!--</tr>-->
-                        <!--<tr>-->
-                            <!--<td>{{ 'CARD2CARD.CROSSBOARD_TEXT_KAZ' | translate }}</td><td><img src="./../images/flagkaz.png" width="22px"></td>-->
-                        <!--</tr>-->
-                        <!--<tr>-->
-                            <!--<td>{{ 'CARD2CARD.CROSSBOARD_TEXT_LAT' | translate }}</td><td><img src="./../images/flaglat.png" width="22px"></td>-->
-                        <!--</tr>-->
-                        <!--<tr>-->
-                            <!--<td>{{ 'CARD2CARD.CROSSBOARD_TEXT_LIT' | translate }}</td><td><img src="./../images/flaglit.png" width="22px"></td>-->
-                        <!--</tr>-->
-                        <!--<tr>-->
-                            <!--<td>{{ 'CARD2CARD.CROSSBOARD_TEXT_MLD' | translate }}</td><td><img src="./../images/flagmld.png" width="22px"></td>-->
-                        <!--</tr>-->
-                        <!--<tr>-->
-                            <!--<td>{{ 'CARD2CARD.CROSSBOARD_TEXT_MTN' | translate }}</td><td><img src="./../images/flagmtn.png" width="22px"></td>-->
-                        <!--</tr>-->
-                        <!--<tr>-->
-                            <!--<td>{{ 'CARD2CARD.CROSSBOARD_TEXT_POL' | translate }}</td><td><img src="./../images/flagpol.png" width="22px"></td>-->
-                        <!--</tr>-->
-                        <!--<tr>-->
-                            <!--<td>{{ 'CARD2CARD.CROSSBOARD_TEXT_ROM' | translate }}</td><td><img src="./../images/flagrom.png" width="22px"></td>-->
-                        <!--</tr>-->
                     </table>
                 </div>
                 <div translate="CARD2CARD.CROSSBOARD_TEXT_COUNTRY_TOOLTIP"></div>
@@ -155,7 +126,6 @@
                              ng-class="{'ct-input-invalid': c2cForm.expire.$error && c2cForm.expire.$error.invalidExpire}">
                             <input type="text" class="form-control"
                                    readonly
-
                                    required ng-model="slash" name="slash"
                                    placeholder="/"
                                    ct-payments-format-expire-month-text/>
@@ -186,7 +156,7 @@
                 <div class="cvv">
                     <label class="input-label">{{ 'CARD2CARD.SOURCE.LABEL.CODE' | translate }}</label>
                     <div class="has-feedback " ct-input-container>
-                        <input type="{{ cvcType }}" maxlength="3" id="cvc" name="cvc"
+                        <input type="{{ cvcType }}" maxlength="3" id="cvc" name="cvc" tooltip-placement="right"
                                class="form-control"
                                uib-tooltip="{{ 'CARD2CARD.SOURCE.CVC_TOOLTIP' | translate }}"
                                autocomplete="new-password" ng-model="cvc" required tabindex="4"
@@ -209,6 +179,7 @@
                         <label>{{ 'CARD2CARD.SOURCE.LABEL.PHONE_NUMBER' | translate }}</label>
                         <input type="text" name="phone" class="form-control" ui-mask="+380 (99) 999 99 99"
                                tabindex="7" ct-tabindex="checkPhone" ng-model="phone" required
+                               tooltip-placement="right"
                                placeholder="+380 (__) ___-__-__"
                                uib-tooltip="{{ 'CARD2CARD.SOURCE.PHONE_TOOLTIP' | translate }}"/>
                         <div class="error-phone">
@@ -290,15 +261,6 @@
                     <div class="text-bank" ng-class="{'text-bank-active' : crossboard}">{{ 'CARD2CARD.AMOUNT.UKRAINE_BANK' | translate }} {{+tariffs.percent}}% + {{tariffs.fixCommission / 100 | currency:currency }}</div>
                     <div class="text-bank " ng-class="{'text-bank-active' : !crossboard}">{{ 'CARD2CARD.AMOUNT.FOREIGN_BANK' | translate }} {{+tariffs.crossPercent}}% min {{tariffs.crossMinCommission / 100 | currency:currency }}</div>
 
-                    <!--<div class="text-bank">{{ 'CARD2CARD.AMOUNT.UKRAINE_BANK' | translate }} {{ config.tariff.comm_percent }}% + {{ config.tariff.comm_fixed / 100 | currency:currency }}</div>-->
-                    <!--<div class="text-bank">{{ 'CARD2CARD.AMOUNT.FOREIGN_BANK' | translate }} 2% min 50 грн</div>-->
-
-                    <!--<span class="text-light-normal">-->
-                    <!--{{ 'CARD2CARD.AMOUNT.RATE' | translate }} {{ config.tariff.comm_percent }}% + {{ config.tariff.comm_fixed / 100 | currency:currency }}-->
-                    <!--</span>-->
-                    <!--<span class="text-light-normal">-->
-                    <!--{{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commiss || 0 | currency:currency }}-->
-                    <!--</span>-->
                 </div>
                 <div class="clearfix"></div>
 
@@ -326,12 +288,8 @@
                                 <span class="text-bold-big" ng-show="crossboard && crossboardAllowed">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{totalAmountCross/100 || 0 | currency:currency}}</span>
 
                                 <span class="text-bold-big" ng-show="!crossboard">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{ total || 0 | currency:currency }}</span>
-                                <!--{{ 'CARD2CARD.SEND' | translate }}-->
+
                             </button>
-                            <!--<button type="button" class="btn btn-link" ng-click="cancel()"-->
-                                    <!--ng-disabled="c2cForm.$pristine">-->
-                                <!--{{ 'CARD2CARD.BUTTON_CANCEL' | translate }}-->
-                            <!--</button>-->
                         </div>
                         <div class="clearfix"></div>
                         <div class="buttons" ng-show="crossboard">
@@ -344,12 +302,8 @@
                                 <span class="text-bold-big" ng-show="crossboard && crossboardAllowed">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{totalAmountCross/100 || 0 | currency:currency}}</span>
 
                                 <span class="text-bold-big" ng-show="!crossboard">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{ total || 0 | currency:currency }}</span>
-                                <!--{{ 'CARD2CARD.SEND' | translate }}-->
+
                             </button>
-                            <!--<button type="button" class="btn btn-link" ng-click="cancel()"-->
-                                    <!--ng-disabled="c2cForm.$pristine">-->
-                                <!--{{ 'CARD2CARD.BUTTON_CANCEL' | translate }}-->
-                            <!--</button>-->
                         </div>
                     </div>
                 </div>

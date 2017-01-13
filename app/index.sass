@@ -41,8 +41,9 @@ input:invalid
     margin: 0
     padding: 0
     float: left
-    //position: fixed
+    position: fixed
     height: 100%
+    z-index: 2000
 
 
 
@@ -69,8 +70,9 @@ input:invalid
           height: 45px
           width: 100%
           font-size: 16px
-          background-color: #f79601
+          background-color: #395e88
           text-transform: uppercase
+          border-color: #395e88
 
       .social, .support
 
@@ -100,7 +102,8 @@ input:invalid
       margin-top: 15px
 
     .navbar-default
-      background-color: rgba(0, 40, 84, 0.8)
+      //background-color: rgba(0, 40, 84, 0.8)
+      background-color: rgba(255, 255, 255, 0)
       border: 0
       border-radius: 0
       height: 100%
@@ -113,14 +116,19 @@ input:invalid
     .navigation
       margin-top: 18px
 
+
+    .activeTarifQaa
+      .nav-justified
+        a
+          color: #f5a623
+
+
     .nav-justified
       margin-bottom: 20px
-
       a
         text-align: left
         color: #d8d8d8
         text-decoration: none
-        //padding: 10px 0
 
       .nav-inside
         margin: 10px
@@ -138,6 +146,9 @@ input:invalid
       .active
         color: #4a90e2
         display: inherit
+
+      .activemenu
+        font-size: 20px
 
       .translate
         .active
@@ -174,11 +185,7 @@ input:invalid
     //.app-store
     //  width: 56px
 
-  .main
-    //margin-left: 17%
-    height: 100%
-    .row
-      height: 100%
+
 
   .color-wrap
     background-color: #FBFBFB
@@ -187,7 +194,7 @@ input:invalid
     color: #ffffff
 
     .navbar-default
-      background-color: rgba(255, 255, 255, 0)
+      //background-color: rgba(255, 255, 255, 0)
       border: 0
       border-radius: 0
       height: 100%
@@ -199,8 +206,12 @@ input:invalid
 
       .nav-justified
 
+
         a
           color: #ffffff
+          mix-blend-mode: screen
+
+
 
     .button-down
       text-align: center
@@ -245,9 +256,58 @@ input:invalid
       h3
         color: $main_color_inactive
 
+      .description
+        margin-top: 30px
+
+        .tariff-cont
+          padding: 30px
+          margin-bottom: 20px
+          color: #000000
+          font-size: 13px
+          background-color: #ffffff
+          box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.25)
+
     .questions
+      background-color: #efefef
+      padding-top: 60px
+      min-height: 800px
+
       .wrap
-        margin-bottom: 30px
+
+        background-color: #ffffff
+        box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.25)
+        margin: 0 auto
+
+
+        .wrap-link
+          color: #000000
+          font-size: 18px
+
+          &a
+            text-decoration: none
+
+
+
+        div
+          color: #000000
+          background-color: #ffffff
+          border: none
+
+
+        .panel
+          border: none
+          //background-color: #efefef
+
+    .pci-dss
+      background-image: linear-gradient(118deg, #325276, #245184)
+      min-height: 800px
+      .description
+
+
+        .pci-dss-text
+          color: #ffffff
+
+
 
   .button-up
     position: fixed
@@ -264,8 +324,11 @@ input:invalid
       height: 16px
 
   footer
-    max-width: 1024px
+    //max-width: 1024px
     margin: 0 auto
+    background-color: #ededed
+
+
 
     .contacts
       border-bottom: 1px solid #4c4c4c
@@ -311,10 +374,19 @@ input:invalid
         width: 90px
         margin-left: 20px
 
-  .main
-    background-color: #f8f8f8
+  .main-left
+    height: 800px
+    background-color: rgba(0, 40, 84, 0.8)
     float: left
+    width: 17%
+
+  .main-right
     width: 83%
+    float: left
+
+  .main
+    background-color: #fff
+    //width: 83%
     a
       text-decoration: none
 
@@ -363,6 +435,9 @@ input:invalid
             border-bottom: 2px solid #f79601
 
     .content
+      display: block
+      width: 100%
+
       background-color: #fff
 
     .sub-main

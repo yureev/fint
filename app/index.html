@@ -1,12 +1,12 @@
 <div class="app">
-    <div id="top" class="top">
+    <menu id="top" class="top">
         <nav class="navbar navbar-default">
             <div class="collapse navbar-collapse">
-                <div class="navigation">
+                <div class="navigation" ng-class="{activeTarifQaa: nav==3 || nav==4}">
                     <div class="nav nav-justified">
                         <div class="logo">
                             <div>
-                                <a class="navbar-brand" ui-sref="app.card">
+                                <a class="navbar-brand" ui-sref="app.card" scroll-to="main" ng-click="nav=0">
                                     <div class="logo-img"><img src="./assets/images/logo_sendua.png" alt="SendUa"></div>
                                     <div class="logo-text"><img src="./assets/images/send_ua_logo.svg" alt="SendUa"></div>
                                 </a>
@@ -23,40 +23,39 @@
                         </a>
                     </div>
                     <div class="nav nav-justified">
-                        <a ui-sref="app.card" scroll-to="main" ng-class="{active: $state.includes('app.card') || $state.includes('app.phone')}">{{'APP.CONTROLS.BTN_SEND' | translate}}</a>
+                        <a ui-sref="app.card" scroll-to="main" ng-click="nav=0" ng-class="{active: $state.includes('app.card') || $state.includes('app.phone')}">{{'APP.CONTROLS.BTN_SEND' | translate}}</a>
                         <div class="nav nav-inside" ng-class="{active: $state.includes('app.card') || $state.includes('app.phone')}">
-                            <div><a ui-sref="app.card" scroll-to="main" ng-class="{active: $state.includes('app.card') }">{{'CARD2CARD.CONTROLS.SEND.BTN_CARDTOCARD' | translate}}</a></div>
-                            <div><a ui-sref="app.phone" scroll-to="main" ng-class="{active: $state.includes('app.phone')}">{{'CARD2CARD.CONTROLS.SEND.BTN_PHONE' | translate}}</a></div>
+                            <div><a ui-sref="app.card" scroll-to="main" ng-click="nav=0" ng-class="{active: $state.includes('app.card') }">{{'CARD2CARD.CONTROLS.SEND.BTN_CARDTOCARD' | translate}}</a></div>
+                            <div><a ui-sref="app.phone" scroll-to="main" ng-click="nav=0" ng-class="{active: $state.includes('app.phone')}">{{'CARD2CARD.CONTROLS.SEND.BTN_PHONE' | translate}}</a></div>
                         </div>
                     </div>
                     <div class="nav nav-justified">
-                        <a ui-sref="app.url" scroll-to="main" ng-class="{active: $state.includes('app.url') || $state.includes('app.code')}">{{'APP.CONTROLS.BTN_RECEIVE' | translate}}</a>
+                        <a ui-sref="app.url" scroll-to="main" ng-click="nav=0" ng-class="{active: $state.includes('app.url') || $state.includes('app.code')}">{{'APP.CONTROLS.BTN_RECEIVE' | translate}}</a>
                         <div class="nav nav-inside" ng-class="{active: $state.includes('app.url') || $state.includes('app.code')}">
-                            <div><a ui-sref="app.url" scroll-to="main" ng-class="{active: $state.includes('app.url') }">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_URL' | translate}}</a></div>
-                            <div><a ui-sref="app.code" scroll-to="main" ng-class="{active: $state.includes('app.code')}">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_CODE' | translate}}</a></div>
+                            <div><a ui-sref="app.url" scroll-to="main" ng-click="nav=0" ng-class="{active: $state.includes('app.url') }">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_URL' | translate}}</a></div>
+                            <div><a ui-sref="app.code" scroll-to="main" ng-click="nav=0" ng-class="{active: $state.includes('app.code')}">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_CODE' | translate}}</a></div>
                         </div>
                     </div>
 
-                    <div class="line-up"></div>
+                    <!--<div class="line-up"></div>-->
 
                     <div class="nav nav-justified">
-                        <a scroll-to="apps">{{ 'APP.MENU.APPS' | translate }}</a>
-                    </div>
-
-                    <div class="nav nav-justified">
-                        <a  scroll-to="services">{{ 'APP.MENU.ABOUT' | translate }}</a>
+                        <a scroll-to="apps" ng-class="{activemenu: nav == 1}" ng-click="nav=1">{{ 'APP.MENU.APPS' | translate }}</a>
                     </div>
                     <div class="nav nav-justified">
-                        <a  scroll-to="tarif">{{ 'APP.MENU.TARIFFS' | translate }}</a>
+                        <a  scroll-to="services" ng-class="{activemenu: nav==2}" ng-click="nav=2">{{ 'APP.MENU.ABOUT' | translate }}</a>
                     </div>
                     <div class="nav nav-justified">
-                        <a  scroll-to="qaa">{{ 'APP.MENU.FAQ' | translate }}</a>
+                        <a  scroll-to="tarif" ng-class="{activemenu: nav==3}" ng-click="nav=3">{{ 'APP.MENU.TARIFFS' | translate }}</a>
                     </div>
                     <div class="nav nav-justified">
-                        <a  scroll-to="contacts">{{ 'APP.MENU.CONTACTS' | translate }}</a>
+                        <a  scroll-to="qaa" ng-class="{activemenu: nav==4}" ng-click="nav=4">{{ 'APP.MENU.FAQ' | translate }}</a>
                     </div>
+                    <!--<div class="nav nav-justified">-->
+                        <!--<a  scroll-to="contacts" ng-class="{active: nav==4}" ng-click="nav=4">{{ 'APP.MENU.CONTACTS' | translate }}</a>-->
+                    <!--</div>-->
                     <div class="nav nav-justified">
-                        <a  scroll-to="pci-dss">{{ 'APP.MENU.PCI' | translate }}</a>
+                        <a  scroll-to="pci-dss" ng-class="{activemenu: nav==5}" ng-click="nav=(5)">{{ 'APP.MENU.PCI' | translate }}</a>
                     </div>
                     <div class="nav nav-justified">
                         <div class="translate">
@@ -64,7 +63,7 @@
                             <span class="item"><a ng-model="lang" ng-change="onChangeLanguage()" uib-btn-radio="'ru'">RU</a></span>
                         </div>
                     </div>
-                    <div class="line-up"></div>
+                    <!--<div class="line-up"></div>-->
                     <div class="nav nav-justified">
                         <div class="social">
                             <div class="title">{{ 'APP.CONTACTS.SOCIAL' | translate }}</div>
@@ -105,139 +104,36 @@
             </form> -->
 
         </nav>
-    </div>
+    </menu>
     <!--<div class="clearfix"></div>-->
     <div id="main" class="container-fluid main">
         <div class="row">
+
             <!--<div class="item" ng-class="{active: $state.includes('app.card') || $state.includes('app.phone')}">-->
             <!--</div>-->
 
             <!--<div class="item" ng-class="{active: $state.includes('app.url') || $state.includes('app.code')}">-->
             <!--</div>-->
 
-            <div class="content" page-height>
-                <div ui-view page-height-container></div>
+            <div class=" content" page-height>
+                <div class="main-left"></div>
+                <div class="main-right" ui-view page-height-container></div>
+                <div class="clearfix"></div>
+
+
+
             </div>
         </div>
     </div>
     <div class="clearfix"></div>
     <div class="container-fluid color-wrap">
-
-        <div  class="top">
-            <nav class="navbar navbar-default">
-                <div class="collapse navbar-collapse">
-                    <div class="navigation">
-                        <div class="nav nav-justified">
-                            <div class="logo">
-                                <div>
-                                    <a class="navbar-brand" ui-sref="app.card">
-                                        <div class="logo-img"><img src="./assets/images/logo_sendua.png" alt="SendUa"></div>
-                                        <div class="logo-text"><img src="./assets/images/send_ua_logo.svg" alt="SendUa"></div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="nav nav-justified">
-                            <a ui-sref="app.card">
-                                <div class="buttons">
-                                    <button type="submit" class="btn btn-warning send-button">
-                                        {{ 'APP.MENU.ENTER' | translate }}
-                                    </button>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="nav nav-justified">
-                            <a ui-sref="app.card" scroll-to="main" ng-class="{active: $state.includes('app.card') || $state.includes('app.phone')}">{{'APP.CONTROLS.BTN_SEND' | translate}}</a>
-                            <div class="nav nav-inside" ng-class="{active: $state.includes('app.card') || $state.includes('app.phone')}">
-                                <div><a ui-sref="app.card" scroll-to="main" ng-class="{active: $state.includes('app.card') }">{{'CARD2CARD.CONTROLS.SEND.BTN_CARDTOCARD' | translate}}</a></div>
-                                <div><a ui-sref="app.phone" scroll-to="main" ng-class="{active: $state.includes('app.phone')}">{{'CARD2CARD.CONTROLS.SEND.BTN_PHONE' | translate}}</a></div>
-                            </div>
-                        </div>
-                        <div class="nav nav-justified">
-                            <a ui-sref="app.url" scroll-to="main" ng-class="{active: $state.includes('app.url') || $state.includes('app.code')}">{{'APP.CONTROLS.BTN_RECEIVE' | translate}}</a>
-                            <div class="nav nav-inside" ng-class="{active: $state.includes('app.url') || $state.includes('app.code')}">
-                                <div><a ui-sref="app.url" scroll-to="main" ng-class="{active: $state.includes('app.url') }">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_URL' | translate}}</a></div>
-                                <div><a ui-sref="app.code" scroll-to="main" ng-class="{active: $state.includes('app.code')}">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_CODE' | translate}}</a></div>
-                            </div>
-                        </div>
-
-                        <div class="line-up"></div>
-
-                        <div class="nav nav-justified">
-                            <a scroll-to="apps">{{ 'APP.MENU.APPS' | translate }}</a>
-                        </div>
-
-                        <div class="nav nav-justified">
-                            <a  scroll-to="services">{{ 'APP.MENU.ABOUT' | translate }}</a>
-                        </div>
-                        <div class="nav nav-justified">
-                            <a  scroll-to="tarif">{{ 'APP.MENU.TARIFFS' | translate }}</a>
-                        </div>
-                        <div class="nav nav-justified">
-                            <a  scroll-to="qaa">{{ 'APP.MENU.FAQ' | translate }}</a>
-                        </div>
-                        <div class="nav nav-justified">
-                            <a  scroll-to="contacts">{{ 'APP.MENU.CONTACTS' | translate }}</a>
-                        </div>
-                        <div class="nav nav-justified">
-                            <a  scroll-to="pci-dss">{{ 'APP.MENU.PCI' | translate }}</a>
-                        </div>
-                        <div class="nav nav-justified">
-                            <div class="translate">
-                                <span class="item"><a ng-model="lang" ng-change="onChangeLanguage()" uib-btn-radio="'ua'">UA</a></span>
-                                <span class="item"><a ng-model="lang" ng-change="onChangeLanguage()" uib-btn-radio="'ru'">RU</a></span>
-                            </div>
-                        </div>
-                        <div class="line-up"></div>
-                        <div class="nav nav-justified">
-                            <div class="social">
-                                <div class="title">{{ 'APP.CONTACTS.SOCIAL' | translate }}</div>
-                                <!--<img class="facebook-pic" src="./assets/images/facebook_logo.svg" alt="Facebook">-->
-                                <!--<img class="twitter-pic" src="./assets/images/twitter_logo.svg" alt="Twitter">-->
-                                <a href="tel:380443900885"><i class="fa fa-phone" aria-hidden="true"></i></a>
-                                <a href="mailto:support@send.ua" ><i class="fa fa-envelope" aria-hidden="true"></i></a>
-                                <a><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                <a><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                        <!--<div class="nav nav-justified">-->
-                        <!--<div class="support">-->
-                        <!--<div class="title">{{ 'APP.CONTACTS.SUPPORT' | translate }}</div>-->
-                        <!--<a href="tel:380443900885"><i class="fa fa-phone" aria-hidden="true"></i></a>-->
-                        <!--<a href="mailto:support@send.ua" ><i class="fa fa-envelope" aria-hidden="true"></i></a>-->
-                        <!--</div>-->
-                        <!--</div>-->
-                    </div>
-
-                </div>
-                <!-- <form class="form-inline pull-right authorization">
-                    <div class="form-group">
-                        <div class="pull-left item">
-                            <input type="text" class="form-control"
-                                   placeholder="{{ 'APP.AUTH.INPUT.LOGIN' | translate }}"/>
-                            <br />
-                            <a href="#">{{ 'APP.AUTH.LINK.FORGOT' | translate }}</a>
-                        </div>
-                        <div class="form-group item">
-                            <input type="text" class="form-control"
-                                   placeholder="{{ 'APP.AUTH.INPUT.PASS' | translate }}"/>
-                            <br />
-                            <a href="#">{{ 'APP.AUTH.LINK.REGISTRATION' | translate }}</a>
-                        </div>
-                    </div>
-                    <button class="btn btn-warning pull-right">{{ 'APP.AUTH.ENTER' | translate }}</button>
-                </form> -->
-
-            </nav>
-        </div>
-
         <div class="row apps" id="apps">
             <!--<div class="title text-center">{{ 'APP.CONTENT.APPS.TITLE' | translate }}</div>-->
             <div class="description">
                 <div class="images text-center col-md-5 col-md-offset-1 hidden-sm hidden-xs"><img src="./assets/images/apps.png"></div>
                 <div class="col-md-5 col-md-offset-1">
                     <div class="pull-right mobile">
-                        <h4>{{ 'MOBILE.BE_MOBILE' | translate }}</h4>
+                        <h1>{{ 'MOBILE.BE_MOBILE' | translate }}</h1>
                         <p>{{ 'MOBILE.DOWNLOAD' | translate }}</p>
                         <!--<img src="./assets/images/qr_2016.png" width="200px" class="img-responsive pull-left">-->
                         <div class="margin-top-big">
@@ -264,48 +160,50 @@
         <div class="row tariffs" id="tarif">
             <!--<div class="title text-center">{{ 'APP.CONTENT.TARIFFS.TITLE' | translate }}</div>-->
             <div class="description">
-                <div class="col-md-5 col-md-offset-1" translate="APP.CONTENT.TARIFFS.TEXT"></div>
-                <div class="text-center col-md-5 col-md-offset-1 hidden-sm hidden-xs"><img src="./assets/images/percent.png" width="250px" class="images percent"></div>
-                <div class="clearfix"></div>
+                <div class="tariff-cont" translate="APP.CONTENT.TARIFFS.TEXT1"></div>
+                <div class="tariff-cont" translate="APP.CONTENT.TARIFFS.TEXT2"></div>
+                <div class="tariff-cont" translate="APP.CONTENT.TARIFFS.TEXT3"></div>
+                <!--<div class="text-center col-md-5 col-md-offset-1 hidden-sm hidden-xs"><img src="./assets/images/percent.png" width="250px" class="images percent"></div>-->
+                <!--<div class="clearfix"></div>-->
                 <!--<div class="button-down" scroll-to="qaa"></div>-->
             </div>
         </div>
         <div class="row questions" id="qaa">
             <!--<div class="title text-center">{{ 'APP.CONTENT.FAQ.TITLE' | translate }}</div>-->
-            <div class="wrap col-md-8 col-lg-6 col-lg-offset-3 col-md-offset-2">
+            <div class="wrap description ">
                 <uib-accordion close-others="true">
                     <uib-accordion-group is-open="true">
                         <uib-accordion-heading>
                             <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
-                            <span>{{ 'APP.CONTENT.FAQ.QUESTION_1.TITLE' | translate }}</span>
+                            <a class="wrap-link">{{ 'APP.CONTENT.FAQ.QUESTION_1.TITLE' | translate }}</a>
                         </uib-accordion-heading>
                         <div translate="APP.CONTENT.FAQ.QUESTION_1.TEXT"></div>
                     </uib-accordion-group>
                     <uib-accordion-group>
                         <uib-accordion-heading>
                             <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
-                            <span>{{ 'APP.CONTENT.FAQ.QUESTION_2.TITLE' | translate }}</span>
+                            <a class="wrap-link">{{ 'APP.CONTENT.FAQ.QUESTION_2.TITLE' | translate }}</a>
                         </uib-accordion-heading>
                         <div translate="APP.CONTENT.FAQ.QUESTION_2.TEXT"></div>
                     </uib-accordion-group>
                     <uib-accordion-group>
                         <uib-accordion-heading>
                             <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
-                            <span>{{ 'APP.CONTENT.FAQ.QUESTION_3.TITLE' | translate }}</span>
+                            <a class="wrap-link">{{ 'APP.CONTENT.FAQ.QUESTION_3.TITLE' | translate }}</a>
                         </uib-accordion-heading>
                         <div translate="APP.CONTENT.FAQ.QUESTION_3.TEXT"></div>
                     </uib-accordion-group>
                     <uib-accordion-group>
                         <uib-accordion-heading>
                             <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
-                            <span>{{ 'APP.CONTENT.FAQ.QUESTION_4.TITLE' | translate }}</span>
+                            <a class="wrap-link">{{ 'APP.CONTENT.FAQ.QUESTION_4.TITLE' | translate }}</a>
                         </uib-accordion-heading>
                         <div translate="APP.CONTENT.FAQ.QUESTION_4.TEXT"></div>
                     </uib-accordion-group>
                     <uib-accordion-group>
                         <uib-accordion-heading>
                             <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
-                            <span>{{ 'APP.CONTENT.FAQ.QUESTION_5.TITLE' | translate }}</span>
+                            <a class="wrap-link">{{ 'APP.CONTENT.FAQ.QUESTION_5.TITLE' | translate }}</a>
                         </uib-accordion-heading>
                         <div translate="APP.CONTENT.FAQ.QUESTION_5.TEXT"></div>
                     </uib-accordion-group>
@@ -317,7 +215,8 @@
         <div class="row pci-dss" id="pci-dss">
             <!--<div class="title text-center">{{ 'APP.CONTENT.PCI_DSS.TITLE' | translate }}</div>-->
             <div class="description">
-                <div class="col-md-10 col-md-offset-1" translate="APP.CONTENT.PCI_DSS.TEXT"></div>
+                <h1>{{ 'APP.CONTENT.PCI_DSS.TITLE' | translate }}</h1>
+                <div class="pci-dss-text" translate="APP.CONTENT.PCI_DSS.TEXT"></div>
                 <div class="clearfix"></div>
                 <!--<div class="button-down" scroll-to="contacts"></div>-->
             </div>
@@ -325,24 +224,6 @@
     </div>
     <footer class="container-fluid">
         <div class="footer-wrap">
-            <div class="row contacts" id="contacts">
-                <div class="col-md-4 col-md-offset-2 text-center">
-                    <div class="social">
-                        <div class="title">{{ 'APP.CONTACTS.SOCIAL' | translate }}</div>
-                        <img class="facebook-pic" src="./assets/images/facebook_logo.svg">
-                        <img class="twitter-pic" src="./assets/images/twitter_logo.svg">
-                    </div>
-                </div>
-                <div class="col-md-4 text-center">
-                    <div class="support">
-                        <div class="title">{{ 'APP.CONTACTS.SUPPORT' | translate }}</div>
-                        <a href="tel:380443900885">
-                            <span class="text-val-1">044 390-08-85</span>
-                        </a>
-                        <a href="mailto:support@send.ua" class="text-val-1">support@send.ua</a>
-                    </div>
-                </div>
-            </div>
             <div class="banners">
                 <a href="http://www.visa.com.ua/ua/uk-ua/personal/security/onlineshopping.shtml" target="_blank">
                     <img class="visa-verified" src="./assets/images/vbyvisa_blu.png">
