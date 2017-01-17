@@ -104,6 +104,7 @@ angular.module('app', [
             tmhDynamicLocaleProvider.localeLocationPattern('angular/i18n/angular-locale_{{locale}}.js');
 
 
+
             var prefix = 'https://send.ua';
 
             // var prefix = process.env.NODE_ENV == 'development' ? 'https://send.ua' : '';
@@ -153,8 +154,12 @@ angular.module('app', [
             CardToCardProvider.setRecieptTemplate(require('_templates/reciept.html'));
         }
     ])
+
+
     .controller('AppCtrl', ['$scope', '$translate', 'tmhDynamicLocale', function ($scope, $translate, tmhDynamicLocale) {
         $scope.lang = 'ua';
+        $scope.begin = true;
+
 
 
         $scope.onChangeLanguage = function () {

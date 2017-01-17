@@ -35,15 +35,15 @@ input:invalid
   width: 100%
 
   .top
-    width: 17%
+    width: 320px
     //min-width: 220px
     //max-width: 320px
     margin: 0
-    padding: 0
+    padding: 10px
     float: left
     position: fixed
     height: 100%
-    z-index: 2000
+    z-index: 2
 
 
 
@@ -61,6 +61,10 @@ input:invalid
         .logo-text
           img
             width: 200%
+
+        .logo-img
+          img
+            width: 100%
 
       .buttons
         text-align: left
@@ -97,6 +101,11 @@ input:invalid
         width: 100%
         margin-bottom: 10px
 
+      .line-up-short
+        border-top: 2px solid #3e6997
+        width: 20%
+        margin-bottom: 10px
+
 
     .navigation-toggle
       margin-top: 15px
@@ -113,6 +122,10 @@ input:invalid
     .navbar
       margin-bottom: 0
 
+      //.collapse
+      //  margin: 0
+      //  padding-left: 0
+
     .navigation
       margin-top: 18px
 
@@ -120,14 +133,14 @@ input:invalid
     .activeTarifQaa
       .nav-justified
         a
-          color: #f5a623
+          //color: #f5a623
 
 
     .nav-justified
       margin-bottom: 20px
       a
         text-align: left
-        color: #d8d8d8
+        color: #ffffff
         text-decoration: none
 
       .nav-inside
@@ -141,7 +154,7 @@ input:invalid
           margin-bottom: 0
 
         .active
-          color: #f5a623
+          color: #ff9800
 
       .active
         color: #4a90e2
@@ -152,7 +165,7 @@ input:invalid
 
       .translate
         .active
-          color: #f5a623
+          color: #1a3654
 
     .translate
       float: left
@@ -193,6 +206,9 @@ input:invalid
     padding: 0
     color: #ffffff
 
+    .row
+      margin: 0
+
     .navbar-default
       //background-color: rgba(255, 255, 255, 0)
       border: 0
@@ -231,6 +247,7 @@ input:invalid
         border-bottom: 1px solid $border-color-entry
         margin-bottom: 20px
 
+
       .description
         max-width: 1024px
         margin: 0 auto
@@ -245,38 +262,56 @@ input:invalid
 
     .apps
       //width: 1280px
-      min-height: 760px
-      background-image: linear-gradient(298deg, #f79601, #ffb23a 100%)
+      min-height: 685px
+      //background-image: linear-gradient(298deg, #f79601, #ffb23a 100%)
+      background: url('assets/images/image_1_1.svg') center  0 no-repeat #f79601
+
+      //background-image: linear-gradient( 298deg, #f79601, #ffb23a 100%)
+
 
 
     .services
       min-height: 760px
-      background-image: linear-gradient(118deg, #325276, #245184)
+      //background-image: linear-gradient(118deg, #325276, #245184)
+      background: url('assets/images/image_1_mirror.svg') center 0 no-repeat #325276
+
     .tariffs
       h3
         color: $main_color_inactive
 
       .description
+        margin: 0
         margin-top: 30px
+        margin-left: 2%
+        font-size: 14px
 
         .tariff-cont
           padding: 30px
-          margin-bottom: 20px
+
           color: #000000
-          font-size: 13px
-          background-color: #ffffff
-          box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.25)
+          //font-size: 13px
+          //background-color: #ffffff
+          //box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.25)
 
     .questions
       background-color: #efefef
-      padding-top: 60px
+      //padding-top: 60px
       min-height: 800px
+      //width: 100%
+
+      .description
+        max-width: none
+        //margin: 0
+        margin-top: 30px
+        margin-left: 3%
+        font-size: 14px
+        //width: 100%
 
       .wrap
 
-        background-color: #ffffff
-        box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.25)
-        margin: 0 auto
+        //background-color: #ffffff
+        //box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.25)
+
 
 
         .wrap-link
@@ -290,7 +325,7 @@ input:invalid
 
         div
           color: #000000
-          background-color: #ffffff
+          background-color: #efefef
           border: none
 
 
@@ -300,12 +335,30 @@ input:invalid
 
     .pci-dss
       background-image: linear-gradient(118deg, #325276, #245184)
+
       min-height: 800px
       .description
+        max-width: none
+        margin-top: 7%
+        padding-left: 20%
+        padding-right: 5%
 
 
         .pci-dss-text
           color: #ffffff
+          //margin-left: 25%
+          width: 75%
+
+        .pci-dss-img
+          text-align: center
+          margin-right: 20%
+
+        .pci-dss-logo
+          //margin-right: -20%
+          text-align: right
+
+          img
+            width: 20%
 
 
 
@@ -375,20 +428,56 @@ input:invalid
         margin-left: 20px
 
   .main-left
-    height: 800px
-    background-color: rgba(0, 40, 84, 0.8)
+    height: 820px
+    //background-color: rgba(0, 40, 84, 0.8)
+    background-color: #2e527a
     float: left
-    width: 17%
+    width: 320px
 
   .main-right
-    width: 83%
+    //width: 83%
     float: left
+
+  .questions
+    .main-left
+      //background-color: rgba(0, 40, 84, 0.8)
+      background-image: linear-gradient(339deg, #f79601, #ffb23a 100%)
+
+
 
   .main
     background-color: #fff
     //width: 83%
     a
       text-decoration: none
+
+    .cont-begin
+      //background: url('assets/images/image_1_1.svg') center  0 no-repeat #f79601
+      background: url('assets/images/image_1.svg') center 254px no-repeat #325276
+      min-height: 800px
+      text-align: center
+      padding-top: 40px
+
+
+      .logo-img
+        img
+          width: 100px
+          margin-bottom: 40px
+
+      .logo-text
+        img
+          width: 400px
+          margin-bottom: 160px
+
+      .source-input
+        input
+          text-align: center
+          background-color: inherit
+          border: none
+          border-bottom: 1px solid #cfcfcf
+
+
+
 
     .sidebar
       text-align: center

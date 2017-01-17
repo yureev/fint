@@ -72,6 +72,8 @@
   .has-feedback .form-control
     padding-right: 10px
 
+
+
   .play
     position: absolute
     font-size: 3em
@@ -88,8 +90,12 @@
     padding: 25px
     margin-bottom: 10px
     border-radius: 3px
-    width: 50%
-    height: 50%
+    //width: 50%
+    min-width: 220px
+    //height: 50%
+
+    input
+      height: 40px
 
     .form-control-feedback
       pointer-events: all
@@ -124,7 +130,7 @@
 
     &.target
       border-left: none
-      float: right
+      //float: left
       box-shadow: 4px 1px 10px 0 rgba(0, 0, 0, 0.25)
 
       .card-logo
@@ -143,7 +149,7 @@
     &.source
       background-color: #ededed
       border-right: none
-      float: left
+      //float: left
       box-shadow: -4px 1px 10px 0 rgba(0, 0, 0, 0.25)
 
       .card-logo
@@ -166,6 +172,7 @@
         input
           border-radius: 4px 0 0 4px
           border-right: none
+
           //text-align: center
 
       .card-data
@@ -218,6 +225,7 @@
 
       .phone
         width: 70%
+
 
   .amount
     width: 40%
