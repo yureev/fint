@@ -16,11 +16,11 @@ $fa-font-path: "~font-awesome/fonts"
 
 // Misc
 
-html
-  font-size: 16px
+//html
+//  font-size: 16px
 
 body
-  font-size: 1rem
+  font-size: 1em
 
 a
   cursor: pointer
@@ -39,7 +39,7 @@ input:invalid
     //min-width: 220px
     //max-width: 320px
     margin: 0
-    padding: 10px
+    padding: 0
     float: left
     position: fixed
     height: 100%
@@ -49,7 +49,7 @@ input:invalid
 
     .navigation
       margin-bottom: 20px
-      width: 100%
+      //width: 100%
 
       .navbar-brand
         padding: 0
@@ -71,9 +71,9 @@ input:invalid
         padding: 0
 
         button
-          height: 45px
+          //height: 45px
           width: 100%
-          font-size: 16px
+          font-size: 1em
           background-color: #395e88
           text-transform: uppercase
           border-color: #395e88
@@ -86,7 +86,7 @@ input:invalid
 
         i
           color: #d8d8d8
-          font-size: 30px
+          font-size: 2em
 
         i:first-child
           margin-right: 20px
@@ -122,9 +122,9 @@ input:invalid
     .navbar
       margin-bottom: 0
 
-      //.collapse
-      //  margin: 0
-      //  padding-left: 0
+      .collapse
+        margin: 0
+        padding: 10px
 
     .navigation
       margin-top: 18px
@@ -161,7 +161,7 @@ input:invalid
         display: inherit
 
       .activemenu
-        font-size: 20px
+        font-size: 1.2em
 
       .translate
         .active
@@ -240,7 +240,7 @@ input:invalid
       .title
         color: $main_color_active
         background-color: #f8f8f8
-        font-size: 22px
+        font-size: 1.5em
         padding: 15px 0
         width: 100%
         border-top: 1px solid $border-color-entry
@@ -283,7 +283,7 @@ input:invalid
         margin: 0
         margin-top: 30px
         margin-left: 2%
-        font-size: 14px
+        font-size: 0.8em
 
         .tariff-cont
           padding: 30px
@@ -304,7 +304,7 @@ input:invalid
         //margin: 0
         margin-top: 30px
         margin-left: 3%
-        font-size: 14px
+        font-size: 0.8em
         //width: 100%
 
       .wrap
@@ -316,7 +316,7 @@ input:invalid
 
         .wrap-link
           color: #000000
-          font-size: 18px
+          font-size: 1.2em
 
           &a
             text-decoration: none
@@ -397,7 +397,7 @@ input:invalid
 
       .title
         color: #2f6fad
-        font-size: 18px
+        font-size: 1.2em
         margin-bottom: 20px
 
     .support
@@ -432,7 +432,7 @@ input:invalid
     //background-color: rgba(0, 40, 84, 0.8)
     background-color: #2980b9
     float: left
-    max-width: 320px
+
 
   .main-right
     //width: 83%
@@ -582,79 +582,136 @@ input:invalid
   margin-top: 30px
 
 
-//@media(max-width: 767px)
-//
-//  html
-//    font-size: 14px
-//
-//  .app
-//
-//    header
-//
-//      .logo
-//        float: left
-//        margin-left: 30px
-//        height: 80px
-//
-//    .navigation
-//      margin-left: 0
-//
-//    .nav-justified
-//
-//      > li
-//        > a
-//          text-align: left
-//
-//  .rocketchat-widget
-//    right: 0px !important
-//    width: 100% !important
-//
-//
-//@media(min-width: 768px)
-//
-//  html
-//    font-size: 13px
-//
-//    .app
-//
-//      header
-//
-//        .logo
-//          float: left
-//          margin-left: 30px
-//          height: 80px
-//
-//      .navigation
-//        //margin-left: 18%
-//
-//  .rocketchat-widget
-//    right: 100px !important
-//
-//
-//@media(min-width: 992px)
-//
-//  html
-//    font-size: 14px
-//
-//    .app
-//
-//      header
-//
-//        .logo
-//          float: left
-//          margin-left: 70px
-//          height: 80px
-//
-//@media(min-width: 1400px)
-//
-//  html
-//    font-size: 16px
-//
-//    .app
-//
-//      header
-//
-//        .logo
-//          float: left
-//          margin-left: 70px
-//          height: 80px
+@media(max-width: 767px)
+
+  html
+    font-size: 12px
+
+
+    .navigation
+      width: 50%
+      .buttons
+        button
+          height: 35px
+
+    .main-left
+      width: 240px
+
+
+
+
+  .rocketchat-widget
+    right: 0px !important
+    width: 100% !important
+
+
+@media(min-width: 768px)
+
+  html
+    font-size: 12px
+
+    .navigation
+
+      .buttons
+        button
+          //height: 25px
+
+    .main-left
+      width: 240px
+
+
+
+
+  .rocketchat-widget
+    right: 100px !important
+
+
+@media(min-width: 1024px)
+
+  html
+    font-size: 14px
+
+    .navigation
+      width: 93%
+      .buttons
+        button
+          //height: 35px
+
+    .main-left
+      width: 240px
+
+    .main-right
+      min-width: 760px
+
+
+@media(min-width: 1280px)
+
+  html
+    font-size: 14px
+
+    .navigation
+      width: 100%
+      .buttons
+        button
+          height: 45px
+
+    .main-left
+      width: 320px
+
+    .main-right
+      min-width: 940px
+
+
+
+@media(min-width: 1440px)
+
+  html
+    font-size: 14px
+
+    .navigation
+      width: 100%
+      .buttons
+        button
+          height: 45px
+
+    .main-left
+      width: 320px
+
+    .main-right
+      min-width: 1100px
+
+
+
+@media(min-width: 1600px)
+
+  html
+    font-size: 16px
+
+    .navigation
+      width: 100%
+      .buttons
+        button
+          height: 45px
+
+    .main-left
+      width: 320px
+
+    .main-right
+      min-width: 1260px
+
+@media(min-width: 1920px)
+
+  html
+    font-size: 16px
+
+    .navigation
+      width: 100%
+      .buttons
+        button
+          height: 45px
+
+    .main-left
+      width: 320px
+
+    .main-right
+      min-width: 1580px
