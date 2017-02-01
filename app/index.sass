@@ -53,6 +53,7 @@ input:invalid
 
       .navbar-brand
         padding: 0
+        height: auto
         //padding-left: 20px
 
         .logo-text, .logo-img
@@ -65,6 +66,7 @@ input:invalid
         .logo-img
           img
             width: 100%
+
 
       .buttons
         text-align: left
@@ -187,6 +189,8 @@ input:invalid
         button
           text-transform: uppercase
 
+
+
   .mobile
     //padding-right: 25px
     //white-space: nowrap
@@ -308,18 +312,30 @@ input:invalid
         //width: 100%
 
       .wrap
-
         //background-color: #ffffff
         //box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.25)
 
+        a
+          text-decoration: none
 
+          &.active-link
+            color: #3e6997
+
+        .icon-ask
+          width: 16px
+          height: 16px
+          background: url('assets/images/arrows.png') no-repeat
+          float: left
+
+
+          &.active
+            background-position: -35px 0
 
         .wrap-link
           color: #000000
           font-size: 1.2em
+          //float: left
 
-          &a
-            text-decoration: none
 
 
 
@@ -331,7 +347,7 @@ input:invalid
 
         .panel
           border: none
-          //background-color: #efefef
+          box-shadow: none
 
     .pci-dss
       background-color: #2980b9
@@ -594,10 +610,14 @@ input:invalid
         button
           height: 35px
 
+      .logo-size
+        width: 38%
+
     .main-left
       width: 240px
 
-
+    .desc-margin
+      padding-left: 200px
 
 
   .rocketchat-widget
@@ -611,16 +631,23 @@ input:invalid
     font-size: 12px
 
     .navigation
-
+      width: 60%
       .buttons
         button
           //height: 25px
 
+      .logo-size
+        width: 38%
+
+
     .main-left
-      width: 240px
+      width: 200px
 
+    .main-right
+      min-width: 480px
 
-
+    .desc-margin
+      padding-left: 200px
 
   .rocketchat-widget
     right: 100px !important
@@ -632,7 +659,12 @@ input:invalid
     font-size: 14px
 
     .navigation
-      width: 93%
+      width: 73%
+
+      .logo-size
+        width: 47%
+
+
       .buttons
         button
           //height: 35px
@@ -643,6 +675,9 @@ input:invalid
     .main-right
       min-width: 760px
 
+    .desc-margin
+      padding-left: 180px
+
 
 @media(min-width: 1280px)
 
@@ -651,6 +686,11 @@ input:invalid
 
     .navigation
       width: 100%
+
+      //.logo-size
+      //  width: 100%
+
+
       .buttons
         button
           height: 45px
@@ -660,6 +700,9 @@ input:invalid
 
     .main-right
       min-width: 940px
+
+    .desc-margin
+      padding-left: 140px
 
 
 
@@ -680,6 +723,9 @@ input:invalid
     .main-right
       min-width: 1100px
 
+    .desc-margin
+      padding-left: 60px
+
 
 
 @media(min-width: 1600px)
@@ -699,6 +745,9 @@ input:invalid
     .main-right
       min-width: 1260px
 
+    .desc-margin
+      padding-left: 30px
+
 @media(min-width: 1920px)
 
   html
@@ -715,3 +764,6 @@ input:invalid
 
     .main-right
       min-width: 1580px
+
+    .desc-margin
+      padding-left: auto

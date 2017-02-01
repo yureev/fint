@@ -7,8 +7,8 @@
                         <div class="logo">
                             <div>
                                 <a class="navbar-brand" ui-sref="app.card" scroll-to="main" ng-click="nav=0">
-                                    <div class="logo-img"><img src="./assets/images/logo_sendua.png" alt="SendUa"></div>
-                                    <div class="logo-text"><img src="./assets/images/send_ua_logo.svg" alt="SendUa"></div>
+                                    <div class="logo-img logo-size"><img src="./assets/images/logo_sendua.png" alt="SendUa"></div>
+                                    <div class="logo-text logo-size"><img src="./assets/images/send_ua_logo.svg" alt="SendUa"></div>
                                 </a>
                             </div>
                         </div>
@@ -160,7 +160,7 @@
     <div class="container-fluid color-wrap">
         <div class="row apps" id="apps">
             <!--<div class="title text-center">{{ 'APP.CONTENT.APPS.TITLE' | translate }}</div>-->
-            <div class="description">
+            <div class="description desc-margin">
                 <div class="images text-center col-md-5 col-md-offset-1 hidden-sm hidden-xs"><img src="./assets/images/apps.png"></div>
                 <div class="col-md-5 col-md-offset-1">
                     <div class="pull-right mobile">
@@ -180,7 +180,7 @@
         </div>
         <div class="row services" id="services">
             <!--<div class="title text-center">{{ 'APP.CONTENT.SERVICE.TITLE' | translate }}</div>-->
-            <div class="description">
+            <div class="description desc-margin">
                 <div class="col-md-5 col-md-offset-1" translate="APP.CONTENT.SERVICE.TEXT"></div>
                 <div class="images text-center col-md-5 col-md-offset-1 hidden-sm hidden-xs"><img src="./assets/images/sendUaService.png"></div>
                 <div class="clearfix"></div>
@@ -215,35 +215,35 @@
                         <uib-accordion-group is-open="true">
                             <uib-accordion-heading>
                                 <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
-                                <a class="wrap-link">{{ 'APP.CONTENT.FAQ.QUESTION_1.TITLE' | translate }}</a>
+                                <a class="wrap-link" ng-class="{'active-link': $parent.isOpen}">{{ 'APP.CONTENT.FAQ.QUESTION_1.TITLE' | translate }}</a>
                             </uib-accordion-heading>
                             <div translate="APP.CONTENT.FAQ.QUESTION_1.TEXT"></div>
                         </uib-accordion-group>
                         <uib-accordion-group>
                             <uib-accordion-heading>
                                 <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
-                                <a class="wrap-link">{{ 'APP.CONTENT.FAQ.QUESTION_2.TITLE' | translate }}</a>
+                                <a class="wrap-link" ng-class="{'active-link': $parent.isOpen}">{{ 'APP.CONTENT.FAQ.QUESTION_2.TITLE' | translate }}</a>
                             </uib-accordion-heading>
                             <div translate="APP.CONTENT.FAQ.QUESTION_2.TEXT"></div>
                         </uib-accordion-group>
                         <uib-accordion-group>
                             <uib-accordion-heading>
                                 <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
-                                <a class="wrap-link">{{ 'APP.CONTENT.FAQ.QUESTION_3.TITLE' | translate }}</a>
+                                <a class="wrap-link" ng-class="{'active-link': $parent.isOpen}">{{ 'APP.CONTENT.FAQ.QUESTION_3.TITLE' | translate }}</a>
                             </uib-accordion-heading>
                             <div translate="APP.CONTENT.FAQ.QUESTION_3.TEXT"></div>
                         </uib-accordion-group>
                         <uib-accordion-group>
                             <uib-accordion-heading>
                                 <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
-                                <a class="wrap-link">{{ 'APP.CONTENT.FAQ.QUESTION_4.TITLE' | translate }}</a>
+                                <a class="wrap-link" ng-class="{'active-link': $parent.isOpen}">{{ 'APP.CONTENT.FAQ.QUESTION_4.TITLE' | translate }}</a>
                             </uib-accordion-heading>
                             <div translate="APP.CONTENT.FAQ.QUESTION_4.TEXT"></div>
                         </uib-accordion-group>
                         <uib-accordion-group>
                             <uib-accordion-heading>
                                 <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
-                                <a class="wrap-link">{{ 'APP.CONTENT.FAQ.QUESTION_5.TITLE' | translate }}</a>
+                                <a class="wrap-link" ng-class="{'active-link': $parent.isOpen}">{{ 'APP.CONTENT.FAQ.QUESTION_5.TITLE' | translate }}</a>
                             </uib-accordion-heading>
                             <div translate="APP.CONTENT.FAQ.QUESTION_5.TEXT"></div>
                         </uib-accordion-group>
@@ -256,13 +256,17 @@
         <div class="row pci-dss" id="pci-dss">
             <!--<div class="title text-center">{{ 'APP.CONTENT.PCI_DSS.TITLE' | translate }}</div>-->
             <div class="description">
-                <div class="pci-dss-img"><img src="./assets/images/image_2_1.svg" alt="SendUa"></div>
-                <h1>{{ 'APP.CONTENT.PCI_DSS.TITLE' | translate }}</h1>
-                <div class="pci-dss-text" translate="APP.CONTENT.PCI_DSS.TEXT"></div>
-                <div class="pci-dss-logo"><img src="./assets/images/send_ua_logo.svg"></div>
-                <div class="pci-dss-img"><img src="./assets/images/image_2_2.svg"></div>
-                <div class="clearfix"></div>
-                <!--<div class="button-down" scroll-to="contacts"></div>-->
+                <div class="desc-margin">
+                    <div class="pci-dss-img"><img src="./assets/images/image_2_1.svg" alt="SendUa"></div>
+                    <h1>{{ 'APP.CONTENT.PCI_DSS.TITLE' | translate }}</h1>
+                    <div class="pci-dss-text" translate="APP.CONTENT.PCI_DSS.TEXT"></div>
+                    <div class="pci-dss-logo"><img src="./assets/images/send_ua_logo.svg"></div>
+                    <div class="pci-dss-img"><img src="./assets/images/image_2_2.svg"></div>
+                    <div class="clearfix"></div>
+                    <!--<div class="button-down" scroll-to="contacts"></div>-->
+
+                </div>
+
             </div>
         </div>
     </div>
