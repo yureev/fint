@@ -133,6 +133,7 @@
       font-weight: 500
       margin-bottom: 0
 
+
     &.target
       border-left: none
       //float: left
@@ -142,14 +143,14 @@
         &.visa
           width: 58px
           height: 18px
-          right: 50px
-          margin-top: 11px
+          right: 25px
+          margin-top: -24px
 
         &.mastercard
           width: 49px
           height: 29px
-          //right: 50px
-          //margin-top: 5px
+          right: 23px
+          margin-top: -34px
 
     &.source
       background-color: #ededed
@@ -161,14 +162,14 @@
         &.visa
           width: 58px
           height: 18px
-          right: 590px
-          margin-top: 11px
+          right: 25px
+          margin-top: -24px
 
         &.mastercard
           width: 49px
           height: 29px
-          //right: 590px
-          //margin-top: 5px
+          right: 23px
+          margin-top: -34px
 
       .source-input
         width: 70%
@@ -187,6 +188,21 @@
           float: right
           margin-right: 49px
 
+      //.form-control:focus
+      //  box-shadow: none
+
+
+      .white_input
+        height: 40px
+        background-color: #ffffff
+        border: 0.5px solid #ccc
+        border-radius: 0 4px 4px 0
+
+      .white_input_focus
+        border-color: #66afe9
+
+
+
       .expire
         float: right
         width: 30%
@@ -197,7 +213,10 @@
 
           input
             border-radius: 0
+            border: none
+            box-shadow: none
             padding: 0
+            background-color: inherit
 
         .date:first-child
           //float: left
@@ -214,7 +233,7 @@
             border-left: none
             text-align: center
             padding: 0
-            background-color: #fff
+            background-color: inherit
 
 
         .date:nth-child(3)
