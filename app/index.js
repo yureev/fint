@@ -31,6 +31,7 @@ angular.module('app', [
         require('_modules/components/scroll_top'),
         //require('_modules/components/page-height'),
         require('_modules/components/card-height'),
+        require('_modules/component-cardtocard'),
         // require('_modules/auth'),
     
         require('_pages/send_to_card'),
@@ -119,26 +120,13 @@ angular.module('app', [
                 generateLink:               prefix + '/sendua-api/info/generateLink',
                 sendLinkToMail:             prefix + '/sendua-api/info/sendLinkToMail',
                 getlinkparams:              prefix + '/sendua-api/info/getLinkParams',
-
-
-                // phone2Card:                 prefix + '/sendua-external/Phone2Card/CreatePhone2CardOperation',
-                // createCard2CardOperation:   prefix + '/sendua-external/Card2Card/CreateCard2CardOperation',
-                // createCard2PhoneOperation:  prefix + '/sendua-external/Card2Phone/CreateCard2PhoneOperation',
-                // phone2Card:                 prefix + '/sendua-external/Phone2Card/CreatePhone2CardOperation',
-                // kvitanse:                   prefix + '/sendua-external/Info/kvitanse',
-                // getDateTime:                prefix + '/sendua-external/Info/GetDateTime',
-                // generateLink:               prefix + '/sendua-external/Card2Card/generateLink',
-                // sendtomail:                 prefix + '/sendua-external/Card2Card/sendtomail',
-                // getlinkparams:              prefix + '/sendua-external/Card2Card/getlinkparams',
-                // tocardlink:                 prefix + '/sendua-external/Card2Card/tocardlink',
-                // getTariffs:                 prefix + '/sendua-external/Info/GetTariffs?tarifftype=web',
-                // getPayStatus:               prefix + '/sendua-external/Info/GetPayStatus',
-                // finishlookup:               prefix + '/sendua-external/ConfirmLookUp/finishlookup',
-
-
                 crossboardlink:             prefix + '/cardzone/check/',
-                crossboardAmount:           prefix + '/sendua-api/cross/checkCross',
-                createCross:                prefix + '/sendua-api/cross/createCross',
+
+                crossboardAmount:           prefix + '/sendua-api/cross/checkCross?all=true',
+                createCross:                prefix + '/sendua-api/cross/createCross?all=true',
+
+                // crossboardAmount:           prefix + '/sendua-api/cross/checkCross',
+                // createCross:                prefix + '/sendua-api/cross/createCross',
                 getState:                   prefix + '/sendua-api/info/getState/',
                 lookupContinue:             prefix + '/sendua-api/Lookup/continue',
                 getCurrencyrates:           prefix + '/sendua-api/cross/currency',

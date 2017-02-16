@@ -2,8 +2,7 @@ require('./index.sass');
 
 angular.module('cardToCard', [
         require('component-payments'),
-        require('component-currency'),
-        require('component-cardtocard')
+        require('component-currency')
     ])
     .directive('cardToCard', cardToCardDirective)
     .directive('cardToCardInput', cardToCardInputDirective)

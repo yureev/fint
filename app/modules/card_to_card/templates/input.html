@@ -95,14 +95,13 @@
                 <div>{{ 'CARD2CARD.SOURCE.TITLE' | translate }}</div>
                 <span class="card-logo " ng-class="c2cForm.number.cardType"></span>
                 <label>{{ 'CARD2CARD.SOURCE.LABEL.CARD_NUMBER' | translate }}</label>
-
-                <!---->
                 <div class="form-group source-input" ct-input-container>
 
                     <input type="text" name="number" class="form-control" ct-tabindex="checkNumber"
                            tabindex="1"
-                           ng-model="number" required ng-change="validDiamantMaster(number); validCardZoneSource(number)"
-                           ng-keyup="validDiamantMaster(number); validCardZoneSource(number)"
+                           ng-model="number" required
+                           ng-change="validCardZone(number, 'source')"
+                           ng-keyup="validCardZone(number, 'source')"
                            ui-mask="9999 9999 9999 9999" placeholder="____ ____ ____ ____"
                             ct-payments-format-number ct-payments-validate-number/>
                     <div class="error-number">
@@ -200,8 +199,6 @@
 
                 <div class="row-crossboard" ng-show="crossboard">
                     <div class=" col-md-6">
-
-
                         <div class="form-group" ct-input-container>
                             <input type="text" name="nameSource" class="form-control data-input" tabindex="9"
                                    uib-tooltip="{{ 'CARD2CARD.DATA_NAME_TOOLTIP' | translate }}" tooltip-placement="top-left"
@@ -318,8 +315,9 @@
 
                     <input type="text" name="numberTarget" class="form-control"
                            ct-tabindex="checkTargetNumber"
-                           ng-model="target.card" required tabindex="5" ng-change="validCardZoneTarget(target.card)"
-                           ng-keyup="validCardZoneTarget(target.card)"
+                           ng-model="target.card" required tabindex="5"
+                           ng-change="validCardZone(target.card, 'target')"
+                           ng-keyup="validCardZone(target.card, 'target')"
                            ng-disabled="numberTargetIsDisabled"
                            ui-mask="9999 9999 9999 9999" placeholder="____ ____ ____ ____"
                            ct-payments-format-number
