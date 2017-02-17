@@ -16,8 +16,11 @@ $fa-font-path: "~font-awesome/fonts"
 
 // Misc
 
+//html
+//  font-size: 16px
+
 body
-  font-size: 1rem
+  font-size: 1em
 
 a
   cursor: pointer
@@ -25,34 +28,152 @@ a
 input:invalid
   box-shadow: none
 
-.app
+.active
+  color: #F79600
 
-  header
+.app
+  width: 100%
+
+  .top
+    width: 320px
+    //min-width: 220px
+    //max-width: 320px
+    margin: 0
+    padding: 0
+    float: left
+    position: fixed
+    height: 100%
+    z-index: 2
+
+
+
+    .navigation
+      margin-bottom: 20px
+      //width: 100%
+
+      .navbar-brand
+        padding: 0
+        height: auto
+        //padding-left: 20px
+
+        .logo-text, .logo-img
+          display: inline-block
+
+        .logo-text
+          img
+            width: 200%
+
+        .logo-img
+          img
+            width: 100%
+
+
+      .buttons
+        text-align: left
+        padding: 0
+
+        button
+          //height: 45px
+          width: 100%
+          font-size: 1em
+          background-color: #395e88
+          text-transform: uppercase
+          border-color: #395e88
+
+      .social, .support
+
+        //.facebook-pic, .twitter-pic
+        //  width: 40px
+        //  height: 30px
+
+        i
+          color: #d8d8d8
+          font-size: 2em
+
+        i:first-child
+          margin-right: 20px
+
+        .title
+          color: #ffffff
+          //font-size: 14px
+          margin-bottom: 20px
+
+      .line-up
+        border-top: 1px solid #9b9b9b
+        width: 100%
+        margin-bottom: 10px
+
+      .line-up-short
+        border-top: 2px solid #3e6997
+        width: 20%
+        margin-bottom: 10px
+
 
     .navigation-toggle
       margin-top: 15px
 
     .navbar-default
-      background-color: #ffffff
+      //background-color: rgba(0, 40, 84, 0.8)
+      background-color: rgba(255, 255, 255, 0)
       border: 0
+      border-radius: 0
+      height: 100%
+
+
 
     .navbar
       margin-bottom: 0
 
+      .collapse
+        margin: 0
+        padding: 10px
+
     .navigation
       margin-top: 18px
 
-    .nav-justified
 
-      > li
-        > a
-          color: #777777
+    .activeTarifQaa
+      .nav-justified
+        a
+          //color: #f5a623
+
+
+    .nav-justified
+      margin-bottom: 20px
+      a
+        text-align: left
+        color: #ffffff
+        text-decoration: none
+
+      .nav-inside
+        margin: 10px
+        display: none
+
+        div
+          margin-bottom: 10px
+
+        div:last-child
+          margin-bottom: 0
+
+        .active
+          color: #ff9800
+
+      .active
+        color: #4a90e2
+        display: inherit
+
+      .activemenu
+        font-size: 1.2em
+
+      .translate
+        .active
+          color: #1a3654
 
     .translate
       float: left
       display: inline-block
-      margin-top: 28px
-      margin-left: 15px
+      margin-top: 40px
+      //margin-left: 15px
 
       .item
         width: 30px
@@ -68,19 +189,49 @@ input:invalid
         button
           text-transform: uppercase
 
-    .mobile
-      padding-right: 25px
-      white-space: nowrap
 
-      .google-play
-        width: 50px
 
-      .app-store
-        width: 56px
+  .mobile
+    //padding-right: 25px
+    //white-space: nowrap
+
+    .google-play
+      img
+        width: 151px
+
+    //.app-store
+    //  width: 56px
+
+
 
   .color-wrap
     background-color: #FBFBFB
     border-bottom: 1px solid $border-color-entry
+    padding: 0
+    color: #ffffff
+
+    .row
+      margin: 0
+
+    .navbar-default
+      //background-color: rgba(255, 255, 255, 0)
+      border: 0
+      border-radius: 0
+      height: 100%
+
+      .buttons
+
+        button
+          background-color: #395e88
+
+      .nav-justified
+
+
+        a
+          color: #ffffff
+          mix-blend-mode: screen
+
+
 
     .button-down
       text-align: center
@@ -93,16 +244,19 @@ input:invalid
       .title
         color: $main_color_active
         background-color: #f8f8f8
-        font-size: 22px
+        font-size: 1.5em
         padding: 15px 0
         width: 100%
         border-top: 1px solid $border-color-entry
         border-bottom: 1px solid $border-color-entry
         margin-bottom: 20px
 
+
       .description
         max-width: 1024px
         margin: 0 auto
+        margin-top: 11%
+
 
       .images
         margin-top: 10px
@@ -110,13 +264,119 @@ input:invalid
         &.percent
           padding-top: 130px
 
+    .apps
+      //width: 1280px
+      min-height: 685px
+      //background-image: linear-gradient(298deg, #f79601, #ffb23a 100%)
+      background: url('assets/images/image_1_1.svg') center  0 no-repeat #f39c12
+
+      //background-image: linear-gradient( 298deg, #f79601, #ffb23a 100%)
+
+
+
+    .services
+      min-height: 760px
+      //background-image: linear-gradient(118deg, #325276, #245184)
+      background: url('assets/images/image_1_mirror.svg') center 0 no-repeat #2980b9
+
     .tariffs
       h3
         color: $main_color_inactive
 
+      .description
+        margin: 0
+        margin-top: 30px
+        margin-left: 2%
+        font-size: 0.8em
+
+        .tariff-cont
+          padding: 30px
+
+          color: #000000
+          //font-size: 13px
+          //background-color: #ffffff
+          //box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.25)
+
     .questions
+      background-color: #efefef
+      //padding-top: 60px
+      min-height: 800px
+      //width: 100%
+
+      .description
+        max-width: none
+        //margin: 0
+        margin-top: 30px
+        margin-left: 3%
+        font-size: 0.8em
+        //width: 100%
+
       .wrap
-        margin-bottom: 30px
+        //background-color: #ffffff
+        //box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.25)
+
+        a
+          text-decoration: none
+
+          &.active-link
+            color: #3e6997
+
+        .icon-ask
+          width: 16px
+          height: 16px
+          background: url('assets/images/arrows.png') no-repeat
+          float: left
+
+
+          &.active
+            background-position: -35px 0
+
+        .wrap-link
+          color: #000000
+          font-size: 1.2em
+          //float: left
+
+
+
+
+        div
+          color: #000000
+          background-color: #efefef
+          border: none
+
+
+        .panel
+          border: none
+          box-shadow: none
+
+    .pci-dss
+      background-color: #2980b9
+
+      min-height: 800px
+      .description
+        max-width: none
+        margin-top: 7%
+        padding-left: 20%
+        padding-right: 5%
+
+
+        .pci-dss-text
+          color: #ffffff
+          //margin-left: 25%
+          width: 75%
+
+        .pci-dss-img
+          text-align: center
+          margin-right: 20%
+
+        .pci-dss-logo
+          //margin-right: -20%
+          text-align: right
+
+          img
+            width: 20%
+
+
 
   .button-up
     position: fixed
@@ -133,8 +393,11 @@ input:invalid
       height: 16px
 
   footer
-    max-width: 1024px
+    //max-width: 1024px
     margin: 0 auto
+    background-color: #ededed
+
+
 
     .contacts
       border-bottom: 1px solid #4c4c4c
@@ -150,7 +413,7 @@ input:invalid
 
       .title
         color: #2f6fad
-        font-size: 18px
+        font-size: 1.2em
         margin-bottom: 20px
 
     .support
@@ -163,8 +426,6 @@ input:invalid
 
       img
         margin-bottom: 20px
-
-      .visa-verified
 
       .visa-direct
         height: 46px
@@ -182,56 +443,115 @@ input:invalid
         width: 90px
         margin-left: 20px
 
-.main
-  background-color: #f8f8f8
-  a
-    text-decoration: none
+  .main-left
+    height: 820px
+    //background-color: rgba(0, 40, 84, 0.8)
+    background-color: #2980b9
+    float: left
 
-  .sidebar
-    text-align: center
-    border-top: 1px solid #124068
 
-    .item
-      color: #124068
-      text-transform: uppercase
-      height: 60px
+  .main-right
+    //width: 83%
+    float: left
 
-      a
-        display: block
-        padding: 20px 0
+  .questions
+    .main-left
+      //background-color: rgba(0, 40, 84, 0.8)
+      background-image: linear-gradient(339deg, #f79601, #ffb23a 100%)
 
-      &.active
-        background-color: #fff
-        @include box-shadow-entry
-        a
-          color: #F79600
-          text-decoration: none
 
-  .menu
-    .item
-      text-align: center
-      color: #124068
-      text-transform: uppercase
-      height: 61px
-      border-top: 1px solid
-      background-color: #f8f8f8
 
-      a
-        display: block
-        padding: 20px 0
-
-      &.active
-        background-color: #fff
-        border-top: 1px solid #F79600
-
-        a
-          color: #F79600
-
-  .content
+  .main
     background-color: #fff
+    //width: 83%
+    a
+      text-decoration: none
 
-  .sub-main
-    padding: 40px
+    .cont-begin
+      //background: url('assets/images/image_1_1.svg') center  0 no-repeat #f79601
+      background: url('assets/images/image_1.svg') center 254px no-repeat #2980b9
+      min-height: 800px
+      text-align: center
+      padding-top: 40px
+      //width: 100%
+
+
+      .logo-img
+        //width: 50%
+        //float: left
+        img
+          width: 100px
+          margin-bottom: 40px
+
+      .logo-text
+        //width: 50%
+        //float: left
+        img
+          width: 400px
+          margin-bottom: 160px
+
+      .source-input
+        input
+          text-align: center
+          background-color: inherit
+          border: none
+          border-bottom: 1px solid #cfcfcf
+
+
+
+
+    .sidebar
+      text-align: center
+      border-top: 1px solid #124068
+
+      .item
+        color: #124068
+        text-transform: uppercase
+        height: 60px
+
+        a
+          display: block
+          padding: 20px 0
+
+        &.active
+          background-color: #fff
+          @include box-shadow-entry
+          a
+            color: #F79600
+            text-decoration: none
+
+    .menu
+      border-bottom: 1px solid #9b9b9b
+
+      .item
+        text-align: center
+        color: #777777
+        text-transform: uppercase
+        //height: 61px
+        //border-bottom: 1px solid
+        //background-color: #f8f8f8
+
+        a
+          display: inline-block
+          padding: 20px 0
+          color: #777777
+
+        &.active
+          background-color: #fff
+          //border-bottom: 2px solid #F79600
+
+          a
+            color: #f79601
+            border-bottom: 2px solid #f79601
+
+    .content
+      display: block
+      width: 100%
+
+      background-color: #fff
+
+    .sub-main
+      padding: 40px
 
 .text-bold-big
   font-size: 1.2rem
@@ -260,8 +580,7 @@ input:invalid
   font-weight: 400
   color: #4c4c4c
 
-.active
-  color: #F79600 !important
+
 
 .margin-normal
   margin-bottom: 20px
@@ -274,8 +593,8 @@ input:invalid
   margin-left: -15px
   margin-right: -15px
 
-.rocketchat-widget
-  right: 100px !important
+//.rocketchat-widget
+//  right: 100px !important
 
 .margin-top-normal
   margin-top: 20px
@@ -287,68 +606,169 @@ input:invalid
 @media(max-width: 767px)
 
   html
-    font-size: 14px
+    font-size: 12px
 
-  .app
-
-    header
-
-      .logo
-        float: left
-        margin-left: 30px
-        height: 80px
 
     .navigation
-      margin-left: 0
+      width: 50%
+      .buttons
+        button
+          height: 35px
 
-    .nav-justified
+      .logo-size
+        width: 38%
 
-      > li
-        > a
-          text-align: left
+    .main-left
+      width: 240px
+
+    .desc-margin
+      padding-left: 200px
+
+
+  .rocketchat-widget
+    right: 0px !important
+    width: 100% !important
 
 
 @media(min-width: 768px)
 
   html
-    font-size: 13px
+    font-size: 12px
 
-    .app
+    .navigation
+      width: 60%
+      .buttons
+        button
+          //height: 25px
 
-      header
+      .logo-size
+        width: 38%
 
-        .logo
-          float: left
-          margin-left: 30px
-          height: 80px
 
-      .navigation
-        margin-left: 18%
+    .main-left
+      width: 200px
 
-@media(min-width: 992px)
+    .main-right
+      min-width: 480px
+
+    .desc-margin
+      padding-left: 200px
+
+  .rocketchat-widget
+    right: 100px !important
+
+
+@media(min-width: 1024px)
 
   html
     font-size: 14px
 
-    .app
+    .navigation
+      width: 73%
 
-      header
+      .logo-size
+        width: 47%
 
-        .logo
-          float: left
-          margin-left: 70px
-          height: 80px
 
-@media(min-width: 1400px)
+      .buttons
+        button
+          //height: 35px
+
+    .main-left
+      width: 240px
+
+    .main-right
+      min-width: 760px
+
+    .desc-margin
+      padding-left: 180px
+
+
+@media(min-width: 1280px)
+
+  html
+    font-size: 14px
+
+    .navigation
+      width: 100%
+
+      //.logo-size
+      //  width: 100%
+
+
+      .buttons
+        button
+          height: 45px
+
+    .main-left
+      width: 320px
+
+    .main-right
+      min-width: 940px
+
+    .desc-margin
+      padding-left: 140px
+
+
+
+@media(min-width: 1440px)
+
+  html
+    font-size: 14px
+
+    .navigation
+      width: 100%
+      .buttons
+        button
+          height: 45px
+
+    .main-left
+      width: 320px
+
+    .main-right
+      min-width: 1100px
+
+    .desc-margin
+      padding-left: 60px
+
+
+
+@media(min-width: 1600px)
 
   html
     font-size: 16px
 
-    .app
+    .navigation
+      width: 100%
+      .buttons
+        button
+          height: 45px
 
-      header
+    .main-left
+      width: 320px
 
-        .logo
-          float: left
-          margin-left: 70px
-          height: 80px
+    .main-right
+      min-width: 1260px
+
+    .desc-margin
+      padding-left: 30px
+
+@media(min-width: 1920px)
+
+  html
+    font-size: 16px
+
+    .navigation
+      width: 100%
+      .buttons
+        button
+          height: 45px
+
+    .main-left
+      width: 320px
+
+    .main-right
+      min-width: 1580px
+
+    .desc-margin
+      padding-left: auto

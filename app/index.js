@@ -31,6 +31,7 @@ angular.module('app', [
         require('_modules/components/scroll_top'),
         //require('_modules/components/page-height'),
         require('_modules/components/card-height'),
+        require('_modules/component-cardtocard'),
         // require('_modules/auth'),
     
         require('_pages/send_to_card'),
@@ -103,37 +104,51 @@ angular.module('app', [
 
             tmhDynamicLocaleProvider.localeLocationPattern('angular/i18n/angular-locale_{{locale}}.js');
 
-            
-            var prefix = process.env.NODE_ENV == 'development' ? 'https://send.ua' : '';
+
+
+            var prefix = 'https://send.ua';
+
+            // var prefix = process.env.NODE_ENV == 'development' ? 'https://send.ua' : '';
 
             CardToCardProvider.setUrls({
-                getTariffs:                 prefix + '/sendua-external/Info/GetTariffs?tarifftype=web',
-                getPayStatus:               prefix + '/sendua-external/Info/GetPayStatus',
-                finishlookup:               prefix + '/sendua-external/ConfirmLookUp/finishlookup',
-                getDateTime:                prefix + '/sendua-external/Info/GetDateTime',
-                kvitanse:                   prefix + '/sendua-external/Info/kvitanse',
-                getlinkparams:              prefix + '/sendua-external/Card2Card/getlinkparams',
-                createCard2CardOperation:   prefix + '/sendua-external/Card2Card/CreateCard2CardOperation',
-                generateLink:               prefix + '/sendua-external/Card2Card/generateLink',
-                sendtomail:                 prefix + '/sendua-external/Card2Card/sendtomail',
-                createCard2PhoneOperation:  prefix + '/sendua-external/Card2Phone/CreateCard2PhoneOperation',
-                phone2Card:                 prefix + '/sendua-external/Phone2Card/CreatePhone2CardOperation',
-                tocardlink:                 prefix + '/sendua-external/Card2Card/tocardlink',
+                getDateTime:                prefix + '/sendua-api/info/GetDateTime',
+                createCard2CardOperation:   prefix + '/sendua-api/Card2Card/createCard2CardOperation',
+                createCard2PhoneOperation:  prefix + '/sendua-api/Card2Phone/createCard2PhoneOperation',
+                getPayment:                 prefix + '/sendua-api/Card2Phone/getPayment',
+                getStatePhone:              prefix + '/sendua-api/Card2Phone/getStatePhone',
+                getReceipt:                 prefix + '/sendua-api/info/getReceipt',
+                generateLink:               prefix + '/sendua-api/info/generateLink',
+                sendLinkToMail:             prefix + '/sendua-api/info/sendLinkToMail',
+                getlinkparams:              prefix + '/sendua-api/info/getLinkParams',
                 crossboardlink:             prefix + '/cardzone/check/',
-                crossboardAmount:           'https://test.send.ua/sendua-api/cross/checkCross',
-                createCross:                'https://test.send.ua/sendua-api/cross/createCross',
-                getState:                   'https://test.send.ua/sendua-api/info/getState/',
-                lookupContinue:             'https://test.send.ua/sendua-api/Lookup/continue/'
+
+                crossboardAmount:           prefix + '/sendua-api/cross/checkCross?all=true',
+                createCross:                prefix + '/sendua-api/cross/createCross?all=true',
+
+                // crossboardAmount:           prefix + '/sendua-api/cross/checkCross',
+                // createCross:                prefix + '/sendua-api/cross/createCross',
+                getState:                   prefix + '/sendua-api/info/getState/',
+                lookupContinue:             prefix + '/sendua-api/Lookup/continue',
+                getCurrencyrates:           prefix + '/sendua-api/cross/currency',
+                validDiamantMaster:         prefix + '/sendua-api/cross/isDiamant',
+                calc:                       prefix + '/sendua-api/Card2Card/calcCommission',
+                getTariffsNew:              prefix + '/sendua-api/info/getTariffs'
 
             });
+
 
             CardToCardProvider.setType('web');
             CardToCardProvider.setLinkPrefix(window.location.origin + '/#/link/');
             CardToCardProvider.setRecieptTemplate(require('_templates/reciept.html'));
         }
     ])
+
+
     .controller('AppCtrl', ['$scope', '$translate', 'tmhDynamicLocale', function ($scope, $translate, tmhDynamicLocale) {
         $scope.lang = 'ua';
+        $scope.begin = true;
+
+
 
         $scope.onChangeLanguage = function () {
             var lang = $scope.lang;
@@ -145,6 +160,7 @@ angular.module('app', [
         $translate('CARD2CARD.AMOUNT.CURRENCY').then(function (value) {
             $scope.currency = value;
         });
+
     }])
     .controller('LinkCtrl', ['$state', '$stateParams', function ($state, $stateParams) {
         var base64Url = require('base64-url');
@@ -172,3 +188,5 @@ $(document).ready(function () {
         angular.bootstrap(document, ['app']);
     });
 });
+
+

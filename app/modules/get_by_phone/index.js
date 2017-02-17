@@ -2,8 +2,7 @@ require('./index.sass');
 
 angular.module('getByPhone', [
         require('component-payments'),
-        require('component-currency'),
-        require('component-cardtocard')
+        require('component-currency')
     ])
     .directive('getByPhone', getByPhoneDirective)
     .directive('getByPhoneError', getByPhoneErrorDirective)

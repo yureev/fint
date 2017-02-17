@@ -92,11 +92,11 @@
                         </div>
                         <div class="tariffs">
                             <span class="text-light-normal">
-                                {{ 'CARD2CARD.AMOUNT.RATE' | translate }} {{ config.tariff.comm_percent }}% + {{ config.tariff.comm_fixed / 100 | currency:currency }}
+                                {{ 'CARD2CARD.AMOUNT.RATE' | translate }} {{+tariffs.percent}}% + {{tariffs.fixCommission / 100 | currency:currency }}
                             </span>
-                            <span class="text-light-normal">
-                                {{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commiss || 0 | currency:currency }}
-                            </span>
+                            <!--<span class="text-light-normal">-->
+                                <!--{{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commiss || 0 | currency:currency }}-->
+                            <!--</span>-->
                         </div>
                     </div>
                     <div class="row">
