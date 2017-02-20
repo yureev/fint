@@ -2,7 +2,7 @@ Ctrl.$inject = ['$rootScope', '$scope', '$http', '$timeout', '$window', 'CardToC
 function Ctrl($rootScope, $scope, $http, $timeout, $window, CardToCard) {
     var self = this,
         transaction = {};
-    $scope.crossboard = false;
+    $scope.crossboard = true;
     $scope.crossboardText = false;
     $scope.crossboardAllowed;
     $scope.currentCurrency = 980;

@@ -123,7 +123,7 @@
             <!--<div class="item" ng-class="{active: $state.includes('app.url') || $state.includes('app.code')}">-->
             <!--</div>-->
 
-            <div class="cont-begin" ng-show="begin">
+            <div class="cont-begin" ng-show="!begin">
                 <div class="logo-img"><img src="./assets/images/sendUaService.png" alt="SendUa"></div>
                 <div class="logo-text"><img src="./assets/images/send_ua_logo.svg" alt="SendUa"></div>
 
@@ -149,7 +149,7 @@
 
             </div>
 
-            <div class="content" page-height ng-show="!begin">
+            <div class="content" page-height ng-show="true">
                 <div class="main-left"></div>
                 <div class="main-right" ui-view page-height-container></div>
                 <div class="clearfix"></div>

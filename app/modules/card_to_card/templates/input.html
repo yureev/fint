@@ -89,76 +89,69 @@
 
 
         </div>
-
         <div class="row">
             <div class="col-sm-6 card source" ng-class="{'cross-card-left' : crossboard}" >
-                <div>{{ 'CARD2CARD.SOURCE.TITLE' | translate }}</div>
+                <div class="card-title">{{ 'CARD2CARD.SOURCE.TITLE' | translate }}</div>
                 <span class="card-logo " ng-class="c2cForm.number.cardType"></span>
-                <label>{{ 'CARD2CARD.SOURCE.LABEL.CARD_NUMBER' | translate }}</label>
-                <div class="form-group source-input" ct-input-container>
+                <label class="card-label">{{ 'CARD2CARD.SOURCE.LABEL.CARD' | translate }}</label>
 
-                    <input type="text" name="number" class="form-control" ct-tabindex="checkNumber"
-                           tabindex="1"
-                           ng-model="number" required
-                           ng-change="validCardZone(number, 'source')"
-                           ng-keyup="validCardZone(number, 'source')"
-                           ui-mask="9999 9999 9999 9999" placeholder="____ ____ ____ ____"
-                            ct-payments-format-number ct-payments-validate-number/>
+                <div class="form-group input-source" ng-class="{'input-source-invalid': c2cForm.number.$touched && (c2cForm.number.$error.required || c2cForm.number.$error.invalidNumber) ||
+                                                                        (((c2cForm.month.$touched || c2cForm.year.$touched) && (!viewExpire.month || !viewExpire.year))  ||
+                                                                        (c2cForm.expire.$error && c2cForm.expire.$error.invalidExpire)),
+                                                                        'input-source-focus': touchNumber || touchMonth || touchYear}">
+                    <!--<div class="form-group">-->
+                        <input type="text" name="number" class="form-control source-input number-input" ct-tabindex="checkNumber"
+                               tabindex="1"
+                               ng-model="number" required
+                               ng-change="validCardZone(number, 'source')"
+                               ng-keyup="validCardZone(number, 'source')"
+                               ng-blur="touchNumber=false"
+                               ng-focus="touchNumber=true"
+                               ui-mask="9999 9999 9999 9999" placeholder="____ ____ ____ ____"
+                               ct-payments-format-number ct-payments-validate-number/>
+                        <input type="text" class="form-control source-input date-month" ct-tabindex="checkMonth"
+                               maxlength="2"
+                               tabindex="2"
+                               required ng-model="viewExpire.month" name="month"
+                               ng-blur="touchMonth=false"
+                               ng-focus="touchMonth=true"
+                               placeholder="{{ 'CARD2CARD.SOURCE.MONTH' | translate }}"
+                               ct-payments-format-expire-month-text />
+                        <input type="text" class="form-control source-input date-slash"
+                               readonly
+                               ng-model="slash" name="slash"
+                               placeholder="/"
+                               ct-payments-format-expire-month-text/>
+                        <input type="text" class="form-control source-input date-year" ct-tabindex="checkYear"
+                               maxlength="2"
+                               tabindex="3"
+                               required ng-model="viewExpire.year" name="year"
+                               ng-blur="touchYear=false"
+                               ng-focus="touchYear=true"
+                               placeholder="{{ 'CARD2CARD.SOURCE.YEAR' | translate }}"
+                               ct-payments-format-expire-year-text/>
+                        <!--<div class="clearfix"></div>-->
+                    <!--</div>-->
                     <div class="error-number">
                         <div ng-messages="c2cForm.number.$error" ng-show="c2cForm.number.$touched">
                             <div ng-message="required">{{ 'CARD2CARD.ERRORS.SOURCE.NUMBER_REQUIRED' | translate }}</div>
                             <div ng-message="invalidNumber">{{ 'CARD2CARD.ERRORS.SOURCE.NUMBER_INVALID' | translate }}</div>
                         </div>
                     </div>
-
-                </div>
-                <div class="expire">
-
-                    <!--<label>{{ 'CARD2CARD.SOURCE.LABEL.DATE_EXPIRE' | translate }}</label>-->
-                    <div class="form-group white_input" ng-class="{'white_input_focus': c2cForm.expire.focus}">
-                        <!--<div class="white_input">-->
-                            <div ct-input-container class="date"
-                                 ng-class="{'ct-input-invalid': c2cForm.expire.$error && c2cForm.expire.$error.invalidExpire}">
-                                <input type="text" class="form-control" ct-tabindex="checkMonth"
-                                       maxlength="2"
-                                       tabindex="2"
-                                       required ng-model="viewExpire.month" name="month"
-                                       placeholder="{{ 'CARD2CARD.SOURCE.MONTH' | translate }}"
-                                       ct-payments-format-expire-month-text />
-                            </div>
-                            <div ct-input-container class="date"
-                                 ng-class="{'ct-input-invalid': c2cForm.expire.$error && c2cForm.expire.$error.invalidExpire}">
-                                <input type="text" class="form-control"
-                                       readonly
-                                       ng-model="slash" name="slash"
-                                       placeholder="/"
-                                       ct-payments-format-expire-month-text/>
-                            </div>
-                            <div ct-input-container class="date"
-                                 ng-class="{'ct-input-invalid': c2cForm.expire.$error && c2cForm.expire.$error.invalidExpire}">
-                                <input type="text" class="form-control" ct-tabindex="checkYear"
-                                       maxlength="2"
-                                       tabindex="3"
-                                       required ng-model="viewExpire.year" name="year"
-                                       placeholder="{{ 'CARD2CARD.SOURCE.YEAR' | translate }}"
-                                       ct-payments-format-expire-year-text/>
-                            </div>
-                        <!--</div>-->
-
-                        <div class="clearfix"></div>
-                    </div>
-                    <div ct-input-container>
-                        <input type="hidden" name="expire" ng-model="expire" required
-                               ct-payments-validate-expire="viewExpire"/>
-                    </div>
-                    <div class="error-date pull-left">
-                        <div ng-messages="c2cForm.expire.$error">
-                            <div ng-message="invalidExpire">{{ 'CARD2CARD.ERRORS.SOURCE.DATE_EXPIRE' | translate }}</div>
+                    <div class="expire">
+                        <div ct-input-container>
+                            <input type="hidden" name="expire" ng-model="expire" required
+                                   ct-payments-validate-expire="viewExpire"/>
                         </div>
+                        <div class="error-date pull-left">
+                            <div ng-messages="c2cForm.expire.$error">
+                                <div ng-message="invalidExpire">{{ 'CARD2CARD.ERRORS.SOURCE.DATE_EXPIRE' | translate }}</div>
+                            </div>
+                        </div>
+
                     </div>
+                    <div class="clearfix"></div>
                 </div>
-
-
                 <div class="cvv">
                     <label class="input-label">{{ 'CARD2CARD.SOURCE.LABEL.CODE' | translate }}</label>
                     <div class="has-feedback " ct-input-container>
@@ -308,10 +301,10 @@
             <!--end of source card-->
 
             <div class="col-sm-6 card target" ng-class="{'cross-card-right' : crossboard}" >
-                <div class="form-group" ct-input-container ng-if="!transaction.link">
-                    <div>{{ 'CARD2CARD.TARGET.TITLE' | translate }}</div>
+                <div class="form-group input-target" ct-input-container ng-if="!transaction.link">
+                    <div class="card-title">{{ 'CARD2CARD.TARGET.TITLE' | translate }}</div>
                     <span class="card-logo" ng-class="c2cForm.numberTarget.cardType"></span>
-                    <label>{{ 'CARD2CARD.TARGET.LABEL.CARD_NUMBER' | translate }}</label>
+                    <label class="card-label">{{ 'CARD2CARD.TARGET.LABEL.CARD' | translate }}</label>
 
                     <input type="text" name="numberTarget" class="form-control"
                            ct-tabindex="checkTargetNumber"
@@ -371,23 +364,26 @@
                         </div>
                     </div>
                 </div>
+                <div class="clearfix"></div>
 
-                <div class="amount-buttons-field-c2c" ng-show="crossboard">
-                    <div class="row" >
-                        <a  class="col-md-6 btn btn-link amount-buttons-c2c" ng-click="convertAmount(980)" ng-class="{activeCurrency: currentCurrency == 980}">
-                            UAH
-                        </a>
-                        <a   class="col-md-6 btn btn-link amount-buttons-c2c-eur" ng-click="convertAmount(978)" ng-class="{activeCurrency: currentCurrency == 978}">
-                            EUR
-                        </a>
+
+                <div class="buttons-convert-input" ng-show="crossboard">
+                    <label>{{ 'CARD2CARD.AMOUNT.TITLE' | translate }}</label>
+                    <div>
+                        <input class="convert-input" type="radio" name="convert" checked ng-click="convertAmount(980)" ng-class="{activeCurrency: currentCurrency == 980}"><span ng-click="convertAmount(980)" ng-class="{activeCurrency: currentCurrency == 980}">UAH</span>
+                        <input class="convert-input" type="radio" name="convert" ng-click="convertAmount(978)" ng-class="{activeCurrency: currentCurrency == 978}"><span ng-click="convertAmount(978)" ng-class="{activeCurrency: currentCurrency == 978}">EUR</span>
                     </div>
+
+
                 </div>
 
                 <div class="amount-buttons-field-c2c" >
-                    <div class="row-crossboard" >
+                    <label>{{ 'CARD2CARD.AMOUNT.TITLE' | translate }}</label>
+                    <div class="row-crossboard">
+
                         <div class="col-md-4">
                             <div class="amount" ct-input-container>
-                                <label>{{ 'CARD2CARD.AMOUNT.TITLE' | translate }}</label>
+
                                 <div class="amount-input-currency" >
                                     <input type="text" name="amount" class="form-control amount-input-c2c" tabindex="6"
                                            ng-model="amount" placeholder = "{{!crossboard ? 'CARD2CARD.AMOUNT.RANGE' : (currentCurrency == 980 ? 'CARD2CARD.AMOUNT.RANGE_CROSS' : 'CARD2CARD.AMOUNT.RANGE_EUR') | translate}}"
@@ -412,14 +408,15 @@
                                 <div class="text-commiss" ng-show="!crossboard">{{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commiss || 0 | currency:currency }}</div>
                                 <div class="text-commiss" ng-show="crossboard">{{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commissCross/100 || 0 | currency:currency }}</div>
 
-                                <div class="text-bank" ng-class="{'text-bank-active' : crossboard}">{{ 'CARD2CARD.AMOUNT.UKRAINE_BANK' | translate }} {{+tariffs.percent}}% + {{tariffs.fixCommission / 100 | currency:currency }}</div>
-                                <div class="text-bank " ng-class="{'text-bank-active' : !crossboard}">{{ 'CARD2CARD.AMOUNT.FOREIGN_BANK' | translate }} {{+tariffs.crossPercent}}% min {{tariffs.crossMinCommission / 100 | currency:currency }}</div>
+                                <div class="text-bank" ng-class="{'text-bank-active' : !crossboard}">{{ 'CARD2CARD.AMOUNT.UKRAINE_BANK' | translate }} {{+tariffs.percent}}% + {{tariffs.fixCommission / 100 | currency:currency }}</div>
+                                <div class="text-bank " ng-class="{'text-bank-active' : crossboard}">{{ 'CARD2CARD.AMOUNT.FOREIGN_BANK' | translate }} {{+tariffs.crossPercent}}% min {{tariffs.crossMinCommission / 100 | currency:currency }}</div>
 
                             </div>
                         </div>
-                        <div class="clearfix"></div>
+
                     </div>
                 </div>
+                <div class="clearfix"></div>
                 <div class="total-amount">
                     <div class="form-group send">
 
@@ -430,7 +427,7 @@
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox" tabindex="8" ng-model="agreed" name="agreed" required>
-                                <span translate="CARD2CARD.AGREEMENT" class="text-light-normal"></span>
+                                <span translate="CARD2CARD.AGREEMENT" class="text-light-small"></span>
                             </label>
                         </div>
                         <div class="error-agreed">

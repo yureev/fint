@@ -94,17 +94,20 @@
     padding: 25px
     margin-bottom: 10px
     border-radius: 3px
-    //width: 50%
     min-width: 220px
     min-height: 290px
     max-width: 380px
 
     input
       height: 40px
+      font-size: 16px
 
     .form-control-feedback
       pointer-events: all
       cursor: pointer
+
+    .card-title
+      color: #777777
 
     &.source, &.target
       .card-logo
@@ -122,14 +125,16 @@
           background-image: url(./images/masterCard_logo.svg)
           display: block
 
-
-
-
     .form-group
       margin-bottom: 0
 
+    .card-label
+      margin-top: 25px
+
     label
-      font-size: 1rem
+      padding-left: 5px
+      color: #00316a
+      font-size: 0.9rem
       font-weight: 500
       margin-bottom: 0
 
@@ -152,6 +157,13 @@
           right: 23px
           margin-top: -34px
 
+      .input-target
+        margin-bottom: 10px
+
+        input
+          font-size: 18px
+
+
     &.source
       background-color: #ededed
       border-right: none
@@ -171,15 +183,60 @@
           right: 23px
           margin-top: -34px
 
-      .source-input
-        width: 70%
-        float: left
+
+
+      .input-source
+        border: 1px solid #ccc
+        height: 40px
+        border-radius: 4px
+        width: 100%
+        margin-bottom: 25px
+
+        &.input-source-focus
+          border-color: #66afe9
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6)
+
+        &.input-source-invalid
+          border-color: #d9534f
+
+
+        .source-input
+          float: left
+
+          &.number-input
+            width: 78%
+            border-radius:  4px 0 0 4px
+            border-right: 1px solid #ccc
+
+          &.date-month, &.date-year, &.date-slash
+            padding: 0
+            box-shadow: none
+            border-radius: 0
+
+          &.date-month, &.date-year
+            width: 10%
+
+          &.date-month
+            text-align: right
+            padding-right: 5px
+
+          &.date-year
+            padding-left: 5px
+            border-radius: 0 4px 4px 0
+
+          &.date-slash
+            width: 2%
+            background-color: #ffffff
 
         input
-          border-radius: 4px 0 0 4px
-          border-right: none
+          border: none
+          height: 38px
+          font-size: 18px
 
-          //text-align: center
+      .input-source:focus
+        border-color: #66afe9
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6)
+
 
       .card-data
         margin-top: 35px
@@ -246,9 +303,11 @@
       .cvv
         width: 30%
         text-align: left
+        margin-bottom: 25px
 
       .phone
         width: 70%
+        margin-bottom: 3px
 
 
   .amount
@@ -258,38 +317,58 @@
     .amount-input-currency
       padding: 0
 
+      input
+        padding: 0 4px
+        text-align: center
+
+
     .amount-input-c2c
       width: 100%
       margin-right: 7px
 
     .amount-buttons-field-c2c
 
-      a
-        color: #989898
-      &active
-        color: #a0b2c4
-
       .amount-buttons-c2c, .amount-buttons-c2c-eur
         padding: 10px 5px
         text-decoration: none
 
-      .activeCurrency
-        color: #23527c
+
+
+  .buttons-convert-input
+    padding: 5px
+    input
+      height: 13px
+      margin-right: 5px
+
+    span
+      color: #cfcfcf
+      margin-right: 20px
+
+      &.activeCurrency
+        color: #000000
+
+
+    .activeCurrency
+      color: #23527c
 
   .tariffs
     margin-bottom: 20px
     font-size: 11px
     //float: right
     text-align: right
+    line-height: 1.2
+
 
     .text-commiss
-      font-weight: 300
+      //font-weight: 300
+      color: #777777
 
     .text-bank
-      font-weight: 100
+      //font-weight: 300
+      color: #cfcfcf
 
     .text-bank-active
-      color: #cfcfcf
+      color: #777777
 
 
   .total-amount
@@ -308,11 +387,14 @@
         //margin-left: 20px
 
         input
-          height: 14px
+          position: inherit
+          margin: 0
+          height: 13px
 
       .buttons
         button
           width: 100%
+          height: 46px
           background-color: #f79601
 
 
@@ -387,6 +469,12 @@
     line-height: 15px
     color: #d9534f
     font-size: 12px
+
+  .error-date
+    text-align: right
+
+  .error-amount
+    margin-bottom: 20px
 
   .error-block
     position: absolute
