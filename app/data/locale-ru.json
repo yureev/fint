@@ -216,7 +216,8 @@
       "FOREIGN_BANK": "зарубежного банка:",
       "EXCHANGE": "Курс конвертации EUR > UAH =",
       "RECIPIENT_SEND": "Получателю будет отправлено:",
-      "CURRENCY_EURO": "евро"
+      "CURRENCY_EURO": "евро",
+      "CURRENCY_ALL": "Валюта"
 
     },
     "LOOKUP": {

@@ -219,7 +219,8 @@
       "FOREIGN_BANK": "закордонного банку:",
       "EXCHANGE": "Курс конвертації EUR > UAH =",
       "RECIPIENT_SEND": "Одержувачу буде відправлено:",
-      "CURRENCY_EURO": "євро"
+      "CURRENCY_EURO": "євро",
+      "CURRENCY_ALL": "Валюта"
     },
     "LOOKUP": {
       "TITLE": "Авторизація переказу",

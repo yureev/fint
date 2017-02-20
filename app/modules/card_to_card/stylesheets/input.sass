@@ -61,7 +61,21 @@
   .row-crossboard
     position: relative
     height: 0
+    margin-top: 32px
 
+    .input-left
+      border-radius: 3px 0 0 3px
+
+    .input-right
+      border-radius:  0 3px 3px 0
+
+    .col-md-6, .col-md-4, .col-md-8
+      padding: 0
+
+    .form-group
+      margin-bottom: 0
+
+  .row-amount
     .col-md-6, .col-md-4, .col-md-8
       padding: 0
 
@@ -307,7 +321,7 @@
 
       .phone
         width: 70%
-        margin-bottom: 3px
+        margin-bottom: 28px
 
 
   .amount
@@ -326,30 +340,38 @@
       width: 100%
       margin-right: 7px
 
-    .amount-buttons-field-c2c
+  .amount-buttons-field-c2c
 
-      .amount-buttons-c2c, .amount-buttons-c2c-eur
-        padding: 10px 5px
-        text-decoration: none
+    &.amountCrossboard
+      margin-bottom: 30px
+
+    .amount-buttons-c2c, .amount-buttons-c2c-eur
+      padding: 10px 5px
+      text-decoration: none
+
+    .col-md-8
+      height: 40px
 
 
 
   .buttons-convert-input
-    padding: 5px
-    input
-      height: 13px
-      margin-right: 5px
+    margin: 25px 0 33px 0
 
-    span
-      color: #cfcfcf
-      margin-right: 20px
+    .container-convert
+      margin-top: 10px
 
-      &.activeCurrency
-        color: #000000
+      input
+        height: 13px
+        margin: 0 5px
+
+      span
+        color: #cfcfcf
+        margin: 0 20px 0 5px
+
+        &.activeCurrency
+          color: #000000
 
 
-    .activeCurrency
-      color: #23527c
 
   .tariffs
     margin-bottom: 20px
@@ -464,7 +486,7 @@
       .text-data-cross
         margin-bottom: 5px
 
-  .error-number, .error-date, .error-cvc, .error-phone, .error-amount, .error-target, .error-agreed
+  .error-number, .error-date, .error-cvc, .error-phone, .error-amount, .error-target, .error-agreed, .error-number-cross-source
     height: 15px
     line-height: 15px
     color: #d9534f
@@ -473,8 +495,8 @@
   .error-date
     text-align: right
 
-  .error-amount
-    margin-bottom: 20px
+  .error-number-cross-source
+    margin-bottom: 12px
 
   .error-block
     position: absolute
