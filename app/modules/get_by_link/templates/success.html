@@ -1,11 +1,26 @@
-<div class="state-success">
-    <div class="text-center">
-        <div class="title">{{ 'GET_BY_LINK.SUCCESS.TITLE' | translate }}</div>
-        <div class="message">{{ 'GET_BY_LINK.SUCCESS.MESSAGE' | translate }}</div>
-        <div class="phone-title">{{ 'GET_BY_LINK.SUCCESS.PHONE_TITLE' | translate }}</div>
-        <div class="phone-number"><strong>(044) 390-08-85</strong></div>
-        <button class="btn btn-link" ng-click="goState(STATES.INPUT)">
-            {{ 'GET_BY_LINK.SUCCESS.CLOSE' | translate }}
-        </button>
+<div class="main-left" ng-class="{'main-left-cross' : crossboard, 'main-left-popup' : popup, 'main-left-cross-popup' : popup && crossboard}"></div>
+<div class="main-right">
+    <div class="menu">
+        <div class="container-fluid">
+            <div class="row col-xs-12 row-menu">
+                <div class="item col-sm-4" ui-sref-active="active">
+                    <a ui-sref="app.url">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_URL' | translate}}</a>
+                </div>
+                <div class="item col-sm-6" ui-sref-active="active">
+                    <a ui-sref="app.code">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_CODE' | translate}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="state-success">
+        <div class="text-center">
+            <div class="title">{{ 'GET_BY_LINK.SUCCESS.TITLE' | translate }}</div>
+            <div class="message">{{ 'GET_BY_LINK.SUCCESS.MESSAGE' | translate }}</div>
+            <div class="phone-title">{{ 'GET_BY_LINK.SUCCESS.PHONE_TITLE' | translate }}</div>
+            <div class="phone-number"><strong>(044) 390-08-85</strong></div>
+            <button class="btn btn-link" ng-click="goState(STATES.INPUT)">
+                {{ 'GET_BY_LINK.SUCCESS.CLOSE' | translate }}
+            </button>
+        </div>
     </div>
 </div>

@@ -1,52 +1,71 @@
-<div class="state-success" ct-spinner="loader">
-    <div class="title">{{ 'CARD2CARD.SUCCESS.PAYMENT_SUCCESS' | translate }}</div>
-    <div id="print" class="print">
-        <div>
-            {{ 'CARD2CARD.SUCCESS.TICKET_NUMBER' | translate }}
-            <span class="pull-right">{{ transaction.operationNumber }}</span>
-        </div>
-        <div>
-            {{ 'CARD2CARD.SUCCESS.TICKET_DATE' | translate }}
-            <span class="pull-right">{{ currentDate | date:'dd-MM-yyyy HH:mm' }}</span>
-        </div>
-        <div ng-if="transaction.number">
-            {{ 'CARD2CARD.SUCCESS.SENDER_CARD' | translate }}
-            <span class="pull-right">** {{ transaction.number }}</span>
-        </div>
-        <div ng-if="transaction.numberTarget">
-            {{ 'CARD2CARD.SUCCESS.RES_CARD' | translate }}
-            <span class="pull-right">** {{ transaction.numberTarget }}</span>
-        </div>
-        <div ng-if="transaction.numberCard">
-            Phone Number
-            <span class="pull-right">** {{ transaction.numberCard }}</span>
-        </div>
-        <div>
-            {{ 'CARD2CARD.SUCCESS.SUM_SEND' | translate }}
-            <span class="pull-right">{{ transaction.amount | currency:currency }}</span>
-        </div>
-        <div ng-if="transaction.commiss">
-            {{ 'CARD2CARD.SUCCESS.COMMISSION_DESC' | translate }}
-            <span class="pull-right">{{ transaction.commiss | currency:currency }}</span>
-        </div>
-        <div ng-if="transaction.total">
-            {{ 'CARD2CARD.SUCCESS.SUM_ALL' | translate }}
-            <span class="pull-right">{{ transaction.total | currency:currency }}</span>
+<div class="main-left"></div>
+<div class="main-right">
+    <div class="menu">
+        <div class="container-fluid">
+            <div class="row col-xs-12 row-menu">
+                <div class="item col-sm-4" ui-sref-active="active">
+                    <a ui-sref="app.card">{{'CARD2CARD.CONTROLS.SEND.BTN_CARDTOCARD' | translate}}</a>
+                </div>
+                <div class="item col-sm-6" ui-sref-active="active">
+                    <a ui-sref="app.phone">{{'CARD2CARD.CONTROLS.SEND.BTN_PHONE' | translate}}</a>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="form-group text-right">
-        <button class="btn btn-primary" ng-click="printDiv()"><span
-                translate="CARD2CARD.SUCCESS.PRINT_TICKET"></span></button>
-        <button class="btn btn-link" ng-click="goState(STATES.INPUT)">{{'CARD2CARD.BUTTON_CLOSE' |
-            translate}}
-        </button>
-    </div>
-    <div class="input-group">
-        <input type="email" class="form-control" ng-model="email">
-        <span class="input-group-btn">
-            <button class="btn btn-default" type="button" ng-disabled="!email" ng-click="toEmail()">
-                <span translate="CARD2CARD.SUCCESS.SEND_TO_EMAIL"></span>
+    <div class="state-success" ct-spinner="loader">
+        <div class="title">{{ 'CARD2CARD.SUCCESS.PAYMENT_SUCCESS' | translate }}</div>
+        <div class="print">
+            <div>
+                <span class="left">{{ 'CARD2CARD.SUCCESS.TICKET_NUMBER' | translate }}</span>
+                <span class="pull-right">{{ transaction.operationNumber }}</span>
+            </div>
+            <div>
+                <span class="left">{{ 'CARD2CARD.SUCCESS.TICKET_DATE' | translate }}</span>
+                <span class="pull-right">{{ currentDate | date:'dd-MM-yyyy HH:mm' }}</span>
+            </div>
+            <div ng-if="transaction.number">
+                <span class="left">{{ 'CARD2CARD.SUCCESS.SENDER_CARD' | translate }}</span>
+                <span class="pull-right">** {{ transaction.number }}</span>
+            </div>
+            <div ng-if="transaction.numberTarget">
+                <span class="left">{{ 'CARD2CARD.SUCCESS.RES_CARD' | translate }}</span>
+                <span class="pull-right">** {{ transaction.numberTarget }}</span>
+            </div>
+            <div ng-if="transaction.numberCard">
+                <span class="left">Phone Number</span>
+                <span class="pull-right">** {{ transaction.numberCard }}</span>
+            </div>
+
+            <div>
+                <span class="left">{{ 'CARD2CARD.SUCCESS.SUM_SEND' | translate }}</span>
+                <span class="pull-right">{{ transaction.amount | currency:currency }}</span>
+            </div>
+            <div ng-if="transaction.commiss">
+                <span class="left">{{ 'CARD2CARD.SUCCESS.COMMISSION_DESC' | translate }}</span>
+                <span class="pull-right">{{ transaction.commiss | currency:currency }}</span>
+            </div>
+            <div ng-if="transaction.total">
+                <span class="left">{{ 'CARD2CARD.SUCCESS.SUM_ALL' | translate }}</span>
+                <span class="pull-right">{{ transaction.total | currency:currency }}</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <input type="email" class="form-control" ng-model="email">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" ng-click="toEmail()" ng-disabled="!email">
+                        <span translate="CARD2CARD.SUCCESS.SEND_TO_EMAIL"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group text-right">
+            <button class="btn btn-link" ng-click="printDiv()"><span
+                    translate="CARD2CARD.SUCCESS.PRINT_TICKET"></span></button>
+            <button class="btn btn-link" ng-click="goState(STATES.INPUT)">{{'CARD2CARD.BUTTON_CLOSE' |
+                translate}}
             </button>
-        </span>
+        </div>
     </div>
+
 </div>

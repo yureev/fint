@@ -1,4 +1,4 @@
-<select ng-show="NODE_ENV == 'development'" ng-model="state" ng-options="k as v for (k, v) in STATES"></select>
+<select ng-show="NODE_ENV == 'development'" ng-model="state" ng-options="k as v for (k, v) in STATES" style="margin-left: 300px"></select>
 <div class="get-by-link">
     <div get-by-link-input ng-if="state == STATES.INPUT"></div>
     <div get-by-link-send ng-if="state == STATES.SEND"></div>

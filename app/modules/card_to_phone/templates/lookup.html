@@ -1,25 +1,46 @@
-<div class="state-lookup" ct-spinner="lookup_loader">
-    <div class="title">{{ 'CARD2CARD.LOOKUP.TITLE' | translate }}</div>
-    <form ng-submit="submit()">
-        <div translate="CARD2CARD.LOOKUP.DESC.FOR_CHECK"></div>
-        <div translate="CARD2CARD.LOOKUP.DESC.OPERATION_SUCCESS"></div>
-        <div class="submit text-center">
-            <div class="input-title"><strong>{{ 'CARD2CARD.LOOKUP.CODE' | translate }}</strong></div>
-            <input type="text"
-                   class="form-control lookup-input"
-                   ng-model="lookupCode"
-                   tooltip="Код должен состоять из 6-ти цифр"
-                   tooltip-enable="send.lookupCode.error"
-                   tooltip-trigger="focus"
-                   tooltip-placement="top"
-                   placeholder="XXXXXX"
-                   only-digits
-                   required/>
-            <button class="btn btn-warning" type="submit">
-                {{ 'CARD2CARD.LOOKUP.CONTINUE' | translate }}
-            </button>
-            <button class="btn btn-link" ng-click="goState(STATES.INPUT)">{{ 'CARD2CARD.BUTTON_CLOSE' | translate }}
-            </button>
+<div class="main-left"></div>
+<div class="main-right">
+    <div class="menu">
+        <div class="container-fluid">
+            <div class="row col-xs-12 row-menu">
+                <div class="item col-sm-4" ui-sref-active="active">
+                    <a ui-sref="app.card">{{'CARD2CARD.CONTROLS.SEND.BTN_CARDTOCARD' | translate}}</a>
+                </div>
+                <div class="item col-sm-6" ui-sref-active="active">
+                    <a ui-sref="app.phone">{{'CARD2CARD.CONTROLS.SEND.BTN_PHONE' | translate}}</a>
+                </div>
+            </div>
         </div>
-    </form>
+    </div>
+    <div class="state-lookup" ct-spinner="lookup_loader">
+        <div class="title">{{ 'CARD2CARD.LOOKUP.TITLE' | translate }}</div>
+        <form ng-submit="submit()">
+            <div translate="CARD2CARD.LOOKUP.DESC.FOR_CHECK"></div>
+            <div translate="CARD2CARD.LOOKUP.DESC.OPERATION_SUCCESS"></div>
+            <div class="submit ">
+                <div class="input-title"><span>{{ 'CARD2CARD.LOOKUP.CODE' | translate }}</span></div>
+                <input type="text"
+                       class="form-control lookup-input"
+                       ng-model="lookupCode"
+                       tooltip="Код должен состоять из 6-ти цифр"
+                       tooltip-enable="send.lookupCode.error"
+                       tooltip-trigger="focus"
+                       tooltip-placement="top"
+                       placeholder="XXXXXX"
+                       ui-mask="999999"
+                       only-digits
+                       required/>
+
+            </div>
+            <div class="buttons">
+                <button class="btn btn-link" type="submit">
+                    {{ 'CARD2CARD.LOOKUP.CONTINUE' | translate }}
+                </button>
+                <button class="btn btn-link" ng-click="goState(STATES.INPUT)">{{ 'CARD2CARD.BUTTON_CLOSE' | translate }}
+                </button>
+            </div>
+
+        </form>
+    </div>
+
 </div>
