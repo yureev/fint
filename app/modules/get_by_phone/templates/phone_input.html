@@ -1,3 +1,17 @@
+<div class="menu">
+    <div class="container-fluid">
+        <div class="row col-xs-12">
+            <div class="item col-xs-2" ui-sref-active="active">
+                <a ui-sref="app.url">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_URL' | translate}}</a>
+            </div>
+            <div class="item col-xs-2" ui-sref-active="active">
+                <a ui-sref="app.code">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_CODE' | translate}}</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="state-phone-input" ct-spinner="loader">
     <form name="c2cForm" ct-payments ng-submit="submit()" autocomplete="off">
         <div class="form-group" ct-input-container>

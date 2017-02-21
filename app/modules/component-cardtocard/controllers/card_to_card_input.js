@@ -2,7 +2,7 @@ Ctrl.$inject = ['$rootScope', '$scope', '$http', '$timeout', '$window', 'CardToC
 function Ctrl($rootScope, $scope, $http, $timeout, $window, CardToCard) {
     var self = this,
         transaction = {};
-    $scope.crossboard = true;
+    $scope.crossboard = false;
     $scope.crossboardText = false;
     $scope.crossboardAllowed;
     $scope.currentCurrency = 980;
@@ -394,13 +394,13 @@ function Ctrl($rootScope, $scope, $http, $timeout, $window, CardToCard) {
         }
     };
 
-    angular.element(document).on('click', function (event) {
-        $scope.popup = false;
-    });
-
-    angular.element('#1').on('click', function (event) {
-        $scope.popup = true;
-    });
+    // angular.element(document).on('click', function (event) {
+    //     $scope.popup = false;
+    // });
+    //
+    // angular.element('#1').on('click', function (event) {
+    //     $scope.popup = true;
+    // });
 
     $scope.validDiamantMaster = function (numberSource) {
         $scope.input_loader = true;

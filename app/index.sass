@@ -36,7 +36,6 @@ input:invalid
   width: 100%
 
   .top
-    width: 320px
     //min-width: 220px
     //max-width: 320px
     margin: 0
@@ -45,6 +44,7 @@ input:invalid
     position: fixed
     height: 100%
     z-index: 2
+    display: none
 
 
 
@@ -552,7 +552,7 @@ input:invalid
       background-color: #fff
 
     .sub-main
-      padding: 40px
+      //padding: 40px
 
 .text-bold-big
   font-size: 1.2rem
@@ -609,6 +609,8 @@ input:invalid
   html
     font-size: 12px
 
+    .top
+      display: none
 
     .navigation
       width: 50%
@@ -620,7 +622,10 @@ input:invalid
         width: 38%
 
     .main-left
-      width: 240px
+      display: none
+
+    .main-right
+      width: 330px
 
     .desc-margin
       padding-left: 200px
@@ -636,8 +641,11 @@ input:invalid
   html
     font-size: 12px
 
+    .top
+      width: 200px
+
     .navigation
-      width: 60%
+      width: 100%
       .buttons
         button
           //height: 25px
@@ -650,7 +658,7 @@ input:invalid
       width: 200px
 
     .main-right
-      min-width: 480px
+      width: 553px
 
     .desc-margin
       padding-left: 200px
@@ -664,8 +672,11 @@ input:invalid
   html
     font-size: 14px
 
+    .top
+      width: 240px
+
     .navigation
-      width: 73%
+      //width: 73%
 
       .logo-size
         width: 47%
@@ -679,68 +690,91 @@ input:invalid
       width: 240px
 
     .main-right
-      min-width: 760px
+      width: 760px
 
     .desc-margin
       padding-left: 180px
 
 
+//@media(min-width: 1280px)
+//
+//  html
+//    font-size: 14px
+//
+//    .navigation
+//      width: 100%
+//
+//      //.logo-size
+//      //  width: 100%
+//
+//
+//      .buttons
+//        button
+//          height: 45px
+//
+//    .main-left
+//      width: 320px
+//
+//    .main-right
+//      min-width: 940px
+//
+//    .desc-margin
+//      padding-left: 140px
+//
+//
+//
+//@media(min-width: 1440px)
+//
+//  html
+//    font-size: 14px
+//
+//    .navigation
+//      width: 100%
+//      .buttons
+//        button
+//          height: 45px
+//
+//    .main-left
+//      width: 320px
+//
+//    .main-right
+//      min-width: 1100px
+//
+//    .desc-margin
+//      padding-left: 60px
+
+
+//
+//@media(min-width: 1600px)
+//
+//  html
+//    font-size: 16px
+//
+//    .navigation
+//      width: 100%
+//      .buttons
+//        button
+//          height: 45px
+//
+//    .main-left
+//      width: 320px
+//
+//    .main-right
+//      min-width: 1260px
+//
+//    .desc-margin
+//      padding-left: 30px
+
 @media(min-width: 1280px)
 
   html
-    font-size: 14px
-
-    .navigation
-      width: 100%
-
-      //.logo-size
-      //  width: 100%
-
-
-      .buttons
-        button
-          height: 45px
-
-    .main-left
-      width: 320px
-
-    .main-right
-      min-width: 940px
-
-    .desc-margin
-      padding-left: 140px
-
-
-
-@media(min-width: 1440px)
-
-  html
-    font-size: 14px
-
-    .navigation
-      width: 100%
-      .buttons
-        button
-          height: 45px
-
-    .main-left
-      width: 320px
-
-    .main-right
-      min-width: 1100px
-
-    .desc-margin
-      padding-left: 60px
-
-
-
-@media(min-width: 1600px)
-
-  html
     font-size: 16px
 
+    .top
+      width: 320px
+
     .navigation
-      width: 100%
+      //width: 100%
       .buttons
         button
           height: 45px
@@ -749,27 +783,7 @@ input:invalid
       width: 320px
 
     .main-right
-      min-width: 1260px
-
-    .desc-margin
-      padding-left: 30px
-
-@media(min-width: 1920px)
-
-  html
-    font-size: 16px
-
-    .navigation
-      width: 100%
-      .buttons
-        button
-          height: 45px
-
-    .main-left
-      width: 320px
-
-    .main-right
-      min-width: 1580px
+      width: 945px
 
     .desc-margin
       padding-left: auto
