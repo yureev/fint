@@ -2,6 +2,18 @@
 <div class="main-right">
     <div class="menu">
         <div class="container-fluid">
+            <div class="row col-xs-12 row-menu hide-menu">
+                <div class="item col-sm-6" ui-sref-active="active">
+                    <a ui-sref="app.card">{{'CARD2CARD.CONTROLS.SEND.BTN_CARDTOCARD' | translate}}</a>
+                </div>
+                <div class="item col-sm-6" ui-sref-active="active">
+                    <a ui-sref="app.phone">{{'CARD2CARD.CONTROLS.SEND.BTN_PHONE' | translate}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="container-fluid">
             <div class="row col-xs-12 row-menu">
                 <div class="item col-sm-4" ui-sref-active="active">
                     <a ui-sref="app.url">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_URL' | translate}}</a>
@@ -12,6 +24,7 @@
             </div>
         </div>
     </div>
+
 
     <div class="state-lookup" ct-spinner="send_loader">
         <form name="sendForm" ng-submit="submit()">
@@ -32,11 +45,11 @@
                        tabindex="1" ng-model="email" required/>
             </div>
             <div class="buttons">
-                <a href="#" class="close-link"><button class="btn btn-link">{{ 'GET_BY_LINK.LOOKUP.CLOSE' | translate }}</button></a>
-                <button type="submit" class="btn btn-warning send pull-right" tabindex="3"
+                <button type="submit" class="btn btn-link send " tabindex="3"
                         ng-disabled="sendForm.$invalid || sendForm.$pristine">
                     {{ 'GET_BY_LINK.LOOKUP.SEND' | translate }}
                 </button>
+                <button class="btn btn-link" ng-click="goState(STATES.INPUT)">{{ 'GET_BY_LINK.LOOKUP.CLOSE' | translate }}</button>
             </div>
         </form>
     </div>

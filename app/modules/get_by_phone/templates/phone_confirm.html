@@ -2,6 +2,18 @@
 <div class="main-right">
     <div class="menu">
         <div class="container-fluid">
+            <div class="row col-xs-12 row-menu hide-menu">
+                <div class="item col-sm-6" ui-sref-active="active">
+                    <a ui-sref="app.card">{{'CARD2CARD.CONTROLS.SEND.BTN_CARDTOCARD' | translate}}</a>
+                </div>
+                <div class="item col-sm-6" ui-sref-active="active">
+                    <a ui-sref="app.phone">{{'CARD2CARD.CONTROLS.SEND.BTN_PHONE' | translate}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="container-fluid">
             <div class="row col-xs-12 row-menu">
                 <div class="item col-sm-4" ui-sref-active="active">
                     <a ui-sref="app.url">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_URL' | translate}}</a>
@@ -25,8 +37,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="text-right">
-                    <button type="submit" class="btn btn-warning btn-large next" tabindex="8"
+                <div class="buttons" >
+                    <button type="submit" class="btn btn-warning btn-large text-bold-big" tabindex="4"
                             ng-disabled="c2cForm.$invalid || c2cForm.$pristine">
                         {{'GET_BY_CODE.CONFIRM.NEXT' | translate}}
                     </button>

@@ -2,6 +2,18 @@
 <div class="main-right">
     <div class="menu">
         <div class="container-fluid">
+            <div class="row col-xs-12 row-menu hide-menu">
+                <div class="item col-sm-6" ui-sref-active="active">
+                    <a ui-sref="app.card">{{'CARD2CARD.CONTROLS.SEND.BTN_CARDTOCARD' | translate}}</a>
+                </div>
+                <div class="item col-sm-6" ui-sref-active="active">
+                    <a ui-sref="app.phone">{{'CARD2CARD.CONTROLS.SEND.BTN_PHONE' | translate}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="container-fluid">
             <div class="row col-xs-12 row-menu">
                 <div class="item col-sm-4" ui-sref-active="active">
                     <a ui-sref="app.url">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_URL' | translate}}</a>
@@ -14,8 +26,8 @@
     </div>
     <div class="state-phone-input" ct-spinner="loader">
         <form name="c2cForm" ct-payments ng-submit="submit()" autocomplete="off">
-            <div class="form-group" ct-input-container>
-                <label>{{'GET_BY_CODE.INPUT.CODE' | translate}}</label>
+            <div class="form-group code" ct-input-container>
+                <label class="card-label">{{'GET_BY_CODE.INPUT.CODE' | translate}}</label>
                 <input type="text" name="operationNumber" class="form-control" ct-tabindex2="checkNumber" tabindex="1"
                        ng-model="operationNumber" required
                        ui-mask="999999" placeholder="______"/>
@@ -27,7 +39,7 @@
                 </div>
             </div>
             <div class="form-group" ct-input-container>
-                <label>{{'GET_BY_CODE.INPUT.CARD' | translate}}</label>
+                <label class="card-label">{{'GET_BY_CODE.INPUT.CARD' | translate}}</label>
                 <input type="text" name="cardTo" class="form-control" ct-tabindex2="checkNumber" tabindex="2"
                        ng-model="cardTo" required
                        ui-mask="9999 9999 9999 9999" placeholder="____ ____ ____ ____"
@@ -39,8 +51,8 @@
                     </div>
                 </div>
             </div>
-            <div class="text-right">
-                <button type="submit" class="btn btn-warning btn-large get" tabindex="8"
+            <div class="buttons" >
+                <button type="submit" class="btn btn-warning btn-large text-bold-big" tabindex="4"
                         ng-disabled="c2cForm.$invalid || c2cForm.$pristine">
                     {{'GET_BY_CODE.INPUT.GET' | translate}}
                 </button>

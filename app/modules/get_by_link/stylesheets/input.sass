@@ -1,21 +1,52 @@
 .state-input
-  margin: 0 auto
-  max-width: 385px
-  border-radius: 10px
-  padding: 20px 25px
-  border: 2px solid #f0ad4e
+  margin: 20px auto
+  background-color: #ededed
+  box-shadow: -4px 1px 10px 0 rgba(0, 0, 0, 0.25)
+  padding: 25px
+  border-radius: 3px
+  min-width: 220px
+  min-height: 290px
+  max-width: 380px
+  input
+
+    font-size: 1.1rem
+
+  .card-title
+    color: #777777
+
+  .card-number
+    margin-bottom: 0
+    input
+      text-align: center
+
+  .card-label
+    margin-top: 25px
 
   label
-    color: $main_color_inactive
-    font-size: 12px
+    padding-left: 5px
+    color: #00316a
+    font-size: 0.9rem
     font-weight: 500
     margin-bottom: 0
 
   .phone
-    margin-bottom: 25px
+
+    input
+      text-align: left
+      width: 70%
+
+  .amount
+    input
+      width: 50%
 
   .get-link
-    text-transform: uppercase
+    //text-transform: uppercase
+
+  .buttons
+    button
+      width: 100%
+      height: 46px
+      background-color: #f79601
 
   .error-number, .error-date, .error-cvc, .error-phone, .error-amount, .error-target
     height: 15px
@@ -23,34 +54,23 @@
     color: #d9534f
     font-size: 12px
 
-@media (max-width: 767px)
-  .state-input
+@media(max-width: 767px)
 
-    label
-      font-size: 1.2rem
+  input
+    height: 27px
 
-    input
-      height: 40px
+@media(min-width: 768px)
+  .hide-menu
+    display: none
 
-@media (min-width: 768px)
+  input
+    height: 27px
 
-  .state-input
 
-    label
-      font-size: 1rem
+@media(min-width: 1024px)
 
-    input
-      height: 34px
-      font-size: 1.1rem
+  input
+    height: 40px
 
-//@media (min-width: 1200px)
 
-@media (min-width: 1440px)
 
-  .state-input
-
-    label
-      font-size: 1rem
-
-    input
-      height: 40px
