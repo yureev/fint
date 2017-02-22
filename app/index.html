@@ -3,7 +3,7 @@
         <nav class="navbar navbar-default">
             <div class="collapse navbar-collapse">
                 <div class="navigation" ng-class="{activeTarifQaa: nav==3 || nav==4}">
-                    <div class="nav nav-justified">
+                    <div class="nav nav-justified" ng-show="!begin">
                         <div class="logo">
                             <div>
                                 <a class="navbar-brand" ui-sref="app.card" scroll-to="main" ng-click="nav=0">
@@ -23,7 +23,7 @@
                         </a>
                     </div>
 
-                    <div ng-show="begin">
+                    <div ng-show="!begin">
                         <div class="nav nav-justified">
                             <a ui-sref="app.card" scroll-to="main" ng-click="nav=0" ng-class="{active: $state.includes('app.card') || $state.includes('app.phone')}">{{'APP.CONTROLS.BTN_SEND' | translate}}</a>
                             <div class="nav nav-inside" ng-class="{active: $state.includes('app.card') || $state.includes('app.phone')}">
@@ -123,7 +123,7 @@
             <!--<div class="item" ng-class="{active: $state.includes('app.url') || $state.includes('app.code')}">-->
             <!--</div>-->
 
-            <div class="cont-begin" ng-show="!begin">
+            <div class="cont-begin" ng-show="begin">
                 <div class="logo-img"><img src="./assets/images/sendUaService.png" alt="SendUa"></div>
                 <div class="logo-text"><img src="./assets/images/send_ua_logo.svg" alt="SendUa"></div>
 
@@ -149,7 +149,7 @@
 
             </div>
 
-            <div class="content" page-height ng-show="true">
+            <div class="content" page-height ng-show="!begin">
                 <!--<div class="main-left"></div>-->
                 <div  ui-view page-height-container></div>
                 <div class="clearfix"></div>
