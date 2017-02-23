@@ -34,6 +34,12 @@ function Ctrl($rootScope, $scope, $http, $timeout, $window, CardToCard) {
         $scope.$broadcast('CardToCardClearForm');
     };
 
+    $scope.touchNumberInput = function () {
+        $timeout(function(){
+            angular.element('#numberInput').focus();
+        },0);
+    };
+
     getTariffsNew();
     function getTariffsNew() {
         $scope.input_loader = true;

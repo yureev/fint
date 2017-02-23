@@ -148,6 +148,9 @@ angular.module('app', [
         $scope.lang = 'ua';
         $scope.begin = true;
 
+        $scope.onChangeBegin = function (begin) {
+            $scope.begin = begin;
+        };
 
 
         $scope.onChangeLanguage = function () {
