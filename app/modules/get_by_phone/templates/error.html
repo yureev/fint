@@ -1,26 +1,52 @@
-<div class="state-error">
-    <div class="title">{{ 'CARD2CARD.ERROR.TITLE' | translate }}</div>
-    <!--<div ng-if="transaction.state.message == 'Bad OTP Code'">-->
-        <!--<div class="code-title">{{ 'CARD2CARD.ERROR.OPERATION_CODE' | translate }}</div>-->
-    <!--</div>-->
-    <div ng-if="transaction.operationNumber">
-        <div class="code-title">{{ 'CARD2CARD.ERROR.OPERATION_CODE' | translate }}</div>
-        <div class="operation-number">{{ transaction.operationNumber }}</div>
+<div class="main-left" ng-class="{'main-left-cross' : crossboard, 'main-left-popup' : popup, 'main-left-cross-popup' : popup && crossboard}"></div>
+<div class="main-right">
+    <div class="menu">
+        <div class="container-fluid">
+            <div class="row col-xs-12 row-menu hide-menu">
+                <div class="item col-sm-6" ui-sref-active="active">
+                    <a ui-sref="app.card">{{'CARD2CARD.CONTROLS.SEND.BTN_CARDTOCARD' | translate}}</a>
+                </div>
+                <div class="item col-sm-6" ui-sref-active="active">
+                    <a ui-sref="app.phone">{{'CARD2CARD.CONTROLS.SEND.BTN_PHONE' | translate}}</a>
+                </div>
+            </div>
+        </div>
     </div>
-    <!--<div ng-if="transaction.mPayStatus">-->
+    <div class="menu">
+        <div class="container-fluid">
+            <div class="row col-xs-12 row-menu">
+                <div class="item col-sm-4" ui-sref-active="active">
+                    <a ui-sref="app.url">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_URL' | translate}}</a>
+                </div>
+                <div class="item col-sm-6" ui-sref-active="active">
+                    <a ui-sref="app.code">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_CODE' | translate}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="state-error">
+        <div class="title">{{ 'CARD2CARD.ERROR.TITLE' | translate }}</div>
+        <div ng-if="transaction.operationNumber">
+            <div class="code-title">{{ 'CARD2CARD.ERROR.OPERATION_CODE' | translate }}</div>
+            <div class="operation-number">{{ transaction.operationNumber }}</div>
+        </div>
+        <!--<div ng-if="transaction.mPayStatus">-->
         <!--<div class="status-title">{{ 'CARD2CARD.ERROR.ERROR_CODE' | translate }}</div>-->
         <!--<div class="operation-status">{{ transaction.mPayStatus }}</div>-->
-    <!--</div>-->
-    <div class="text-title">{{ 'CARD2CARD.ERROR.GLOBAL_ERROR' | translate }}</div>
-    <div class="phone-title">{{ 'CARD2CARD.ERROR.SUPPORT_TEL' | translate }}</div>
-    <div class="phone-number"><strong>(044) 390-08-85</strong></div>
-    <a ng-if="transaction.operationNumber && transaction.mPayStatus"
-       ng-href="mailto:support@send.ua?subject=Money transfer error&body=Code operation: {{transaction.operationNumber}}. Error: {{transaction.mPayStatus}}">
-        <button class="btn btn-primary"><span translate="CARD2CARD.ERROR.SEND_TO_SERVICE"></span></button>
-    </a>
-    <a ng-if="transaction.operationNumber && !transaction.mPayStatus"
-       ng-href="mailto:support@send.ua?subject=Money transfer error&body=Code operation: {{transaction.operationNumber}}.">
-        <button class="btn btn-primary"><span translate="CARD2CARD.ERROR.SEND_TO_SERVICE"></span></button>
-    </a>
-    <button class="btn btn-link" ng-click="goState(STATES.PHONE_TO_CARD_INPUT)">{{ 'CARD2CARD.BUTTON_CLOSE' | translate }}</button>
+        <!--</div>-->
+        <div class="text-title">{{ 'CARD2CARD.ERROR.GLOBAL_ERROR' | translate }}</div>
+        <div class="phone-title">{{ 'CARD2CARD.ERROR.SUPPORT_TEL' | translate }}</div>
+        <div class="phone-number"><strong>(044) 390-08-85</strong></div>
+        <a ng-if="transaction.operationNumber && transaction.mPayStatus"
+           ng-href="mailto:support@send.ua?subject=Money transfer error&body=Code operation: {{transaction.operationNumber}}. Error: {{transaction.mPayStatus}}">
+            <button class="btn btn-link"><span translate="CARD2CARD.ERROR.SEND_TO_SERVICE"></span></button>
+        </a>
+        <a ng-if="transaction.operationNumber && !transaction.mPayStatus"
+           ng-href="mailto:support@send.ua?subject=Money transfer error&body=Code operation: {{transaction.operationNumber}}.">
+            <button class="btn btn-link"><span translate="CARD2CARD.ERROR.SEND_TO_SERVICE"></span></button>
+        </a>
+        <div class="buttons">
+            <button class="btn btn-link" ng-click="goState(STATES.PHONE_TO_CARD_INPUT)">{{ 'CARD2CARD.BUTTON_CLOSE' | translate }}</button>
+        </div>
+    </div>
 </div>

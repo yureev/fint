@@ -3,7 +3,7 @@
         <nav class="navbar navbar-default">
             <div class="collapse navbar-collapse">
                 <div class="navigation" ng-class="{activeTarifQaa: nav==3 || nav==4}">
-                    <div class="nav nav-justified">
+                    <div class="nav nav-justified" ng-show="!begin">
                         <div class="logo">
                             <div>
                                 <a class="navbar-brand" ui-sref="app.card" scroll-to="main" ng-click="nav=0">
@@ -13,15 +13,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="nav nav-justified">
-                        <a ng-click="begin=!begin">
-                            <div class="buttons">
-                                <button type="submit" class="btn btn-warning send-button">
-                                    {{ 'APP.MENU.ENTER' | translate }}
-                                </button>
-                            </div>
-                        </a>
-                    </div>
+                    <!--<div class="nav nav-justified">-->
+                        <!--<a ng-click="begin=!begin">-->
+                            <!--<div class="buttons">-->
+                                <!--<button type="submit" class="btn btn-warning send-button">-->
+                                    <!--{{ 'APP.MENU.ENTER' | translate }}-->
+                                <!--</button>-->
+                            <!--</div>-->
+                        <!--</a>-->
+                    <!--</div>-->
 
                     <div ng-show="!begin">
                         <div class="nav nav-justified">
@@ -43,26 +43,26 @@
                     </div>
 
                     <div class="nav nav-justified">
-                        <div class="line-up-short" ng-show="nav == 1"></div>
+                        <!--<div class="line-up-short" ng-show="nav == 1"></div>-->
                         <a scroll-to="apps" ng-class="{activemenu: nav == 1}" ng-click="nav=1">{{ 'APP.MENU.APPS' | translate }}</a>
                     </div>
                     <div class="nav nav-justified">
-                        <div class="line-up-short" ng-show="nav == 2"></div>
+                        <!--<div class="line-up-short" ng-show="nav == 2"></div>-->
                         <a  scroll-to="services" ng-class="{activemenu: nav==2}" ng-click="nav=2">{{ 'APP.MENU.ABOUT' | translate }}</a>
                     </div>
                     <div class="nav nav-justified">
-                        <div class="line-up-short" ng-show="nav == 3"></div>
+                        <!--<div class="line-up-short" ng-show="nav == 3"></div>-->
                         <a  scroll-to="tarif" ng-class="{activemenu: nav==3}" ng-click="nav=3">{{ 'APP.MENU.TARIFFS' | translate }}</a>
                     </div>
                     <div class="nav nav-justified">
-                        <div class="line-up-short" ng-show="nav == 4"></div>
+                        <!--<div class="line-up-short" ng-show="nav == 4"></div>-->
                         <a  scroll-to="qaa" ng-class="{activemenu: nav==4}" ng-click="nav=4">{{ 'APP.MENU.FAQ' | translate }}</a>
                     </div>
                     <!--<div class="nav nav-justified">-->
                         <!--<a  scroll-to="contacts" ng-class="{active: nav==4}" ng-click="nav=4">{{ 'APP.MENU.CONTACTS' | translate }}</a>-->
                     <!--</div>-->
                     <div class="nav nav-justified">
-                        <div class="line-up-short" ng-show="nav == 5"></div>
+                        <!--<div class="line-up-short" ng-show="nav == 5"></div>-->
                         <a  scroll-to="pci-dss" ng-class="{activemenu: nav==5}" ng-click="nav=(5)">{{ 'APP.MENU.PCI' | translate }}</a>
                     </div>
                     <div class="nav nav-justified">
@@ -116,42 +116,171 @@
     <!--<div class="clearfix"></div>-->
     <div id="main" class="container-fluid main">
         <div class="row">
+            <!--<div class="cont-begin" ng-show="begin">-->
+                <!--<div class="row logo">-->
+                    <!--<div  class="logo-img"><img  src="./assets/images/sendUaService.png" alt="SendUa"></div>-->
+                    <!--<div class="logo-text">-->
+                        <!--<div><img  src="./assets/images/send_ua_logo.svg" alt="SendUa"></div>-->
+                        <!--<div class="text-logo">{{'APP.CONTROLS.TEXT' | translate}}</div>-->
+                    <!--</div>-->
+                    <!--<div class="clearfix"></div>-->
+                <!--</div>-->
 
-            <!--<div class="item" ng-class="{active: $state.includes('app.card') || $state.includes('app.phone')}">-->
+                <!--<div class="cont-input">-->
+                    <!--<div class="row cont-begin-input">-->
+                        <!--<div class="col-sm-5">-->
+                            <!--<span class="begin-label">{{'APP.CONTROLS.BTN_SEND' | translate}}</span>-->
+                            <!--<div class="c2c-cont">-->
+                                <!--<div class="source-input-begin">-->
+                                    <!--<input type="text" name="number" class="form-control "-->
+                                           <!--ng-model="number" required-->
+                                           <!--ui-mask="9999 9999 9999 9999" placeholder="____ ____ ____ ____"-->
+                                    <!--/>-->
+                                <!--</div>-->
+                                <!--<div class="amount-input-begin">-->
+                                    <!--<div class="amount-input-begin-left">-->
+                                        <!--<input type="text" name="amount" class="form-control " tabindex="15"-->
+                                               <!--ng-model="amount" placeholder = "{{'CARD2CARD.AMOUNT.RANGE'  | translate}}"-->
+                                               <!--min="1"  max="25000" required ct-currency/>-->
+                                    <!--</div>-->
+                                    <!--<div class="amount-input-begin-right buttons">-->
+                                        <!--<button ui-sref="app.card" scroll-to="main" ng-click="begin=!begin" type="submit" class="btn btn-warning send-button">-->
+                                            <!--<span class="text-button">{{'APP.CONTROLS.SEND.SEND' | translate}}</span>-->
+                                        <!--</button>-->
+                                    <!--</div>-->
+                                    <!--<div class="clearfix"></div>-->
+                                <!--</div>-->
+
+
+                            <!--</div>-->
+
+
+
+                            <!--&lt;!&ndash;<div class="buttons" >&ndash;&gt;-->
+                                <!--&lt;!&ndash;<button ui-sref="app.card" scroll-to="main" ng-click="begin=!begin" type="submit" class="btn btn-warning send-button">&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<span class="text-button">{{'APP.CONTROLS.SEND.BTN_CARDTOCARD' | translate}}</span>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</button>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                            <!--<div class="buttons" >-->
+                                <!--<button ui-sref="app.phone" scroll-to="main" ng-click="begin=!begin" type="submit" class="btn btn-warning send-button">-->
+                                    <!--<span class="text-button">{{'APP.CONTROLS.SEND.BTN_PHONE' | translate}}</span>-->
+                                <!--</button>-->
+                            <!--</div>-->
+
+                        <!--</div>-->
+                        <!--<div class="col-sm-2">-->
+                            <!--<span class="begin-label-small-line"></span>-->
+                            <!--<span class="begin-label-small">{{'APP.CONTROLS.BTN_OR' | translate}}</span>-->
+                        <!--</div>-->
+                        <!--<div class="col-sm-5">-->
+                            <!--<span class="begin-label">{{'APP.CONTROLS.BTN_RECEIVE' | translate}}</span>-->
+                            <!--<div class="buttons" >-->
+                                <!--<button ui-sref="app.url" scroll-to="main" ng-click="begin=!begin" type="submit" class="btn btn-warning send-button">-->
+                                    <!--<span class="text-button">{{'APP.CONTROLS.RECEIVE.BTN_URL' | translate}}</span>-->
+                                <!--</button>-->
+                            <!--</div>-->
+                            <!--<div class="buttons" >-->
+                                <!--<button ui-sref="app.code" scroll-to="main" ng-click="begin=!begin" type="submit" class="btn btn-warning send-button">-->
+                                    <!--<span class="text-button">{{'APP.CONTROLS.RECEIVE.BTN_CODE' | translate}}</span>-->
+                                <!--</button>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <!--<div class="crossboard-text" >-->
+                        <!--&lt;!&ndash;<span class="text" translate="CARD2CARD.CROSSBOARD_TEXT"></span>&ndash;&gt;-->
+                        <!--&lt;!&ndash;&ndash;&gt;-->
+                        <!--&lt;!&ndash;<span class="text"><a id='1' ng-click="popup=!popup">{{ 'CARD2CARD.CROSSBOARD_TEXT_COUNTRY' | translate }}</a></span>&ndash;&gt;-->
+
+                        <!--<span class="text">{{ 'CARD2CARD.NO_CROSSBOARD_TEXT' | translate }}</span>-->
+
+                        <!--&lt;!&ndash;<div class='popup' ng-show="popup">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div class="text-country">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<table class = "popup-table">&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<td>{{ 'CARD2CARD.CROSSBOARD_TEXT_RUS' | translate }}</td><td><img src="./../images/flagrus.png" width="22px"></td>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<td class="two-td">{{ 'CARD2CARD.CROSSBOARD_TEXT_GBL' | translate }}</td><td><img src="./../images/flaggbl.png" width="22px"></td>&ndash;&gt;-->
+
+                                        <!--&lt;!&ndash;<td class="two-td popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_ROM' | translate }}</td><td class="popup-desktop-768"><img src="./../images/flagrom.png" width="22px"></td>&ndash;&gt;-->
+
+
+                                        <!--&lt;!&ndash;<td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_GRZ' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flaggrz.png" width="22px"></td>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_ROM' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flagrom.png" width="22px"></td>&ndash;&gt;-->
+
+                                    <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<td>{{ 'CARD2CARD.CROSSBOARD_TEXT_AUS' | translate }}</td><td><img src="./../images/flagaus.png" width="22px"></td>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<td class="two-td">{{ 'CARD2CARD.CROSSBOARD_TEXT_HUN' | translate }}</td><td><img src="./../images/flaghun.png" width="22px"></td>&ndash;&gt;-->
+
+                                        <!--&lt;!&ndash;<td class="two-td popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_GRZ' | translate }}</td><td class="popup-desktop-768"><img src="./../images/flaggrz.png" width="22px"></td>&ndash;&gt;-->
+
+
+                                        <!--&lt;!&ndash;<td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_EST' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flagest.png" width="22px"></td>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_POL' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flagpol.png" width="22px"></td>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<td>{{ 'CARD2CARD.CROSSBOARD_TEXT_AZR' | translate }}</td><td><img src="./../images/flagazr.png" width="22px"></td>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<td class="two-td ">{{ 'CARD2CARD.CROSSBOARD_TEXT_KAZ' | translate }}</td><td><img src="./../images/flagkaz.png" width="22px"></td>&ndash;&gt;-->
+
+                                        <!--&lt;!&ndash;<td class="two-td popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_POL' | translate }}</td><td class="popup-desktop-768"><img src="./../images/flagpol.png" width="22px"></td>&ndash;&gt;-->
+
+
+                                        <!--&lt;!&ndash;<td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_CZH' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flagczh.png" width="22px"></td>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_MTN' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flagmtn.png" width="22px"></td>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<td>{{ 'CARD2CARD.CROSSBOARD_TEXT_BLR' | translate }}</td><td><img src="./../images/flagblr.png" width="22px"></td>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<td class="two-td">{{ 'CARD2CARD.CROSSBOARD_TEXT_LAT' | translate }}</td><td><img src="./../images/flaglat.png" width="22px"></td>&ndash;&gt;-->
+
+                                        <!--&lt;!&ndash;<td class="two-td popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_EST' | translate }}</td><td class="popup-desktop-768"><img src="./../images/flagest.png" width="22px"></td>&ndash;&gt;-->
+
+
+                                        <!--&lt;!&ndash;<td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_ARM' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flagarm.png" width="22px"></td>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_MLD' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flagmld.png" width="22px"></td>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<td >{{ 'CARD2CARD.CROSSBOARD_TEXT_BUL' | translate }}</td><td ><img src="./../images/flagbul.png" width="22px"></td>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<td  class="two-td">{{ 'CARD2CARD.CROSSBOARD_TEXT_LIT' | translate }}</td><td ><img src="./../images/flaglit.png" width="22px"></td>&ndash;&gt;-->
+
+                                        <!--&lt;!&ndash;<td class="two-td popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_MTN' | translate }}</td><td class="popup-desktop-768"><img src="./../images/flagmtn.png" width="22px"></td>&ndash;&gt;-->
+
+
+                                    <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<td class="popup-mobile popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_ARM' | translate }}</td><td class="popup-mobile popup-desktop-768"><img src="./../images/flagarm.png" width="22px"></td>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<td class="two-td popup-mobile popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_MLD' | translate }}</td><td class="popup-mobile popup-desktop-768"><img src="./../images/flagmld.png" width="22px"></td>&ndash;&gt;-->
+
+                                        <!--&lt;!&ndash;<td class="two-td popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_CZH' | translate }}</td><td class="popup-desktop-768"><img src="./../images/flagczh.png" width="22px"></td>&ndash;&gt;-->
+
+
+                                    <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<td class="popup-mobile">{{ 'CARD2CARD.CROSSBOARD_TEXT_CZH' | translate }}</td><td class="popup-mobile"><img src="./../images/flagczh.png" width="22px"></td>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<td class="two-td popup-mobile">{{ 'CARD2CARD.CROSSBOARD_TEXT_MTN' | translate }}</td><td class="popup-mobile"><img src="./../images/flagmtn.png" width="22px"></td>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<td class="popup-mobile">{{ 'CARD2CARD.CROSSBOARD_TEXT_EST' | translate }}</td><td class="popup-mobile"><img src="./../images/flagest.png" width="22px"></td>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<td class="two-td popup-mobile">{{ 'CARD2CARD.CROSSBOARD_TEXT_POL' | translate }}</td><td class="popup-mobile"><img src="./../images/flagpol.png" width="22px"></td>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<td class="popup-mobile">{{ 'CARD2CARD.CROSSBOARD_TEXT_GRZ' | translate }}</td><td class="popup-mobile"><img src="./../images/flaggrz.png" width="22px"></td>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<td class="two-td popup-mobile">{{ 'CARD2CARD.CROSSBOARD_TEXT_ROM' | translate }}</td><td class="popup-mobile"><img src="./../images/flagrom.png" width="22px"></td>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</table>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div translate="CARD2CARD.CROSSBOARD_TEXT_COUNTRY_TOOLTIP"></div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--</div>-->
+
+
+
+
+                <!--</div>-->
             <!--</div>-->
 
-            <!--<div class="item" ng-class="{active: $state.includes('app.url') || $state.includes('app.code')}">-->
-            <!--</div>-->
-
-            <div class="cont-begin" ng-show="begin">
-                <div class="logo-img"><img src="./assets/images/sendUaService.png" alt="SendUa"></div>
-                <div class="logo-text"><img src="./assets/images/send_ua_logo.svg" alt="SendUa"></div>
-
-                <div class="nav nav-inside" ng-class="{active: $state.includes('app.card') || $state.includes('app.phone')}">
-                    <div><a ui-sref="app.card" scroll-to="main" ng-click="nav=0" ng-class="{active: $state.includes('app.card') }">{{'APP.CONTROLS.BTN_SEND' | translate}}</a></div>
-                    <!--<div><a ui-sref="app.phone" scroll-to="main" ng-click="nav=0" ng-class="{active: $state.includes('app.phone')}">{{'CARD2CARD.CONTROLS.SEND.BTN_PHONE' | translate}}</a></div>-->
-                </div>
-
-
-                <div class="source-input">
-
-                    <input type="text" name="number"
-                           ng-model="number" required ng-change="validDiamantMaster(number); validCardZoneSource(number)"
-                           ng-keyup="validDiamantMaster(number); validCardZoneSource(number)"
-                           ui-mask="9999 9999 9999 9999" placeholder="номер карты получателя"
-                           />
-                </div>
-
-                <div class="nav nav-inside" ng-class="{active: $state.includes('app.url') || $state.includes('app.code')}">
-                    <div><a ui-sref="app.url" scroll-to="main" ng-click="nav=0" ng-class="{active: $state.includes('app.url') }">{{'APP.CONTROLS.BTN_RECEIVE' | translate}}</a></div>
-                    <!--<div><a ui-sref="app.code" scroll-to="main" ng-click="nav=0" ng-class="{active: $state.includes('app.code')}">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_CODE' | translate}}</a></div>-->
-                </div>
-
-            </div>
-
-            <div class="content" page-height ng-show="!begin">
-                <div class="main-left"></div>
-                <div class="main-right" ui-view page-height-container></div>
+            <div class="content" page-height >
+                <!--<div class="main-left"></div>-->
+                <div  ui-view page-height-container></div>
                 <div class="clearfix"></div>
             </div>
         </div>

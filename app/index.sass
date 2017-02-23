@@ -21,6 +21,7 @@ $fa-font-path: "~font-awesome/fonts"
 
 body
   font-size: 1em
+  font-family: 'Roboto', 'Arial', sans-serif
 
 a
   cursor: pointer
@@ -35,7 +36,6 @@ input:invalid
   width: 100%
 
   .top
-    width: 320px
     //min-width: 220px
     //max-width: 320px
     margin: 0
@@ -44,6 +44,7 @@ input:invalid
     position: fixed
     height: 100%
     z-index: 2
+    //display: none
 
 
 
@@ -162,8 +163,8 @@ input:invalid
         color: #4a90e2
         display: inherit
 
-      .activemenu
-        font-size: 1.2em
+      //.activemenu
+      //  font-size: 1.2em
 
       .translate
         .active
@@ -356,7 +357,6 @@ input:invalid
       .description
         max-width: none
         margin-top: 7%
-        padding-left: 20%
         padding-right: 5%
 
 
@@ -450,9 +450,7 @@ input:invalid
     float: left
 
 
-  .main-right
-    //width: 83%
-    float: left
+
 
   .questions
     .main-left
@@ -468,37 +466,98 @@ input:invalid
       text-decoration: none
 
     .cont-begin
-      //background: url('assets/images/image_1_1.svg') center  0 no-repeat #f79601
       background: url('assets/images/image_1.svg') center 254px no-repeat #2980b9
       min-height: 800px
-      text-align: center
       padding-top: 40px
-      //width: 100%
+
+      .logo
+        //margin-left: 30%
+
+        .logo-img
+          //width: 50%
+          float: left
+          margin-right: 10px
+          img
+            //width: 200px
+            margin-bottom: 40px
+
+        .logo-text
+          //width: 50%
+          float: left
+          img
+            //width: 300px
+            margin-bottom: 10px
+
+          .text-logo
+            //width: 300px
+            color: #cfcfcf
+            font-size: 1.1rem
+            font-weight: 300
+
+      .cont-input
+        opacity: 0.94
+        background-color: #ffffff
+        box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.25)
+        padding-bottom: 10px
+        text-align: center
+
+        .begin-label
+          font-size: 2.5rem
+          color: #00316a
+          font-weight: 300
+
+        .begin-label-small
+          color: #f79601
+          line-height: 5
+
+        .begin-label-small-line
+          border-bottom: 1px solid #f79601
+          width: 30%
+
+        .buttons
+          margin-bottom: 10px
+          button
+            font-size: 0.85rem
+
+        //.source-input
+        //  //input
+        //  //  text-align: center
+        //  //  background-color: inherit
+        //  //  //border: none
+        //  //  //border-bottom: 1px solid #cfcfcf
 
 
-      .logo-img
-        //width: 50%
-        //float: left
-        img
-          width: 100px
-          margin-bottom: 40px
-
-      .logo-text
-        //width: 50%
-        //float: left
-        img
-          width: 400px
-          margin-bottom: 160px
-
-      .source-input
-        input
+        .c2c-cont
           text-align: center
-          background-color: inherit
-          border: none
-          border-bottom: 1px solid #cfcfcf
+          margin: 0 auto
+
+          .source-input-begin
+            margin-bottom: 10px
 
 
+          .amount-input-begin-right
+            float: left
+            width: 40%
+            margin-bottom: 10px
+            padding-left: 10px
+            button
+              width: 100%
 
+            .btn
+              padding: 6px 0
+              text-align: center
+
+          .amount-input-begin-left
+            float: left
+            width: 60%
+            padding-right: 10px
+
+
+        .crossboard-text
+          font-size: 0.75rem
+          .text
+            font-size: 0.75rem
+            color: #777777
 
     .sidebar
       text-align: center
@@ -551,7 +610,7 @@ input:invalid
       background-color: #fff
 
     .sub-main
-      padding: 40px
+      //padding: 40px
 
 .text-bold-big
   font-size: 1.2rem
@@ -608,6 +667,46 @@ input:invalid
   html
     font-size: 12px
 
+    .cont-begin
+      .logo
+        display: none
+
+        .logo-img
+          img
+            width: 200px
+
+        .logo-text
+          img
+            width: 300px
+
+          .text-logo
+            width: 300px
+
+      .cont-input
+        width: 300px
+        margin: 0 auto
+
+        .buttons
+          button
+            width: 245px
+
+      .c2c-cont
+        width: 245px
+
+        .source-input-begin
+          input
+            text-align: center
+            font-size: 1rem
+            height: 28px
+
+        .amount-input-begin-left
+          input
+            text-align: center
+            font-size: 1rem
+            height: 28px
+
+    .top
+      display: none
 
     .navigation
       width: 50%
@@ -618,16 +717,27 @@ input:invalid
       .logo-size
         width: 38%
 
+    .pci-dss
+      .description
+        padding-left: 5px
+
+
     .main-left
-      width: 240px
+      display: none
+
+    .main-right
+      width: 300px
+      margin: 0 auto
+      float: none
 
     .desc-margin
-      padding-left: 200px
+      padding-left: 5px
 
 
   .rocketchat-widget
     right: 0px !important
-    width: 100% !important
+    width: 200px !important
+    margin-left: 10%
 
 
 @media(min-width: 768px)
@@ -635,8 +745,11 @@ input:invalid
   html
     font-size: 12px
 
+    .top
+      width: 200px
+
     .navigation
-      width: 60%
+      width: 100%
       .buttons
         button
           //height: 25px
@@ -644,15 +757,58 @@ input:invalid
       .logo-size
         width: 38%
 
+    .pci-dss
+      .description
+        padding-left: 20%
+
 
     .main-left
       width: 200px
 
     .main-right
-      min-width: 480px
+      width: 553px
+      float: left
 
     .desc-margin
       padding-left: 200px
+
+    .cont-begin
+      .logo
+        margin-left: 30%
+
+        .logo-img
+          img
+            width: 100px
+
+        .logo-text
+          img
+            width: 200px
+
+          .text-logo
+            width: 200px
+
+      .cont-input
+        width: 520px
+        margin-left: 30%
+
+        .buttons
+          button
+            width: 185px
+
+      .c2c-cont
+        width: 185px
+
+        .source-input-begin
+          input
+            text-align: center
+            font-size: 1rem
+            height: 28px
+
+        .amount-input-begin-left
+          input
+            text-align: center
+            font-size: 1rem
+            height: 28px
 
   .rocketchat-widget
     right: 100px !important
@@ -663,8 +819,11 @@ input:invalid
   html
     font-size: 14px
 
+    .top
+      width: 240px
+
     .navigation
-      width: 73%
+      //width: 73%
 
       .logo-size
         width: 47%
@@ -678,68 +837,55 @@ input:invalid
       width: 240px
 
     .main-right
-      min-width: 760px
+      width: 760px
 
     .desc-margin
       padding-left: 180px
 
+    .cont-begin
+      .logo
+        margin-left: 30%
+
+        .logo-img
+          img
+            width: 100px
+
+        .logo-text
+          img
+            width: 200px
+
+          .text-logo
+            width: 200px
+
+      .cont-input
+        width: 655px
+        margin-left: 30%
+
+        .buttons
+          button
+            width: 245px
+
+      .c2c-cont
+        width: 245px
+
+        .source-input-begin
+          input
+            height: 30px
+
+        .amount-input-begin-left
+          input
+            height: 30px
 
 @media(min-width: 1280px)
 
   html
-    font-size: 14px
-
-    .navigation
-      width: 100%
-
-      //.logo-size
-      //  width: 100%
-
-
-      .buttons
-        button
-          height: 45px
-
-    .main-left
-      width: 320px
-
-    .main-right
-      min-width: 940px
-
-    .desc-margin
-      padding-left: 140px
-
-
-
-@media(min-width: 1440px)
-
-  html
-    font-size: 14px
-
-    .navigation
-      width: 100%
-      .buttons
-        button
-          height: 45px
-
-    .main-left
-      width: 320px
-
-    .main-right
-      min-width: 1100px
-
-    .desc-margin
-      padding-left: 60px
-
-
-
-@media(min-width: 1600px)
-
-  html
     font-size: 16px
 
+    .top
+      width: 320px
+
     .navigation
-      width: 100%
+      //width: 100%
       .buttons
         button
           height: 45px
@@ -748,27 +894,8 @@ input:invalid
       width: 320px
 
     .main-right
-      min-width: 1260px
-
-    .desc-margin
-      padding-left: 30px
-
-@media(min-width: 1920px)
-
-  html
-    font-size: 16px
-
-    .navigation
-      width: 100%
-      .buttons
-        button
-          height: 45px
-
-    .main-left
-      width: 320px
-
-    .main-right
-      min-width: 1580px
+      width: 945px
 
     .desc-margin
       padding-left: auto
+

@@ -1,24 +1,54 @@
 .state-lookup
-  margin: 0 auto
-  max-width: 650px
-  border-radius: 10px
+  margin: 20px
   padding: 20px 30px
-  text-align: justify
-  border: 2px solid #f0ad4e
+  text-align: left
+  border-radius: 3px
+  background-color: #ededed
+  box-shadow: -4px 1px 10px 0 rgba(0, 0, 0, 0.25)
+  font-size: 0.85rem
+  color: #4a4a4a
 
   .title
-    font-size: 1.7em
-    text-align: center
+    font-size: 1rem
     margin-bottom: 20px
 
   .input-title
-    display: inline
+    color: #2980b9
 
   .submit
     margin-top: 20px
+
+    input
+      width: 40%
+      text-align: center
+      font-size: 1rem
+
+  .buttons
+    text-align: right
+    button
+      font-size: 1rem
+
 
   .lookup-input
     width: 85px
     display: inline-block
     margin-right: 15px
     margin-bottom: 10px
+
+@media(max-width: 767px)
+
+  input
+    height: 27px
+
+@media(min-width: 768px)
+  .hide-menu
+    display: none
+
+  input
+    height: 27px
+
+
+@media(min-width: 1024px)
+
+  input
+    height: 40px

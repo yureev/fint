@@ -6,6 +6,19 @@ function Ctrl($scope, $http, CardToCard) {
         self.submit();
     };
 
+
+    $scope.cancel = function() {
+        $scope.number = '';
+        $scope.cvc = '';
+        $scope.phone = '';
+        $scope.target.card = '';
+        $scope.target.phone = '';
+        $scope.amount = '';
+        $scope.viewExpire = {};
+        $scope.$broadcast('CardToCardClearForm');
+        alert(12);
+    };
+
     this.submit = function () {
         $scope.input_loader = true;
 

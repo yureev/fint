@@ -34,6 +34,12 @@ function Ctrl($rootScope, $scope, $http, $timeout, $window, CardToCard) {
         $scope.$broadcast('CardToCardClearForm');
     };
 
+    $scope.touchNumberInput = function () {
+        $timeout(function(){
+            angular.element('#numberInput').focus();
+        },0);
+    };
+
     getTariffsNew();
     function getTariffsNew() {
         $scope.input_loader = true;
@@ -394,13 +400,13 @@ function Ctrl($rootScope, $scope, $http, $timeout, $window, CardToCard) {
         }
     };
 
-    angular.element(document).on('click', function (event) {
-        $scope.popup = false;
-    });
-
-    angular.element('#1').on('click', function (event) {
-        $scope.popup = true;
-    });
+    // angular.element(document).on('click', function (event) {
+    //     $scope.popup = false;
+    // });
+    //
+    // angular.element('#1').on('click', function (event) {
+    //     $scope.popup = true;
+    // });
 
     $scope.validDiamantMaster = function (numberSource) {
         $scope.input_loader = true;

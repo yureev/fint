@@ -1,36 +1,64 @@
+.main-left
+  height: 740px
+  //background-color: rgba(0, 40, 84, 0.8)
+  background-color: #2980b9
+  float: left
+
+  &.main-left-popup
+    height: 840px
+
+
+  &.main-left-cross
+    height: 840px
+
+
+  &.main-left-cross-popup
+    height: 1015px
+
+//.main-right
+//  //width: 83%
+//  float: left
+
+
 .state-input
 
   .popup-height
     min-height: 590px
 
   .crossboard-text
-    text-align: center
-    margin-bottom: 10px
+    font-size: 0.75rem
 
     .text
       position: relative
-      color: #3f6184
+      color: #777777
       a
-        color: #fac878
+        color: #4a90e2
 
     .crossboard-blink
       color: red
 
   .popup
-    position: absolute
-    border: 1px solid #fac878
-    border-radius: 10px
     background: #ffffff
     text-align: left
-    z-index: 1000
     padding: 5px
-    font-size: 14px
+    font-size: 0.87rem
+
+
+    .popup-mobile
+      display: none
+
+    .popup-desktop-1200
+      display: none
+
+    .popup-desktop-768
+      display: table-cell
 
     .popup-table
-      margin-bottom: 10px
+      width: 94%
 
     td
       padding-left: 5px
+      margin-right: 20px
 
     .two-td
       padding-left: 10px
@@ -40,8 +68,8 @@
     border: 1px solid #d9534f
     background: #d9534f
     text-align: left
-    z-index: 1000
-    font-size: 14px
+    z-index: 10
+    font-size: 0.85rem
     color: #ffffff
     padding: 5px
     box-shadow: 5px 5px 5px #dbdbdb
@@ -53,16 +81,37 @@
 
   .row
     position: relative
-    //margin: 0
     padding: 20px
-    width: 75%
-    margin-left: 12%
+
+
+  .row-menu
+    padding: 0 20px
 
   .row-crossboard
     position: relative
-    height: 0
+    //height: 0
+    margin-top: 32px
+
+    .source-cross-left
+      padding: 0
+
+    .source-cross-right, .target-cross-left ,.target-cross-right
+      padding: 0
+
+    .input-left
+      border-radius: 3px 0 0 3px
+
+    .input-right
+      border-radius:  0 3px 3px 0
 
     .col-md-6, .col-md-4, .col-md-8
+      padding: 0
+
+    .form-group
+      margin-bottom: 0
+
+  .row-amount
+    .col-md-6, .col-md-4, .col-md-8, .amount, .tariffs
       padding: 0
 
     .form-group
@@ -94,17 +143,19 @@
     padding: 25px
     margin-bottom: 10px
     border-radius: 3px
-    //width: 50%
-    min-width: 220px
-    min-height: 290px
-    max-width: 380px
+    //min-width: 220px
+    ////min-height: 290px
+    //max-width: 380px
 
     input
-      height: 40px
+      font-size: 1rem
 
     .form-control-feedback
       pointer-events: all
       cursor: pointer
+
+    .card-title
+      color: #777777
 
     &.source, &.target
       .card-logo
@@ -122,14 +173,16 @@
           background-image: url(./images/masterCard_logo.svg)
           display: block
 
-
-
-
     .form-group
       margin-bottom: 0
 
+    .card-label
+      margin-top: 25px
+
     label
-      font-size: 1rem
+      padding-left: 5px
+      color: #00316a
+      font-size: 0.9rem
       font-weight: 500
       margin-bottom: 0
 
@@ -152,6 +205,13 @@
           right: 23px
           margin-top: -34px
 
+      .input-target
+        margin-bottom: 10px
+
+        input
+          font-size: 1.1rem
+
+
     &.source
       background-color: #ededed
       border-right: none
@@ -171,15 +231,58 @@
           right: 23px
           margin-top: -34px
 
-      .source-input
-        width: 70%
-        float: left
+
+
+      .input-source
+        border: 1px solid #ccc
+        border-radius: 4px
+        width: 100%
+        margin-bottom: 25px
+
+        &.input-source-focus
+          border-color: #66afe9
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6)
+
+        &.input-source-invalid
+          border-color: #d9534f
+
+
+        .source-input
+          float: left
+
+          &.number-input
+            width: 78%
+            border-radius:  4px 0 0 4px
+            border-right: 1px solid #ccc
+
+          &.date-month, &.date-year, &.date-slash
+            padding: 0
+            box-shadow: none
+            border-radius: 0
+
+          &.date-month, &.date-year
+            width: 10%
+
+          &.date-month
+            text-align: right
+            padding-right: 5px
+
+          &.date-year
+            padding-left: 5px
+            border-radius: 0 4px 4px 0
+
+          &.date-slash
+            width: 2%
+            background-color: #ffffff
 
         input
-          border-radius: 4px 0 0 4px
-          border-right: none
+          border: none
+          font-size: 1.1rem
 
-          //text-align: center
+      .input-source:focus
+        border-color: #66afe9
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6)
+
 
       .card-data
         margin-top: 35px
@@ -246,6 +349,7 @@
       .cvv
         width: 30%
         text-align: left
+        margin-bottom: 25px
 
       .phone
         width: 70%
@@ -258,57 +362,90 @@
     .amount-input-currency
       padding: 0
 
+      input
+        padding: 0 4px
+        text-align: center
+
+
     .amount-input-c2c
       width: 100%
       margin-right: 7px
 
-    .amount-buttons-field-c2c
+  .amount-buttons-field-c2c
 
-      a
-        color: #989898
-      &active
-        color: #a0b2c4
 
-      .amount-buttons-c2c, .amount-buttons-c2c-eur
-        padding: 10px 5px
-        text-decoration: none
 
-      .activeCurrency
-        color: #23527c
+    .amount-buttons-c2c, .amount-buttons-c2c-eur
+      padding: 10px 5px
+      text-decoration: none
+
+    .tariffs
+      height: 40px
+
+
+
+  .buttons-convert-input
+    margin: 25px 0 33px 0
+
+    .container-convert
+      margin-top: 10px
+
+      input
+        height: 13px
+        margin: 0 5px
+
+      span
+        color: #cfcfcf
+        margin: 0 20px 0 5px
+
+        &.activeCurrency
+          color: #000000
+
+
 
   .tariffs
     margin-bottom: 20px
-    font-size: 11px
-    //float: right
     text-align: right
+    line-height: 1.2
+
 
     .text-commiss
-      font-weight: 300
+      //font-weight: 300
+      color: #777777
 
     .text-bank
-      font-weight: 100
+      //font-weight: 300
+      color: #cfcfcf
 
     .text-bank-active
-      color: #cfcfcf
+      color: #777777
 
 
   .total-amount
     //margin-bottom: 22px
     //height: 0
 
-    .text-exchange, .text-target-amount
-      font-weight: bold
+    .text-inform
+      margin-bottom: 10px
+      padding-left: 5px
+
+      .text-exchange, .text-target-amount
+        //font-weight: bold
+        color: #777777
+        font-size: 0.9rem
 
     .send
 
       .checkbox
         margin: 0
-        //height: 0
-        //margin-bottom: 10px
-        //margin-left: 20px
 
         input
-          height: 14px
+          position: inherit
+          margin: 0
+          height: 13px
+
+        span
+          color: #777777
 
       .buttons
         button
@@ -382,11 +519,17 @@
       .text-data-cross
         margin-bottom: 5px
 
-  .error-number, .error-date, .error-cvc, .error-phone, .error-amount, .error-target, .error-agreed
+  .error-number, .error-date, .error-cvc, .error-phone, .error-amount, .error-target, .error-agreed, .error-number-cross-source
     height: 15px
     line-height: 15px
     color: #d9534f
-    font-size: 12px
+
+
+  .error-date
+    text-align: right
+
+  .error-number-cross-source
+    margin-bottom: 12px
 
   .error-block
     position: absolute
@@ -407,509 +550,307 @@
       font-size: 16px
       position: relative
 
+@media(max-width: 767px)
+  .row
+    margin-left: 0
 
-//@media (max-width: 320px)
-//
-//  .state-input
-//
-//    //.popup
-//    //  width: 30%
-//    //  margin-left: 60%
-//
-//    .popup-desktop-1200
-//      display: none
-//
-//    .popup-desktop-768
-//      display: none
-//
-//    .row-crossboard
-//      top: -1270px
-//
-//      .text-line-crossboard
-//        font-size: 12px
-//
-//      .cross-right
-//        top: 500px
-//
-//    .caret-c2c
-//      margin-left: -23%
-//      margin-right: 30%
-//      margin-bottom: 40px
-//
-//      .caret-c2c-block
-//        margin-bottom: 35px
-//
-//    .cross-card-left
-//      margin-bottom: 400px
-//    .cross-card-right
-//      margin-bottom: 160px
-//
-//
-//    .card
-//      padding-bottom: 10px
-//
-//      input
-//        height: 40px
-//        font-size: 1.2rem
-//
-//      label
-//        font-size: 1.2rem
-//
-//      &.source, &.target
-//        .card-logo
-//
-//          &.mastercard
-//            width: 49px
-//            height: 29px
-//            right: 60px
-//            margin-top: 5px
-//
-//          &.visa
-//            width: 58px
-//            height: 18px
-//            right: 50px
-//            margin-top: 11px
-//
-//      .tooltip
-//        .tooltip-inner
-//          width: 300px
-//          padding: 5px
-//
-//
-//        &.tooltip.right
-//          top: -63px !important
-//          left: -133px !important
-//
-//          .tooltip-arrow
-//            display: none
-//
-//    .has-feedback
-//
-//      span
-//        font-size: 1.2rem
-//
-//      .form-control-feedback
-//        margin-top: 3px
-//        width: 34px
-//        height: 34px
-//        right: 0
-//        line-height: 34px
-//
-//    .tariffs
-//      padding-top: 0
-//      margin-bottom: 20px
-//
-//    .phone
-//
-//      .tooltip
-//        .tooltip-inner
-//          width: 300px
-//          padding: 5px
-//
-//
-//        &.tooltip.right
-//          top: -21px !important
-//          left: 72px !important
-//
-//          .tooltip-arrow
-//            display: none
-//
-//@media (min-width: 321px)
-//  .state-input
-//
-//    //.popup
-//    //  width: 30%
-//    //  margin-left: 60%
-//
-//    .popup-desktop-1200
-//      display: none
-//
-//    .popup-desktop-768
-//      display: none
-//
-//    .row-crossboard
-//      top: -1200px
-//
-//      .text-line-crossboard
-//        font-size: 12px
-//
-//      .cross-right
-//        top: 470px
-//
-//
-//
-//    .caret-c2c
-//      margin-left: -12%
-//      margin-right: 30%
-//      margin-bottom: 40px
-//
-//      .caret-c2c-block
-//        margin-bottom: 35px
-//
-//    .cross-card-left
-//      margin-bottom: 400px
-//    .cross-card-right
-//      margin-bottom: 160px
-//
-//
+  .card
+    input
+      height: 27px
 
-//@media (min-width: 361px)
-//
-//  .state-input
-//
-//    .cross-right
-//      top: 485px
-//
-//    .caret-c2c
-//      margin-left: 0%
-//      margin-right: 30%
-//      margin-bottom: 0px
-//
-//
-//    .card
-//      padding-bottom: 10px
-//
-//      input
-//        height: 40px
-//        font-size: 1.2rem
-//
-//      label
-//        font-size: 1.2rem
-//
-//      &.source
-//
-//        //.cvv
-//        //  width: 90px
-//
-//      .card-logo
-//
-//        &.mastercard
-//          width: 49px
-//          height: 29px
-//          right: 50px
-//          margin-top: 5px
-//
-//        &.visa
-//          width: 58px
-//          height: 18px
-//          right: 50px
-//          margin-top: 11px
-//
-//      .tooltip
-//        .tooltip-inner
-//          width: 300px
-//          padding: 5px
-//
-//
-//        &.tooltip.right
-//          top: -63px !important
-//          left: -133px !important
-//
-//          .tooltip-arrow
-//            display: none
-//
-//    .has-feedback
-//
-//      span
-//        font-size: 1.2rem
-//
-//      .form-control-feedback
-//        margin-top: 3px
-//        width: 34px
-//        height: 34px
-//        right: 0
-//        line-height: 34px
-//
-//    .tariffs
-//      padding-top: 0
-//      margin-bottom: 20px
-//
-//    .phone
-//
-//      .tooltip
-//        .tooltip-inner
-//          width: 300px
-//          padding: 5px
-//
-//
-//        &.tooltip.right
-//          top: -21px !important
-//          left: 72px !important
-//
-//          .tooltip-arrow
-//            display: none
+  .input-source
+    height: 27px
+    input
+      height: 25px
 
-//@media (min-width: 376px)
-//  .state-input
-//
-//    .row-crossboard
-//      top: -1170px
-//
-//      .cross-right
-//        top: 505px
-//
-//    .cross-card-left
-//      margin-bottom: 400px
-//    .cross-card-right
-//      margin-bottom: 130px
-//
-//@media (min-width: 568px)
-//  .state-input
-//
-//    .row-crossboard
-//      top: -1260px
-//
-//      .cross-right
-//        top: 610px
-//
-//@media (min-width: 640px)
-//  .state-input
-//
-//    .row-crossboard
-//      top: -1305px
-//
-//      .cross-right
-//        top: 650px
-//
-//@media (min-width: 667px)
-//  .state-input
-//
-//    .row-crossboard
-//      top: -1315px
-//
-//      .cross-right
-//        top: 660px
-//
-//@media (min-width: 732px)
-//  .state-input
-//
-//    .row-crossboard
-//      top: -1360px
-//
-//      .cross-right
-//        top: 705px
-//
-//
-//
-//@media (min-width: 768px)
-//  .state-input
-//
-//    .popup
-//      width: 50%
-//      margin-left: 25%
-//
-//    .popupCross
-//      position: fixed
-//      width: 25%
-//      right: 5%
-//      top: 5px
-//
-//
-//
-//
-//    .popup-mobile
-//      display: none
-//
-//    .popup-desktop-1200
-//      display: none
-//
-//    .popup-desktop-768
-//      display: table-cell
-//
-//      //.text-country
-//      //  margin-left: 33%
-//
-//    .row-crossboard
-//      top: -13px
-//
-//      .text-line-crossboard
-//        font-size: 16px
-//
-//      .cross-right
-//        top: 0px
-//
-//    .caret-c2c
-//      margin-left: 22%
-//      margin-right: 30%
-//
-//      .caret-c2c-block
-//        margin-bottom: 0px
-//
-//    .cross-card-left, .cross-card-right
-//      margin-bottom: 0px
-//
-//
-//    .crossboard-left, .crossboard-right
-//      margin-bottom: 0px
-//
-//
-//    .crossboard-left-field, .crossboard-right-field
-//      width: 68%
-//
-//    .card
-//
-//      label
-//        font-size: 1rem
-//
-//      input
-//        height: 34px
-//        font-size: 1.1rem
-//
-//      .card-logo
-//
-//        &.mastercard
-//          width: 42px
-//          height: 25px
-//          right: 50px
-//          margin-top: 4px
-//
-//        &.visa
-//          width: 58px
-//          height: 18px
-//          right: 50px
-//          margin-top: 8px
-//
-//      &.source
-//        //.cvv
-//        //  width: 80px
-//
-//      .has-feedback
-//
-//        .form-control-feedback
-//          top: -3px
-//          line-height: 42px
-//          height: 41px
-//
-//
-//@media (min-width: 1024px)
-//  .state-input
-//
-//    //.caret-c2c
-//    //  margin-left: 30%
-//    //  margin-right: 30%
-//
-//@media (min-width: 1200px)
-//  .state-input
-//
-//    //.popup
-//    //  width: 29%
-//    //  margin-left: 35%
-//
-//
-//
-//    .popup-desktop-1200
-//      display: table-cell
-//
-//    .popup-desktop-768
-//      display: none
-//
-//    .caret-c2c
-//      margin-left: 30%
-//      margin-right: 30%
-//
-//    .card
-//
-//
-//      label
-//        font-size: 0.9rem
-//
-//      input
-//        height: 30px
-//        font-size: 14px
-//
-//      .card-logo
-//
-//        &.mastercard
-//          margin-top: 3px
-//          width: 37px
-//          height: 23px
-//          right: 43px
-//
-//        &.visa
-//          margin-top: 8px
-//          width: 44px
-//          height: 14px
-//          right: 45px
-//
-//
-//    .has-feedback
-//
-//      span
-//        font-size: 0.8rem
-//
-//      .form-control-feedback
-//        margin-top: -3px
-//        width: 32px
-//        height: 32px
-//        right: -3px
-//        line-height: 31px
-//
-//
-//@media (min-width: 1440px)
-//
-//  .state-input
-//
-//    //.popup
-//    //  width: 30%
-//    //  //margin-left: 35%
-//
-//    .crossboard-text
-//    //height: 40px
-//
-//    .card
-//
-//
-//      label
-//        font-size: 1rem
-//
-//      input
-//        height: 40px
-//        font-size: 1.2rem
-//
-//      .card-logo
-//
-//        &.mastercard
-//          width: 49px
-//          height: 29px
-//          right: 60px
-//          margin-top: 5px
-//
-//        &.visa
-//          width: 58px
-//          height: 18px
-//          right: 56px
-//          margin-top: 11px
-//
-//      &.source
-//
-//        //.cvv
-//        //  width: 95px
-//
-//      .has-feedback
-//
-//        span
-//          font-size: 1rem
-//
-//        .form-control-feedback
-//          width: 34px
-//          height: 40px
-//          right: 0
-//          top: 4px
-//          line-height: 40px
-//
-//    .amount, .phone
-//
-//      input
-//        height: 40px
-//        font-size: 16px
-//
-//
-//
-//    .buttons
-//
-//      button
-//        height: 45px
-//        font-size: 16px
+  .buttons
+    button
+      height: 33px
+
+  .phone
+    margin-bottom: 0
+
+  .source-cross-left
+    margin-bottom: 0
+
+  .form-control-feedback
+    right: 0
+    top: -2px
+
+  .tariffs
+    font-size: 11px
+
+  .amount-buttons-field-c2c
+
+    &.amountCrossboard
+      margin-bottom: 0
+
+  .cont-begin
+    .row
+      margin: 0
+    .logo
+      display: none
+
+      .logo-img
+        img
+          width: 200px
+
+      .logo-text
+        img
+          width: 300px
+
+        .text-logo
+          width: 300px
+
+    .cont-input
+      width: 300px
+      margin: 0 auto
+
+      .buttons
+        button
+          height: 28px
+          width: 245px
+
+    .c2c-cont
+      width: 245px
+
+      .source-input-begin
+        input
+          text-align: center
+          font-size: 1rem
+          height: 28px
+
+      .amount-input-begin-left
+        input
+          text-align: center
+          font-size: 1rem
+          height: 28px
+
+
+  .error-number, .error-date, .error-cvc, .error-phone, .error-amount, .error-target, .error-agreed, .error-number-cross-source
+    font-size: 10px
+
+@media(min-width: 768px)
+  .hide-menu
+    display: none
+
+  .row
+    margin-left: 0
+
+  .card
+    input
+      height: 27px
+
+  .input-source
+    height: 27px
+    input
+      height: 25px
+
+  .buttons
+    button
+      height: 33px
+
+  .phone
+    margin-bottom: 24px
+
+  .source-cross-left
+    margin-bottom: 29px
+
+  .form-control-feedback
+    right: -5px
+    top: -2px
+
+  .tariffs
+    font-size: 9px
+
+  .crossboard-text
+    width: 550px
+
+  .text-inform
+    //margin-top: 32px
+
+  .amount-buttons-field-c2c
+
+    &.amountCrossboard
+      margin-bottom: 0
+
+  .cont-begin
+    .row
+      margin: 0
+    .logo
+      margin-left: 30%
+
+      .logo-img
+        img
+          width: 100px
+
+      .logo-text
+        img
+          width: 200px
+
+        .text-logo
+          width: 200px
+
+    .cont-input
+      width: 520px
+      margin-left: 30%
+
+      .buttons
+        button
+          height: 28px
+          width: 185px
+
+    .c2c-cont
+      width: 185px
+
+      .source-input-begin
+        input
+          text-align: center
+          font-size: 1rem
+          height: 28px
+
+      .amount-input-begin-left
+        input
+          text-align: center
+          font-size: 1rem
+          height: 28px
+
+
+  .error-number, .error-date, .error-cvc, .error-phone, .error-amount, .error-target, .error-agreed, .error-number-cross-source
+    font-size: 10px
+
+@media(min-width: 1024px)
+
+  .card
+    input
+      height: 40px
+
+  .input-source
+    height: 40px
+    input
+      height: 38px
+
+  .buttons
+    button
+      height: 46px
+
+  .phone
+    margin-bottom: 28px
+
+  .source-cross-left
+    margin-bottom: 24px
+
+  .form-control-feedback
+    right: 0
+    top: 4px
+
+  .tariffs
+    font-size: 11px
+
+  .crossboard-text
+    width: 755px
+
+    .popup-table
+      margin: 0
+
+  .text-inform
+    margin-top: 21px
+
+  .amount-buttons-field-c2c
+
+    &.amountCrossboard
+      margin-bottom: 6px
+
+  .cont-begin
+    .logo
+      margin-left: 30%
+
+      .logo-img
+        img
+          width: 100px
+
+      .logo-text
+        img
+          width: 200px
+
+        .text-logo
+          width: 200px
+
+    .cont-input
+      width: 655px
+      margin-left: 30%
+
+      .buttons
+        button
+          height: 30px
+          width: 245px
+
+    .c2c-cont
+      width: 245px
+
+      .source-input-begin
+        input
+          height: 30px
+
+      .amount-input-begin-left
+        input
+          height: 30px
+
+
+  .error-number, .error-date, .error-cvc, .error-phone, .error-amount, .error-target, .error-agreed, .error-number-cross-source
+    font-size: 12px
+
+@media(min-width: 1280px)
+  .row
+    margin-left: 9%
+
+  .crossboard-text
+    width: 765px
+
+    .popup-table
+      margin: 0 20px
+
+  .text-inform
+    margin-top: 10px
+
+  .amount-buttons-field-c2c
+
+    &.amountCrossboard
+      margin-bottom: 14px
+
+  .cont-begin
+    .logo
+      margin-left: 30%
+
+      .logo-img
+        img
+          width: 200px
+
+      .logo-text
+        img
+          width: 300px
+
+        .text-logo
+          width: 300px
+
+    .cont-input
+      width: 765px
+      margin-left: 30%
+
+      .buttons
+        button
+          height: 33px
+          width: 245px
+
+    .c2c-cont
+      .source-input-begin
+        input
+          height: 33px
+
+      .amount-input-begin-left
+        input
+          height: 33px
+
 
 
 
