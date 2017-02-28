@@ -190,7 +190,17 @@ input:invalid
         button
           text-transform: uppercase
 
+    .nav-apps
+      margin-top: 260px
 
+    .nav-apps-begin
+      margin-top: 0
+
+    .nav-translate
+      margin-top: 180px
+
+    .nav-translate-begin
+      margin-top: 130px
 
   .mobile
     //padding-right: 25px
@@ -324,18 +334,18 @@ input:invalid
 
         .icon-ask
           width: 16px
-          height: 16px
-          background: url('assets/images/arrows.png') no-repeat
+          height: 19px
+          background: url('assets/images/arrows.png') 0 5px no-repeat
           float: left
 
 
           &.active
-            background-position: -35px 0
+            background-position: -35px 5px
 
         .wrap-link
           color: #000000
           font-size: 1.2em
-          //float: left
+          float: left
 
 
 
@@ -509,15 +519,22 @@ input:invalid
         .begin-label-small
           color: #f79601
           line-height: 5
+          margin-left: -10px
+          margin-right: 10px
 
         .begin-label-small-line
-          border-bottom: 1px solid #f79601
-          width: 30%
+          border-bottom: 1px solid #cfcfcf
+
+
+
 
         .buttons
           margin-bottom: 10px
           button
             font-size: 0.85rem
+            background-color: #f79601
+
+
 
         //.source-input
         //  //input
@@ -546,6 +563,7 @@ input:invalid
             .btn
               padding: 6px 0
               text-align: center
+              background-color: #f79601
 
           .amount-input-begin-left
             float: left
@@ -690,6 +708,13 @@ input:invalid
           button
             width: 245px
 
+        .begin-row
+          margin-left: 15px
+          .begin-label-small-line
+            display: none
+            height: 45px
+            width: 35%
+
       .c2c-cont
         width: 245px
 
@@ -704,6 +729,9 @@ input:invalid
             text-align: center
             font-size: 1rem
             height: 28px
+
+    .cont-begin-input-right
+      margin-left: 0
 
     .top
       display: none
@@ -795,6 +823,12 @@ input:invalid
           button
             width: 185px
 
+        .begin-row
+          margin-left: 15px
+          .begin-label-small-line
+            height: 35px
+            width: 35%
+
       .c2c-cont
         width: 185px
 
@@ -809,6 +843,8 @@ input:invalid
             text-align: center
             font-size: 1rem
             height: 28px
+    .cont-begin-input-right
+      margin-left: -40px
 
   .rocketchat-widget
     right: 100px !important
@@ -865,6 +901,12 @@ input:invalid
           button
             width: 245px
 
+        .begin-row
+          margin-left: 15px
+          .begin-label-small-line
+            height: 40px
+            width: 41%
+
       .c2c-cont
         width: 245px
 
@@ -875,6 +917,9 @@ input:invalid
         .amount-input-begin-left
           input
             height: 30px
+
+    .cont-begin-input-right
+      margin-left: -15px
 
 @media(min-width: 1280px)
 
@@ -898,4 +943,12 @@ input:invalid
 
     .desc-margin
       padding-left: auto
+
+    .cont-begin
+      .cont-input
+        .begin-row
+          margin-left: 15px
+
+          .begin-label-small-line
+            height: 45px
 

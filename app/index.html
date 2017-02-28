@@ -42,7 +42,7 @@
                         <div class="line-up"></div>
                     </div>
 
-                    <div class="nav nav-justified">
+                    <div class="nav nav-justified nav-apps" ng-class="{'nav-apps-begin' : !begin}">
                         <!--<div class="line-up-short" ng-show="nav == 1"></div>-->
                         <a scroll-to="apps" ng-class="{activemenu: nav == 1}" ng-click="nav=1">{{ 'APP.MENU.APPS' | translate }}</a>
                     </div>
@@ -65,7 +65,7 @@
                         <!--<div class="line-up-short" ng-show="nav == 5"></div>-->
                         <a  scroll-to="pci-dss" ng-class="{activemenu: nav==5}" ng-click="nav=(5)">{{ 'APP.MENU.PCI' | translate }}</a>
                     </div>
-                    <div class="nav nav-justified">
+                    <div class="nav nav-justified nav-translate" ng-class="{'nav-translate-begin' : !begin}">
                         <div class="translate">
                             <span class="item"><a ng-model="lang" ng-change="onChangeLanguage()" uib-btn-radio="'ua'">UA</a></span>
                             <span class="item"><a ng-model="lang" ng-change="onChangeLanguage()" uib-btn-radio="'ru'">RU</a></span>
@@ -343,36 +343,45 @@
                     <uib-accordion close-others="true">
                         <uib-accordion-group is-open="true">
                             <uib-accordion-heading>
-                                <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
                                 <a class="wrap-link" ng-class="{'active-link': $parent.isOpen}">{{ 'APP.CONTENT.FAQ.QUESTION_1.TITLE' | translate }}</a>
+                                <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
+                                <div class="clearfix"></div>
                             </uib-accordion-heading>
                             <div translate="APP.CONTENT.FAQ.QUESTION_1.TEXT"></div>
                         </uib-accordion-group>
                         <uib-accordion-group>
                             <uib-accordion-heading>
-                                <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
+
                                 <a class="wrap-link" ng-class="{'active-link': $parent.isOpen}">{{ 'APP.CONTENT.FAQ.QUESTION_2.TITLE' | translate }}</a>
+                                <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
+                                <div class="clearfix"></div>
                             </uib-accordion-heading>
                             <div translate="APP.CONTENT.FAQ.QUESTION_2.TEXT"></div>
                         </uib-accordion-group>
                         <uib-accordion-group>
                             <uib-accordion-heading>
-                                <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
+
                                 <a class="wrap-link" ng-class="{'active-link': $parent.isOpen}">{{ 'APP.CONTENT.FAQ.QUESTION_3.TITLE' | translate }}</a>
+                                <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
+                                <div class="clearfix"></div>
                             </uib-accordion-heading>
                             <div translate="APP.CONTENT.FAQ.QUESTION_3.TEXT"></div>
                         </uib-accordion-group>
                         <uib-accordion-group>
                             <uib-accordion-heading>
-                                <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
+
                                 <a class="wrap-link" ng-class="{'active-link': $parent.isOpen}">{{ 'APP.CONTENT.FAQ.QUESTION_4.TITLE' | translate }}</a>
+                                <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
+                                <div class="clearfix"></div>
                             </uib-accordion-heading>
                             <div translate="APP.CONTENT.FAQ.QUESTION_4.TEXT"></div>
                         </uib-accordion-group>
                         <uib-accordion-group>
                             <uib-accordion-heading>
-                                <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
+
                                 <a class="wrap-link" ng-class="{'active-link': $parent.isOpen}">{{ 'APP.CONTENT.FAQ.QUESTION_5.TITLE' | translate }}</a>
+                                <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
+                                <div class="clearfix"></div>
                             </uib-accordion-heading>
                             <div translate="APP.CONTENT.FAQ.QUESTION_5.TEXT"></div>
                         </uib-accordion-group>

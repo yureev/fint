@@ -1,3 +1,8 @@
+
+
+
+
+
 <div class="cont-begin" ng-show="begin">
     <div class="row logo">
         <div  class="logo-img"><img  src="./../../../assets/images/sendUaService.png" alt="SendUa"></div>
@@ -10,25 +15,34 @@
     </div>
 
     <div class="cont-input">
+        <form name="c2c2Form" ct-payments ng-submit="submit()" autocomplete="off"  ng-class="{'popup-height' : popup}">
         <div class="row cont-begin-input">
-            <div class="col-sm-5">
+            <div class="col-sm-4">
                 <span class="begin-label">{{'APP.CONTROLS.BTN_SEND' | translate}}</span>
                 <div class="c2c-cont">
                     <div class="source-input-begin">
-                        <input type="text" name="number" class="form-control "
-                               tabindex="1"
+                        <input type="text" name="numberTarget" class="form-control"
+                               tabindex="18"
                                ng-model="target.card" required
                                placeholder="{{'APP.CONTROLS.SEND.NUMBER_CARD_SOURCE' | translate}}"
-                         />
+                               ng-disabled="numberTargetIsDisabled"
+                               ct-payments-format-number
+                               ct-payments-validate-number="numberTargetIsDisabled" ct-input-container/>
+                    </div>
+                    <div class="error-target">
+                        <div ng-messages="c2c2Form.numberTarget.$error" ng-show="c2c2Form.numberTarget.$touched">
+                            <div ng-message="required">{{ 'CARD2CARD.ERRORS.TARGET.NUMBER_REQUIRED' | translate }}</div>
+                            <div ng-message="invalidNumber">{{ 'CARD2CARD.ERRORS.TARGET.NUMBER_INVALID' | translate }}</div>
+                        </div>
                     </div>
                     <div class="amount-input-begin">
                         <div class="amount-input-begin-left">
-                            <input type="text" name="amount" class="form-control " tabindex="2"
+                            <input type="text" name="amount" class="form-control " tabindex="19"
                                    ng-model="amount" placeholder = "{{'CARD2CARD.AMOUNT.RANGE'  | translate}}"
                                    min="1"  max="25000" required ct-currency/>
                         </div>
                         <div class="amount-input-begin-right buttons">
-                            <button ui-sref="app.card" scroll-to="main" ng-click="onChangeBegin(false); touchNumberInput()" tabindex="3" type="submit" class="btn btn-warning send-button">
+                            <button ui-sref="app.card" scroll-to="main" ng-click="onChangeBegin(false); touchNumberInput()"  tabindex="20" type="submit" class="btn btn-warning send-button">
                                 <span class="text-button">{{'APP.CONTROLS.SEND.SEND' | translate}}</span>
                             </button>
                         </div>
@@ -36,25 +50,29 @@
                     </div>
                 </div>
                 <div class="buttons" >
-                    <button ui-sref="app.phone" scroll-to="main" ng-click="onChangeBegin(false)" tabindex="4" type="submit" class="btn btn-warning send-button">
+                    <button ui-sref="app.phone" scroll-to="main" ng-click="onChangeBegin(false)" tabindex="21" type="submit" class="btn btn-warning send-button">
                         <span class="text-button">{{'APP.CONTROLS.SEND.BTN_PHONE' | translate}}</span>
                     </button>
                 </div>
 
             </div>
-            <div class="col-sm-2">
-                <span class="begin-label-small-line"></span>
-                <span class="begin-label-small">{{'APP.CONTROLS.BTN_OR' | translate}}</span>
+            <div class="col-sm-4 ">
+                <div class="row begin-row">
+                    <span class="begin-label-small-line col-sm-5"></span>
+                    <span class="begin-label-small col-sm-2">{{'APP.CONTROLS.BTN_OR' | translate}}</span>
+                    <span class="begin-label-small-line col-sm-5"></span>
+                </div>
+
             </div>
-            <div class="col-sm-5">
+            <div class="col-sm-4 cont-begin-input-right">
                 <span class="begin-label">{{'APP.CONTROLS.BTN_RECEIVE' | translate}}</span>
                 <div class="buttons" >
-                    <button ui-sref="app.url" scroll-to="main" ng-click="onChangeBegin(false)" tabindex="5" type="submit" class="btn btn-warning send-button">
+                    <button ui-sref="app.url" scroll-to="main" ng-click="onChangeBegin(false)" tabindex="22" type="submit" class="btn btn-warning send-button">
                         <span class="text-button">{{'APP.CONTROLS.RECEIVE.BTN_URL' | translate}}</span>
                     </button>
                 </div>
                 <div class="buttons" >
-                    <button ui-sref="app.code" scroll-to="main" ng-click="onChangeBegin(false)" tabindex="6" type="submit" class="btn btn-warning send-button">
+                    <button ui-sref="app.code" scroll-to="main" ng-click="onChangeBegin(false)" tabindex="23" type="submit" class="btn btn-warning send-button">
                         <span class="text-button">{{'APP.CONTROLS.RECEIVE.BTN_CODE' | translate}}</span>
                     </button>
                 </div>
@@ -145,6 +163,7 @@
             <!--<div translate="CARD2CARD.CROSSBOARD_TEXT_COUNTRY_TOOLTIP"></div>-->
             <!--</div>-->
         </div>
+        </form>
     </div>
 </div>
 
@@ -636,6 +655,8 @@
         </div>
     </div>
 </div>
+
+
 
 
 
