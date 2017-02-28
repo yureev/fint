@@ -13,9 +13,6 @@ function Ctrl($rootScope, $scope, $http, $timeout, $window, CardToCard) {
     };
     var diamantCardMaster = false;
 
-    
-
-
     $scope.$on('GetLinkParams', onGetLinkParams);
     $scope.$on('Card2CardCalculate', onCard2CardCalculate);
 
