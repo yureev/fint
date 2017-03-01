@@ -27,6 +27,8 @@
                                placeholder="{{'APP.CONTROLS.SEND.NUMBER_CARD_SOURCE' | translate}}"
                                ng-disabled="numberTargetIsDisabled"
                                ng-change="validCardZone(target.card, 'target')"
+                               ng-keypress = "getChar($event, 'number')"
+                               ng-change="getPaste()"
                                ct-payments-format-number
                                ct-payments-validate-number="numberTargetIsDisabled"/>
 
