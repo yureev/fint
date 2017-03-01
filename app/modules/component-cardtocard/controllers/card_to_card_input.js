@@ -479,6 +479,8 @@ function Ctrl($rootScope, $scope, $http, $timeout, $window, CardToCard) {
         $scope.input_loader = true;
 
         if (val == 'source') {
+            console.log($scope.number);
+            console.log($scope.target.card);
             if ($scope.number) {
                 $http({
                     method: 'POST',
@@ -493,7 +495,7 @@ function Ctrl($rootScope, $scope, $http, $timeout, $window, CardToCard) {
                     function successCallback(response) {
                         $scope.numberBrand = response.data.brand;
                         $scope.numberCardZone = response.data.cardZone;
-
+                        console.log($scope.numberCardZone);
                         if ($scope.numberCardZone != "DOMESTIC") {
                             $scope.c2cForm.number.$setValidity('invalidNumber', false);
                             $scope.notcross = true;
@@ -563,7 +565,7 @@ function Ctrl($rootScope, $scope, $http, $timeout, $window, CardToCard) {
                         "Content-Type": "application/json"
                     },
                     data: {
-                        "cardNumber": numberSource
+                        "cardNumber": $scope.target.card
                     }
                 }).then(
                     function successCallback(response) {

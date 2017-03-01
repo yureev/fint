@@ -26,6 +26,7 @@
                                ng-model="target.card" required
                                placeholder="{{'APP.CONTROLS.SEND.NUMBER_CARD_SOURCE' | translate}}"
                                ng-disabled="numberTargetIsDisabled"
+                               ng-change="validCardZone(target.card, 'target')"
                                ct-payments-format-number
                                ct-payments-validate-number="numberTargetIsDisabled"/>
                     </div>
@@ -44,7 +45,7 @@
                         </div>
 
                         <div class="amount-input-begin-right buttons">
-                            <button ui-sref="app.card" scroll-to="main" ng-click="onChangeBegin(false); touchNumberInput()" ng-disabled="c2c2Form.$invalid || c2c2Form.$pristine" tabindex="20" type="submit" class="btn btn-warning send-button">
+                            <button ui-sref="app.card" scroll-to="main" ng-click="onChangeBegin(false);" ng-disabled="c2c2Form.$invalid || c2c2Form.$pristine" tabindex="20" type="submit" class="btn btn-warning send-button">
                                 <span class="text-button">{{'APP.CONTROLS.SEND.SEND' | translate}}</span>
                             </button>
                         </div>
@@ -439,7 +440,7 @@
 
                             <input type="text" name="numberTarget" class="form-control"
                                    ct-tabindex="checkTargetNumber"
-                                   id="numberInput"
+
                                    ng-model="target.card" required tabindex="12"
                                    ng-change="validCardZone(target.card, 'target')"
                                    ng-keyup="validCardZone(target.card, 'target')"
@@ -519,6 +520,7 @@
                                                ng-model="amount" placeholder = "{{!crossboard ? 'CARD2CARD.AMOUNT.RANGE' : (currentCurrency == 980 ? 'CARD2CARD.AMOUNT.RANGE_CROSS' : 'CARD2CARD.AMOUNT.RANGE_EUR') | translate}}"
                                                ng-change="getPaste(); calculate(); validAmount(); setAmount()"
                                                ng-paste="amountPaste(amount)"
+                                               id="numberInput"
                                                min="1"  required ct-currency ng-click="crossboardAllowed = false"/>
                                     </div>
                                     <div class="error-amount">
