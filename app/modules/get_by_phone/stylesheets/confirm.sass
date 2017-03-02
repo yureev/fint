@@ -1,5 +1,5 @@
 .state-phone-confirm
-  margin: 20px auto
+  margin: 20px
   background-color: #ededed
   box-shadow: -4px 1px 10px 0 rgba(0, 0, 0, 0.25)
   padding: 25px
@@ -43,6 +43,11 @@
       width: 100%
       background-color: #f79601
 
+    .btn[disabled]
+      background-color: #d7dde4
+      border: solid 1px #d7dde4
+      opacity: 1
+
   .error-number, .error-date, .error-cvc, .error-phone, .error-amount, .error-target
     height: 15px
     line-height: 15px
@@ -78,3 +83,7 @@
   .buttons
     button
       height: 46px
+
+@media(min-width: 1280px)
+  .state-phone-confirm
+    margin-left: 117px

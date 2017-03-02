@@ -48,14 +48,14 @@
                     <input type="text" name="phone" class="form-control" ct-tabindex="checkPhone"
                            tabindex="2"
                            ng-model="phone"
-                           ui-mask="+380 (99) 999 99 99" placeholder="+380 (__) ___-__-__" />
+                           ui-mask="+380 (99) 999 99 99" placeholder="+380 (__) ___-__-__" required/>
                 </div>
             </div>
             <div class="amount">
                 <div class="form-group" ct-input-container>
                     <label class="card-label">{{'GET_BY_LINK.INPUT.AMOUNT' | translate}}</label>
                     <input class="form-control amount-input" type="text" name="amount" tabindex="3"
-                           ng-model="amount" ct-currency/>
+                           ng-model="amount" ct-currency required/>
                     <div class="error-amount">
                         <div ng-messages="getByLinkForm.amount.$error">
                             <div ng-message="required">{{ 'CARD2CARD.ERRORS.AMOUNT.AMOUNT_REQUIRED' | translate }}</div>

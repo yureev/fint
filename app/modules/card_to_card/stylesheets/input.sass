@@ -5,6 +5,8 @@
   text-align: left
 
 
+
+
 .main-left
   height: 740px
   //background-color: rgba(0, 40, 84, 0.8)
@@ -81,6 +83,7 @@
     padding: 5px
     box-shadow: 5px 5px 5px #dbdbdb
 
+
     .icon-close
       position: absolute
       right: 1px
@@ -92,7 +95,7 @@
 
 
   .row-menu
-    padding: 0 20px
+    padding: 0
 
   .row-crossboard
     position: relative
@@ -461,6 +464,10 @@
           width: 100%
           background-color: #f79601
 
+        .btn[disabled]
+          background-color: #d7dde4
+          border: solid 1px #d7dde4
+          opacity: 1
 
   .description
     width: 40%
@@ -528,6 +535,7 @@
       .text-data-cross
         margin-bottom: 5px
 
+
   .error-number, .error-date, .error-cvc, .error-phone, .error-amount, .error-target, .error-agreed, .error-number-cross-source
     height: 15px
     line-height: 15px
@@ -559,9 +567,13 @@
       font-size: 16px
       position: relative
 
+
 @media(max-width: 767px)
   .row
     margin-left: 0
+
+  .popupCross
+    width: 88%
 
   .card
     input
@@ -620,6 +632,9 @@
           height: 28px
           width: 245px
 
+
+
+
     .c2c-cont
       width: 245px
 
@@ -645,6 +660,9 @@
 
   .row
     margin-left: 0
+
+  .popupCross
+    width: 93%
 
   .card
     input
@@ -730,6 +748,9 @@
 
 @media(min-width: 1024px)
 
+  .popupCross
+    width: 95%
+
   .card
     input
       height: 40px
@@ -812,6 +833,9 @@
 @media(min-width: 1280px)
   .row
     margin-left: 9%
+
+  .popupCross
+    width: 96%
 
   .crossboard-text
     width: 765px
