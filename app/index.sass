@@ -96,8 +96,9 @@ input:invalid
 
         .title
           color: #ffffff
-          //font-size: 14px
+          font-size: 0.8rem
           margin-bottom: 20px
+
 
       .line-up
         border-top: 1px solid #9b9b9b
@@ -141,10 +142,12 @@ input:invalid
 
     .nav-justified
       margin-bottom: 20px
+      padding-left: 25px
       a
         text-align: left
         color: #ffffff
         text-decoration: none
+        font-size: 10px
 
       .nav-inside
         margin: 10px
@@ -160,7 +163,7 @@ input:invalid
           color: #ff9800
 
       .active
-        color: #4a90e2
+        color: #1a3654
         display: inherit
 
       //.activemenu
@@ -169,6 +172,8 @@ input:invalid
       .translate
         .active
           color: #1a3654
+        a
+          font-size: 0.8rem
 
     .translate
       float: left
@@ -237,7 +242,6 @@ input:invalid
 
       .nav-justified
 
-
         a
           color: #ffffff
           mix-blend-mode: screen
@@ -265,7 +269,6 @@ input:invalid
 
       .description
         max-width: 1024px
-        margin: 0 auto
         margin-top: 11%
 
 
@@ -276,23 +279,28 @@ input:invalid
           padding-top: 130px
 
     .apps
-      //width: 1280px
       min-height: 685px
-      //background-image: linear-gradient(298deg, #f79601, #ffb23a 100%)
       background: url('assets/images/image_1_1.svg') center  0 no-repeat #f39c12
-
-      //background-image: linear-gradient( 298deg, #f79601, #ffb23a 100%)
-
-
+      h1
+        font-size: 2.25rem
+        font-weight: 300
+      p
+        font-size: 0.85rem
 
     .services
       min-height: 760px
-      //background-image: linear-gradient(118deg, #325276, #245184)
       background: url('assets/images/image_1_mirror.svg') center 0 no-repeat #2980b9
+      h1
+        font-size: 2.25rem
+        font-weight: 300
+      p
+        font-size: 0.85rem
 
     .tariffs
       h3
-        color: $main_color_inactive
+        //color: $main_color_inactive
+        font-size: 1.1rem
+        font-weight: 300
 
       .description
         margin: 0
@@ -323,11 +331,9 @@ input:invalid
         //width: 100%
 
       .wrap
-        //background-color: #ffffff
-        //box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.25)
-
         a
           text-decoration: none
+          font-weight: 300
 
           &.active-link
             color: #3e6997
@@ -362,7 +368,6 @@ input:invalid
 
     .pci-dss
       background-color: #2980b9
-
       min-height: 800px
       .description
         max-width: none
@@ -370,14 +375,19 @@ input:invalid
         padding-right: 5%
 
 
+
+        h1
+          font-size: 2.25rem
+          font-weight: 300
+
+
         .pci-dss-text
           color: #ffffff
           //margin-left: 25%
           width: 75%
 
-        .pci-dss-img
-          text-align: center
-          margin-right: 20%
+
+
 
         .pci-dss-logo
           //margin-right: -20%
@@ -478,7 +488,7 @@ input:invalid
     .cont-begin
       background: url('assets/images/image_1.svg') center 254px no-repeat #2980b9
       min-height: 800px
-      padding-top: 40px
+      padding-top: 70px
 
       .logo
         //margin-left: 30%
@@ -486,7 +496,7 @@ input:invalid
         .logo-img
           //width: 50%
           float: left
-          margin-right: 10px
+          margin-right: 35px
           img
             //width: 200px
             margin-bottom: 40px
@@ -528,8 +538,14 @@ input:invalid
         .buttons
           margin-bottom: 10px
           button
-            font-size: 0.85rem
+            font-size: 0.75rem
             background-color: #f79601
+            font-weight: 600
+
+          .btn[disabled]
+            background-color: #d7dde4
+            border: solid 1px #d7dde4
+            opacity: 1
 
 
 
@@ -561,6 +577,11 @@ input:invalid
               padding: 6px 0
               text-align: center
               background-color: #f79601
+
+            .btn[disabled]
+              background-color: #d7dde4
+              border: solid 1px #d7dde4
+              opacity: 1
 
           .amount-input-begin-left
             float: left
@@ -598,13 +619,10 @@ input:invalid
       border-bottom: 1px solid #9b9b9b
 
       .item
-        text-align: center
+        //text-align: center
         color: #777777
         text-transform: uppercase
-        //height: 61px
-        //border-bottom: 1px solid
-        //background-color: #f8f8f8
-
+        padding-left: 5px
         a
           display: inline-block
           padding: 20px 0
@@ -676,6 +694,10 @@ input:invalid
 .margin-top-big
   margin-top: 30px
 
+.btn[disabled]
+  background-color: #d7dde4
+  border: solid 1px #d7dde4
+
 
 @media(max-width: 767px)
 
@@ -740,11 +762,17 @@ input:invalid
           height: 35px
 
       .logo-size
-        width: 38%
+        width: 32%
+
+    .pci-dss-text-all
+      margin-left: 10px
 
     .pci-dss
       .description
         padding-left: 5px
+
+      .pci-dss-img
+        padding-left: 10px
 
 
     .main-left
@@ -757,6 +785,8 @@ input:invalid
 
     .desc-margin
       padding-left: 5px
+
+
 
 
   .rocketchat-widget
@@ -780,11 +810,14 @@ input:invalid
           //height: 25px
 
       .logo-size
-        width: 38%
+        width: 32%
+
+    .pci-dss-text-all
+      margin-left: 32px
 
     .pci-dss
-      .description
-        padding-left: 20%
+      .pci-dss-img
+        padding-left: 145px
 
 
     .main-left
@@ -859,7 +892,7 @@ input:invalid
       //width: 73%
 
       .logo-size
-        width: 47%
+        width: 42%
 
 
       .buttons
@@ -874,6 +907,13 @@ input:invalid
 
     .desc-margin
       padding-left: 180px
+
+    .pci-dss-text-all
+      margin-left: 100px
+
+    .pci-dss
+      .pci-dss-img
+        padding-left: 235px
 
     .cont-begin
       .logo
@@ -939,7 +979,16 @@ input:invalid
       width: 945px
 
     .desc-margin
-      padding-left: auto
+      padding-left: 320px
+
+    .pci-dss-text-all
+      margin-left: 45px
+
+    .pci-dss
+      .pci-dss-img
+        padding-left: 200px
+
+
 
     .cont-begin
       .cont-input

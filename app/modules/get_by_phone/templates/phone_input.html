@@ -26,6 +26,7 @@
     </div>
     <div class="state-phone-input" ct-spinner="loader">
         <form name="c2cForm" ct-payments ng-submit="submit()" autocomplete="off">
+            <div class="card-title">{{ 'GET_BY_CODE.INPUT.TITLE' | translate }}</div>
             <div class="form-group code" ct-input-container>
                 <label class="card-label">{{'GET_BY_CODE.INPUT.CODE' | translate}}</label>
                 <input type="text" name="operationNumber" class="form-control" ct-tabindex2="checkNumber" tabindex="1"

@@ -327,8 +327,6 @@
                         <div class="tariff-cont" translate="APP.CONTENT.TARIFFS.TEXT2"></div>
                         <div class="tariff-cont" translate="APP.CONTENT.TARIFFS.TEXT3"></div>
 
-
-
                     <!--<div class="text-center col-md-5 col-md-offset-1 hidden-sm hidden-xs"><img src="./assets/images/percent.png" width="250px" class="images percent"></div>-->
                     <!--<div class="clearfix"></div>-->
                     <!--<div class="button-down" scroll-to="qaa"></div>-->
@@ -351,7 +349,6 @@
                         </uib-accordion-group>
                         <uib-accordion-group>
                             <uib-accordion-heading>
-
                                 <a class="wrap-link" ng-class="{'active-link': $parent.isOpen}">{{ 'APP.CONTENT.FAQ.QUESTION_2.TITLE' | translate }}</a>
                                 <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
                                 <div class="clearfix"></div>
@@ -360,7 +357,6 @@
                         </uib-accordion-group>
                         <uib-accordion-group>
                             <uib-accordion-heading>
-
                                 <a class="wrap-link" ng-class="{'active-link': $parent.isOpen}">{{ 'APP.CONTENT.FAQ.QUESTION_3.TITLE' | translate }}</a>
                                 <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
                                 <div class="clearfix"></div>
@@ -369,7 +365,6 @@
                         </uib-accordion-group>
                         <uib-accordion-group>
                             <uib-accordion-heading>
-
                                 <a class="wrap-link" ng-class="{'active-link': $parent.isOpen}">{{ 'APP.CONTENT.FAQ.QUESTION_4.TITLE' | translate }}</a>
                                 <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
                                 <div class="clearfix"></div>
@@ -396,9 +391,12 @@
             <div class="description">
                 <div class="desc-margin">
                     <div class="pci-dss-img"><img src="./assets/images/image_2_1.svg" alt="SendUa"></div>
-                    <h1>{{ 'APP.CONTENT.PCI_DSS.TITLE' | translate }}</h1>
-                    <div class="pci-dss-text" translate="APP.CONTENT.PCI_DSS.TEXT"></div>
-                    <div class="pci-dss-logo"><img src="./assets/images/send_ua_logo.svg"></div>
+                    <div class="pci-dss-text-all">
+                        <h1>{{ 'APP.CONTENT.PCI_DSS.TITLE' | translate }}</h1>
+                        <div class="pci-dss-text" translate="APP.CONTENT.PCI_DSS.TEXT"></div>
+                        <div class="pci-dss-logo"><img src="./assets/images/send_ua_logo.svg"></div>
+                    </div>
+
                     <div class="pci-dss-img"><img src="./assets/images/image_2_2.svg"></div>
                     <div class="clearfix"></div>
                     <!--<div class="button-down" scroll-to="contacts"></div>-->
