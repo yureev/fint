@@ -1,0 +1,96 @@
+.state-phone-input
+  margin: 20px
+  background-color: #ededed
+  box-shadow: -4px 1px 10px 0 rgba(0, 0, 0, 0.25)
+  padding: 25px
+  border-radius: 3px
+  min-width: 220px
+  min-height: 290px
+  max-width: 380px
+  input
+    font-size: 1.1rem
+    text-align: center
+
+  .card-title
+    color: #777777
+
+  .card-number
+    margin-bottom: 0
+    input
+      text-align: center
+
+  .card-label
+    margin-top: 25px
+
+  label
+    padding-left: 5px
+    color: #00316a
+    font-size: 0.9rem
+    font-weight: 500
+    margin-bottom: 0
+
+  .row-menu
+    padding: 0
+
+  .phone
+
+    input
+      text-align: left
+      width: 70%
+
+  .code
+    input
+      width: 50%
+
+  .buttons
+    button
+      width: 100%
+      background-color: #f79601
+
+    .btn[disabled]
+      background-color: #d7dde4
+      border: solid 1px #d7dde4
+      opacity: 1
+
+  .error-number, .error-date, .error-cvc, .error-phone, .error-amount, .error-target
+    height: 15px
+    line-height: 15px
+    color: #d9534f
+    font-size: 12px
+
+@media(max-width: 767px)
+
+  input
+    height: 27px
+
+  .buttons
+    button
+      height: 33px
+
+@media(min-width: 768px)
+  .hide-menu
+    display: none
+
+  input
+    height: 27px
+
+  .buttons
+    button
+      height: 33px
+
+
+@media(min-width: 1024px)
+
+  input
+    height: 40px
+
+  .buttons
+    button
+      height: 46px
+
+@media(min-width: 1280px)
+  .state-phone-input
+    margin-left: 117px
+
+  .row
+    margin-left: 9%

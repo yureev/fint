@@ -1,0 +1,20 @@
+<div class="main-left"></div>
+<div class="main-right">
+    <div class="menu">
+        <div class="container-fluid">
+            <div class="row col-xs-12 row-menu">
+                <div class="item col-sm-6" ui-sref-active="active">
+                    <a ui-sref="app.card">{{'CARD2CARD.CONTROLS.SEND.BTN_CARDTOCARD' | translate}}</a>
+                </div>
+                <div class="item col-sm-6" ui-sref-active="active">
+                    <a ui-sref="app.phone">{{'CARD2CARD.CONTROLS.SEND.BTN_PHONE' | translate}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="state-3dsec state-border">
+        <iframe id="ifr3Dcard" src="assets/iframes/3dsecframe.html" width="100%" height="600px" allowtransparency
+                frameborder="0" onLoad="uploadDone()"></iframe>
+    </div>
+</div>

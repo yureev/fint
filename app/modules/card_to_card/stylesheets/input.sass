@@ -1,0 +1,904 @@
+.error-target, .error-amount
+  height: 15px
+  line-height: 15px
+  color: #d9534f
+  text-align: left
+
+
+
+
+.main-left
+  height: 740px
+  //background-color: rgba(0, 40, 84, 0.8)
+  background-color: #2980b9
+  float: left
+
+  &.main-left-popup
+    height: 840px
+
+
+  &.main-left-cross
+    height: 840px
+
+
+  &.main-left-cross-popup
+    height: 1015px
+
+//.main-right
+//  //width: 83%
+//  float: left
+
+
+.state-input
+
+  .popup-height
+    min-height: 590px
+
+  .crossboard-text
+    font-size: 0.75rem
+
+    .text
+      position: relative
+      color: #777777
+      a
+        color: #4a90e2
+
+    .crossboard-blink
+      color: red
+
+  .popup
+    background: #ffffff
+    text-align: left
+    padding: 5px
+    font-size: 0.87rem
+
+
+    .popup-mobile
+      display: none
+
+    .popup-desktop-1200
+      display: none
+
+    .popup-desktop-768
+      display: table-cell
+
+    .popup-table
+      width: 94%
+
+    td
+      padding-left: 5px
+      margin-right: 20px
+
+    .two-td
+      padding-left: 10px
+
+  .popupCross
+    position: absolute
+    border: 1px solid #d9534f
+    background: #d9534f
+    text-align: left
+    z-index: 10
+    font-size: 0.85rem
+    color: #ffffff
+    padding: 5px
+    box-shadow: 5px 5px 5px #dbdbdb
+
+
+    .icon-close
+      position: absolute
+      right: 1px
+      top: 1px
+
+  .row
+    position: relative
+    padding: 20px
+
+
+  .row-menu
+    padding: 0
+
+  .row-crossboard
+    position: relative
+    //height: 0
+    margin-top: 32px
+
+    .source-cross-left
+      padding: 0
+
+    .source-cross-right, .target-cross-left ,.target-cross-right
+      padding: 0
+
+    .input-left
+      border-radius: 3px 0 0 3px
+
+    .input-right
+      border-radius:  0 3px 3px 0
+
+    .col-md-6, .col-md-4, .col-md-8
+      padding: 0
+
+    .form-group
+      margin-bottom: 0
+
+  .row-amount
+    .col-md-6, .col-md-4, .col-md-8, .amount, .tariffs
+      padding: 0
+
+    .form-group
+      margin-bottom: 0
+
+  .has-feedback
+    span
+      color: #4c4c4c
+      font-size: 1rem
+
+  .has-feedback .form-control
+    padding-right: 10px
+
+
+
+  .play
+    position: absolute
+    font-size: 3em
+    left: 48%
+    margin-top: 7%
+
+  .title
+    text-align: center
+    font-size: 25px
+    font-weight: normal
+    margin-bottom: 30px
+
+  .card
+    padding: 25px
+    margin-bottom: 10px
+    border-radius: 3px
+    //min-width: 220px
+    ////min-height: 290px
+    //max-width: 380px
+
+    input
+      font-size: 1rem
+
+    .form-control-feedback
+      pointer-events: all
+      cursor: pointer
+
+    .card-title
+      color: #777777
+
+    &.source, &.target
+      .card-logo
+        background-size: cover
+        background-repeat: no-repeat
+        position: absolute
+        display: block
+
+        &.visa
+          background-image: url(./images/visa_logo.svg)
+          display: block
+
+
+        &.mastercard
+          background-image: url(./images/masterCard_logo.svg)
+          display: block
+
+    .form-group
+      margin-bottom: 0
+
+    .card-label
+      margin-top: 25px
+
+    label
+      padding-left: 5px
+      color: #00316a
+      font-size: 0.9rem
+      font-weight: 500
+      margin-bottom: 0
+
+
+    &.target
+      border-left: none
+      //float: left
+      box-shadow: 4px 1px 10px 0 rgba(0, 0, 0, 0.25)
+
+      .card-logo
+        &.visa
+          width: 58px
+          height: 18px
+          right: 25px
+          margin-top: -24px
+
+        &.mastercard
+          width: 49px
+          height: 29px
+          right: 23px
+          margin-top: -34px
+
+      .input-target
+        margin-bottom: 10px
+
+        input
+          font-size: 1.1rem
+          text-align: center
+
+
+    &.source
+      background-color: #ededed
+      border-right: none
+      //float: left
+      box-shadow: -4px 1px 10px 0 rgba(0, 0, 0, 0.25)
+
+      .card-logo
+        &.visa
+          width: 58px
+          height: 18px
+          right: 25px
+          margin-top: -24px
+
+        &.mastercard
+          width: 49px
+          height: 29px
+          right: 23px
+          margin-top: -34px
+
+
+
+      .input-source
+        border: 1px solid #ccc
+        border-radius: 4px
+        width: 100%
+        margin-bottom: 25px
+
+        &.input-source-focus
+          border-color: #66afe9
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6)
+
+        &.input-source-invalid
+          border-color: #d9534f
+
+
+        .source-input
+          float: left
+
+          &.number-input
+            width: 78%
+            border-radius:  4px 0 0 4px
+            border-right: 1px solid #ccc
+            text-align: center
+
+          &.date-month, &.date-year, &.date-slash
+            padding: 0
+            box-shadow: none
+            border-radius: 0
+
+          &.date-month, &.date-year
+            width: 10%
+
+          &.date-month
+            text-align: right
+            padding-right: 5px
+
+          &.date-year
+            padding-left: 5px
+            border-radius: 0 4px 4px 0
+
+          &.date-slash
+            width: 2%
+            background-color: #ffffff
+
+        input
+          border: none
+          font-size: 1.1rem
+
+      .input-source:focus
+        border-color: #66afe9
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6)
+
+
+      .card-data
+        margin-top: 35px
+
+        .cod
+          float: right
+          margin-right: 49px
+
+      //.form-control:focus
+      //  box-shadow: none
+
+
+      .white_input
+        height: 40px
+        background-color: #ffffff
+        border: 0.5px solid #ccc
+        border-radius: 0 4px 4px 0
+
+      .white_input_focus
+        border-color: #66afe9
+
+
+
+      .expire
+        float: right
+        width: 30%
+
+        .date
+          width: 45%
+          float: left
+
+          input
+            border-radius: 0
+            border: none
+            box-shadow: none
+            padding: 0
+            background-color: inherit
+
+        .date:first-child
+          //float: left
+          input
+            border-right: none
+            text-align: right
+            padding-right: 5px
+
+
+        .date:nth-child(2)
+          width: 10%
+          input
+            border-right: none
+            border-left: none
+            text-align: center
+            padding: 0
+            background-color: inherit
+
+
+        .date:nth-child(3)
+          //float: right
+          input
+            border-left: none
+            border-radius: 0 4px 4px 0
+            padding-left: 5px
+
+      .cvv
+        width: 30%
+        text-align: left
+        margin-bottom: 25px
+
+      .phone
+        width: 70%
+
+
+  .amount
+    //width: 40%
+    //float: left
+
+    .amount-input-currency
+      padding: 0
+
+      input
+        padding: 0 4px
+        text-align: center
+
+
+    .amount-input-c2c
+      width: 100%
+      margin-right: 7px
+
+  .amount-buttons-field-c2c
+
+
+
+    .amount-buttons-c2c, .amount-buttons-c2c-eur
+      padding: 10px 5px
+      text-decoration: none
+
+    .tariffs
+      height: 40px
+
+
+
+  .buttons-convert-input
+    margin: 25px 0 33px 0
+
+    .container-convert
+      margin-top: 10px
+
+      input
+        height: 13px
+        margin: 0 5px
+
+      span
+        color: #cfcfcf
+        margin: 0 20px 0 5px
+
+        &.activeCurrency
+          color: #000000
+
+
+
+  .tariffs
+    margin-bottom: 20px
+    text-align: right
+    line-height: 1.2
+
+
+    .text-commiss
+      //font-weight: 300
+      color: #777777
+
+    .text-bank
+      //font-weight: 300
+      color: #cfcfcf
+
+    .text-bank-active
+      color: #777777
+
+
+  .total-amount
+    //margin-bottom: 22px
+    //height: 0
+
+    .text-inform
+      margin-bottom: 10px
+      padding-left: 5px
+
+      .text-exchange, .text-target-amount
+        //font-weight: bold
+        color: #777777
+        font-size: 0.9rem
+
+    .send
+
+      .checkbox
+        margin: 0
+
+        input
+          position: inherit
+          margin: 0
+          height: 13px
+
+        span
+          color: #777777
+
+      .buttons
+        button
+          width: 100%
+          background-color: #f79601
+
+        .btn[disabled]
+          background-color: #d7dde4
+          border: solid 1px #d7dde4
+          opacity: 1
+
+  .description
+    width: 40%
+    margin: 30px auto
+
+    .commission
+      padding: 10px 0
+
+    .text
+      padding: 10px 0
+
+  .caret-c2c
+    text-align: center
+    width: 285px
+
+    .caret-c2c-block
+      text-align: left
+      position: relative
+      top: -48px
+      left: 40px
+
+      i
+        color: #bbd0e3
+        display: inline-block
+        float: left
+
+      .text-line-crossboard
+        position: relative
+        top: 4px
+        color: #f0ad4e
+        padding-left: 17px
+        margin-left: 5px
+
+        .text-line-crossboard2
+          color: #ff7d79
+
+  .line-crossboard
+    color: #bbd0e3
+    background-color: #bbd0e3
+    height: 1px
+    border-top: 0
+    position: relative
+    top: -5px
+
+
+  .field-data
+    position: relative
+    top: -90px
+
+    .test
+      padding-left: 0
+      padding-top: 5px
+
+    .crossboard-right, .crossboard-left
+      padding: 0
+
+      .crossboard-right-field
+        position: absolute
+        right: 0
+
+      .crossboard-left-field
+        position: relative
+        left: 0
+
+      .text-data-cross
+        margin-bottom: 5px
+
+
+  .error-number, .error-date, .error-cvc, .error-phone, .error-amount, .error-target, .error-agreed, .error-number-cross-source
+    height: 15px
+    line-height: 15px
+    color: #d9534f
+
+
+  .error-date
+    text-align: right
+
+  .error-number-cross-source
+    margin-bottom: 12px
+
+  .error-block
+    position: absolute
+    top: 12px
+    left: 324px
+    color: #34495e
+    font-size: 13px
+    background: #ffffff
+    width: 220px
+    height: 45px
+    border-radius: 4px
+    padding: 5px
+    border: 1px solid red
+
+    .arrow-num
+      top: -55px
+      left: -16px
+      font-size: 16px
+      position: relative
+
+
+@media(max-width: 767px)
+  .row
+    margin-left: 0
+
+  .popupCross
+    width: 88%
+
+  .card
+    input
+      height: 27px
+
+  .input-source
+    height: 27px
+    input
+      height: 25px
+
+  .buttons
+    button
+      height: 33px
+
+  .phone
+    margin-bottom: 0
+
+  .source-cross-left
+    margin-bottom: 0
+
+  .form-control-feedback
+    right: 0
+    top: -2px
+
+  .tariffs
+    font-size: 11px
+
+  .amount-buttons-field-c2c
+
+    &.amountCrossboard
+      margin-bottom: 0
+
+  .cont-begin
+    .row
+      margin: 0
+    .logo
+      display: none
+
+      .logo-img
+        img
+          width: 200px
+
+      .logo-text
+        img
+          width: 300px
+
+        .text-logo
+          width: 300px
+
+    .cont-input
+      width: 300px
+      margin: 0 auto
+      background-color: transparent
+      box-shadow: none
+
+      .buttons
+        button
+          height: 28px
+          width: 245px
+
+
+
+
+    .c2c-cont
+      width: 245px
+
+      .source-input-begin
+        input
+          text-align: center
+          font-size: 1rem
+          height: 28px
+
+      .amount-input-begin-left
+        input
+          text-align: center
+          font-size: 1rem
+          height: 28px
+
+
+  .error-number, .error-date, .error-cvc, .error-phone, .error-amount, .error-target, .error-agreed, .error-number-cross-source
+    font-size: 10px
+
+@media(min-width: 768px)
+  .hide-menu
+    display: none
+
+  .row
+    margin-left: 0
+
+  .popupCross
+    width: 93%
+
+  .card
+    input
+      height: 27px
+
+  .input-source
+    height: 27px
+    input
+      height: 25px
+
+  .buttons
+    button
+      height: 33px
+
+  .phone
+    margin-bottom: 24px
+
+  .source-cross-left
+    margin-bottom: 29px
+
+  .form-control-feedback
+    right: -5px
+    top: -2px
+
+  .tariffs
+    font-size: 9px
+
+  .crossboard-text
+    width: 480px
+
+  .text-inform
+    //margin-top: 32px
+
+  .amount-buttons-field-c2c
+
+    &.amountCrossboard
+      margin-bottom: 0
+
+  .cont-begin
+    .row
+      margin: 0
+    .logo
+      margin-left: 30%
+
+      .logo-img
+        img
+          width: 100px
+
+      .logo-text
+        img
+          width: 200px
+
+        .text-logo
+          width: 200px
+
+    .cont-input
+      width: 520px
+      margin-left: 30%
+
+      .buttons
+        button
+          height: 28px
+          width: 185px
+
+        .buttons-right
+          width: 170px
+
+    .c2c-cont
+      width: 185px
+
+      .source-input-begin
+        input
+          text-align: center
+          font-size: 1rem
+          height: 28px
+
+      .amount-input-begin-left
+        input
+          text-align: center
+          font-size: 1rem
+          height: 28px
+
+
+  .error-number, .error-date, .error-cvc, .error-phone, .error-amount, .error-target, .error-agreed, .error-number-cross-source
+    font-size: 10px
+
+@media(min-width: 1024px)
+
+  .popupCross
+    width: 95%
+
+  .card
+    input
+      height: 40px
+
+  .input-source
+    height: 40px
+    input
+      height: 38px
+
+  .buttons
+    button
+      height: 46px
+
+  .phone
+    margin-bottom: 28px
+
+  .source-cross-left
+    margin-bottom: 24px
+
+  .form-control-feedback
+    right: 0
+    top: 4px
+
+  .tariffs
+    font-size: 11px
+
+  .crossboard-text
+    width: 625px
+
+    .popup-table
+      margin: 0
+
+  .text-inform
+    margin-top: 21px
+
+  .amount-buttons-field-c2c
+
+    &.amountCrossboard
+      margin-bottom: 6px
+
+  .cont-begin
+    .logo
+      margin-left: 30%
+
+      .logo-img
+        img
+          width: 100px
+
+      .logo-text
+        img
+          width: 200px
+
+        .text-logo
+          width: 200px
+
+    .cont-input
+      width: 655px
+      margin-left: 30%
+
+      .buttons
+        button
+          height: 30px
+          width: 205px
+
+        .buttons-right
+          width: 190px
+
+    .c2c-cont
+      width: 205px
+
+      .source-input-begin
+        input
+          height: 30px
+
+      .amount-input-begin-left
+        input
+          height: 30px
+
+
+  .error-number, .error-date, .error-cvc, .error-phone, .error-amount, .error-target, .error-agreed, .error-number-cross-source
+    font-size: 12px
+
+@media(min-width: 1280px)
+  .row
+    margin: 0 4.5%
+
+  .popupCross
+    width: 96%
+
+  .crossboard-text
+    width: 735px
+
+    .popup-table
+      margin: 0 20px
+
+  .text-inform
+    margin-top: 10px
+
+  .amount-buttons-field-c2c
+
+    &.amountCrossboard
+      margin-bottom: 14px
+
+  .cont-begin
+    .logo
+      margin-left: 30%
+
+      .logo-img
+        img
+          width: 200px
+
+      .logo-text
+        img
+          width: 300px
+
+        .text-logo
+          width: 300px
+
+    .cont-input
+      width: 765px
+      margin-left: 30%
+
+      .buttons
+        button
+          height: 33px
+          width: 245px
+
+        .buttons-right
+          width: 230px
+
+    .c2c-cont
+      width: 245px
+      .source-input-begin
+        input
+          height: 33px
+
+      .amount-input-begin-left
+        input
+          height: 33px
+
+
+
+
+
+
+

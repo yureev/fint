@@ -1,0 +1,26 @@
+$main_color_inactive: #124068;
+
+$main_color_active: #F79600;
+
+$border-color-entry: #BCD0E4;
+
+@mixin border-color-fail {
+	border-color: #FC908C;
+}
+@mixin box-shadow-entry {
+	box-shadow: 0 0 3px 0 rgba(19, 65, 103, 0.5);
+}
+
+@mixin box-shadow-fail {
+	box-shadow: 0 0 3px 0 rgba(252, 144, 140, 0.7);
+}
+
+$button-inactive: rgba(247, 150, 0, 0.4);
+
+@mixin font-light {
+	font-weight: 400;
+}
+
+@mixin font-bold {
+	font-weight: 600;
+}
