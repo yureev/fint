@@ -158,25 +158,25 @@ angular.module('app', [
             var tarifVar = angular.element('#tarif')[0].getBoundingClientRect();
             var qaaVar = angular.element('#qaa')[0].getBoundingClientRect();
             var pcidssVar = angular.element('#pci-dss')[0].getBoundingClientRect();
-            if (appsVar.top <= 0) {
+            if (appsVar.top <= 200) {
                 angular.element('#appsmenu').addClass("activemenu");
                 angular.element('#appsline').addClass("activeline");
-                if (servicesVar.top <= 0) {
+                if (servicesVar.top <= 200) {
                     angular.element('#servicesmenu').addClass("activemenu");
                     angular.element('#appsmenu').removeClass("activemenu");
                     angular.element('#servicesline').addClass("activeline");
                     angular.element('#appsline').removeClass("activeline");
-                    if (tarifVar.top <= 0) {
+                    if (tarifVar.top <= 200) {
                         angular.element('#tarifmenu').addClass("activemenu");
                         angular.element('#servicesmenu').removeClass("activemenu");
                         angular.element('#tarifline').addClass("activeline");
                         angular.element('#servicesline').removeClass("activeline");
-                        if (qaaVar.top <= 0) {
+                        if (qaaVar.top <= 200) {
                             angular.element('#qaamenu').addClass("activemenu");
                             angular.element('#tarifmenu').removeClass("activemenu");
                             angular.element('#qaaline').addClass("activeline");
                             angular.element('#tarifline').removeClass("activeline");
-                            if (pcidssVar.top <= 0) {
+                            if (pcidssVar.top <= 200) {
                                 angular.element('#pcidssmenu').addClass("activemenu");
                                 angular.element('#qaamenu').removeClass("activemenu");
                                 angular.element('#pcidssline').addClass("activeline");
