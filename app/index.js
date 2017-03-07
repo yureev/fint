@@ -122,19 +122,14 @@ angular.module('app', [
                 sendLinkToMail:             prefix + '/sendua-api/info/sendLinkToMail',
                 getlinkparams:              prefix + '/sendua-api/info/getLinkParams',
                 crossboardlink:             prefix + '/cardzone/check/',
-
                 crossboardAmount:           prefix + '/sendua-api/cross/checkCross?all=true',
                 createCross:                prefix + '/sendua-api/cross/createCross?all=true',
-
-                // crossboardAmount:           prefix + '/sendua-api/cross/checkCross',
-                // createCross:                prefix + '/sendua-api/cross/createCross',
                 getState:                   prefix + '/sendua-api/info/getState/',
                 lookupContinue:             prefix + '/sendua-api/Lookup/continue',
                 getCurrencyrates:           prefix + '/sendua-api/cross/currency',
                 validDiamantMaster:         prefix + '/sendua-api/cross/isDiamant',
                 calc:                       prefix + '/sendua-api/Card2Card/calcCommission',
                 getTariffsNew:              prefix + '/sendua-api/info/getTariffs'
-
             });
 
 
