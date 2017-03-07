@@ -2,7 +2,7 @@
     <menu id="top" class="top">
         <nav class="navbar navbar-default">
             <div class="collapse navbar-collapse">
-                <div class="navigation" ng-class="{activeTarifQaa: nav==3 || nav==4}">
+                <div class="navigation"  ng-class="{activeTarifQaa: nav==3 || nav==4}">
                     <div class="nav nav-justified" ng-show="!begin">
                         <div class="logo">
                             <div>
@@ -41,30 +41,32 @@
 
                         <div class="line-up"></div>
                     </div>
-
-                    <div class="nav nav-justified nav-apps" ng-class="{'nav-apps-begin' : !begin}">
-                        <!--<div class="line-up-short" ng-show="nav == 1"></div>-->
-                        <a scroll-to="apps" ng-class="{activemenu: nav == 1}" ng-click="nav=1">{{ 'APP.MENU.APPS' | translate }}</a>
-                    </div>
-                    <div class="nav nav-justified">
-                        <!--<div class="line-up-short" ng-show="nav == 2"></div>-->
-                        <a  scroll-to="services" ng-class="{activemenu: nav==2}" ng-click="nav=2">{{ 'APP.MENU.ABOUT' | translate }}</a>
-                    </div>
-                    <div class="nav nav-justified">
-                        <!--<div class="line-up-short" ng-show="nav == 3"></div>-->
-                        <a  scroll-to="tarif" ng-class="{activemenu: nav==3}" ng-click="nav=3">{{ 'APP.MENU.TARIFFS' | translate }}</a>
-                    </div>
-                    <div class="nav nav-justified">
-                        <!--<div class="line-up-short" ng-show="nav == 4"></div>-->
-                        <a  scroll-to="qaa" ng-class="{activemenu: nav==4}" ng-click="nav=4">{{ 'APP.MENU.FAQ' | translate }}</a>
-                    </div>
-                    <!--<div class="nav nav-justified">-->
+                    <div id="menu-active">
+                        <div class="nav nav-justified nav-apps" ng-class="{'nav-apps-begin' : !begin}">
+                            <div class="line-up-short" id='appsline'></div>
+                            <a scroll-to="apps" id='appsmenu' >{{ 'APP.MENU.APPS' | translate }}</a>
+                        </div>
+                        <div class="nav nav-justified">
+                            <div class="line-up-short" id='servicesline'></div>
+                            <a  scroll-to="services" id='servicesmenu'>{{ 'APP.MENU.ABOUT' | translate }}</a>
+                        </div>
+                        <div class="nav nav-justified">
+                            <div class="line-up-short" id='tarifline'></div>
+                            <a  scroll-to="tarif" id='tarifmenu'>{{ 'APP.MENU.TARIFFS' | translate }}</a>
+                        </div>
+                        <div class="nav nav-justified">
+                            <div class="line-up-short" id='qaaline'></div>
+                            <a  scroll-to="qaa" id='qaamenu'>{{ 'APP.MENU.FAQ' | translate }}</a>
+                        </div>
+                        <!--<div class="nav nav-justified">-->
                         <!--<a  scroll-to="contacts" ng-class="{active: nav==4}" ng-click="nav=4">{{ 'APP.MENU.CONTACTS' | translate }}</a>-->
-                    <!--</div>-->
-                    <div class="nav nav-justified">
-                        <!--<div class="line-up-short" ng-show="nav == 5"></div>-->
-                        <a  scroll-to="pci-dss" ng-class="{activemenu: nav==5}" ng-click="nav=(5)">{{ 'APP.MENU.PCI' | translate }}</a>
+                        <!--</div>-->
+                        <div class="nav nav-justified">
+                            <div class="line-up-short" id='pcidssline'></div>
+                            <a  scroll-to="pci-dss" id='pcidssmenu'>{{ 'APP.MENU.PCI' | translate }}</a>
+                        </div>
                     </div>
+
                     <div class="nav nav-justified nav-translate" ng-class="{'nav-translate-begin' : !begin}">
                         <div class="translate">
                             <span class="item"><a ng-model="lang" ng-change="onChangeLanguage()" uib-btn-radio="'ua'">UA</a></span>
