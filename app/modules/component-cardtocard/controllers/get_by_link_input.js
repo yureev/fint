@@ -16,7 +16,6 @@ function Ctrl($scope, $http, CardToCard) {
         $scope.amount = '';
         $scope.viewExpire = {};
         $scope.$broadcast('CardToCardClearForm');
-        alert(12);
     };
 
     this.submit = function () {

@@ -31,6 +31,7 @@ input:invalid
 
 .active
   color: #F79600
+  display: inherit
 
 .app
   width: 100%
@@ -199,8 +200,11 @@ input:invalid
         button
           text-transform: uppercase
 
-    .nav-apps
+    .nav-transfers
       margin-top: 260px
+
+    .nav-apps
+      //margin-top: 260px
 
     .nav-apps-begin
       margin-top: 0
@@ -783,14 +787,20 @@ input:invalid
         margin-right: 10px
         padding-left: 10px
 
+    .main
+      padding-top: 63px
+
     .menu-mobile
+      position: fixed
       background-color: #2980b9
+      z-index: 2
+      width: 100%
 
       .menu-mobile-input
         width: 300px
-
-        padding: 10px
         margin: 0 auto
+        padding: 10px 28px
+
         .cont-mobile
           float: left
 
@@ -807,8 +817,16 @@ input:invalid
             img
               width: 100px
 
+          .logo-menu
+            margin-top: 15px
+
+            .line-menu
+              border-top: 3px solid #5fa6cb
+              margin-bottom: 4px
+              width: 30px
+
         .cont-mobile-right
-          width: 39%
+          //width: 39%
 
           .translate
             text-align: right
@@ -819,6 +837,27 @@ input:invalid
               color: #ffffff
             .active
               color: #1a3654
+
+    .menu-mobile-navbar
+      min-height: 0
+      margin-bottom: 0
+      .navbar-collapse
+        box-shadow: none
+
+
+
+    .mobile-menu-active
+      width: 300px
+      margin: 0 auto
+      text-align: center
+      opacity: 1
+
+      .nav-justified
+        margin-bottom: 5px
+
+        a
+          text-decoration: none
+          color: #cfcfcf
 
 
     .navigation
@@ -874,6 +913,9 @@ input:invalid
 
     .footer-mobile
       display: none
+
+    .main
+      padding-top: 0
 
     .menu-mobile
       display: none
