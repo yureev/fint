@@ -374,6 +374,7 @@ function Ctrl($rootScope, $scope, $http, $timeout, $window, CardToCard) {
             }
 
             else {
+
                 $scope.commiss = Math.round($scope.amount * $scope.tariffs.percent + +$scope.tariffs.fixCommission);
                 if ($scope.commiss < $scope.tariffs.minCommission) {
                     $scope.commiss = $scope.tariffs.minCommission;

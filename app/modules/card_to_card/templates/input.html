@@ -39,11 +39,14 @@
                         <div class="amount-input-begin-left" ct-input-container>
                             <input type="text" name="amount" class="form-control " tabindex="19"
                                    ng-model="amount" placeholder = "{{'CARD2CARD.AMOUNT.RANGE'  | translate}}"
-                                   min="1"  max="25000" required ct-currency/>
+                                   ng-change="getPaste(); calculate(); validAmount(); setAmount()"
+                                   min="1"  max="25000" required ct-currency
+
+                            />
                         </div>
 
                         <div class="amount-input-begin-right buttons">
-                            <button ui-sref="app.card" scroll-to="main" ng-click="onChangeBegin(false);"
+                            <button ui-sref="app.card" scroll-to="main" ng-click="onChangeBegin(false); calculate();"
                                     ng-disabled="c2c2Form.$invalid || c2c2Form.$pristine" tabindex="20"
                                     type="submit" class="btn btn-warning send-button"
                                     ng-class="{'btn-active' : c2c2Form.$invalid || c2c2Form.$pristine}"
