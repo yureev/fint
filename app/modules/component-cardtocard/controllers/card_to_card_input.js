@@ -92,10 +92,6 @@ function Ctrl($rootScope, $scope, $http, $timeout, $window, CardToCard) {
             $scope.currencyRateYes = true;
             $scope.maxEurCross = Math.round(14999/$scope.currencyRate.forward);
             $scope.maxGrnCross = Math.round(14999);
-
-            
-            
-            
         },function errorCallback(response) {
             $scope.currencyRateYes = false;
         }
