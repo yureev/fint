@@ -12,6 +12,7 @@ function Ctrl($rootScope, $scope, $http, $timeout, $window, CardToCard) {
         card: ''
     };
     var diamantCardMaster = false;
+    var diamantCardMasterAll;
 
     $scope.$on('GetLinkParams', onGetLinkParams);
     $scope.$on('Card2CardCalculate', onCard2CardCalculate);
@@ -414,6 +415,7 @@ function Ctrl($rootScope, $scope, $http, $timeout, $window, CardToCard) {
 
     $scope.validDiamantMasterAll = function (numberTargetNew) {
         $scope.input_loader = true;
+
         if ($scope.target.card) {
             $http({
                 method: 'POST',

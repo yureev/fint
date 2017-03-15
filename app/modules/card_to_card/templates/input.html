@@ -15,7 +15,7 @@
             <div class="col-sm-4">
                 <span class="begin-label">{{'APP.CONTROLS.BTN_SEND' | translate}}</span>
                 <div class="c2c-cont">
-                    <div class="source-input-begin" ct-input-container>
+                    <div class="source-input-begin" ct-input-container ng-if="!transaction.link">
                         <input type="text" name="numberTarget" class="form-control"
                                tabindex="18"
                                ng-model="target.card" required
@@ -27,6 +27,13 @@
                                ui-mask-placeholder-char="_"
                                ct-payments-format-number
                                ct-payments-validate-number="numberTargetIsDisabled"/>
+                    </div>
+                    <div class="source-input-begin" ct-input-container ng-if="transaction.link">
+
+                        <input type="text" name="numberTarget" class="form-control" disabled tabindex="12"
+                               ct-tabindex="checkTargetNumber"
+                               ng-model="transaction.numberTarget"/>
+                        <div class="error-target"></div>
                     </div>
                     <div class="error-target">
                         <div ng-messages="c2c2Form.numberTarget.$error" ng-show="c2c2Form.numberTarget.$touched">
@@ -47,7 +54,7 @@
 
                         <div class="amount-input-begin-right buttons">
                             <button ui-sref="app.card" scroll-to="main" ng-click="onChangeBegin(false); calculate();"
-                                    ng-disabled="c2c2Form.$invalid || c2c2Form.$pristine" tabindex="20"
+                                    ng-disabled="(c2c2Form.$invalid || c2c2Form.$pristine) && !transaction.link " tabindex="20"
                                     type="submit" class="btn btn-warning send-button"
                                     ng-class="{'btn-active' : c2c2Form.$invalid || c2c2Form.$pristine}"
                             >
@@ -462,8 +469,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group" ct-input-container ng-if="transaction.link">
-                            <label>{{ 'CARD2CARD.TARGET.LABEL.CARD_NUMBER' | translate }}</label>
+                        <div class="form-group input-target" ct-input-container ng-if="transaction.link">
+                            <div class="card-title">{{ 'CARD2CARD.TARGET.TITLE' | translate }}</div>
+                            <span class="card-logo" ng-class="c2cForm.numberTarget.cardType"></span>
+                            <label class="card-label">{{ 'CARD2CARD.TARGET.LABEL.CARD' | translate }}</label>
                             <input type="text" name="numberTarget" class="form-control" disabled tabindex="12"
                                    ct-tabindex="checkTargetNumber"
                                    ng-model="transaction.numberTarget"/>

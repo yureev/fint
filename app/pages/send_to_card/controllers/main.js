@@ -58,7 +58,7 @@ function Ctrl($scope, $stateParams, $timeout, $translate, Notification) {
     };
 
     function onGetLinkParamsSuccess(event, data) {
-        console.log(data.card);
+        // console.log(data.card);
         $scope.numberTargetMask = '';
         $scope.numberTargetIsDisabled = true;
         if($stateParams.amount) {
