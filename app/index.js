@@ -128,6 +128,7 @@ angular.module('app', [
                 lookupContinue:             prefix + '/sendua-api/Lookup/continue',
                 getCurrencyrates:           prefix + '/sendua-api/cross/currency',
                 validDiamantMaster:         prefix + '/sendua-api/cross/isDiamant',
+                validDiamantMasterAll:      prefix + '/sendua-api/cross/isDiamant?all=true',
                 calc:                       prefix + '/sendua-api/Card2Card/calcCommission',
                 getTariffsNew:              prefix + '/sendua-api/info/getTariffs'
             });
