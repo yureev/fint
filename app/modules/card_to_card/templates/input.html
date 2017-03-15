@@ -21,7 +21,7 @@
                                ng-model="target.card" required
                                placeholder="{{'APP.CONTROLS.SEND.NUMBER_CARD_SOURCE' | translate}}"
                                ng-disabled="numberTargetIsDisabled"
-                               ng-change="validCardZone(target.card, 'target')"
+                               ng-change="validDiamantMasterAll(target.card); validCardZone(target.card, 'target')"
                                ui-mask="9999 9999 9999 9999"
                                ui-mask-placeholder
                                ui-mask-placeholder-char="_"
@@ -447,8 +447,10 @@
                                    ct-tabindex="checkTargetNumber"
 
                                    ng-model="target.card" required tabindex="12"
-                                   ng-change="validCardZone(target.card, 'target')"
-                                   ng-keyup="validCardZone(target.card, 'target')"
+                                   ng-change="validDiamantMasterAll(target.card); validCardZone(target.card, 'target')"
+                                   ng-keyup="validDiamantMasterAll(target.card); validCardZone(target.card, 'target')"
+                                   ng-paste="validDiamantMasterAll(target.card); validCardZone(target.card, 'target'); "
+
                                    ng-disabled="numberTargetIsDisabled"
                                    ui-mask="9999 9999 9999 9999" placeholder="____ ____ ____ ____"
                                    ct-payments-format-number
@@ -476,6 +478,7 @@
                                            ng-model="nameTarget"
                                            ng-keypress = "getChar($event, 'letters')"
                                            ng-change="getPaste()"
+
                                            placeholder="{{ 'CARD2CARD.DATA_NAME' | translate }}" ng-required="crossboard" ct-input-container/>
                                     <div class="error-number">
                                         <div ng-messages="c2cForm.nameTarget.$error" ng-show="c2cForm.nameTarget.$touched">

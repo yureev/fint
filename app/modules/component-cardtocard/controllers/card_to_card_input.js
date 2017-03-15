@@ -374,13 +374,22 @@ function Ctrl($rootScope, $scope, $http, $timeout, $window, CardToCard) {
             }
 
             else {
-
-                $scope.commiss = Math.round($scope.amount * $scope.tariffs.percent + +$scope.tariffs.fixCommission);
-                if ($scope.commiss < $scope.tariffs.minCommission) {
-                    $scope.commiss = $scope.tariffs.minCommission;
-                } else if ($scope.commiss > $scope.tariffs.maxCommission) {
-                    $scope.commiss = $scope.tariffs.maxCommission;
+                if(diamantCardMasterAll) {
+                    $scope.commiss = 0;
+                } else {
+                    $scope.commiss = Math.round($scope.amount * $scope.tariffs.percent + +$scope.tariffs.fixCommission);
+                    if ($scope.commiss < $scope.tariffs.minCommission) {
+                        $scope.commiss = $scope.tariffs.minCommission;
+                    } else if ($scope.commiss > $scope.tariffs.maxCommission) {
+                        $scope.commiss = $scope.tariffs.maxCommission;
+                    }
                 }
+                // $scope.commiss = Math.round($scope.amount * $scope.tariffs.percent + +$scope.tariffs.fixCommission);
+                // if ($scope.commiss < $scope.tariffs.minCommission) {
+                //     $scope.commiss = $scope.tariffs.minCommission;
+                // } else if ($scope.commiss > $scope.tariffs.maxCommission) {
+                //     $scope.commiss = $scope.tariffs.maxCommission;
+                // }
 
                 if ($scope.amount <= $scope.tariffs.maxAmount/100 && $scope.amount != 0) {
                     $scope.total = ($scope.amount * 100 + +$scope.commiss) / 100;
@@ -401,6 +410,39 @@ function Ctrl($rootScope, $scope, $http, $timeout, $window, CardToCard) {
     // angular.element('#1').on('click', function (event) {
     //     $scope.popup = true;
     // });
+
+
+    $scope.validDiamantMasterAll = function (numberTargetNew) {
+        $scope.input_loader = true;
+        if ($scope.target.card) {
+            $http({
+                method: 'POST',
+                url: CardToCard.urls.validDiamantMasterAll,
+                header: {
+                    "Content-Type": "application/json"
+                },
+                data: {
+                    "cardNumber": numberTargetNew
+                }
+            }).then(
+                function successCallback(response) {
+                    diamantCardMasterAll = response.data.diamant;
+                    if (diamantCardMasterAll) {
+                        $scope.commiss = 0;
+                    }
+                    $scope.calculate();
+                },
+                function errorCallback(response) {
+                    // $scope.goState($scope.STATES.ERROR);
+                }
+            ).finally(function () {
+                $scope.input_loader = false;
+            });
+        } else {
+            $scope.input_loader = false;
+        }
+
+    };
 
     $scope.validDiamantMaster = function (numberSource) {
         $scope.input_loader = true;
