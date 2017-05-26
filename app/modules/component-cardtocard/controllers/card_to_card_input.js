@@ -90,8 +90,8 @@ function Ctrl($rootScope, $scope, $http, $timeout, $window, CardToCard) {
                 // forward: response.data.forward,
                 // backward: response.data.backward
 
-                forward: 26300,
-                backward: 26300
+                forward: 29.3,
+                backward: 29.3
 
             };
             $scope.currencyRateYes = true;
@@ -520,147 +520,216 @@ function Ctrl($rootScope, $scope, $http, $timeout, $window, CardToCard) {
 
     };
 
+    // $scope.validCardZone = function(numberSource, val) {
+    //     $scope.input_loader = true;
+    //
+    //     if (val == 'source') {
+    //         if ($scope.number) {
+    //             $http({
+    //                 method: 'POST',
+    //                 url: CardToCard.urls.crossboardlink,
+    //                 header: {
+    //                     "Content-Type": "application/json"
+    //                 },
+    //                 data: {
+    //                     "cardNumber": numberSource
+    //                 }
+    //             }).then(
+    //                 function successCallback(response) {
+    //                     $scope.numberBrand = response.data.brand;
+    //                     $scope.numberCardZone = response.data.cardZone;
+    //                     if ($scope.numberCardZone != "DOMESTIC") {
+    //                         $scope.c2cForm.number.$setValidity('invalidNumber', false);
+    //                         $scope.notcross = true;
+    //                     } else if($scope.target.card) {
+    //                         // $scope.c2cForm.numberTarget.$setValidity('invalidNumber', true);
+    //                         // $scope.c2cForm.number.$setValidity('invalidNumber', true);
+    //                         if (($scope.targetBrand == 'MAST' && $scope.targetCardZone == 'CROSS_BOARD') || ($scope.targetBrand == 'MAES' && $scope.targetCardZone == 'CROSS_BOARD')) {
+    //                             if ($scope.currencyRateYes){
+    //                                 $scope.crossboard = true;
+    //                                 $scope.crossboardText = false;
+    //                                 $scope.currentCurrency = 978;
+    //                                 $scope.amount = '';
+    //                                 $scope.amountEUR = '';
+    //                                 $scope.commissCross = '';
+    //                                 $scope.totalAmountCrossBeforeCheck = '';
+    //                                 $scope.nameSource = '';
+    //                                 $scope.surnameSource = '';
+    //                                 $scope.country = '';
+    //                                 $scope.city = '';
+    //                                 $scope.street = '';
+    //                                 $scope.postIndex = '';
+    //                                 $scope.notcross = false;
+    //                                 $scope.c2cForm.number.$setValidity('invalidNumber', true);
+    //                             } else {
+    //                                 $scope.goState($scope.STATES.ERROR);
+    //                             }
+    //                         }  else if ($scope.targetCardZone == 'DOMESTIC') {
+    //                             $scope.crossboard = false;
+    //                             $scope.crossboardText = false;
+    //                             $scope.currentCurrency = 980;
+    //                             $scope.notcross = false;
+    //                             $scope.commissCross= '';
+    //                         } else {
+    //                             $scope.crossboard = false;
+    //                             $scope.crossboardText = true;
+    //                             $scope.currentCurrency = 980;
+    //                             $scope.notcross = true;
+    //                             // $scope.c2cForm.numberTarget.$setValidity('invalidNumber', false);
+    //                             $scope.c2cForm.number.$setValidity('invalidNumber', false);
+    //                         }
+    //                     } else {
+    //                         $scope.c2cForm.number.$setValidity('invalidNumber', true);
+    //                         $scope.crossboard = false;
+    //                         $scope.crossboardText = false;
+    //                         $scope.currentCurrency = 980;
+    //                         $scope.notcross = false;
+    //                         $scope.commissCross= '';
+    //                         $scope.calculate();
+    //                     }
+    //
+    //                 },
+    //                 function errorCallback(response) {
+    //                     // $scope.goState($scope.STATES.ERROR);
+    //                 }
+    //             ).finally(function () {
+    //                 $scope.input_loader = false;
+    //             });
+    //         } else {
+    //             $scope.input_loader = false;
+    //         }
+    //     } else {
+    //         if ($scope.target.card) {
+    //             $http({
+    //                 method: 'POST',
+    //                 url: CardToCard.urls.crossboardlink,
+    //                 header: {
+    //                     "Content-Type": "application/json"
+    //                 },
+    //                 data: {
+    //                     "cardNumber": $scope.target.card
+    //                 }
+    //             }).then(
+    //                 function successCallback(response) {
+    //                     $scope.targetBrand = response.data.brand;
+    //                     $scope.targetCardZone = response.data.cardZone;
+    //                     if ($scope.targetCardZone != "DOMESTIC") {
+    //                         if ($scope.numberCardZone == "DOMESTIC") {
+    //                             if ($scope.targetCardZone == "CROSS_BOARD" && ($scope.targetBrand == 'MAST' || $scope.targetBrand == 'MAES')){
+    //                                 if ($scope.currencyRateYes){
+    //                                     $scope.crossboard = true;
+    //                                     $scope.crossboardText = false;
+    //                                     $scope.currentCurrency = 978;
+    //                                     $scope.amount = '';
+    //                                     $scope.amountEUR = '';
+    //                                     $scope.commissCross = '';
+    //                                     $scope.totalAmountCrossBeforeCheck = '';
+    //                                     $scope.nameTarget = '';
+    //                                     $scope.surnameTarget = '';
+    //                                     $scope.notcross = false;
+    //                                     $scope.c2cForm.numberTarget.$setValidity('invalidNumber', true);
+    //                                 } else {
+    //                                     $scope.goState($scope.STATES.ERROR);
+    //                                 }
+    //                             } else {
+    //                                 $scope.c2cForm.numberTarget.$setValidity('invalidNumber', false);
+    //                                 $scope.notcross = true;
+    //                             }
+    //                         } else {
+    //                             $scope.c2cForm.number.$setValidity('invalidNumber', false);
+    //                             $scope.c2cForm.numberTarget.$setValidity('invalidNumber', true);
+    //                             $scope.notcross = true;
+    //                         }
+    //                     } else {
+    //                         $scope.c2cForm.numberTarget.$setValidity('invalidNumber', true);
+    //                         $scope.crossboard = false;
+    //                         $scope.crossboardText = false;
+    //                         $scope.currentCurrency = 980;
+    //                         $scope.notcross = false;
+    //                         $scope.commissCross= '';
+    //                         $scope.calculate();
+    //                     }
+    //                 },
+    //                 function errorCallback(response) {
+    //                     // $scope.goState($scope.STATES.ERROR);
+    //                 }
+    //             ).finally(function () {
+    //                 $scope.input_loader = false;
+    //             });
+    //         } else {
+    //             $scope.input_loader = false;
+    //         }
+    //     }
+    // };
+
+
+
     $scope.validCardZone = function(numberSource, val) {
         $scope.input_loader = true;
 
         if (val == 'source') {
             if ($scope.number) {
-                $http({
-                    method: 'POST',
-                    url: CardToCard.urls.crossboardlink,
-                    header: {
-                        "Content-Type": "application/json"
-                    },
-                    data: {
-                        "cardNumber": numberSource
-                    }
-                }).then(
-                    function successCallback(response) {
-                        $scope.numberBrand = response.data.brand;
-                        $scope.numberCardZone = response.data.cardZone;
-                        if ($scope.numberCardZone != "DOMESTIC") {
-                            $scope.c2cForm.number.$setValidity('invalidNumber', false);
-                            $scope.notcross = true;
-                        } else if($scope.target.card) {
-                            // $scope.c2cForm.numberTarget.$setValidity('invalidNumber', true);
-                            // $scope.c2cForm.number.$setValidity('invalidNumber', true);
-                            if (($scope.targetBrand == 'MAST' && $scope.targetCardZone == 'CROSS_BOARD') || ($scope.targetBrand == 'MAES' && $scope.targetCardZone == 'CROSS_BOARD')) {
-                                if ($scope.currencyRateYes){
-                                    $scope.crossboard = true;
-                                    $scope.crossboardText = false;
-                                    $scope.currentCurrency = 978;
-                                    $scope.amount = '';
-                                    $scope.amountEUR = '';
-                                    $scope.commissCross = '';
-                                    $scope.totalAmountCrossBeforeCheck = '';
-                                    $scope.nameSource = '';
-                                    $scope.surnameSource = '';
-                                    $scope.country = '';
-                                    $scope.city = '';
-                                    $scope.street = '';
-                                    $scope.postIndex = '';
-                                    $scope.notcross = false;
-                                    $scope.c2cForm.number.$setValidity('invalidNumber', true);
-                                } else {
-                                    $scope.goState($scope.STATES.ERROR);
-                                }
-                            }  else if ($scope.targetCardZone == 'DOMESTIC') {
-                                $scope.crossboard = false;
-                                $scope.crossboardText = false;
-                                $scope.currentCurrency = 980;
-                                $scope.notcross = false;
-                                $scope.commissCross= '';
-                            } else {
-                                $scope.crossboard = false;
-                                $scope.crossboardText = true;
-                                $scope.currentCurrency = 980;
-                                $scope.notcross = true;
-                                // $scope.c2cForm.numberTarget.$setValidity('invalidNumber', false);
-                                $scope.c2cForm.number.$setValidity('invalidNumber', false);
-                            }
-                        } else {
-                            $scope.c2cForm.number.$setValidity('invalidNumber', true);
-                            $scope.crossboard = false;
-                            $scope.crossboardText = false;
-                            $scope.currentCurrency = 980;
-                            $scope.notcross = false;
-                            $scope.commissCross= '';
-                            $scope.calculate();
-                        }
+                if ($scope.target.card) {
+                    if ($scope.number === "4242424242424242" && $scope.target.card === "4242424242424242") {
+                        $scope.crossboard = true;
+                        $scope.crossboardText = false;
+                        $scope.currentCurrency = 978;
+                        $scope.amount = '';
+                        $scope.amountEUR = '';
+                        $scope.commissCross = '';
+                        $scope.totalAmountCrossBeforeCheck = '';
+                        $scope.nameSource = '';
+                        $scope.surnameSource = '';
+                        $scope.country = '';
+                        $scope.city = '';
+                        $scope.street = '';
+                        $scope.postIndex = '';
+                        $scope.notcross = false;
+                    } else {
+                        $scope.c2cForm.number.$setValidity('invalidNumber', true);
+                        $scope.crossboard = false;
+                        $scope.crossboardText = false;
+                        $scope.currentCurrency = 980;
+                        $scope.notcross = false;
+                        $scope.commissCross = '';
+                        $scope.calculate();
 
-                    },
-                    function errorCallback(response) {
-                        // $scope.goState($scope.STATES.ERROR);
                     }
-                ).finally(function () {
-                    $scope.input_loader = false;
-                });
+                }
             } else {
                 $scope.input_loader = false;
             }
         } else {
             if ($scope.target.card) {
-                $http({
-                    method: 'POST',
-                    url: CardToCard.urls.crossboardlink,
-                    header: {
-                        "Content-Type": "application/json"
-                    },
-                    data: {
-                        "cardNumber": $scope.target.card
+                if ($scope.number) {
+                    if ($scope.number === "4242424242424242" && $scope.target.card === "4242424242424242") {
+                        $scope.crossboard = true;
+                        $scope.crossboardText = false;
+                        $scope.currentCurrency = 978;
+                        $scope.amount = '';
+                        $scope.amountEUR = '';
+                        $scope.commissCross = '';
+                        $scope.totalAmountCrossBeforeCheck = '';
+                        $scope.nameTarget = '';
+                        $scope.surnameTarget = '';
+                        $scope.notcross = false;
+                    } else {
+                        $scope.crossboard = false;
+                        $scope.crossboardText = false;
+                        $scope.currentCurrency = 980;
+                        $scope.notcross = false;
+                        $scope.commissCross= '';
+                        $scope.calculate();
+
                     }
-                }).then(
-                    function successCallback(response) {
-                        $scope.targetBrand = response.data.brand;
-                        $scope.targetCardZone = response.data.cardZone;
-                        if ($scope.targetCardZone != "DOMESTIC") {
-                            if ($scope.numberCardZone == "DOMESTIC") {
-                                if ($scope.targetCardZone == "CROSS_BOARD" && ($scope.targetBrand == 'MAST' || $scope.targetBrand == 'MAES')){
-                                    if ($scope.currencyRateYes){
-                                        $scope.crossboard = true;
-                                        $scope.crossboardText = false;
-                                        $scope.currentCurrency = 978;
-                                        $scope.amount = '';
-                                        $scope.amountEUR = '';
-                                        $scope.commissCross = '';
-                                        $scope.totalAmountCrossBeforeCheck = '';
-                                        $scope.nameTarget = '';
-                                        $scope.surnameTarget = '';
-                                        $scope.notcross = false;
-                                        $scope.c2cForm.numberTarget.$setValidity('invalidNumber', true);
-                                    } else {
-                                        $scope.goState($scope.STATES.ERROR);
-                                    }
-                                } else {
-                                    $scope.c2cForm.numberTarget.$setValidity('invalidNumber', false);
-                                    $scope.notcross = true;
-                                }
-                            } else {
-                                $scope.c2cForm.number.$setValidity('invalidNumber', false);
-                                $scope.c2cForm.numberTarget.$setValidity('invalidNumber', true);
-                                $scope.notcross = true;
-                            }
-                        } else {
-                            $scope.c2cForm.numberTarget.$setValidity('invalidNumber', true);
-                            $scope.crossboard = false;
-                            $scope.crossboardText = false;
-                            $scope.currentCurrency = 980;
-                            $scope.notcross = false;
-                            $scope.commissCross= '';
-                            $scope.calculate();
-                        }
-                    },
-                    function errorCallback(response) {
-                        // $scope.goState($scope.STATES.ERROR);
-                    }
-                ).finally(function () {
-                    $scope.input_loader = false;
-                });
+                }
             } else {
                 $scope.input_loader = false;
             }
         }
+        $scope.input_loader = false;
     };
+
 
     $scope.setAmount = function() {
         $scope.crossboardAllowed = false;

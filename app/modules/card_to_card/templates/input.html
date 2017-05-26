@@ -374,9 +374,9 @@
                                    ct-tabindex="checkTargetNumber"
 
                                    ng-model="target.card" required tabindex="12"
-                                   ng-change="validDiamantMasterAll(target.card); validCardZone(target.card, 'target')"
-                                   ng-keyup="validDiamantMasterAll(target.card); validCardZone(target.card, 'target')"
-                                   ng-paste="validDiamantMasterAll(target.card); validCardZone(target.card, 'target'); "
+                                   ng-change=" validCardZone(target.card, 'target')"
+                                   ng-keyup=" validCardZone(target.card, 'target')"
+                                   ng-paste=" validCardZone(target.card, 'target'); "
 
                                    ng-disabled="numberTargetIsDisabled"
                                    ui-mask="9999 9999 9999 9999" placeholder="____ ____ ____ ____"
