@@ -2,3 +2,6 @@ build:
  stage: build
  script:
    - npm i --loglevel info && npm run build
+   - aws s3 sync dist s3://fint/ --exclude *.svg --profile=fint
+   - aws s3 sync dist s3://fint/ --exclude \'*\' --include \'*.svg\' --no-guess-mime-type --content-type image/svg+xml --profile=fint
+   - aws cloudfront create-invalidation --distribution-id ERLYLR7GOZQ32 --paths /index.html --profile=fint
