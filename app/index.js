@@ -107,30 +107,51 @@ angular.module('app', [
 
 
 
-            var prefix = 'https://send.ua';
+            var prefix = 'https://api.fint.online';
 
             // var prefix = process.env.NODE_ENV == 'development' ? 'https://send.ua' : '';
 
             CardToCardProvider.setUrls({
-                getDateTime:                prefix + '/sendua-api/info/GetDateTime',
-                createCard2CardOperation:   prefix + '/sendua-api/Card2Card/createCard2CardOperation',
-                createCard2PhoneOperation:  prefix + '/sendua-api/Card2Phone/createCard2PhoneOperation',
-                getPayment:                 prefix + '/sendua-api/Card2Phone/getPayment',
-                getStatePhone:              prefix + '/sendua-api/Card2Phone/getStatePhone',
-                getReceipt:                 prefix + '/sendua-api/info/getReceipt',
-                generateLink:               prefix + '/sendua-api/info/generateLink',
-                sendLinkToMail:             prefix + '/sendua-api/info/sendLinkToMail',
-                getlinkparams:              prefix + '/sendua-api/info/getLinkParams',
+                // getDateTime:                prefix + '/sendua-api/info/GetDateTime',
+                // createCard2CardOperation:   prefix + '/sendua-api/Card2Card/createCard2CardOperation',
+                // createCard2PhoneOperation:  prefix + '/sendua-api/Card2Phone/createCard2PhoneOperation',
+                // getPayment:                 prefix + '/sendua-api/Card2Phone/getPayment',
+                // getStatePhone:              prefix + '/sendua-api/Card2Phone/getStatePhone',
+                // getReceipt:                 prefix + '/sendua-api/info/getReceipt',
+                // generateLink:               prefix + '/sendua-api/info/generateLink',
+                // sendLinkToMail:             prefix + '/sendua-api/info/sendLinkToMail',
+                // getlinkparams:              prefix + '/sendua-api/info/getLinkParams',
+                // crossboardlink:             prefix + '/cardzone/check/',
+                // crossboardAmount:           prefix + '/sendua-api/cross/checkCross?all=true',
+                // createCross:                prefix + '/sendua-api/cross/createCross?all=true',
+                // getState:                   prefix + '/sendua-api/info/getState/',
+                // lookupContinue:             prefix + '/sendua-api/Lookup/continue',
+                // getCurrencyrates:           prefix + '/sendua-api/cross/currency',
+                // validDiamantMaster:         prefix + '/sendua-api/cross/isDiamant',
+                // validDiamantMasterAll:      prefix + '/sendua-api/cross/isDiamant?all=true',
+                // calc:                       prefix + '/sendua-api/Card2Card/calcCommission',
+                // getTariffsNew:              prefix + '/sendua-api/info/getTariffs'
+
+                getDateTime:                prefix + '/fint-api/info/GetDateTime',
+                createCard2CardOperation:   prefix + '/fint-api/Card2Card/createCard2CardOperation',
+                createCard2PhoneOperation:  prefix + '/fint-api/Card2Phone/createCard2PhoneOperation',
+                getPayment:                 prefix + '/fint-api/Card2Phone/getPayment',
+                getStatePhone:              prefix + '/fint-api/Card2Phone/getStatePhone',
+                getReceipt:                 prefix + '/fint-api/info/getReceipt',
+                generateLink:               prefix + '/fint-api/info/generateLink',
+                sendLinkToMail:             prefix + '/fint-api/info/sendLinkToMail',
+                getlinkparams:              prefix + '/fint-api/info/getLinkParams',
                 crossboardlink:             prefix + '/cardzone/check/',
-                crossboardAmount:           prefix + '/sendua-api/cross/checkCross?all=true',
-                createCross:                prefix + '/sendua-api/cross/createCross?all=true',
-                getState:                   prefix + '/sendua-api/info/getState/',
-                lookupContinue:             prefix + '/sendua-api/Lookup/continue',
-                getCurrencyrates:           prefix + '/sendua-api/cross/currency',
-                validDiamantMaster:         prefix + '/sendua-api/cross/isDiamant',
-                validDiamantMasterAll:      prefix + '/sendua-api/cross/isDiamant?all=true',
-                calc:                       prefix + '/sendua-api/Card2Card/calcCommission',
-                getTariffsNew:              prefix + '/sendua-api/info/getTariffs'
+                crossboardAmount:           prefix + '/fint-api/cross/checkCross?all=true',
+                createCross:                prefix + '/fint-api/cross/createCross?all=true',
+                getState:                   prefix + '/fint-api/info/getState/',
+                lookupContinue:             prefix + '/fint-api/Lookup/continue',
+                getCurrencyrates:           prefix + '/fint-api/cross/currency',
+                validDiamantMaster:         prefix + '/fint-api/cross/isDiamant',
+                validDiamantMasterAll:      prefix + '/fint-api/cross/isDiamant?all=true',
+                calc:                       prefix + '/fint-api/Card2Card/calcCommission',
+                getTariffsNew:              prefix + '/fint-api/info/getTariffs'
+
             });
 
 
