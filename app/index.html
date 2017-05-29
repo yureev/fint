@@ -1,9 +1,13 @@
 <div class="app">
-
     <menu class="menu" id="top">
         <nav class="nav">
             <div class="nav__main">
-                <div class="nav__main__cont" ng-show="begin">
+                <div class="nav__main__cont" ng-show="!begin">
+                    <div class="nav__main__cont__logo">
+                        <a href="" class="nav__main__cont__logo_link">
+                            <img src="./assets/images/logo_fint.png" alt="Fint.online" class="nav__main__cont__logo-img">
+                        </a>
+                    </div>
                     <div class="nav__main__cont__item">
                         <a ui-sref="app.card" scroll-to="main" ng-click="nav=0" class="nav__main__cont__item_link" ng-class="{active: $state.includes('app.card') || $state.includes('app.phone')}">{{'APP.CONTROLS.BTN_SEND' | translate}}</a>
                         <div class="nav__main__cont__inside" ng-class="{active: $state.includes('app.card') || $state.includes('app.phone')}">
@@ -56,7 +60,7 @@
                 <div class="nav__social_title">{{ 'APP.CONTACTS.SOCIAL' | translate }}</div>
                 <a href="tel:08000000000" class="nav__social_link"><i class="fa fa-phone" aria-hidden="true"></i></a>
                 <a href="mailto:support@fint.online" class="nav__social_link"><i class="fa fa-envelope" aria-hidden="true"></i></a>
-                <a class="nav__social_link"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <!--<a class="nav__social_link"><i class="fa fa-twitter" aria-hidden="true"></i></a>-->
                 <a class="nav__social_link"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                 <a class="nav__social_link"><i class="fa fa-telegram" aria-hidden="true"></i></a>
                 <a class="nav__social_link"><i class="fa fa-viber" aria-hidden="true"></i></a>
@@ -64,7 +68,7 @@
         </div>
 
     </menu>
-    <div id="main" class="container-fluid main">
+    <div class="container-main" id="main" >
         <div class="row">
             <div class="content" page-height >
                 <div  ui-view page-height-container></div>
@@ -75,11 +79,14 @@
 
     <div class="container-second">
         <div class="container-second__services" id="services">
+            <div class="container-second__services_title" translate="APP.CONTENT.SERVICE.TITLE"></div>
             <div class="container-second__services_text" translate="APP.CONTENT.SERVICE.TEXT"></div>
         </div>
         <div class="container-second__tariffs" id="tarif">
+            <div class="container-second__tariffs_title" translate="APP.CONTENT.TARIFFS.TITLE"></div>
             <div class="container-second__tariffs_text" translate="APP.CONTENT.TARIFFS.TEXT1"></div>
             <div class="container-second__tariffs_text" translate="APP.CONTENT.TARIFFS.TEXT2"></div>
+            <div class="container-second__tariffs_text" translate="APP.CONTENT.TARIFFS.TEXT3"></div>
         </div>
         <div class="container-second__questions" id="qaa">
             <div class="container-second__questions__section">
@@ -130,9 +137,6 @@
             </a>
         </div>
     </footer>
-
-
-
 </div>
 
 
