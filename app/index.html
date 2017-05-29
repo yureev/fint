@@ -1,540 +1,532 @@
 <div class="app">
-    <menu id="top" class="top">
-        <nav class="navbar navbar-default">
-            <div class="collapse navbar-collapse">
-                <div class="navigation"  ng-class="{activeTarifQaa: nav==3 || nav==4}">
-                    <div class="nav nav-justified" ng-show="!begin">
-                        <div class="logo">
-                            <div>
-                                <a class="navbar-brand" ui-sref="app.card" scroll-to="main" ng-click="nav=0">
-                                    <!--<div class="logo-img logo-size"><img src="./assets/images/logo_sendua.png" alt="SendUa"></div>-->
-                                    <!--<div class="logo-text logo-size"><img src="./assets/images/send_ua_logo.svg" alt="SendUa"></div>-->
-                                    <div class="logo-img logo-size"><img src="" alt="Logo-Img"></div>
 
-                                    <!--<div class="logo-text logo-size"><img src="" alt="Logo-Text"></div>-->
-                                </a>
-                            </div>
+    <menu class="menu" id="top">
+        <nav class="nav">
+            <div class="nav__main">
+                <div class="nav__main__cont" ng-show="begin">
+                    <div class="nav__main__cont__item">
+                        <a ui-sref="app.card" scroll-to="main" ng-click="nav=0" class="nav__main__cont__item_link" ng-class="{active: $state.includes('app.card') || $state.includes('app.phone')}">{{'APP.CONTROLS.BTN_SEND' | translate}}</a>
+                        <div class="nav__main__cont__inside" ng-class="{active: $state.includes('app.card') || $state.includes('app.phone')}">
+                            <a ui-sref="app.card" scroll-to="main" ng-click="nav=0" class="nav__main__cont__inside_link"  ng-class="{active: $state.includes('app.card') }">{{'CARD2CARD.CONTROLS.SEND.BTN_CARDTOCARD' | translate}}</a>
+                            <a ui-sref="app.phone" scroll-to="main" ng-click="nav=0" class="nav__main__cont__inside_link"  ng-class="{active: $state.includes('app.phone')}">{{'CARD2CARD.CONTROLS.SEND.BTN_PHONE' | translate}}</a>
                         </div>
                     </div>
-                    <!--<div class="nav nav-justified">-->
-                    <!--<a ng-click="begin=!begin">-->
-                    <!--<div class="buttons">-->
-                    <!--<button type="submit" class="btn btn-warning send-button">-->
-                    <!--{{ 'APP.MENU.ENTER' | translate }}-->
-                    <!--</button>-->
-                    <!--</div>-->
-                    <!--</a>-->
-                    <!--</div>-->
-
-                    <div ng-show="!begin">
-                        <div class="nav nav-justified">
-                            <a ui-sref="app.card" scroll-to="main" ng-click="nav=0" ng-class="{active: $state.includes('app.card') || $state.includes('app.phone')}">{{'APP.CONTROLS.BTN_SEND' | translate}}</a>
-                            <div class="nav nav-inside" ng-class="{active: $state.includes('app.card') || $state.includes('app.phone')}">
-                                <div><a ui-sref="app.card" scroll-to="main" ng-click="nav=0" ng-class="{active: $state.includes('app.card') }">{{'CARD2CARD.CONTROLS.SEND.BTN_CARDTOCARD' | translate}}</a></div>
-                                <div><a ui-sref="app.phone" scroll-to="main" ng-click="nav=0" ng-class="{active: $state.includes('app.phone')}">{{'CARD2CARD.CONTROLS.SEND.BTN_PHONE' | translate}}</a></div>
-                            </div>
-                        </div>
-                        <div class="nav nav-justified">
-                            <a ui-sref="app.url" scroll-to="main" ng-click="nav=0" ng-class="{active: $state.includes('app.url') || $state.includes('app.code')}">{{'APP.CONTROLS.BTN_RECEIVE' | translate}}</a>
-                            <div class="nav nav-inside" ng-class="{active: $state.includes('app.url') || $state.includes('app.code')}">
-                                <div><a ui-sref="app.url" scroll-to="main" ng-click="nav=0" ng-class="{active: $state.includes('app.url') }">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_URL' | translate}}</a></div>
-                                <div><a ui-sref="app.code" scroll-to="main" ng-click="nav=0" ng-class="{active: $state.includes('app.code')}">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_CODE' | translate}}</a></div>
-                            </div>
-                        </div>
-
-                        <div class="line-up"></div>
-                    </div>
-                    <div id="menu-active">
-                        <div class="nav nav-justified nav-transfers" ng-class="{'nav-apps-begin' : !begin}">
-                            <div class="line-up-short" id='transfersline'></div>
-                            <a scroll-to="main" id='transfersmenu' >{{ 'APP.MENU.TRANSFERS' | translate }}</a>
-                        </div>
-                        <div class="nav nav-justified nav-apps" ng-class="{'nav-apps-begin' : !begin}">
-                            <div class="line-up-short" id='appsline'></div>
-                            <a scroll-to="apps" id='appsmenu' >{{ 'APP.MENU.APPS' | translate }}</a>
-                        </div>
-                        <div class="nav nav-justified">
-                            <div class="line-up-short" id='servicesline'></div>
-                            <a  scroll-to="services" id='servicesmenu'>{{ 'APP.MENU.ABOUT' | translate }}</a>
-                        </div>
-                        <div class="nav nav-justified">
-                            <div class="line-up-short" id='tarifline'></div>
-                            <a  scroll-to="tarif" id='tarifmenu'>{{ 'APP.MENU.TARIFFS' | translate }}</a>
-                        </div>
-                        <div class="nav nav-justified">
-                            <div class="line-up-short" id='qaaline'></div>
-                            <a  scroll-to="qaa" id='qaamenu'>{{ 'APP.MENU.FAQ' | translate }}</a>
-                        </div>
-                        <!--<div class="nav nav-justified">-->
-                        <!--<a  scroll-to="contacts" ng-class="{active: nav==4}" ng-click="nav=4">{{ 'APP.MENU.CONTACTS' | translate }}</a>-->
-                        <!--</div>-->
-                        <div class="nav nav-justified">
-                            <div class="line-up-short" id='pcidssline'></div>
-                            <a  scroll-to="pci-dss" id='pcidssmenu'>{{ 'APP.MENU.PCI' | translate }}</a>
+                    <div class="nav nav__main__cont__item">
+                        <a ui-sref="app.url" scroll-to="main" ng-click="nav=0" class="nav__main__cont__item_link" ng-class="{active: $state.includes('app.url') || $state.includes('app.code')}">{{'APP.CONTROLS.BTN_RECEIVE' | translate}}</a>
+                        <div class="nav__main__cont__inside" ng-class="{active: $state.includes('app.url') || $state.includes('app.code')}">
+                            <a ui-sref="app.url" scroll-to="main" ng-click="nav=0" class="nav__main__cont__inside_link" ng-class="{active: $state.includes('app.url') }">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_URL' | translate}}</a>
+                            <a ui-sref="app.code" scroll-to="main" ng-click="nav=0" class="nav__main__cont__inside_link"  ng-class="{active: $state.includes('app.code')}">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_CODE' | translate}}</a>
                         </div>
                     </div>
-
-                    <div class="nav nav-justified nav-translate" ng-class="{'nav-translate-begin' : !begin}">
-                        <div class="translate">
-                            <span class="item"><a ng-model="lang" ng-change="onChangeLanguage()" uib-btn-radio="'ua'">UA</a></span>
-                            <span class="item"><a ng-model="lang" ng-change="onChangeLanguage()" uib-btn-radio="'ru'">RU</a></span>
-                        </div>
-                    </div>
-                    <!--<div class="line-up"></div>-->
-                    <div class="nav nav-justified">
-                        <div class="social">
-                            <div class="title">{{ 'APP.CONTACTS.SOCIAL' | translate }}</div>
-                            <!--<img class="facebook-pic" src="./assets/images/facebook_logo.svg" alt="Facebook">-->
-                            <!--<img class="twitter-pic" src="./assets/images/twitter_logo.svg" alt="Twitter">-->
-                            <a href="tel:380441111111"><i class="fa fa-phone" aria-hidden="true"></i></a>
-                            <!--<a href="mailto:support@send.ua" ><i class="fa fa-envelope" aria-hidden="true"></i></a>-->
-                            <a href="mailto:support@mail.ua" ><i class="fa fa-envelope" aria-hidden="true"></i></a>
-                            <a><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                            <a><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                    <!--<div class="nav nav-justified">-->
-                    <!--<div class="support">-->
-                    <!--<div class="title">{{ 'APP.CONTACTS.SUPPORT' | translate }}</div>-->
-                    <!--<a href="tel:380443900885"><i class="fa fa-phone" aria-hidden="true"></i></a>-->
-                    <!--<a href="mailto:support@send.ua" ><i class="fa fa-envelope" aria-hidden="true"></i></a>-->
-                    <!--</div>-->
-                    <!--</div>-->
+                    <div class="nav__main__cont_line-up"></div>
                 </div>
-
             </div>
-            <!-- <form class="form-inline pull-right authorization">
-                <div class="form-group">
-                    <div class="pull-left item">
-                        <input type="text" class="form-control"
-                               placeholder="{{ 'APP.AUTH.INPUT.LOGIN' | translate }}"/>
-                        <br />
-                        <a href="#">{{ 'APP.AUTH.LINK.FORGOT' | translate }}</a>
-                    </div>
-                    <div class="form-group item">
-                        <input type="text" class="form-control"
-                               placeholder="{{ 'APP.AUTH.INPUT.PASS' | translate }}"/>
-                        <br />
-                        <a href="#">{{ 'APP.AUTH.LINK.REGISTRATION' | translate }}</a>
-                    </div>
+            <div class="nav__second" id="menu-active">
+                <div class="nav__second__item" ng-class="{'nav-apps-begin' : !begin}">
+                    <div class="nav__second__item_line-up-short" id='transfersline'></div>
+                    <a class="nav__second__item_link" scroll-to="main" id='transfersmenu' >{{ 'APP.MENU.TRANSFERS' | translate }}</a>
                 </div>
-                <button class="btn btn-warning pull-right">{{ 'APP.AUTH.ENTER' | translate }}</button>
-            </form> -->
+                <div class="nav__second__item">
+                    <div class="nav__second__item_line-up-short" id='servicesline'></div>
+                    <a class="nav__second__item_link" scroll-to="services" id='servicesmenu'>{{ 'APP.MENU.ABOUT' | translate }}</a>
+                </div>
+                <div class="nav__second__item">
+                    <div class="nav__second__item_line-up-short" id='tarifline'></div>
+                    <a class="nav__second__item_link" scroll-to="tarif" id='tarifmenu'>{{ 'APP.MENU.TARIFFS' | translate }}</a>
+                </div>
+                <div class="nav__second__item">
+                    <div class="nav__second__item_line-up-short" id='qaaline'></div>
+                    <a class="nav__second__item_link" scroll-to="qaa" id='qaamenu'>{{ 'APP.MENU.FAQ' | translate }}</a>
+                </div>
+                <div class="nav__second__item">
+                    <div class="nav__second__item_line-up-short" id='pcidssline'></div>
+                    <a class="nav__second__item_link" scroll-to="pci-dss" id='pcidssmenu'>{{ 'APP.MENU.PCI' | translate }}</a>
+                </div>
+            </div>
 
         </nav>
-    </menu>
-    <!--<div class="clearfix"></div>-->
-
-    <div class="menu-mobile">
-        <div class="menu-mobile-input">
-            <div class="cont-mobile">
-                <div class="logo-mobile">
-                    <div class="logo-menu logo-size" ng-click="logomenu=!logomenu">
-                        <div class="line-menu"></div>
-                        <div class="line-menu"></div>
-                        <div class="line-menu"></div>
-                    </div>
-                    <!--<div class="logo-img logo-size"><img src="./assets/images/logo_sendua.png" alt="SendUa"></div>-->
-                    <!--<div class="logo-text logo-size"><img src="./assets/images/send_ua_logo.svg" alt="SendUa"></div>-->
-                    <div class="logo-img logo-size"><img src="" alt="Logo-Img"></div>
-
-                    <div class="clearfix"></div>
+        <div class="nav__down">
+            <div class="nav__lang">
+                <div class="nav__lang__translate">
+                    <span class="nav__lang__translate_item"><a ng-model="lang" class="nav__lang__translate_link" ng-change="onChangeLanguage()" uib-btn-radio="'ua'">UA</a></span>
+                    <span class="nav__lang__translate_item"><a ng-model="lang" class="nav__lang__translate_link" ng-change="onChangeLanguage()" uib-btn-radio="'ru'">RU</a></span>
                 </div>
             </div>
-            <div class="cont-mobile cont-mobile-right">
-                <div class="nav nav-justified nav-translate">
-                    <div class="translate">
-                        <span class="item"><a ng-model="lang" ng-change="onChangeLanguage()" uib-btn-radio="'ua'">UA</a></span>
-                        <span class="item"><a ng-model="lang" ng-change="onChangeLanguage()" uib-btn-radio="'ru'">RU</a></span>
-                    </div>
-                </div>
+            <div class="nav__social">
+                <div class="nav__social_title">{{ 'APP.CONTACTS.SOCIAL' | translate }}</div>
+                <a href="tel:08000000000" class="nav__social_link"><i class="fa fa-phone" aria-hidden="true"></i></a>
+                <a href="mailto:support@fint.online" class="nav__social_link"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                <a class="nav__social_link"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a class="nav__social_link"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a class="nav__social_link"><i class="fa fa-telegram" aria-hidden="true"></i></a>
+                <a class="nav__social_link"><i class="fa fa-viber" aria-hidden="true"></i></a>
             </div>
-            <div class="clearfix"></div>
         </div>
 
-
-        <nav class="navbar menu-mobile-navbar" role="navigation" >
-            <div class="container-fluid">
-
-                <!-- Brand and toggle get grouped for better mobile display -->
-
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-class="{active: logomenu==true}">
-                    <ul class="nav navbar-nav" >
-                        <div class="mobile-menu-active" id="menu-active">
-                            <div class="nav nav-justified nav-transfers" ng-class="{'nav-apps-begin' : !begin}">
-                                <div class="line-up-short" id='transfersline'></div>
-                                <a scroll-to="main" id='transfersmenu' ng-click="logomenu=!logomenu">{{ 'APP.MENU.TRANSFERS' | translate }}</a>
-                            </div>
-                            <div class="nav nav-justified nav-apps" ng-class="{'nav-apps-begin' : !begin}">
-                                <div class="line-up-short" id='appsline'></div>
-                                <a scroll-to="apps" id='appsmenu' ng-click="logomenu=!logomenu">{{ 'APP.MENU.APPS' | translate }}</a>
-                            </div>
-                            <div class="nav nav-justified">
-                                <div class="line-up-short" id='servicesline'></div>
-                                <a  scroll-to="services" id='servicesmenu' ng-click="logomenu=!logomenu">{{ 'APP.MENU.ABOUT' | translate }}</a>
-                            </div>
-                            <div class="nav nav-justified">
-                                <div class="line-up-short" id='tarifline'></div>
-                                <a  scroll-to="tarif" id='tarifmenu' ng-click="logomenu=!logomenu">{{ 'APP.MENU.TARIFFS' | translate }}</a>
-                            </div>
-                            <div class="nav nav-justified">
-                                <div class="line-up-short" id='qaaline'></div>
-                                <a  scroll-to="qaa" id='qaamenu' ng-click="logomenu=!logomenu">{{ 'APP.MENU.FAQ' | translate }}</a>
-                            </div>
-                            <!--<div class="nav nav-justified">-->
-                            <!--<a  scroll-to="contacts" ng-class="{active: nav==4}" ng-click="nav=4">{{ 'APP.MENU.CONTACTS' | translate }}</a>-->
-                            <!--</div>-->
-                            <div class="nav nav-justified">
-                                <div class="line-up-short" id='pcidssline'></div>
-                                <a  scroll-to="pci-dss" id='pcidssmenu' ng-click="logomenu=!logomenu">{{ 'APP.MENU.PCI' | translate }}</a>
-                            </div>
-                        </div>
-                    </ul>
-
-
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>
-
-    </div>
-
-
+    </menu>
     <div id="main" class="container-fluid main">
         <div class="row">
-            <!--<div class="cont-begin" ng-show="begin">-->
-            <!--<div class="row logo">-->
-            <!--<div  class="logo-img"><img  src="./assets/images/sendUaService.png" alt="SendUa"></div>-->
-            <!--<div class="logo-text">-->
-            <!--<div><img  src="./assets/images/send_ua_logo.svg" alt="SendUa"></div>-->
-            <!--<div class="text-logo">{{'APP.CONTROLS.TEXT' | translate}}</div>-->
-            <!--</div>-->
-            <!--<div class="clearfix"></div>-->
-            <!--</div>-->
-
-            <!--<div class="cont-input">-->
-            <!--<div class="row cont-begin-input">-->
-            <!--<div class="col-sm-5">-->
-            <!--<span class="begin-label">{{'APP.CONTROLS.BTN_SEND' | translate}}</span>-->
-            <!--<div class="c2c-cont">-->
-            <!--<div class="source-input-begin">-->
-            <!--<input type="text" name="number" class="form-control "-->
-            <!--ng-model="number" required-->
-            <!--ui-mask="9999 9999 9999 9999" placeholder="____ ____ ____ ____"-->
-            <!--/>-->
-            <!--</div>-->
-            <!--<div class="amount-input-begin">-->
-            <!--<div class="amount-input-begin-left">-->
-            <!--<input type="text" name="amount" class="form-control " tabindex="15"-->
-            <!--ng-model="amount" placeholder = "{{'CARD2CARD.AMOUNT.RANGE'  | translate}}"-->
-            <!--min="1"  max="25000" required ct-currency/>-->
-            <!--</div>-->
-            <!--<div class="amount-input-begin-right buttons">-->
-            <!--<button ui-sref="app.card" scroll-to="main" ng-click="begin=!begin" type="submit" class="btn btn-warning send-button">-->
-            <!--<span class="text-button">{{'APP.CONTROLS.SEND.SEND' | translate}}</span>-->
-            <!--</button>-->
-            <!--</div>-->
-            <!--<div class="clearfix"></div>-->
-            <!--</div>-->
-
-
-            <!--</div>-->
-
-
-
-            <!--&lt;!&ndash;<div class="buttons" >&ndash;&gt;-->
-            <!--&lt;!&ndash;<button ui-sref="app.card" scroll-to="main" ng-click="begin=!begin" type="submit" class="btn btn-warning send-button">&ndash;&gt;-->
-            <!--&lt;!&ndash;<span class="text-button">{{'APP.CONTROLS.SEND.BTN_CARDTOCARD' | translate}}</span>&ndash;&gt;-->
-            <!--&lt;!&ndash;</button>&ndash;&gt;-->
-            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-            <!--<div class="buttons" >-->
-            <!--<button ui-sref="app.phone" scroll-to="main" ng-click="begin=!begin" type="submit" class="btn btn-warning send-button">-->
-            <!--<span class="text-button">{{'APP.CONTROLS.SEND.BTN_PHONE' | translate}}</span>-->
-            <!--</button>-->
-            <!--</div>-->
-
-            <!--</div>-->
-            <!--<div class="col-sm-2">-->
-            <!--<span class="begin-label-small-line"></span>-->
-            <!--<span class="begin-label-small">{{'APP.CONTROLS.BTN_OR' | translate}}</span>-->
-            <!--</div>-->
-            <!--<div class="col-sm-5">-->
-            <!--<span class="begin-label">{{'APP.CONTROLS.BTN_RECEIVE' | translate}}</span>-->
-            <!--<div class="buttons" >-->
-            <!--<button ui-sref="app.url" scroll-to="main" ng-click="begin=!begin" type="submit" class="btn btn-warning send-button">-->
-            <!--<span class="text-button">{{'APP.CONTROLS.RECEIVE.BTN_URL' | translate}}</span>-->
-            <!--</button>-->
-            <!--</div>-->
-            <!--<div class="buttons" >-->
-            <!--<button ui-sref="app.code" scroll-to="main" ng-click="begin=!begin" type="submit" class="btn btn-warning send-button">-->
-            <!--<span class="text-button">{{'APP.CONTROLS.RECEIVE.BTN_CODE' | translate}}</span>-->
-            <!--</button>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--</div>-->
-
-            <!--<div class="crossboard-text" >-->
-            <!--&lt;!&ndash;<span class="text" translate="CARD2CARD.CROSSBOARD_TEXT"></span>&ndash;&gt;-->
-            <!--&lt;!&ndash;&ndash;&gt;-->
-            <!--&lt;!&ndash;<span class="text"><a id='1' ng-click="popup=!popup">{{ 'CARD2CARD.CROSSBOARD_TEXT_COUNTRY' | translate }}</a></span>&ndash;&gt;-->
-
-            <!--<span class="text">{{ 'CARD2CARD.NO_CROSSBOARD_TEXT' | translate }}</span>-->
-
-            <!--&lt;!&ndash;<div class='popup' ng-show="popup">&ndash;&gt;-->
-            <!--&lt;!&ndash;<div class="text-country">&ndash;&gt;-->
-            <!--&lt;!&ndash;<table class = "popup-table">&ndash;&gt;-->
-            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
-            <!--&lt;!&ndash;<td>{{ 'CARD2CARD.CROSSBOARD_TEXT_RUS' | translate }}</td><td><img src="./../images/flagrus.png" width="22px"></td>&ndash;&gt;-->
-            <!--&lt;!&ndash;<td class="two-td">{{ 'CARD2CARD.CROSSBOARD_TEXT_GBL' | translate }}</td><td><img src="./../images/flaggbl.png" width="22px"></td>&ndash;&gt;-->
-
-            <!--&lt;!&ndash;<td class="two-td popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_ROM' | translate }}</td><td class="popup-desktop-768"><img src="./../images/flagrom.png" width="22px"></td>&ndash;&gt;-->
-
-
-            <!--&lt;!&ndash;<td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_GRZ' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flaggrz.png" width="22px"></td>&ndash;&gt;-->
-            <!--&lt;!&ndash;<td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_ROM' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flagrom.png" width="22px"></td>&ndash;&gt;-->
-
-            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
-            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
-            <!--&lt;!&ndash;<td>{{ 'CARD2CARD.CROSSBOARD_TEXT_AUS' | translate }}</td><td><img src="./../images/flagaus.png" width="22px"></td>&ndash;&gt;-->
-            <!--&lt;!&ndash;<td class="two-td">{{ 'CARD2CARD.CROSSBOARD_TEXT_HUN' | translate }}</td><td><img src="./../images/flaghun.png" width="22px"></td>&ndash;&gt;-->
-
-            <!--&lt;!&ndash;<td class="two-td popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_GRZ' | translate }}</td><td class="popup-desktop-768"><img src="./../images/flaggrz.png" width="22px"></td>&ndash;&gt;-->
-
-
-            <!--&lt;!&ndash;<td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_EST' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flagest.png" width="22px"></td>&ndash;&gt;-->
-            <!--&lt;!&ndash;<td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_POL' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flagpol.png" width="22px"></td>&ndash;&gt;-->
-            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
-            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
-            <!--&lt;!&ndash;<td>{{ 'CARD2CARD.CROSSBOARD_TEXT_AZR' | translate }}</td><td><img src="./../images/flagazr.png" width="22px"></td>&ndash;&gt;-->
-            <!--&lt;!&ndash;<td class="two-td ">{{ 'CARD2CARD.CROSSBOARD_TEXT_KAZ' | translate }}</td><td><img src="./../images/flagkaz.png" width="22px"></td>&ndash;&gt;-->
-
-            <!--&lt;!&ndash;<td class="two-td popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_POL' | translate }}</td><td class="popup-desktop-768"><img src="./../images/flagpol.png" width="22px"></td>&ndash;&gt;-->
-
-
-            <!--&lt;!&ndash;<td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_CZH' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flagczh.png" width="22px"></td>&ndash;&gt;-->
-            <!--&lt;!&ndash;<td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_MTN' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flagmtn.png" width="22px"></td>&ndash;&gt;-->
-            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
-            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
-            <!--&lt;!&ndash;<td>{{ 'CARD2CARD.CROSSBOARD_TEXT_BLR' | translate }}</td><td><img src="./../images/flagblr.png" width="22px"></td>&ndash;&gt;-->
-            <!--&lt;!&ndash;<td class="two-td">{{ 'CARD2CARD.CROSSBOARD_TEXT_LAT' | translate }}</td><td><img src="./../images/flaglat.png" width="22px"></td>&ndash;&gt;-->
-
-            <!--&lt;!&ndash;<td class="two-td popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_EST' | translate }}</td><td class="popup-desktop-768"><img src="./../images/flagest.png" width="22px"></td>&ndash;&gt;-->
-
-
-            <!--&lt;!&ndash;<td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_ARM' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flagarm.png" width="22px"></td>&ndash;&gt;-->
-            <!--&lt;!&ndash;<td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_MLD' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flagmld.png" width="22px"></td>&ndash;&gt;-->
-            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
-            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
-            <!--&lt;!&ndash;<td >{{ 'CARD2CARD.CROSSBOARD_TEXT_BUL' | translate }}</td><td ><img src="./../images/flagbul.png" width="22px"></td>&ndash;&gt;-->
-            <!--&lt;!&ndash;<td  class="two-td">{{ 'CARD2CARD.CROSSBOARD_TEXT_LIT' | translate }}</td><td ><img src="./../images/flaglit.png" width="22px"></td>&ndash;&gt;-->
-
-            <!--&lt;!&ndash;<td class="two-td popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_MTN' | translate }}</td><td class="popup-desktop-768"><img src="./../images/flagmtn.png" width="22px"></td>&ndash;&gt;-->
-
-
-            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
-            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
-            <!--&lt;!&ndash;<td class="popup-mobile popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_ARM' | translate }}</td><td class="popup-mobile popup-desktop-768"><img src="./../images/flagarm.png" width="22px"></td>&ndash;&gt;-->
-            <!--&lt;!&ndash;<td class="two-td popup-mobile popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_MLD' | translate }}</td><td class="popup-mobile popup-desktop-768"><img src="./../images/flagmld.png" width="22px"></td>&ndash;&gt;-->
-
-            <!--&lt;!&ndash;<td class="two-td popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_CZH' | translate }}</td><td class="popup-desktop-768"><img src="./../images/flagczh.png" width="22px"></td>&ndash;&gt;-->
-
-
-            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
-            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
-            <!--&lt;!&ndash;<td class="popup-mobile">{{ 'CARD2CARD.CROSSBOARD_TEXT_CZH' | translate }}</td><td class="popup-mobile"><img src="./../images/flagczh.png" width="22px"></td>&ndash;&gt;-->
-            <!--&lt;!&ndash;<td class="two-td popup-mobile">{{ 'CARD2CARD.CROSSBOARD_TEXT_MTN' | translate }}</td><td class="popup-mobile"><img src="./../images/flagmtn.png" width="22px"></td>&ndash;&gt;-->
-            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
-            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
-            <!--&lt;!&ndash;<td class="popup-mobile">{{ 'CARD2CARD.CROSSBOARD_TEXT_EST' | translate }}</td><td class="popup-mobile"><img src="./../images/flagest.png" width="22px"></td>&ndash;&gt;-->
-            <!--&lt;!&ndash;<td class="two-td popup-mobile">{{ 'CARD2CARD.CROSSBOARD_TEXT_POL' | translate }}</td><td class="popup-mobile"><img src="./../images/flagpol.png" width="22px"></td>&ndash;&gt;-->
-            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
-            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
-            <!--&lt;!&ndash;<td class="popup-mobile">{{ 'CARD2CARD.CROSSBOARD_TEXT_GRZ' | translate }}</td><td class="popup-mobile"><img src="./../images/flaggrz.png" width="22px"></td>&ndash;&gt;-->
-            <!--&lt;!&ndash;<td class="two-td popup-mobile">{{ 'CARD2CARD.CROSSBOARD_TEXT_ROM' | translate }}</td><td class="popup-mobile"><img src="./../images/flagrom.png" width="22px"></td>&ndash;&gt;-->
-            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
-            <!--&lt;!&ndash;</table>&ndash;&gt;-->
-            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-            <!--&lt;!&ndash;<div translate="CARD2CARD.CROSSBOARD_TEXT_COUNTRY_TOOLTIP"></div>&ndash;&gt;-->
-            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-            <!--</div>-->
-
-
-
-
-            <!--</div>-->
-            <!--</div>-->
-
             <div class="content" page-height >
-                <!--<div class="main-left"></div>-->
                 <div  ui-view page-height-container></div>
                 <div class="clearfix"></div>
             </div>
         </div>
     </div>
-    <div class="clearfix"></div>
-    <div class="container-fluid color-wrap">
-        <div class="row apps" id="apps">
-            <!--<div class="title text-center">{{ 'APP.CONTENT.APPS.TITLE' | translate }}</div>-->
-            <div class="description desc-margin">
-                <div class="cont-apps">
-                    <!--<div class="images text-center col-md-5 hidden-sm hidden-xs"><img src="./assets/images/mobils.png"></div>-->
-                    <div class="col-md-5 ">
-                        <div class="pull-right mobile">
-                            <h1>{{ 'MOBILE.BE_MOBILE' | translate }}</h1>
-                            <p>{{ 'MOBILE.DOWNLOAD' | translate }}</p>
-                            <!--<img src="./assets/images/qr_2016.png" width="200px" class="img-responsive pull-left">-->
-                            <div class="margin-top-big">
-                                <!--<a href="https://itunes.apple.com/us/app/send.ua/id995162040?mt=8"><img src="./assets/images/app_store_badge.svg" ></a>-->
-                                <!--<a href="https://play.google.com/store/apps/details?id=com.sendua"  class="google-play"><img src="./assets/images/google_play_badge.png" ></a>-->
-                                <a href="#"><img src="./assets/images/app_store_badge.svg" ></a>
-                                <a href="#"  class="google-play"><img src="./assets/images/google_play_badge.png" ></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
 
-
-                <!--<div class="button-down" scroll-to="services"></div>-->
-            </div>
+    <div class="container-second">
+        <div class="container-second__services" id="services">
+            <div class="container-second__services_text" translate="APP.CONTENT.SERVICE.TEXT"></div>
         </div>
-        <div class="row services" id="services">
-            <!--<div class="title text-center">{{ 'APP.CONTENT.SERVICE.TITLE' | translate }}</div>-->
-            <div class="description desc-margin">
-                <div class="cont-services">
-                    <div class="col-md-5 " translate="APP.CONTENT.SERVICE.TEXT"></div>
-                    <div class="images text-center col-md-5  hidden-sm hidden-xs">
-                        <!--<img src="./assets/images/sendUaService.png">-->
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-
-                <!--<div class="button-down" scroll-to="tarif"></div>-->
-            </div>
+        <div class="container-second__tariffs" id="tarif">
+            <div class="container-second__tariffs_text" translate="APP.CONTENT.TARIFFS.TEXT1"></div>
+            <div class="container-second__tariffs_text" translate="APP.CONTENT.TARIFFS.TEXT2"></div>
         </div>
-        <div class="clearfix"></div>
-        <div class="row tariffs" id="tarif">
-            <div class="main-left"></div>
-            <div class="main-right">
-                <!--<div class="title text-center">{{ 'APP.CONTENT.TARIFFS.TITLE' | translate }}</div>-->
-                <div class="description">
-
-                    <div class="tariff-cont" translate="APP.CONTENT.TARIFFS.TEXT1"></div>
-                    <div class="tariff-cont" translate="APP.CONTENT.TARIFFS.TEXT2"></div>
-                    <div class="tariff-cont" translate="APP.CONTENT.TARIFFS.TEXT3"></div>
-
-                    <!--<div class="text-center col-md-5 col-md-offset-1 hidden-sm hidden-xs"><img src="./assets/images/percent.png" width="250px" class="images percent"></div>-->
-                    <!--<div class="clearfix"></div>-->
-                    <!--<div class="button-down" scroll-to="qaa"></div>-->
-                </div>
+        <div class="container-second__questions" id="qaa">
+            <div class="container-second__questions__section">
+                <div class="container-second__questions__section_title" translate="APP.CONTENT.FAQ.QUESTION_1.TITLE"></div>
+                <div class="container-second__questions__section_text" translate="APP.CONTENT.FAQ.QUESTION_1.TEXT"></div>
             </div>
-        </div>
-        <div class="row questions" id="qaa">
-            <div class="main-left"></div>
-            <div class="main-right">
-                <!--<div class="title text-center">{{ 'APP.CONTENT.FAQ.TITLE' | translate }}</div>-->
-                <div class="wrap description">
-                    <uib-accordion close-others="true">
-                        <uib-accordion-group is-open="true">
-                            <uib-accordion-heading>
-                                <a class="wrap-link" ng-class="{'active-link': $parent.isOpen}">{{ 'APP.CONTENT.FAQ.QUESTION_1.TITLE' | translate }}</a>
-                                <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
-                                <div class="clearfix"></div>
-                            </uib-accordion-heading>
-                            <div translate="APP.CONTENT.FAQ.QUESTION_1.TEXT"></div>
-                        </uib-accordion-group>
-                        <uib-accordion-group>
-                            <uib-accordion-heading>
-                                <a class="wrap-link" ng-class="{'active-link': $parent.isOpen}">{{ 'APP.CONTENT.FAQ.QUESTION_2.TITLE' | translate }}</a>
-                                <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
-                                <div class="clearfix"></div>
-                            </uib-accordion-heading>
-                            <div translate="APP.CONTENT.FAQ.QUESTION_2.TEXT"></div>
-                        </uib-accordion-group>
-                        <uib-accordion-group>
-                            <uib-accordion-heading>
-                                <a class="wrap-link" ng-class="{'active-link': $parent.isOpen}">{{ 'APP.CONTENT.FAQ.QUESTION_3.TITLE' | translate }}</a>
-                                <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
-                                <div class="clearfix"></div>
-                            </uib-accordion-heading>
-                            <div translate="APP.CONTENT.FAQ.QUESTION_3.TEXT"></div>
-                        </uib-accordion-group>
-                        <uib-accordion-group>
-                            <uib-accordion-heading>
-                                <a class="wrap-link" ng-class="{'active-link': $parent.isOpen}">{{ 'APP.CONTENT.FAQ.QUESTION_4.TITLE' | translate }}</a>
-                                <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
-                                <div class="clearfix"></div>
-                            </uib-accordion-heading>
-                            <div translate="APP.CONTENT.FAQ.QUESTION_4.TEXT"></div>
-                        </uib-accordion-group>
-                        <uib-accordion-group>
-                            <uib-accordion-heading>
-
-                                <a class="wrap-link" ng-class="{'active-link': $parent.isOpen}">{{ 'APP.CONTENT.FAQ.QUESTION_5.TITLE' | translate }}</a>
-                                <div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>
-                                <div class="clearfix"></div>
-                            </uib-accordion-heading>
-                            <div translate="APP.CONTENT.FAQ.QUESTION_5.TEXT"></div>
-                        </uib-accordion-group>
-                    </uib-accordion>
-                </div>
-                <div class="clearfix"></div>
+            <div class="container-second__questions__section">
+                <div class="container-second__questions__section_title" translate="APP.CONTENT.FAQ.QUESTION_2.TITLE"></div>
+                <div class="container-second__questions__section_text" translate="APP.CONTENT.FAQ.QUESTION_2.TEXT"></div>
             </div>
-            <!--<div class="button-down" scroll-to="contacts"></div>-->
-        </div>
-        <div class="row pci-dss" id="pci-dss">
-            <!--<div class="title text-center">{{ 'APP.CONTENT.PCI_DSS.TITLE' | translate }}</div>-->
-            <div class="description">
-                <div class="desc-margin">
-                    <div class="pci-dss-img"><img src="./assets/images/image_2_1.svg" alt="SendUa"></div>
-                    <!--<div class="pci-dss-img"><img src="" alt="Logo"></div>-->
-                    <div class="pci-dss-text-all">
-                        <h1>{{ 'APP.CONTENT.PCI_DSS.TITLE' | translate }}</h1>
-                        <div class="pci-dss-text" translate="APP.CONTENT.PCI_DSS.TEXT"></div>
-                        <!--<div class="pci-dss-logo"><img src="./assets/images/send_ua_logo.svg"></div>-->
-                    </div>
-
-                    <div class="pci-dss-img pci-dss-img-right"><img src="./assets/images/image_2_2.svg"></div>
-                    <div class="clearfix"></div>
-                    <!--<div class="button-down" scroll-to="contacts"></div>-->
-
-                </div>
-
+            <div class="container-second__questions__section">
+                <div class="container-second__questions__section_title" translate="APP.CONTENT.FAQ.QUESTION_3.TITLE"></div>
+                <div class="container-second__questions__section_text" translate="APP.CONTENT.FAQ.QUESTION_3.TEXT"></div>
             </div>
+            <div class="container-second__questions__section">
+                <div class="container-second__questions__section_title" translate="APP.CONTENT.FAQ.QUESTION_4.TITLE"></div>
+                <div class="container-second__questions__section_text" translate="APP.CONTENT.FAQ.QUESTION_4.TEXT"></div>
+            </div>
+            <div class="container-second__questions__section">
+                <div class="container-second__questions__section_title" translate="APP.CONTENT.FAQ.QUESTION_5.TITLE"></div>
+                <div class="container-second__questions__section_text" translate="APP.CONTENT.FAQ.QUESTION_5.TEXT"></div>
+            </div>
+
         </div>
+
+        <div class="container-second__pci-dss" id="pci-dss">
+            <div class="container-second__questions__pci-dss_title" translate="APP.CONTENT.PCI_DSS.TITLE"></div>
+            <div class="container-second__questions__pci-dss_text" translate="APP.CONTENT.PCI_DSS.TEXT"></div>
+        </div>
+
     </div>
-    <footer class="container-fluid">
-        <div class="footer-wrap">
-            <div class="banners">
-                <a href="http://www.visa.com.ua/ua/uk-ua/personal/security/onlineshopping.shtml" target="_blank">
-                    <img class="visa-verified" src="./assets/images/vbyvisa_blu.png">
-                </a>
-                <img class="visa-direct" src="./assets/images/visa-direct.svg">
-                <a href="assets/iframes/pci_cert_send.pdf" target="_blank">
-                    <img class="pci" src="./assets/images/credibility_pci-logo.png">
-                </a>
-                <img class="money-send" src="./assets/images/MoneySend.png">
-                <a href="http://www.mastercard.com/ua/consumer/secure-code.html" target="_blank">
-                    <img class="secure-code" src="./assets/images/SecureCode.svg">
-                </a>
-            </div>
-        </div>
-        <div class="nav nav-justified footer-mobile">
-            <div class="social">
-                <div class="title">{{ 'APP.CONTACTS.SOCIAL' | translate }}</div>
-                <!--<img class="facebook-pic" src="./assets/images/facebook_logo.svg" alt="Facebook">-->
-                <!--<img class="twitter-pic" src="./assets/images/twitter_logo.svg" alt="Twitter">-->
-                <div class="icon">
-                    <a href="tel:380441111111"><i class="fa fa-phone" aria-hidden="true"></i></a>
-                    <!--<a href="mailto:support@send.ua" ><i class="fa fa-envelope" aria-hidden="true"></i></a>-->
-                    <a href="mailto:support@mail.ua" ><i class="fa fa-envelope" aria-hidden="true"></i></a>
-                    <a><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                </div>
-
-            </div>
+    <footer class="footer">
+        <div class="footer__logo">
+            <a href="http://www.visa.com.ua/ua/uk-ua/personal/security/onlineshopping.shtml"  target="_blank" class="footer__logo_link">
+                <img src="./assets/images/vbyvisa_blu.png" alt="visa" class="footer__logo_img">
+            </a>
+            <a href="http://www.visa.com.ua/ua/uk-ua/personal/security/onlineshopping.shtml"  target="_blank" class="footer__logo_link">
+                <img src="./assets/images/visa-direct.svg" alt="visa" class="footer__logo_img">
+            </a>
+            <a href="assets/iframes/pci_cert_send.pdf"  target="_blank" class="footer__logo_link">
+                <img src="./assets/images/credibility_pci-logo.png" alt="visa" class="footer__logo_img">
+            </a>
+            <a href="http://www.visa.com.ua/ua/uk-ua/personal/security/onlineshopping.shtml"  target="_blank" class="footer__logo_link">
+                <img src="./assets/images/MoneySend.png" alt="visa" class="footer__logo_img">
+            </a>
+            <a href="http://www.mastercard.com/ua/consumer/secure-code.html"  target="_blank" class="footer__logo_link">
+                <img src="./assets/images/SecureCode.svg" alt="visa" class="footer__logo_img">
+            </a>
         </div>
     </footer>
-    <div scroll-top></div>
+
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- SEND-->
+
+
+<!--<div class="app">-->
+    <!--<menu id="top" class="top">-->
+        <!--<nav class="navbar navbar-default">-->
+            <!--<div class="collapse navbar-collapse">-->
+                <!--<div class="navigation"  ng-class="{activeTarifQaa: nav==3 || nav==4}">-->
+                    <!--<div class="nav nav-justified" ng-show="!begin">-->
+                        <!--<div class="logo">-->
+                            <!--<div>-->
+                                <!--<a class="navbar-brand" ui-sref="app.card" scroll-to="main" ng-click="nav=0">-->
+                                    <!--&lt;!&ndash;<div class="logo-img logo-size"><img src="./assets/images/logo_sendua.png" alt="SendUa"></div>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<div class="logo-text logo-size"><img src="./assets/images/send_ua_logo.svg" alt="SendUa"></div>&ndash;&gt;-->
+                                    <!--<div class="logo-img logo-size"><img src="" alt="Logo-Img"></div>-->
+
+                                    <!--&lt;!&ndash;<div class="logo-text logo-size"><img src="" alt="Logo-Text"></div>&ndash;&gt;-->
+                                <!--</a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;<div class="nav nav-justified">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<a ng-click="begin=!begin">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="buttons">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<button type="submit" class="btn btn-warning send-button">&ndash;&gt;-->
+                    <!--&lt;!&ndash;{{ 'APP.MENU.ENTER' | translate }}&ndash;&gt;-->
+                    <!--&lt;!&ndash;</button>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                    <!--<div ng-show="!begin">-->
+                        <!--<div class="nav nav-justified">-->
+                            <!--<a ui-sref="app.card" scroll-to="main" ng-click="nav=0" ng-class="{active: $state.includes('app.card') || $state.includes('app.phone')}">{{'APP.CONTROLS.BTN_SEND' | translate}}</a>-->
+                            <!--<div class="nav nav-inside" ng-class="{active: $state.includes('app.card') || $state.includes('app.phone')}">-->
+                                <!--<div><a ui-sref="app.card" scroll-to="main" ng-click="nav=0" ng-class="{active: $state.includes('app.card') }">{{'CARD2CARD.CONTROLS.SEND.BTN_CARDTOCARD' | translate}}</a></div>-->
+                                <!--<div><a ui-sref="app.phone" scroll-to="main" ng-click="nav=0" ng-class="{active: $state.includes('app.phone')}">{{'CARD2CARD.CONTROLS.SEND.BTN_PHONE' | translate}}</a></div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="nav nav-justified">-->
+                            <!--<a ui-sref="app.url" scroll-to="main" ng-click="nav=0" ng-class="{active: $state.includes('app.url') || $state.includes('app.code')}">{{'APP.CONTROLS.BTN_RECEIVE' | translate}}</a>-->
+                            <!--<div class="nav nav-inside" ng-class="{active: $state.includes('app.url') || $state.includes('app.code')}">-->
+                                <!--<div><a ui-sref="app.url" scroll-to="main" ng-click="nav=0" ng-class="{active: $state.includes('app.url') }">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_URL' | translate}}</a></div>-->
+                                <!--<div><a ui-sref="app.code" scroll-to="main" ng-click="nav=0" ng-class="{active: $state.includes('app.code')}">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_CODE' | translate}}</a></div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="line-up"></div>-->
+                    <!--</div>-->
+                    <!--<div id="menu-active">-->
+                        <!--<div class="nav nav-justified nav-transfers" ng-class="{'nav-apps-begin' : !begin}">-->
+                            <!--<div class="line-up-short" id='transfersline'></div>-->
+                            <!--<a scroll-to="main" id='transfersmenu' >{{ 'APP.MENU.TRANSFERS' | translate }}</a>-->
+                        <!--</div>-->
+                        <!--<div class="nav nav-justified nav-apps" ng-class="{'nav-apps-begin' : !begin}">-->
+                            <!--<div class="line-up-short" id='appsline'></div>-->
+                            <!--<a scroll-to="apps" id='appsmenu' >{{ 'APP.MENU.APPS' | translate }}</a>-->
+                        <!--</div>-->
+                        <!--<div class="nav nav-justified">-->
+                            <!--<div class="line-up-short" id='servicesline'></div>-->
+                            <!--<a  scroll-to="services" id='servicesmenu'>{{ 'APP.MENU.ABOUT' | translate }}</a>-->
+                        <!--</div>-->
+                        <!--<div class="nav nav-justified">-->
+                            <!--<div class="line-up-short" id='tarifline'></div>-->
+                            <!--<a  scroll-to="tarif" id='tarifmenu'>{{ 'APP.MENU.TARIFFS' | translate }}</a>-->
+                        <!--</div>-->
+                        <!--<div class="nav nav-justified">-->
+                            <!--<div class="line-up-short" id='qaaline'></div>-->
+                            <!--<a  scroll-to="qaa" id='qaamenu'>{{ 'APP.MENU.FAQ' | translate }}</a>-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash;<div class="nav nav-justified">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<a  scroll-to="contacts" ng-class="{active: nav==4}" ng-click="nav=4">{{ 'APP.MENU.CONTACTS' | translate }}</a>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--<div class="nav nav-justified">-->
+                            <!--<div class="line-up-short" id='pcidssline'></div>-->
+                            <!--<a  scroll-to="pci-dss" id='pcidssmenu'>{{ 'APP.MENU.PCI' | translate }}</a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <!--<div class="nav nav-justified nav-translate" ng-class="{'nav-translate-begin' : !begin}">-->
+                        <!--<div class="translate">-->
+                            <!--<span class="item"><a ng-model="lang" ng-change="onChangeLanguage()" uib-btn-radio="'ua'">UA</a></span>-->
+                            <!--<span class="item"><a ng-model="lang" ng-change="onChangeLanguage()" uib-btn-radio="'ru'">RU</a></span>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;<div class="line-up"></div>&ndash;&gt;-->
+                    <!--<div class="nav nav-justified">-->
+                        <!--<div class="social">-->
+                            <!--<div class="title">{{ 'APP.CONTACTS.SOCIAL' | translate }}</div>-->
+                            <!--&lt;!&ndash;<img class="facebook-pic" src="./assets/images/facebook_logo.svg" alt="Facebook">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<img class="twitter-pic" src="./assets/images/twitter_logo.svg" alt="Twitter">&ndash;&gt;-->
+                            <!--<a href="tel:380441111111"><i class="fa fa-phone" aria-hidden="true"></i></a>-->
+                            <!--&lt;!&ndash;<a href="mailto:support@send.ua" ><i class="fa fa-envelope" aria-hidden="true"></i></a>&ndash;&gt;-->
+                            <!--<a href="mailto:support@mail.ua" ><i class="fa fa-envelope" aria-hidden="true"></i></a>-->
+                            <!--<a><i class="fa fa-twitter" aria-hidden="true"></i></a>-->
+                            <!--<a><i class="fa fa-facebook" aria-hidden="true"></i></a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;<div class="nav nav-justified">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="support">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="title">{{ 'APP.CONTACTS.SUPPORT' | translate }}</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<a href="tel:380443900885"><i class="fa fa-phone" aria-hidden="true"></i></a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<a href="mailto:support@send.ua" ><i class="fa fa-envelope" aria-hidden="true"></i></a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--</div>-->
+
+            <!--</div>-->
+            <!--&lt;!&ndash; <form class="form-inline pull-right authorization">-->
+                <!--<div class="form-group">-->
+                    <!--<div class="pull-left item">-->
+                        <!--<input type="text" class="form-control"-->
+                               <!--placeholder="{{ 'APP.AUTH.INPUT.LOGIN' | translate }}"/>-->
+                        <!--<br />-->
+                        <!--<a href="#">{{ 'APP.AUTH.LINK.FORGOT' | translate }}</a>-->
+                    <!--</div>-->
+                    <!--<div class="form-group item">-->
+                        <!--<input type="text" class="form-control"-->
+                               <!--placeholder="{{ 'APP.AUTH.INPUT.PASS' | translate }}"/>-->
+                        <!--<br />-->
+                        <!--<a href="#">{{ 'APP.AUTH.LINK.REGISTRATION' | translate }}</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<button class="btn btn-warning pull-right">{{ 'APP.AUTH.ENTER' | translate }}</button>-->
+            <!--</form> &ndash;&gt;-->
+
+        <!--</nav>-->
+    <!--</menu>-->
+    <!--&lt;!&ndash;<div class="clearfix"></div>&ndash;&gt;-->
+
+    <!--<div class="menu-mobile">-->
+        <!--<div class="menu-mobile-input">-->
+            <!--<div class="cont-mobile">-->
+                <!--<div class="logo-mobile">-->
+                    <!--<div class="logo-menu logo-size" ng-click="logomenu=!logomenu">-->
+                        <!--<div class="line-menu"></div>-->
+                        <!--<div class="line-menu"></div>-->
+                        <!--<div class="line-menu"></div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;<div class="logo-img logo-size"><img src="./assets/images/logo_sendua.png" alt="SendUa"></div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="logo-text logo-size"><img src="./assets/images/send_ua_logo.svg" alt="SendUa"></div>&ndash;&gt;-->
+                    <!--<div class="logo-img logo-size"><img src="" alt="Logo-Img"></div>-->
+
+                    <!--<div class="clearfix"></div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="cont-mobile cont-mobile-right">-->
+                <!--<div class="nav nav-justified nav-translate">-->
+                    <!--<div class="translate">-->
+                        <!--<span class="item"><a ng-model="lang" ng-change="onChangeLanguage()" uib-btn-radio="'ua'">UA</a></span>-->
+                        <!--<span class="item"><a ng-model="lang" ng-change="onChangeLanguage()" uib-btn-radio="'ru'">RU</a></span>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="clearfix"></div>-->
+        <!--</div>-->
+
+
+        <!--<nav class="navbar menu-mobile-navbar" role="navigation" >-->
+            <!--<div class="container-fluid">-->
+
+                <!--&lt;!&ndash; Brand and toggle get grouped for better mobile display &ndash;&gt;-->
+
+
+                <!--&lt;!&ndash; Collect the nav links, forms, and other content for toggling &ndash;&gt;-->
+                <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-class="{active: logomenu==true}">-->
+                    <!--<ul class="nav navbar-nav" >-->
+                        <!--<div class="mobile-menu-active" id="menu-active">-->
+                            <!--<div class="nav nav-justified nav-transfers" ng-class="{'nav-apps-begin' : !begin}">-->
+                                <!--<div class="line-up-short" id='transfersline'></div>-->
+                                <!--<a scroll-to="main" id='transfersmenu' ng-click="logomenu=!logomenu">{{ 'APP.MENU.TRANSFERS' | translate }}</a>-->
+                            <!--</div>-->
+                            <!--<div class="nav nav-justified nav-apps" ng-class="{'nav-apps-begin' : !begin}">-->
+                                <!--<div class="line-up-short" id='appsline'></div>-->
+                                <!--<a scroll-to="apps" id='appsmenu' ng-click="logomenu=!logomenu">{{ 'APP.MENU.APPS' | translate }}</a>-->
+                            <!--</div>-->
+                            <!--<div class="nav nav-justified">-->
+                                <!--<div class="line-up-short" id='servicesline'></div>-->
+                                <!--<a  scroll-to="services" id='servicesmenu' ng-click="logomenu=!logomenu">{{ 'APP.MENU.ABOUT' | translate }}</a>-->
+                            <!--</div>-->
+                            <!--<div class="nav nav-justified">-->
+                                <!--<div class="line-up-short" id='tarifline'></div>-->
+                                <!--<a  scroll-to="tarif" id='tarifmenu' ng-click="logomenu=!logomenu">{{ 'APP.MENU.TARIFFS' | translate }}</a>-->
+                            <!--</div>-->
+                            <!--<div class="nav nav-justified">-->
+                                <!--<div class="line-up-short" id='qaaline'></div>-->
+                                <!--<a  scroll-to="qaa" id='qaamenu' ng-click="logomenu=!logomenu">{{ 'APP.MENU.FAQ' | translate }}</a>-->
+                            <!--</div>-->
+                            <!--&lt;!&ndash;<div class="nav nav-justified">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<a  scroll-to="contacts" ng-class="{active: nav==4}" ng-click="nav=4">{{ 'APP.MENU.CONTACTS' | translate }}</a>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                            <!--<div class="nav nav-justified">-->
+                                <!--<div class="line-up-short" id='pcidssline'></div>-->
+                                <!--<a  scroll-to="pci-dss" id='pcidssmenu' ng-click="logomenu=!logomenu">{{ 'APP.MENU.PCI' | translate }}</a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</ul>-->
+
+
+                <!--</div>&lt;!&ndash; /.navbar-collapse &ndash;&gt;-->
+            <!--</div>&lt;!&ndash; /.container-fluid &ndash;&gt;-->
+        <!--</nav>-->
+
+    <!--</div>-->
+
+
+    <!--<div id="main" class="container-fluid main">-->
+        <!--<div class="row">-->
+            <!--<div class="content" page-height >-->
+                <!--<div  ui-view page-height-container></div>-->
+                <!--<div class="clearfix"></div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="clearfix"></div>-->
+    <!--<div class="container-fluid color-wrap">-->
+        <!--<div class="row apps" id="apps">-->
+            <!--&lt;!&ndash;<div class="title text-center">{{ 'APP.CONTENT.APPS.TITLE' | translate }}</div>&ndash;&gt;-->
+            <!--<div class="description desc-margin">-->
+                <!--<div class="cont-apps">-->
+                    <!--&lt;!&ndash;<div class="images text-center col-md-5 hidden-sm hidden-xs"><img src="./assets/images/mobils.png"></div>&ndash;&gt;-->
+                    <!--<div class="col-md-5 ">-->
+                        <!--<div class="pull-right mobile">-->
+                            <!--<h1>{{ 'MOBILE.BE_MOBILE' | translate }}</h1>-->
+                            <!--<p>{{ 'MOBILE.DOWNLOAD' | translate }}</p>-->
+                            <!--&lt;!&ndash;<img src="./assets/images/qr_2016.png" width="200px" class="img-responsive pull-left">&ndash;&gt;-->
+                            <!--<div class="margin-top-big">-->
+                                <!--&lt;!&ndash;<a href="https://itunes.apple.com/us/app/send.ua/id995162040?mt=8"><img src="./assets/images/app_store_badge.svg" ></a>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<a href="https://play.google.com/store/apps/details?id=com.sendua"  class="google-play"><img src="./assets/images/google_play_badge.png" ></a>&ndash;&gt;-->
+                                <!--<a href="#"><img src="./assets/images/app_store_badge.svg" ></a>-->
+                                <!--<a href="#"  class="google-play"><img src="./assets/images/google_play_badge.png" ></a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="clearfix"></div>-->
+                <!--</div>-->
+
+
+                <!--&lt;!&ndash;<div class="button-down" scroll-to="services"></div>&ndash;&gt;-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row services" id="services">-->
+            <!--&lt;!&ndash;<div class="title text-center">{{ 'APP.CONTENT.SERVICE.TITLE' | translate }}</div>&ndash;&gt;-->
+            <!--<div class="description desc-margin">-->
+                <!--<div class="cont-services">-->
+                    <!--<div class="col-md-5 " translate="APP.CONTENT.SERVICE.TEXT"></div>-->
+                    <!--<div class="images text-center col-md-5  hidden-sm hidden-xs">-->
+                        <!--&lt;!&ndash;<img src="./assets/images/sendUaService.png">&ndash;&gt;-->
+                    <!--</div>-->
+                    <!--<div class="clearfix"></div>-->
+                <!--</div>-->
+
+                <!--&lt;!&ndash;<div class="button-down" scroll-to="tarif"></div>&ndash;&gt;-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="clearfix"></div>-->
+        <!--<div class="row tariffs" id="tarif">-->
+            <!--<div class="main-left"></div>-->
+            <!--<div class="main-right">-->
+                <!--&lt;!&ndash;<div class="title text-center">{{ 'APP.CONTENT.TARIFFS.TITLE' | translate }}</div>&ndash;&gt;-->
+                <!--<div class="description">-->
+
+                    <!--<div class="tariff-cont" translate="APP.CONTENT.TARIFFS.TEXT1"></div>-->
+                    <!--<div class="tariff-cont" translate="APP.CONTENT.TARIFFS.TEXT2"></div>-->
+                    <!--<div class="tariff-cont" translate="APP.CONTENT.TARIFFS.TEXT3"></div>-->
+
+                    <!--&lt;!&ndash;<div class="text-center col-md-5 col-md-offset-1 hidden-sm hidden-xs"><img src="./assets/images/percent.png" width="250px" class="images percent"></div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="clearfix"></div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="button-down" scroll-to="qaa"></div>&ndash;&gt;-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row questions" id="qaa">-->
+            <!--<div class="main-left"></div>-->
+            <!--<div class="main-right">-->
+                <!--&lt;!&ndash;<div class="title text-center">{{ 'APP.CONTENT.FAQ.TITLE' | translate }}</div>&ndash;&gt;-->
+                <!--<div class="wrap description">-->
+                    <!--<uib-accordion close-others="true">-->
+                        <!--<uib-accordion-group is-open="true">-->
+                            <!--<uib-accordion-heading>-->
+                                <!--<a class="wrap-link" ng-class="{'active-link': $parent.isOpen}">{{ 'APP.CONTENT.FAQ.QUESTION_1.TITLE' | translate }}</a>-->
+                                <!--<div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>-->
+                                <!--<div class="clearfix"></div>-->
+                            <!--</uib-accordion-heading>-->
+                            <!--<div translate="APP.CONTENT.FAQ.QUESTION_1.TEXT"></div>-->
+                        <!--</uib-accordion-group>-->
+                        <!--<uib-accordion-group>-->
+                            <!--<uib-accordion-heading>-->
+                                <!--<a class="wrap-link" ng-class="{'active-link': $parent.isOpen}">{{ 'APP.CONTENT.FAQ.QUESTION_2.TITLE' | translate }}</a>-->
+                                <!--<div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>-->
+                                <!--<div class="clearfix"></div>-->
+                            <!--</uib-accordion-heading>-->
+                            <!--<div translate="APP.CONTENT.FAQ.QUESTION_2.TEXT"></div>-->
+                        <!--</uib-accordion-group>-->
+                        <!--<uib-accordion-group>-->
+                            <!--<uib-accordion-heading>-->
+                                <!--<a class="wrap-link" ng-class="{'active-link': $parent.isOpen}">{{ 'APP.CONTENT.FAQ.QUESTION_3.TITLE' | translate }}</a>-->
+                                <!--<div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>-->
+                                <!--<div class="clearfix"></div>-->
+                            <!--</uib-accordion-heading>-->
+                            <!--<div translate="APP.CONTENT.FAQ.QUESTION_3.TEXT"></div>-->
+                        <!--</uib-accordion-group>-->
+                        <!--<uib-accordion-group>-->
+                            <!--<uib-accordion-heading>-->
+                                <!--<a class="wrap-link" ng-class="{'active-link': $parent.isOpen}">{{ 'APP.CONTENT.FAQ.QUESTION_4.TITLE' | translate }}</a>-->
+                                <!--<div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>-->
+                                <!--<div class="clearfix"></div>-->
+                            <!--</uib-accordion-heading>-->
+                            <!--<div translate="APP.CONTENT.FAQ.QUESTION_4.TEXT"></div>-->
+                        <!--</uib-accordion-group>-->
+                        <!--<uib-accordion-group>-->
+                            <!--<uib-accordion-heading>-->
+
+                                <!--<a class="wrap-link" ng-class="{'active-link': $parent.isOpen}">{{ 'APP.CONTENT.FAQ.QUESTION_5.TITLE' | translate }}</a>-->
+                                <!--<div class="icon-ask" ng-class="{'active': $parent.isOpen}"></div>-->
+                                <!--<div class="clearfix"></div>-->
+                            <!--</uib-accordion-heading>-->
+                            <!--<div translate="APP.CONTENT.FAQ.QUESTION_5.TEXT"></div>-->
+                        <!--</uib-accordion-group>-->
+                    <!--</uib-accordion>-->
+                <!--</div>-->
+                <!--<div class="clearfix"></div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;<div class="button-down" scroll-to="contacts"></div>&ndash;&gt;-->
+        <!--</div>-->
+        <!--<div class="row pci-dss" id="pci-dss">-->
+            <!--&lt;!&ndash;<div class="title text-center">{{ 'APP.CONTENT.PCI_DSS.TITLE' | translate }}</div>&ndash;&gt;-->
+            <!--<div class="description">-->
+                <!--<div class="desc-margin">-->
+                    <!--<div class="pci-dss-img"><img src="./assets/images/image_2_1.svg" alt="SendUa"></div>-->
+                    <!--&lt;!&ndash;<div class="pci-dss-img"><img src="" alt="Logo"></div>&ndash;&gt;-->
+                    <!--<div class="pci-dss-text-all">-->
+                        <!--<h1>{{ 'APP.CONTENT.PCI_DSS.TITLE' | translate }}</h1>-->
+                        <!--<div class="pci-dss-text" translate="APP.CONTENT.PCI_DSS.TEXT"></div>-->
+                        <!--&lt;!&ndash;<div class="pci-dss-logo"><img src="./assets/images/send_ua_logo.svg"></div>&ndash;&gt;-->
+                    <!--</div>-->
+
+                    <!--<div class="pci-dss-img pci-dss-img-right"><img src="./assets/images/image_2_2.svg"></div>-->
+                    <!--<div class="clearfix"></div>-->
+                    <!--&lt;!&ndash;<div class="button-down" scroll-to="contacts"></div>&ndash;&gt;-->
+
+                <!--</div>-->
+
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<footer class="container-fluid">-->
+        <!--<div class="footer-wrap">-->
+            <!--<div class="banners">-->
+                <!--<a href="http://www.visa.com.ua/ua/uk-ua/personal/security/onlineshopping.shtml" target="_blank">-->
+                    <!--<img class="visa-verified" src="./assets/images/vbyvisa_blu.png">-->
+                <!--</a>-->
+                <!--<img class="visa-direct" src="./assets/images/visa-direct.svg">-->
+                <!--<a href="assets/iframes/pci_cert_send.pdf" target="_blank">-->
+                    <!--<img class="pci" src="./assets/images/credibility_pci-logo.png">-->
+                <!--</a>-->
+                <!--<img class="money-send" src="./assets/images/MoneySend.png">-->
+                <!--<a href="http://www.mastercard.com/ua/consumer/secure-code.html" target="_blank">-->
+                    <!--<img class="secure-code" src="./assets/images/SecureCode.svg">-->
+                <!--</a>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="nav nav-justified footer-mobile">-->
+            <!--<div class="social">-->
+                <!--<div class="title">{{ 'APP.CONTACTS.SOCIAL' | translate }}</div>-->
+                <!--&lt;!&ndash;<img class="facebook-pic" src="./assets/images/facebook_logo.svg" alt="Facebook">&ndash;&gt;-->
+                <!--&lt;!&ndash;<img class="twitter-pic" src="./assets/images/twitter_logo.svg" alt="Twitter">&ndash;&gt;-->
+                <!--<div class="icon">-->
+                    <!--<a href="tel:380441111111"><i class="fa fa-phone" aria-hidden="true"></i></a>-->
+                    <!--&lt;!&ndash;<a href="mailto:support@send.ua" ><i class="fa fa-envelope" aria-hidden="true"></i></a>&ndash;&gt;-->
+                    <!--<a href="mailto:support@mail.ua" ><i class="fa fa-envelope" aria-hidden="true"></i></a>-->
+                    <!--<a><i class="fa fa-twitter" aria-hidden="true"></i></a>-->
+                    <!--<a><i class="fa fa-facebook" aria-hidden="true"></i></a>-->
+                <!--</div>-->
+
+            <!--</div>-->
+        <!--</div>-->
+    <!--</footer>-->
+    <!--<div scroll-top></div>-->
+<!--</div>-->

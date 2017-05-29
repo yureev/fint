@@ -174,7 +174,6 @@ angular.module('app', [
 
         angular.element($window).bind('scroll', function() {
             var transersVar = angular.element('#main')[0].getBoundingClientRect();
-            var appsVar = angular.element('#apps')[0].getBoundingClientRect();
             var servicesVar = angular.element('#services')[0].getBoundingClientRect();
             var tarifVar = angular.element('#tarif')[0].getBoundingClientRect();
             var qaaVar = angular.element('#qaa')[0].getBoundingClientRect();
@@ -182,50 +181,41 @@ angular.module('app', [
             if (transersVar.top <= 200) {
                 angular.element('#transfersmenu').addClass("activemenu");
                 angular.element('#transfersline').addClass("activeline");
-                if (appsVar.top <= 200) {
-                    angular.element('#appsmenu').addClass("activemenu");
+                if (servicesVar.top <= 200) {
+                    angular.element('#servicesmenu').addClass("activemenu");
                     angular.element('#transfersmenu').removeClass("activemenu");
-                    angular.element('#appsline').addClass("activeline");
+                    angular.element('#servicesline').addClass("activeline");
                     angular.element('#transfersline').removeClass("activeline");
-                    if (servicesVar.top <= 200) {
-                        angular.element('#servicesmenu').addClass("activemenu");
-                        angular.element('#appsmenu').removeClass("activemenu");
-                        angular.element('#servicesline').addClass("activeline");
-                        angular.element('#appsline').removeClass("activeline");
-                        if (tarifVar.top <= 200) {
-                            angular.element('#tarifmenu').addClass("activemenu");
-                            angular.element('#servicesmenu').removeClass("activemenu");
-                            angular.element('#tarifline').addClass("activeline");
-                            angular.element('#servicesline').removeClass("activeline");
-                            if (qaaVar.top <= 200) {
-                                angular.element('#qaamenu').addClass("activemenu");
-                                angular.element('#tarifmenu').removeClass("activemenu");
-                                angular.element('#qaaline').addClass("activeline");
-                                angular.element('#tarifline').removeClass("activeline");
-                                if (pcidssVar.top <= 200) {
-                                    angular.element('#pcidssmenu').addClass("activemenu");
-                                    angular.element('#qaamenu').removeClass("activemenu");
-                                    angular.element('#pcidssline').addClass("activeline");
-                                    angular.element('#qaaline').removeClass("activeline");
-                                } else{
-                                    angular.element('#pcidssmenu').removeClass("activemenu");
-                                    angular.element('#pcidssline').removeClass("activeline");
-                                }
-                            } else{
+                    if (tarifVar.top <= 200) {
+                        angular.element('#tarifmenu').addClass("activemenu");
+                        angular.element('#servicesmenu').removeClass("activemenu");
+                        angular.element('#tarifline').addClass("activeline");
+                        angular.element('#servicesline').removeClass("activeline");
+                        if (qaaVar.top <= 200) {
+                            angular.element('#qaamenu').addClass("activemenu");
+                            angular.element('#tarifmenu').removeClass("activemenu");
+                            angular.element('#qaaline').addClass("activeline");
+                            angular.element('#tarifline').removeClass("activeline");
+                            if (pcidssVar.top <= 200) {
+                                angular.element('#pcidssmenu').addClass("activemenu");
                                 angular.element('#qaamenu').removeClass("activemenu");
+                                angular.element('#pcidssline').addClass("activeline");
                                 angular.element('#qaaline').removeClass("activeline");
+                            } else{
+                                angular.element('#pcidssmenu').removeClass("activemenu");
+                                angular.element('#pcidssline').removeClass("activeline");
                             }
                         } else{
-                            angular.element('#tarifmenu').removeClass("activemenu");
-                            angular.element('#tarifline').removeClass("activeline");
+                            angular.element('#qaamenu').removeClass("activemenu");
+                            angular.element('#qaaline').removeClass("activeline");
                         }
                     } else{
-                        angular.element('#servicesmenu').removeClass("activemenu");
-                        angular.element('#servicesline').removeClass("activeline");
+                        angular.element('#tarifmenu').removeClass("activemenu");
+                        angular.element('#tarifline').removeClass("activeline");
                     }
                 } else{
-                    angular.element('#appsmenu').removeClass("activemenu");
-                    angular.element('#appsline').removeClass("activeline");
+                    angular.element('#servicesmenu').removeClass("activemenu");
+                    angular.element('#servicesline').removeClass("activeline");
                 }
             } else{
                 angular.element('#transfersmenu').removeClass("activemenu");

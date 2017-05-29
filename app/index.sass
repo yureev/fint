@@ -16,844 +16,966 @@ $fa-font-path: "~font-awesome/fonts"
 
 // Misc
 
-//html
-//  font-size: 16px
+html
+  width: 100%
+  height: 100%
+
 
 body
-  font-size: 1em
-  font-family: 'Roboto', 'Arial', sans-serif
+  width: 100%
+  height: 100%
 
 a
+  text-decoration: none !important
+  color: #7e7e7c
   cursor: pointer
-
-input:invalid
-  box-shadow: none
-
-.active
-  color: #F79600
-  display: inherit
+  &:hover
+    color: #7e7e7c
 
 .app
-  width: 100%
+  min-height: 100%
+  background: url("./assets/images/background.png") center 100% no-repeat
+  position: relative
 
-  .top
-    //min-width: 220px
-    //max-width: 320px
-    margin: 0
-    padding: 0
-    float: left
+  .menu
+    width: 20%
     position: fixed
     height: 100%
-    z-index: 2
-    //display: none
+    padding: 15px
 
+    .nav__main__cont__item
+      margin-bottom: 10px
 
+      .nav__main__cont__item_link
+        font-size: 18px
+        text-decoration: none
+        &.active
+          color: #f3d36d
 
-    .navigation
+      .nav__main__cont__inside
+        padding-left: 10px
+        .nav__main__cont__inside_link
+          display: block
+          text-decoration: none
+          &.active
+            color: #f3d36d
+
+    .nav__main__cont_line-up
+      border-top: 1px solid #7e7e7c
+      width: 100%
+      margin-bottom: 10px
+
+    .nav__second__item
       margin-bottom: 20px
-      //width: 100%
 
-      .navbar-brand
-        padding: 0
-        height: auto
-        //padding-left: 20px
-
-        .logo-text, .logo-img
-          display: inline-block
-
-        .logo-text
-          img
-            width: 200%
-
-        .logo-img
-          img
-            width: 100%
-
-
-      .buttons
-        text-align: left
-        padding: 0
-
-        button
-          //height: 45px
-          width: 100%
-          font-size: 1em
-          background-color: #395e88
-          text-transform: uppercase
-          border-color: #395e88
-
-      .social, .support
-
-        //.facebook-pic, .twitter-pic
-        //  width: 40px
-        //  height: 30px
-
-        i
-          color: #d8d8d8
-          font-size: 2em
-
-        i:first-child
-          margin-right: 20px
-
-        .title
-          color: #ffffff
-          font-size: 0.8rem
-          margin-bottom: 10px
-
-
-      .line-up
-        border-top: 1px solid #9b9b9b
-        width: 100%
-        margin-bottom: 10px
-
-      .line-up-short
-        border-top: 3px solid #3e6997
+      .nav__second__item_line-up-short
+        border-top: 3px solid #7e7e7c
         width: 15%
         margin-bottom: 10px
         display: none
-
-      .activeline
-        display: inherit
-
-
-    .navigation-toggle
-      margin-top: 15px
-
-    .navbar-default
-      //background-color: rgba(0, 40, 84, 0.8)
-      background-color: rgba(255, 255, 255, 0)
-      border: 0
-      border-radius: 0
-      height: 100%
-
-
-
-    .navbar
-      margin-bottom: 0
-
-      .collapse
-        margin: 0
-        padding: 10px
-
-    .navigation
-      margin-top: 18px
-
-
-    .activeTarifQaa
-      .nav-justified
-        a
-          //color: #f5a623
-
-
-    .nav-justified
-      margin-bottom: 20px
-      padding-left: 25px
-      a
-        text-align: left
-        color: #ffffff
-        text-decoration: none
-        font-size: 0.75rem
-
-      .nav-inside
-        margin: 10px
-        display: none
-
-        div
-          margin-bottom: 10px
-
-        div:last-child
-          margin-bottom: 0
-
-        .active
-          color: #ff9800
-
-      .active
-        color: #1a3654
-        display: inherit
-
-      .activemenu
-        font-size: 1.2em
-
-      .translate
-        .active
-          color: #1a3654
-        a
-          font-size: 0.8rem
-
-    .translate
-      float: left
-      display: inline-block
-      //margin-top: 40px
-      //margin-left: 15px
-
-      .item
-        width: 30px
-
-      .authorization
-        .item
-          margin-right: 20px
-
-          input
-            border-color: #BCD0E4
-            box-shadow: 0 0 3px 0 rgba(19, 65, 103, 0.5)
-
-        button
-          text-transform: uppercase
-
-    .nav-transfers
-      margin-top: 240px
-
-    .nav-apps
-      //margin-top: 260px
-
-    .nav-apps-begin
-      margin-top: 0
-
-    .nav-translate
-      //margin-top: -50px
-
-    .nav-translate-begin
-      //margin-top: 105px
-
-  .mobile
-    //padding-right: 25px
-    //white-space: nowrap
-
-    .google-play
-      img
-        width: 152px
-        margin-left: -9px
-
-    //.app-store
-    //  width: 56px
-
-
-
-  .color-wrap
-    background-color: #FBFBFB
-    border-bottom: 1px solid $border-color-entry
-    padding: 0
-    color: #ffffff
-
-    .row
-      margin: 0
-
-    .navbar-default
-      //background-color: rgba(255, 255, 255, 0)
-      border: 0
-      border-radius: 0
-      height: 100%
-
-      .buttons
-
-        button
-          background-color: #395e88
-
-      .nav-justified
-
-        a
-          color: #ffffff
-          mix-blend-mode: screen
-
-
-
-    .button-down
-      text-align: center
-      background: url('assets/images/Sprite_sendua.png') -148px -45px no-repeat
-      margin: 12px auto
-      width: 44px
-      height: 16px
-
-    .pci-dss, .services, .tariffs, .questions, .apps
-      .title
-        color: $main_color_active
-        background-color: #f8f8f8
-        font-size: 1.5em
-        padding: 15px 0
-        width: 100%
-        border-top: 1px solid $border-color-entry
-        border-bottom: 1px solid $border-color-entry
-        margin-bottom: 20px
-
-
-      .description
-        //max-width: 1024px
-        margin-top: 60px
-
-
-      .images
-        margin-top: 10px
-
-        &.percent
-          padding-top: 130px
-
-    .apps
-      min-height: 685px
-      background: url('assets/images/image_1_1.svg') center  0 no-repeat #f39c12
-      h1
-        font-size: 2.25rem
-        font-weight: 300
-      p
-        font-size: 0.85rem
-
-    .services
-      min-height: 760px
-      background: url('assets/images/image_1_mirror.svg') center 0 no-repeat #2980b9
-      h1
-        font-size: 2.25rem
-        font-weight: 300
-      p
-        font-size: 0.85rem
-
-    .tariffs
-      h3
-        //color: $main_color_inactive
-        font-size: 1.1rem
-        font-weight: 300
-
-      .description
-        margin: 0
-        margin-top: 30px
-        margin-left: 2%
-        font-size: 0.8em
-
-        .tariff-cont
-          padding: 30px
-
-          color: #000000
-          //font-size: 13px
-          //background-color: #ffffff
-          //box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.25)
-
-    .questions
-      background-color: #efefef
-      //padding-top: 60px
-      min-height: 800px
-      //width: 100%
-
-      .description
-        max-width: none
-        //margin: 0
-        margin-top: 60px
-        margin-left: 3%
-        font-size: 0.8em
-        //width: 100%
-
-      .wrap
-        a
-          text-decoration: none
-          font-weight: 300
-
-          &.active-link
-            color: #3e6997
-
-        .icon-ask
-          width: 16px
-          height: 19px
-          background: url('assets/images/arrows.png') 0 5px no-repeat
-          float: left
-
-
-          &.active
-            background-position: -35px 5px
-
-        .wrap-link
-          color: #000000
+        &.activeline
+          display: inherit
+      .nav__second__item_link
+        &.activemenu
           font-size: 1.2em
-          float: left
+
+    .nav__lang__translate_link
+      &.active
+        color: #f3d36d
 
 
+    .nav__down
+      position: absolute
+      bottom: 45px
 
-
-        div
-          color: #000000
-          background-color: #efefef
-          border: none
-
-
-        .panel
-          border: none
-          box-shadow: none
-
-    .pci-dss
-      background-color: #2980b9
-      min-height: 800px
-      .description
-        max-width: none
-        margin-top: 7%
-        padding-right: 5%
-
-
-
-        h1
-          font-size: 2.25rem
-          font-weight: 300
-
-
-        .pci-dss-text
-          color: #ffffff
-          //margin-left: 25%
-          width: 75%
-
-
-
-
-        .pci-dss-logo
-          //margin-right: -20%
-          text-align: right
-
-          img
-            width: 20%
-
-
-
-  .button-up
-    position: fixed
-    bottom: 10%
-    right: 10%
-
-    .button
-      text-align: center
-      background: url('assets/images/Sprite_sendua.png') -148px -45px no-repeat
-      transform: rotate(180deg)
-      float: right
-      margin: 7px auto
-      width: 44px
-      height: 16px
-
-  footer
-    //max-width: 1024px
-    margin: 0 auto
-    background-color: #ededed
-
-
-
-    .contacts
-      border-bottom: 1px solid #4c4c4c
-      padding-bottom: 30px
-      padding-top: 15px
-
-      .social
+      .nav__lang
         margin-bottom: 20px
 
-        .facebook-pic, .twitter-pic
-          width: 40px
-          height: 30px
-
-      .title
-        color: #2f6fad
-        font-size: 1.2em
-        margin-bottom: 20px
-
-    .support
-
-      a
-        padding: 0 10px
-
-    .banners
-      text-align: center
-
-      img
-        margin-bottom: 20px
-
-      .visa-direct
-        height: 46px
-        margin: 20px 40px
-
-      .pci
-        width: 120px
-        margin-right: 35px
-        margin-top: 10px
-
-      .money-send
-        margin-right: 20px
-
-      .secure-code
-        width: 90px
-        margin-left: 20px
-
-  .main-left
-    height: 820px
-    //background-color: rgba(0, 40, 84, 0.8)
-    background-color: #2980b9
-    float: left
-
-
-
-
-  .questions
-    .main-left
-      //background-color: rgba(0, 40, 84, 0.8)
-      background-image: linear-gradient(339deg, #f79601, #ffb23a 100%)
-
+      .nav__social
+        color: #7e7e7c
+        .nav__social_link
+          margin-right: 10px
 
 
   .main
-    background-color: #fff
-    //width: 83%
-    a
-      text-decoration: none
-
-
-    .sidebar
-      text-align: center
-      border-top: 1px solid #124068
-
-      .item
-        color: #124068
-        text-transform: uppercase
-        height: 60px
-
-        a
-          display: block
-          padding: 20px 0
-
-        &.active
-          background-color: #fff
-          @include box-shadow-entry
-          a
-            color: #F79600
-            text-decoration: none
-
-    .menu
-      border-bottom: 1px solid #9b9b9b
-
-      .item
-        //text-align: center
-        color: #777777
-        text-transform: uppercase
-        padding-left: 5px
-        a
-          display: inline-block
-          padding: 20px 0
-          color: #777777
-
-        &.active
-          background-color: #fff
-          //border-bottom: 2px solid #F79600
-
-          a
-            color: #f79601
-            border-bottom: 2px solid #f79601
-
-    .content
-      display: block
-      width: 100%
-      background-color: #fff
-
-
-.text-bold-big
-  font-size: 1.2rem
-  font-weight: 600
-
-.text-bold-normal
-  font-size: 0.9rem
-  font-weight: 600
-
-.text-bold-small
-  font-size: 0.8rem
-  font-weight: 600
-
-.text-light-big
-  font-size: 1.2rem
-  font-weight: 400
-  color: #4c4c4c
-
-.text-light-normal
-  font-size: 0.9rem
-  font-weight: 300
-  color: #4c4c4c
-
-.text-light-small
-  font-size: 0.8rem
-  font-weight: 400
-  color: #4c4c4c
-
-
-
-.margin-normal
-  margin-bottom: 20px
-
-.margin-small
-  margin-bottom: 10px
-
-.page-height
-  background-color: #ffffff
-  margin-left: -15px
-  margin-right: -15px
-
-//.rocketchat-widget
-//  right: 100px !important
-
-.margin-top-normal
-  margin-top: 20px
-
-.margin-top-big
-  margin-top: 30px
-
-.btn[disabled]
-  background-color: #d7dde4
-  border: solid 1px #d7dde4
-
-.pci-dss-img-right
-  margin-left: 25px
-
-.cont-services, .cont-apps
-  margin: 0 35px
-.cont-apps
-  .images
-    width: 400px
-
-@media(max-width: 767px)
-
-  html
-    font-size: 12px
-
-    .top
-      display: none
-
-    .footer-mobile
-      width: 100%
-      margin-bottom: 35px
-      text-align: center
-
-      .icon
-        margin: 0 10px
-      i
-        font-size: 2rem
-        margin-right: 10px
-        padding-left: 10px
-
-    .main
-      padding-top: 63px
-
-    .menu-mobile
-      position: fixed
-      background-color: #2980b9
-      z-index: 2
-      width: 100%
-
-      .menu-mobile-input
-        width: 300px
-        margin: 0 auto
-        padding: 10px 10px 10px 30px
-
-        .cont-mobile
-          float: left
-
-          .logo-size
-            float: left
-            margin-right: 10px
-
-          .logo-img
-            img
-              width: 50px
-
-          .logo-text
-            margin-top: 10px
-            img
-              width: 100px
-
-          .logo-menu
-            margin-top: 15px
-
-            .line-menu
-              border-top: 3px solid #5fa6cb
-              margin-bottom: 4px
-              width: 30px
-
-        .cont-mobile-right
-          //width: 39%
-
-          .translate
-            text-align: right
-            width: 115%
-            margin-top: 20px
-
-            a
-              color: #ffffff
-            .active
-              color: #1a3654
-
-    .menu-mobile-navbar
-      min-height: 0
-      margin-bottom: 0
-      .navbar-collapse
-        box-shadow: none
-
-
-
-    .mobile-menu-active
-      width: 300px
-      margin: 0 auto
-      text-align: left
-      padding-left: 30px
-      opacity: 1
-
-      .nav-justified
-        margin-bottom: 5px
-
-        a
-          text-decoration: none
-          color: #cfcfcf
-
-
-    .navigation
-      width: 50%
-      .buttons
-        button
-          height: 35px
-
-      .logo-size
-        width: 32%
-
-    .pci-dss-text-all
-      margin-left: 10px
-
-    .pci-dss
-      .description
-        padding-left: 5px
-
-      .pci-dss-img
-        padding-left: 10px
-
-
-    .main-left
-      display: none
-
-    .main-right
-      width: 300px
-      margin: 0 auto
-      float: none
-
-    .desc-margin
-      padding-left: 5px
-
-
-
-
-  .rocketchat-widget
-    right: 0px !important
-    width: 200px !important
-    margin-left: 10%
-
-
-@media(min-width: 768px)
-
-  html
-    font-size: 12px
-
-    .top
-      width: 200px
-      //.nav-justified
-      //  a
-      //    font-size: 10px
-
-    .footer-mobile
-      display: none
-
-    .main
-      padding-top: 0
-
-    .menu-mobile
-      display: none
-
-    .navigation
-      width: 100%
-      .buttons
-        button
-          //height: 25px
-
-      .logo-size
-        width: 32%
-
-    .pci-dss-text-all
-      margin-left: 32px
-
-    .pci-dss
-      .pci-dss-img
-        padding-left: 145px
-
-
-    .main-left
-      width: 200px
-
-    .main-right
-      width: 553px
-      float: left
-
-    .desc-margin
-      padding-left: 200px
-
-
-  .rocketchat-widget
-    right: 100px !important
-
-
-@media(min-width: 1024px)
-
-  html
-    font-size: 14px
-
-    .top
-      width: 240px
-      //.nav-justified
-      //  a
-      //    font-size: 12px
-
-    .navigation
-      //width: 73%
-
-      .logo-size
-        width: 42%
-
-
-      .buttons
-        button
-          //height: 35px
-
-    .main-left
-      width: 240px
-
-    .main-right
-      width: 760px
-
-    .desc-margin
-      padding-left: 180px
-
-    .pci-dss-text-all
-      margin-left: 100px
-
-    .pci-dss
-      .pci-dss-img
-        padding-left: 235px
-
-@media(min-width: 1280px)
-
-  html
-    font-size: 16px
-
-    .top
-      width: 320px
-
-    .navigation
-      //width: 100%
-      .buttons
-        button
-          height: 45px
-
-    .main-left
-      width: 320px
-
-    .main-right
-      width: 945px
-
-    .desc-margin
-      padding-left: 320px
-
-    .pci-dss-text-all
-      margin-left: 45px
-
-    .pci-dss
-      .pci-dss-img
-        padding-left: 200px
+    margin-left: 20%
+
+.container-second
+  margin-left: 20%
+  .container-second__services, .container-second__tariffs, .container-second__questions, .container-second__pci-dss
+    min-height: 400px
+    margin-bottom: 30px
+    padding: 30px
+
+.footer
+  height: 95px
+  margin-left: 20%
+  .footer__logo
+    text-align: center
+    .footer__logo_link
+      display: inline-block
+      text-align: justify
+      vertical-align: middle
+      height: 46px
+
+      &:after
+        content: ''
+        display: inline-block
+        height: 0
+        width: 100%
+
+      .footer__logo_img
+        height: 100%
+
+
+
+
+
+
+
+
+
+
+//-----------------SEND-------------------------
+
+//html
+//  font-size: 16px
+
+//body
+//  font-size: 1em
+//  font-family: 'Roboto', 'Arial', sans-serif
+//
+//a
+//  cursor: pointer
+//
+//input:invalid
+//  box-shadow: none
+//
+//.active
+//  color: #F79600
+//  display: inherit
+//
+//.app
+//  width: 100%
+//
+//  .top
+//    //min-width: 220px
+//    //max-width: 320px
+//    margin: 0
+//    padding: 0
+//    float: left
+//    position: fixed
+//    height: 100%
+//    z-index: 2
+//    //display: none
+//
+//
+//
+//    .navigation
+//      margin-bottom: 20px
+//      //width: 100%
+//
+//      .navbar-brand
+//        padding: 0
+//        height: auto
+//        //padding-left: 20px
+//
+//        .logo-text, .logo-img
+//          display: inline-block
+//
+//        .logo-text
+//          img
+//            width: 200%
+//
+//        .logo-img
+//          img
+//            width: 100%
+//
+//
+//      .buttons
+//        text-align: left
+//        padding: 0
+//
+//        button
+//          //height: 45px
+//          width: 100%
+//          font-size: 1em
+//          background-color: #395e88
+//          text-transform: uppercase
+//          border-color: #395e88
+//
+//      .social, .support
+//
+//        //.facebook-pic, .twitter-pic
+//        //  width: 40px
+//        //  height: 30px
+//
+//        i
+//          color: #d8d8d8
+//          font-size: 2em
+//
+//        i:first-child
+//          margin-right: 20px
+//
+//        .title
+//          color: #ffffff
+//          font-size: 0.8rem
+//          margin-bottom: 10px
+//
+//
+//      .line-up
+//        border-top: 1px solid #9b9b9b
+//        width: 100%
+//        margin-bottom: 10px
+//
+//      .line-up-short
+//        border-top: 3px solid #3e6997
+//        width: 15%
+//        margin-bottom: 10px
+//        display: none
+//
+//      .activeline
+//        display: inherit
+//
+//
+//    .navigation-toggle
+//      margin-top: 15px
+//
+//    .navbar-default
+//      //background-color: rgba(0, 40, 84, 0.8)
+//      background-color: rgba(255, 255, 255, 0)
+//      border: 0
+//      border-radius: 0
+//      height: 100%
+//
+//
+//
+//    .navbar
+//      margin-bottom: 0
+//
+//      .collapse
+//        margin: 0
+//        padding: 10px
+//
+//    .navigation
+//      margin-top: 18px
+//
+//
+//    .activeTarifQaa
+//      .nav-justified
+//        a
+//          //color: #f5a623
+//
+//
+//    .nav-justified
+//      margin-bottom: 20px
+//      padding-left: 25px
+//      a
+//        text-align: left
+//        color: #ffffff
+//        text-decoration: none
+//        font-size: 0.75rem
+//
+//      .nav-inside
+//        margin: 10px
+//        display: none
+//
+//        div
+//          margin-bottom: 10px
+//
+//        div:last-child
+//          margin-bottom: 0
+//
+//        .active
+//          color: #ff9800
+//
+//      .active
+//        color: #1a3654
+//        display: inherit
+//
+//      .activemenu
+//        font-size: 1.2em
+//
+//      .translate
+//        .active
+//          color: #1a3654
+//        a
+//          font-size: 0.8rem
+//
+//    .translate
+//      float: left
+//      display: inline-block
+//      //margin-top: 40px
+//      //margin-left: 15px
+//
+//      .item
+//        width: 30px
+//
+//      .authorization
+//        .item
+//          margin-right: 20px
+//
+//          input
+//            border-color: #BCD0E4
+//            box-shadow: 0 0 3px 0 rgba(19, 65, 103, 0.5)
+//
+//        button
+//          text-transform: uppercase
+//
+//    .nav-transfers
+//      margin-top: 240px
+//
+//    .nav-apps
+//      //margin-top: 260px
+//
+//    .nav-apps-begin
+//      margin-top: 0
+//
+//    .nav-translate
+//      //margin-top: -50px
+//
+//    .nav-translate-begin
+//      //margin-top: 105px
+//
+//  .mobile
+//    //padding-right: 25px
+//    //white-space: nowrap
+//
+//    .google-play
+//      img
+//        width: 152px
+//        margin-left: -9px
+//
+//    //.app-store
+//    //  width: 56px
+//
+//
+//
+//  .color-wrap
+//    background-color: #FBFBFB
+//    border-bottom: 1px solid $border-color-entry
+//    padding: 0
+//    color: #ffffff
+//
+//    .row
+//      margin: 0
+//
+//    .navbar-default
+//      //background-color: rgba(255, 255, 255, 0)
+//      border: 0
+//      border-radius: 0
+//      height: 100%
+//
+//      .buttons
+//
+//        button
+//          background-color: #395e88
+//
+//      .nav-justified
+//
+//        a
+//          color: #ffffff
+//          mix-blend-mode: screen
+//
+//
+//
+//    .button-down
+//      text-align: center
+//      background: url('assets/images/Sprite_sendua.png') -148px -45px no-repeat
+//      margin: 12px auto
+//      width: 44px
+//      height: 16px
+//
+//    .pci-dss, .services, .tariffs, .questions, .apps
+//      .title
+//        color: $main_color_active
+//        background-color: #f8f8f8
+//        font-size: 1.5em
+//        padding: 15px 0
+//        width: 100%
+//        border-top: 1px solid $border-color-entry
+//        border-bottom: 1px solid $border-color-entry
+//        margin-bottom: 20px
+//
+//
+//      .description
+//        //max-width: 1024px
+//        margin-top: 60px
+//
+//
+//      .images
+//        margin-top: 10px
+//
+//        &.percent
+//          padding-top: 130px
+//
+//    .apps
+//      min-height: 685px
+//      background: url('assets/images/image_1_1.svg') center  0 no-repeat #f39c12
+//      h1
+//        font-size: 2.25rem
+//        font-weight: 300
+//      p
+//        font-size: 0.85rem
+//
+//    .services
+//      min-height: 760px
+//      background: url('assets/images/image_1_mirror.svg') center 0 no-repeat #2980b9
+//      h1
+//        font-size: 2.25rem
+//        font-weight: 300
+//      p
+//        font-size: 0.85rem
+//
+//    .tariffs
+//      h3
+//        //color: $main_color_inactive
+//        font-size: 1.1rem
+//        font-weight: 300
+//
+//      .description
+//        margin: 0
+//        margin-top: 30px
+//        margin-left: 2%
+//        font-size: 0.8em
+//
+//        .tariff-cont
+//          padding: 30px
+//
+//          color: #000000
+//          //font-size: 13px
+//          //background-color: #ffffff
+//          //box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.25)
+//
+//    .questions
+//      background-color: #efefef
+//      //padding-top: 60px
+//      min-height: 800px
+//      //width: 100%
+//
+//      .description
+//        max-width: none
+//        //margin: 0
+//        margin-top: 60px
+//        margin-left: 3%
+//        font-size: 0.8em
+//        //width: 100%
+//
+//      .wrap
+//        a
+//          text-decoration: none
+//          font-weight: 300
+//
+//          &.active-link
+//            color: #3e6997
+//
+//        .icon-ask
+//          width: 16px
+//          height: 19px
+//          background: url('assets/images/arrows.png') 0 5px no-repeat
+//          float: left
+//
+//
+//          &.active
+//            background-position: -35px 5px
+//
+//        .wrap-link
+//          color: #000000
+//          font-size: 1.2em
+//          float: left
+//
+//
+//
+//
+//        div
+//          color: #000000
+//          background-color: #efefef
+//          border: none
+//
+//
+//        .panel
+//          border: none
+//          box-shadow: none
+//
+//    .pci-dss
+//      background-color: #2980b9
+//      min-height: 800px
+//      .description
+//        max-width: none
+//        margin-top: 7%
+//        padding-right: 5%
+//
+//
+//
+//        h1
+//          font-size: 2.25rem
+//          font-weight: 300
+//
+//
+//        .pci-dss-text
+//          color: #ffffff
+//          //margin-left: 25%
+//          width: 75%
+//
+//
+//
+//
+//        .pci-dss-logo
+//          //margin-right: -20%
+//          text-align: right
+//
+//          img
+//            width: 20%
+//
+//
+//
+//  .button-up
+//    position: fixed
+//    bottom: 10%
+//    right: 10%
+//
+//    .button
+//      text-align: center
+//      background: url('assets/images/Sprite_sendua.png') -148px -45px no-repeat
+//      transform: rotate(180deg)
+//      float: right
+//      margin: 7px auto
+//      width: 44px
+//      height: 16px
+//
+//  footer
+//    //max-width: 1024px
+//    margin: 0 auto
+//    background-color: #ededed
+//
+//
+//
+//    .contacts
+//      border-bottom: 1px solid #4c4c4c
+//      padding-bottom: 30px
+//      padding-top: 15px
+//
+//      .social
+//        margin-bottom: 20px
+//
+//        .facebook-pic, .twitter-pic
+//          width: 40px
+//          height: 30px
+//
+//      .title
+//        color: #2f6fad
+//        font-size: 1.2em
+//        margin-bottom: 20px
+//
+//    .support
+//
+//      a
+//        padding: 0 10px
+//
+//    .banners
+//      text-align: center
+//
+//      img
+//        margin-bottom: 20px
+//
+//      .visa-direct
+//        height: 46px
+//        margin: 20px 40px
+//
+//      .pci
+//        width: 120px
+//        margin-right: 35px
+//        margin-top: 10px
+//
+//      .money-send
+//        margin-right: 20px
+//
+//      .secure-code
+//        width: 90px
+//        margin-left: 20px
+//
+//  .main-left
+//    height: 820px
+//    //background-color: rgba(0, 40, 84, 0.8)
+//    background-color: #2980b9
+//    float: left
+//
+//
+//
+//
+//  .questions
+//    .main-left
+//      //background-color: rgba(0, 40, 84, 0.8)
+//      background-image: linear-gradient(339deg, #f79601, #ffb23a 100%)
+//
+//
+//
+//  .main
+//    background-color: #fff
+//    //width: 83%
+//    a
+//      text-decoration: none
+//
+//
+//    .sidebar
+//      text-align: center
+//      border-top: 1px solid #124068
+//
+//      .item
+//        color: #124068
+//        text-transform: uppercase
+//        height: 60px
+//
+//        a
+//          display: block
+//          padding: 20px 0
+//
+//        &.active
+//          background-color: #fff
+//          @include box-shadow-entry
+//          a
+//            color: #F79600
+//            text-decoration: none
+//
+//    .menu
+//      border-bottom: 1px solid #9b9b9b
+//
+//      .item
+//        //text-align: center
+//        color: #777777
+//        text-transform: uppercase
+//        padding-left: 5px
+//        a
+//          display: inline-block
+//          padding: 20px 0
+//          color: #777777
+//
+//        &.active
+//          background-color: #fff
+//          //border-bottom: 2px solid #F79600
+//
+//          a
+//            color: #f79601
+//            border-bottom: 2px solid #f79601
+//
+//    .content
+//      display: block
+//      width: 100%
+//      background-color: #fff
+//
+//
+//.text-bold-big
+//  font-size: 1.2rem
+//  font-weight: 600
+//
+//.text-bold-normal
+//  font-size: 0.9rem
+//  font-weight: 600
+//
+//.text-bold-small
+//  font-size: 0.8rem
+//  font-weight: 600
+//
+//.text-light-big
+//  font-size: 1.2rem
+//  font-weight: 400
+//  color: #4c4c4c
+//
+//.text-light-normal
+//  font-size: 0.9rem
+//  font-weight: 300
+//  color: #4c4c4c
+//
+//.text-light-small
+//  font-size: 0.8rem
+//  font-weight: 400
+//  color: #4c4c4c
+//
+//
+//
+//.margin-normal
+//  margin-bottom: 20px
+//
+//.margin-small
+//  margin-bottom: 10px
+//
+//.page-height
+//  background-color: #ffffff
+//  margin-left: -15px
+//  margin-right: -15px
+//
+////.rocketchat-widget
+////  right: 100px !important
+//
+//.margin-top-normal
+//  margin-top: 20px
+//
+//.margin-top-big
+//  margin-top: 30px
+//
+//.btn[disabled]
+//  background-color: #d7dde4
+//  border: solid 1px #d7dde4
+//
+//.pci-dss-img-right
+//  margin-left: 25px
+//
+//.cont-services, .cont-apps
+//  margin: 0 35px
+//.cont-apps
+//  .images
+//    width: 400px
+//
+//@media(max-width: 767px)
+//
+//  html
+//    font-size: 12px
+//
+//    .top
+//      display: none
+//
+//    .footer-mobile
+//      width: 100%
+//      margin-bottom: 35px
+//      text-align: center
+//
+//      .icon
+//        margin: 0 10px
+//      i
+//        font-size: 2rem
+//        margin-right: 10px
+//        padding-left: 10px
+//
+//    .main
+//      padding-top: 63px
+//
+//    .menu-mobile
+//      position: fixed
+//      background-color: #2980b9
+//      z-index: 2
+//      width: 100%
+//
+//      .menu-mobile-input
+//        width: 300px
+//        margin: 0 auto
+//        padding: 10px 10px 10px 30px
+//
+//        .cont-mobile
+//          float: left
+//
+//          .logo-size
+//            float: left
+//            margin-right: 10px
+//
+//          .logo-img
+//            img
+//              width: 50px
+//
+//          .logo-text
+//            margin-top: 10px
+//            img
+//              width: 100px
+//
+//          .logo-menu
+//            margin-top: 15px
+//
+//            .line-menu
+//              border-top: 3px solid #5fa6cb
+//              margin-bottom: 4px
+//              width: 30px
+//
+//        .cont-mobile-right
+//          //width: 39%
+//
+//          .translate
+//            text-align: right
+//            width: 115%
+//            margin-top: 20px
+//
+//            a
+//              color: #ffffff
+//            .active
+//              color: #1a3654
+//
+//    .menu-mobile-navbar
+//      min-height: 0
+//      margin-bottom: 0
+//      .navbar-collapse
+//        box-shadow: none
+//
+//
+//
+//    .mobile-menu-active
+//      width: 300px
+//      margin: 0 auto
+//      text-align: left
+//      padding-left: 30px
+//      opacity: 1
+//
+//      .nav-justified
+//        margin-bottom: 5px
+//
+//        a
+//          text-decoration: none
+//          color: #cfcfcf
+//
+//
+//    .navigation
+//      width: 50%
+//      .buttons
+//        button
+//          height: 35px
+//
+//      .logo-size
+//        width: 32%
+//
+//    .pci-dss-text-all
+//      margin-left: 10px
+//
+//    .pci-dss
+//      .description
+//        padding-left: 5px
+//
+//      .pci-dss-img
+//        padding-left: 10px
+//
+//
+//    .main-left
+//      display: none
+//
+//    .main-right
+//      width: 300px
+//      margin: 0 auto
+//      float: none
+//
+//    .desc-margin
+//      padding-left: 5px
+//
+//
+//
+//
+//  .rocketchat-widget
+//    right: 0px !important
+//    width: 200px !important
+//    margin-left: 10%
+//
+//
+//@media(min-width: 768px)
+//
+//  html
+//    font-size: 12px
+//
+//    .top
+//      width: 200px
+//      //.nav-justified
+//      //  a
+//      //    font-size: 10px
+//
+//    .footer-mobile
+//      display: none
+//
+//    .main
+//      padding-top: 0
+//
+//    .menu-mobile
+//      display: none
+//
+//    .navigation
+//      width: 100%
+//      .buttons
+//        button
+//          //height: 25px
+//
+//      .logo-size
+//        width: 32%
+//
+//    .pci-dss-text-all
+//      margin-left: 32px
+//
+//    .pci-dss
+//      .pci-dss-img
+//        padding-left: 145px
+//
+//
+//    .main-left
+//      width: 200px
+//
+//    .main-right
+//      width: 553px
+//      float: left
+//
+//    .desc-margin
+//      padding-left: 200px
+//
+//
+//  .rocketchat-widget
+//    right: 100px !important
+//
+//
+//@media(min-width: 1024px)
+//
+//  html
+//    font-size: 14px
+//
+//    .top
+//      width: 240px
+//      //.nav-justified
+//      //  a
+//      //    font-size: 12px
+//
+//    .navigation
+//      //width: 73%
+//
+//      .logo-size
+//        width: 42%
+//
+//
+//      .buttons
+//        button
+//          //height: 35px
+//
+//    .main-left
+//      width: 240px
+//
+//    .main-right
+//      width: 760px
+//
+//    .desc-margin
+//      padding-left: 180px
+//
+//    .pci-dss-text-all
+//      margin-left: 100px
+//
+//    .pci-dss
+//      .pci-dss-img
+//        padding-left: 235px
+//
+//@media(min-width: 1280px)
+//
+//  html
+//    font-size: 16px
+//
+//    .top
+//      width: 320px
+//
+//    .navigation
+//      //width: 100%
+//      .buttons
+//        button
+//          height: 45px
+//
+//    .main-left
+//      width: 320px
+//
+//    .main-right
+//      width: 945px
+//
+//    .desc-margin
+//      padding-left: 320px
+//
+//    .pci-dss-text-all
+//      margin-left: 45px
+//
+//    .pci-dss
+//      .pci-dss-img
+//        padding-left: 200px
