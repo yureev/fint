@@ -1,3 +1,34 @@
+<main class="main__begin" ng-show="begin">
+
+    <div class="main__begin__logo">
+        <img src="./../../../assets/images/logo_fint.png" alt="Fint.online" class="main__begin__logo_img">
+        <div class="main__begin__logo_text">{{'APP.CONTROLS.TEXT' | translate}}</div>
+    </div>
+
+    <div class="main__begin__cont">
+        <form name="c2c2Form" ct-payments ng-submit="submit()" autocomplete="off"  ng-class="{'popup-height' : popup}">
+            <div class="row">
+                <div class="col-sm-4">
+                    <span class="main__begin_label">{{'APP.CONTROLS.BTN_SEND' | translate}}</span>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="cont-begin" ng-show="begin">
     <div class="col-sm-3">
         <!--<div  class="logo-img"><img  src="./../../../assets/images/logo_fint.png" alt="Fint.online"></div>-->
