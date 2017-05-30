@@ -2,8 +2,30 @@ build:
  stage: build
  script:
    - npm i --loglevel info && npm run build
-   - aws s3 --region eu-west-1 sync dist s3://fint/ --exclude *.svg --profile=fint
-   - aws s3 --region eu-west-1 sync dist s3://fint/ --exclude \'*\' --include \'*.svg\' --no-guess-mime-type --content-type image/svg+xml --profile=fint
-   - aws cloudfront create-invalidation --distribution-id ERLYLR7GOZQ32 --paths /index.html --profile=fint
+ tags:
+   - fint
  only:
    - master
+   - stage
+ allow_failure: false
+deploy stage:
+ stage: deploy
+ script:
+  - aws s3 --region eu-west-1 sync dist s3://stage-fint/ --exclude *.svg
+  - aws s3 --region eu-west-1 sync dist s3://stage-fint/ --exclude \'*\' --include \'*.svg\' --no-guess-mime-type --content-type image/svg+xml
+  - aws cloudfront create-invalidation --distribution-id E1B2T3R6Y7HGQW --paths /index.html
+ tags:
+  - fint
+ only:
+  - stage
+deploy master:
+ stage: deploy
+ script:
+   - aws s3 --region eu-west-1 sync dist s3://fint/ --exclude *.svg
+   - aws s3 --region eu-west-1 sync dist s3://fint/ --exclude \'*\' --include \'*.svg\' --no-guess-mime-type --content-type image/svg+xml
+   - aws cloudfront create-invalidation --distribution-id ERLYLR7GOZQ32 --paths /index.html
+ tags:
+   - fint
+ only:
+   - master
+ when: manual
