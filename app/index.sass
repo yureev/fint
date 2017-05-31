@@ -24,7 +24,7 @@ html
 body
   width: 100%
   height: 100%
-  min-width: 780px
+  min-width: 320px
   font-family: 'Roboto', 'Arial', sans-serif
 
 a
@@ -73,14 +73,13 @@ a
 .form-control
   border: 2px solid #c4c6c5
   text-align: center
-  color: #c4c6c5
+  //color: #c4c6c5
   font-weight: 600
 
 .menu__main
   border-bottom: 1px solid #9b9b9b
 
   .item
-    //text-align: center
     color: #777777
     text-transform: uppercase
     padding-left: 5px
@@ -90,9 +89,6 @@ a
       color: #777777
 
     &.active
-      //background-color: #fff
-      //border-bottom: 2px solid #F79600
-
       a
         color: #777777
         border-bottom: 2px solid #777777
@@ -107,6 +103,51 @@ a
   background: url("./assets/images/background.png") center no-repeat
   background-size: cover
   position: relative
+
+  .menu-mobile
+    width: 100%
+    text-align: center
+    position: fixed
+    background-color: #f2f0e4
+    z-index: 2
+    padding: 0
+
+    .menu-mobile__header
+      height: 40px
+      width: 85%
+      min-width: 240px
+      max-width: 400px
+      margin: 5px auto
+      position: relative
+
+
+      .menu-mobile__header__cont_line
+        position: absolute
+        bottom: 10px
+        left: 0
+        .menu-mobile__header__item__cont_line
+          border-top: 3px solid #7e7e7c
+          margin-bottom: 4px
+          width: 30px
+      .menu-mobile__header__cont_logo
+        position: absolute
+        top: 0
+        left: 40px
+        .menu-mobile__header__item__cont__logo-img
+          width: 65px
+      .menu-mobile__header__cont_lang
+        position: absolute
+        bottom: 0
+        right: 5px
+        .menu-mobile__header__item__lang__translate_link
+          &.active
+            color: #f3d36d
+    .menu-mobile__nav
+      text-align: left
+      width: 85%
+      margin: 0 auto
+      .menu-mobile__nav__item
+        margin-bottom: 10px
 
   .menu
     width: 20%
@@ -155,8 +196,9 @@ a
         &.activeline
           display: inherit
       .nav__second__item_link
+        font-size: 1.15em
         &.activemenu
-          font-size: 1.2em
+          font-size: 1.3em
 
     .nav__lang__translate_link
       &.active
@@ -176,11 +218,9 @@ a
           margin-right: 10px
 
   .container-main
-    margin-left: 20%
     min-height: 800px
 
   .container-second
-    margin-left: 20%
 
     p
      text-indent: 10px
@@ -188,7 +228,6 @@ a
       min-height: 800px
       margin-bottom: 30px
       padding: 30px
-
 
       .container-second__tariffs_title, .container-second__questions__section_title, .container-second__services_title, .container-second__questions__pci-dss_title
         font-weight: 600
@@ -200,15 +239,20 @@ a
 
 
   .footer
-    height: 95px
-    margin-left: 20%
+    .footer__social
+      text-align: center
+      margin-bottom: 10px
+      .footer__social_title
+        color: #7e7e7c
+      .footer__social_link
+        margin-right: 10px
+
     .footer__logo
       text-align: center
       .footer__logo_link
         display: inline-block
         text-align: justify
         vertical-align: middle
-        height: 46px
 
         &:after
           content: ''
@@ -823,6 +867,25 @@ a
   html
     font-size: 12px
 
+    .menu
+      display: none
+
+    .menu__main
+      text-align: center
+
+    .container-main
+      margin-left: 0
+      padding-top: 50px
+
+    .container-second
+      margin-left: 0
+
+    .footer
+      margin-left: 0
+      height: 30px
+      .footer__logo_link
+        height: 20px
+
     .top
       display: none
 
@@ -842,10 +905,10 @@ a
       padding-top: 63px
 
     .menu-mobile
-      position: fixed
-      background-color: #2980b9
-      z-index: 2
-      width: 100%
+      //position: fixed
+      //background-color: #2980b9
+      //z-index: 2
+      //width: 100%
 
       .menu-mobile-input
         width: 300px
@@ -956,6 +1019,24 @@ a
 
   html
     font-size: 12px
+
+    .menu-mobile
+      display: none
+
+    .container-main
+      margin-left: 20%
+
+    .container-second
+      margin-left: 20%
+
+    .footer
+      height: 95px
+      margin-left: 20%
+      .footer__social
+        display: none
+      .footer__logo_link
+        height: 46px
+
 
     .top
       width: 200px
