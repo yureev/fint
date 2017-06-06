@@ -36,7 +36,7 @@
         <!--</div>-->
         <div class="text-title">{{ 'CARD2CARD.ERROR.GLOBAL_ERROR' | translate }}</div>
         <div class="phone-title">{{ 'CARD2CARD.ERROR.SUPPORT_TEL' | translate }}</div>
-        <div class="phone-number"><strong>(044) 390-08-85</strong></div>
+        <div class="phone-number"><strong>{{ 'CARD2CARD.ERROR.PHONE' | translate }}</strong></div>
         <div class="buttons">
             <a ng-if="transaction.operationNumber && transaction.mPayStatus"
                ng-href="mailto:support@send.ua?subject=Money transfer error&body=Code operation: {{transaction.operationNumber}}. Error: {{transaction.mPayStatus}}">
