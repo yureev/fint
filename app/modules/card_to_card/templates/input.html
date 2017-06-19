@@ -1,15 +1,94 @@
 <main class="main__begin" ng-show="begin">
 
     <div class="main__begin__logo">
-        <img src="./../../../assets/images/logo_fint.png" alt="Fint.online" class="main__begin__logo_img">
+        <img src="./../../../assets/images/fint_logo_new.png" alt="Fint.online" class="main__begin__logo_img">
         <div class="main__begin__logo_text">{{'APP.CONTROLS.TEXT' | translate}}</div>
     </div>
 
     <div class="main__begin__cont">
         <form name="c2c2Form" ct-payments ng-submit="submit()" autocomplete="off"  ng-class="{'popup-height' : popup}">
-            <div class="row">
-                <div class="col-sm-4">
-                    <span class="main__begin_label">{{'APP.CONTROLS.BTN_SEND' | translate}}</span>
+            <div class="row main__begin__cont__row">
+                <div class="col-sm-5 main__begin__cont__col">
+                    <span class="main__begin__cont_label">{{'APP.CONTROLS.BTN_SEND' | translate}}</span>
+
+                    <div class="main__begin__cont__target" ct-input-container ng-if="!transaction.link">
+                        <input type="text" name="numberTarget" class="form-control main__begin__cont__target_input"
+                               tabindex="10"
+                               ng-model="target.card" required
+                               placeholder="{{'APP.CONTROLS.SEND.NUMBER_CARD_SOURCE' | translate}}"
+                               ng-disabled="numberTargetIsDisabled"
+                               ui-mask="9999 9999 9999 9999"
+                               ui-mask-placeholder
+                               ui-mask-placeholder-char="_"
+                               ct-payments-format-number
+                               ct-payments-validate-number="numberTargetIsDisabled"/>
+                    </div>
+
+                    <div class="main__begin__cont__target" ct-input-container ng-if="transaction.link">
+                        <input type="text" name="numberTarget" class="form-control main__begin__cont__target_input" disabled tabindex="11"
+                               ct-tabindex="checkTargetNumber"
+                               ng-model="transaction.numberTarget"/>
+                        <!--<div class="error-target"></div>-->
+                    </div>
+                    <div class="error-target main__begin__cont__error-target">
+                        <div ng-messages="c2c2Form.numberTarget.$error" ng-show="c2c2Form.numberTarget.$touched">
+                            <div ng-message="required">{{ 'CARD2CARD.ERRORS.TARGET.NUMBER_REQUIRED' | translate }}</div>
+                            <div ng-message="invalidNumber">{{ 'CARD2CARD.ERRORS.TARGET.NUMBER_INVALID' | translate }}</div>
+                        </div>
+                    </div>
+
+                    <div class="main__begin__cont__amount">
+                        <div class="main__begin__cont__amount__item main__begin__cont__amount__item__left" ct-input-container>
+                            <input type="text" name="amount" class="form-control main__begin__cont__amount__item_input" tabindex="12"
+                                   ng-model="amount" placeholder = "{{'CARD2CARD.AMOUNT.RANGE'  | translate}}"
+                                   ng-change="calculate(); validAmount(); setAmount()"
+                                   min="1"  max="25000" required ct-currency
+                            />
+                        </div>
+
+                        <div class="main__begin__cont__amount__item main__begin__cont__amount__item__right buttons">
+                            <button ui-sref="app.card" scroll-to="main" ng-click="onChangeBegin(false); calculate();"
+                                    ng-disabled="(c2c2Form.$invalid || c2c2Form.$pristine) && !transaction.link " tabindex="13"
+                                    type="submit" class="btn btn-warning main__begin__cont__amount__item__right_button"
+                                    ng-class="{'btn-active' : c2c2Form.$invalid || c2c2Form.$pristine}"
+                            >
+                                <span class="text-button">{{'APP.CONTROLS.SEND.SEND' | translate}}</span>
+                            </button>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="error-amount">
+                            <div ng-messages="c2c2Form.amount.$error" ng-show="c2c2Form.amount.$touched">
+                                <div ng-message="required">{{ 'CARD2CARD.ERRORS.AMOUNT.AMOUNT_REQUIRED' | translate }}</div>
+                                <div ng-message="errorInputAmount">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>
+                                <div ng-message="min">{{ 'CARD2CARD.ERRORS.AMOUNT.BIGGER_SUM' | translate }}</div>
+                                <div ng-message="max">{{ 'CARD2CARD.ERRORS.AMOUNT.SMALLER_SUM' | translate }}</div>
+                                <div ng-message="errorMax">{{ 'CARD2CARD.ERRORS.AMOUNT.SMALLER_SUM' | translate }}</div>
+                                <div ng-message="errorMin">{{ 'CARD2CARD.ERRORS.AMOUNT.BIGGER_SUM' | translate }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttons main__begin__cont__phone-button">
+                        <button ui-sref="app.phone" scroll-to="main" ng-click="onChangeBegin(false)" tabindex="14" type="submit" class="btn btn-warning main__begin__cont__phone-button_button phone-button-begin">
+                            <span class="text-button">{{'APP.CONTROLS.SEND.BTN_PHONE' | translate}}</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-sm-2 main__begin__cont__col">
+                    <span class="main__begin__cont_label-small">{{'APP.CONTROLS.BTN_OR' | translate}}</span>
+                </div>
+                <div class="col-sm-5 main__begin__cont__col">
+                    <span class="main__begin__cont_label">{{'APP.CONTROLS.BTN_RECEIVE' | translate}}</span>
+                    <div class="buttons main__begin__cont__url-button">
+                        <button ui-sref="app.url" scroll-to="main" ng-click="onChangeBegin(false)" tabindex="15" type="submit" class="btn btn-warning main__begin__cont__url-button_button">
+                            <span class="text-button">{{'APP.CONTROLS.RECEIVE.BTN_URL' | translate}}</span>
+                        </button>
+                    </div>
+                    <div class="buttons main__begin__cont__code-button">
+                        <button ui-sref="app.code" scroll-to="main" ng-click="onChangeBegin(false)" tabindex="16" type="submit" class="btn btn-warning main__begin__cont__code-button_button">
+                            <span class="text-button">{{'APP.CONTROLS.RECEIVE.BTN_CODE' | translate}}</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </form>
@@ -25,131 +104,131 @@
 
 
 
+<!-----------------------Send----------------------------------->
 
 
 
+<!--<div class="cont-begin" ng-show="begin">-->
+    <!--<div class="col-sm-3">-->
+        <!--&lt;!&ndash;<div  class="logo-img"><img  src="./../../../assets/images/logo_fint.png" alt="Fint.online"></div>&ndash;&gt;-->
+    <!--</div>-->
+    <!--<div class="col-sm-9">-->
+        <!--<div class="row logo">-->
+            <!--<div  class="logo-img"><img  src="./../../../assets/images/logo_fint.png" alt="Fint.online"></div>-->
+            <!--<div class="logo-text">-->
+                <!--&lt;!&ndash;<div><img  src="./../../../assets/images/send_ua_logo.svg" alt="SendUa"></div>&ndash;&gt;-->
 
-<div class="cont-begin" ng-show="begin">
-    <div class="col-sm-3">
-        <!--<div  class="logo-img"><img  src="./../../../assets/images/logo_fint.png" alt="Fint.online"></div>-->
-    </div>
-    <div class="col-sm-9">
-        <div class="row logo">
-            <div  class="logo-img"><img  src="./../../../assets/images/logo_fint.png" alt="Fint.online"></div>
-            <div class="logo-text">
-                <!--<div><img  src="./../../../assets/images/send_ua_logo.svg" alt="SendUa"></div>-->
+                <!--<div class="text-logo">{{'APP.CONTROLS.TEXT' | translate}}</div>-->
+            <!--</div>-->
+            <!--<div class="clearfix"></div>-->
+        <!--</div>-->
 
-                <div class="text-logo">{{'APP.CONTROLS.TEXT' | translate}}</div>
-            </div>
-            <div class="clearfix"></div>
-        </div>
+        <!--<div class="cont-input">-->
+            <!--<form name="c2c2Form" ct-payments ng-submit="submit()" autocomplete="off"  ng-class="{'popup-height' : popup}">-->
+                <!--<div class="row cont-begin-input">-->
+                    <!--<div class="col-sm-4">-->
+                        <!--<span class="begin-label">{{'APP.CONTROLS.BTN_SEND' | translate}}</span>-->
+                        <!--<div class="c2c-cont">-->
+                            <!--<div class="source-input-begin" ct-input-container ng-if="!transaction.link">-->
+                                <!--<input type="text" name="numberTarget" class="form-control"-->
+                                       <!--tabindex="18"-->
+                                       <!--ng-model="target.card" required-->
+                                       <!--placeholder="{{'APP.CONTROLS.SEND.NUMBER_CARD_SOURCE' | translate}}"-->
+                                       <!--ng-disabled="numberTargetIsDisabled"-->
+                                       <!--ng-change="validDiamantMasterAll(target.card); validCardZone(target.card, 'target')"-->
+                                       <!--ui-mask="9999 9999 9999 9999"-->
+                                       <!--ui-mask-placeholder-->
+                                       <!--ui-mask-placeholder-char="_"-->
+                                       <!--ct-payments-format-number-->
+                                       <!--ct-payments-validate-number="numberTargetIsDisabled"/>-->
+                            <!--</div>-->
+                            <!--<div class="source-input-begin" ct-input-container ng-if="transaction.link">-->
+                                <!--<input type="text" name="numberTarget" class="form-control" disabled tabindex="12"-->
+                                       <!--ct-tabindex="checkTargetNumber"-->
+                                       <!--ng-model="transaction.numberTarget"/>-->
+                                <!--<div class="error-target"></div>-->
+                            <!--</div>-->
+                            <!--<div class="error-target">-->
+                                <!--<div ng-messages="c2c2Form.numberTarget.$error" ng-show="c2c2Form.numberTarget.$touched">-->
+                                    <!--<div ng-message="required">{{ 'CARD2CARD.ERRORS.TARGET.NUMBER_REQUIRED' | translate }}</div>-->
+                                    <!--<div ng-message="invalidNumber">{{ 'CARD2CARD.ERRORS.TARGET.NUMBER_INVALID' | translate }}</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
 
-        <div class="cont-input">
-            <form name="c2c2Form" ct-payments ng-submit="submit()" autocomplete="off"  ng-class="{'popup-height' : popup}">
-                <div class="row cont-begin-input">
-                    <div class="col-sm-4">
-                        <span class="begin-label">{{'APP.CONTROLS.BTN_SEND' | translate}}</span>
-                        <div class="c2c-cont">
-                            <div class="source-input-begin" ct-input-container ng-if="!transaction.link">
-                                <input type="text" name="numberTarget" class="form-control"
-                                       tabindex="18"
-                                       ng-model="target.card" required
-                                       placeholder="{{'APP.CONTROLS.SEND.NUMBER_CARD_SOURCE' | translate}}"
-                                       ng-disabled="numberTargetIsDisabled"
-                                       ng-change="validDiamantMasterAll(target.card); validCardZone(target.card, 'target')"
-                                       ui-mask="9999 9999 9999 9999"
-                                       ui-mask-placeholder
-                                       ui-mask-placeholder-char="_"
-                                       ct-payments-format-number
-                                       ct-payments-validate-number="numberTargetIsDisabled"/>
-                            </div>
-                            <div class="source-input-begin" ct-input-container ng-if="transaction.link">
-                                <input type="text" name="numberTarget" class="form-control" disabled tabindex="12"
-                                       ct-tabindex="checkTargetNumber"
-                                       ng-model="transaction.numberTarget"/>
-                                <div class="error-target"></div>
-                            </div>
-                            <div class="error-target">
-                                <div ng-messages="c2c2Form.numberTarget.$error" ng-show="c2c2Form.numberTarget.$touched">
-                                    <div ng-message="required">{{ 'CARD2CARD.ERRORS.TARGET.NUMBER_REQUIRED' | translate }}</div>
-                                    <div ng-message="invalidNumber">{{ 'CARD2CARD.ERRORS.TARGET.NUMBER_INVALID' | translate }}</div>
-                                </div>
-                            </div>
+                            <!--<div class="amount-input-begin">-->
+                                <!--<div class="amount-input-begin-left" ct-input-container>-->
+                                    <!--<input type="text" name="amount" class="form-control " tabindex="19"-->
+                                           <!--ng-model="amount" placeholder = "{{'CARD2CARD.AMOUNT.RANGE'  | translate}}"-->
+                                           <!--ng-change="calculate(); validAmount(); setAmount()"-->
+                                           <!--min="1"  max="25000" required ct-currency-->
+                                    <!--/>-->
+                                <!--</div>-->
 
-                            <div class="amount-input-begin">
-                                <div class="amount-input-begin-left" ct-input-container>
-                                    <input type="text" name="amount" class="form-control " tabindex="19"
-                                           ng-model="amount" placeholder = "{{'CARD2CARD.AMOUNT.RANGE'  | translate}}"
-                                           ng-change="calculate(); validAmount(); setAmount()"
-                                           min="1"  max="25000" required ct-currency
-                                    />
-                                </div>
+                                <!--<div class="amount-input-begin-right buttons">-->
+                                    <!--<button ui-sref="app.card" scroll-to="main" ng-click="onChangeBegin(false); calculate();"-->
+                                            <!--ng-disabled="(c2c2Form.$invalid || c2c2Form.$pristine) && !transaction.link " tabindex="20"-->
+                                            <!--type="submit" class="btn btn-warning send-button"-->
+                                            <!--ng-class="{'btn-active' : c2c2Form.$invalid || c2c2Form.$pristine}"-->
+                                    <!--&gt;-->
+                                        <!--<span class="text-button">{{'APP.CONTROLS.SEND.SEND' | translate}}</span>-->
+                                    <!--</button>-->
+                                <!--</div>-->
 
-                                <div class="amount-input-begin-right buttons">
-                                    <button ui-sref="app.card" scroll-to="main" ng-click="onChangeBegin(false); calculate();"
-                                            ng-disabled="(c2c2Form.$invalid || c2c2Form.$pristine) && !transaction.link " tabindex="20"
-                                            type="submit" class="btn btn-warning send-button"
-                                            ng-class="{'btn-active' : c2c2Form.$invalid || c2c2Form.$pristine}"
-                                    >
-                                        <span class="text-button">{{'APP.CONTROLS.SEND.SEND' | translate}}</span>
-                                    </button>
-                                </div>
+                                <!--<div class="clearfix"></div>-->
+                                <!--<div class="error-amount">-->
+                                    <!--<div ng-messages="c2c2Form.amount.$error" ng-show="c2c2Form.amount.$touched">-->
+                                        <!--<div ng-message="required">{{ 'CARD2CARD.ERRORS.AMOUNT.AMOUNT_REQUIRED' | translate }}</div>-->
+                                        <!--<div ng-message="errorInputAmount">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>-->
+                                        <!--<div ng-message="min">{{ 'CARD2CARD.ERRORS.AMOUNT.BIGGER_SUM' | translate }}</div>-->
+                                        <!--<div ng-message="max">{{ 'CARD2CARD.ERRORS.AMOUNT.SMALLER_SUM' | translate }}</div>-->
+                                        <!--<div ng-message="errorMax">{{ 'CARD2CARD.ERRORS.AMOUNT.SMALLER_SUM' | translate }}</div>-->
+                                        <!--<div ng-message="errorMin">{{ 'CARD2CARD.ERRORS.AMOUNT.BIGGER_SUM' | translate }}</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="buttons" >-->
+                            <!--<button ui-sref="app.phone" scroll-to="main" ng-click="onChangeBegin(false)" tabindex="21" type="submit" class="btn btn-warning send-button phone-button-begin">-->
+                                <!--<span class="text-button">{{'APP.CONTROLS.SEND.BTN_PHONE' | translate}}</span>-->
+                            <!--</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="col-sm-4 ">-->
+                        <!--<div class="row begin-row">-->
+                            <!--<span class="begin-label-small-line col-sm-5"></span>-->
+                            <!--<span class="begin-label-small col-sm-2">{{'APP.CONTROLS.BTN_OR' | translate}}</span>-->
+                            <!--<span class="begin-label-small-line col-sm-5"></span>-->
+                        <!--</div>-->
 
-                                <div class="clearfix"></div>
-                                <div class="error-amount">
-                                    <div ng-messages="c2c2Form.amount.$error" ng-show="c2c2Form.amount.$touched">
-                                        <div ng-message="required">{{ 'CARD2CARD.ERRORS.AMOUNT.AMOUNT_REQUIRED' | translate }}</div>
-                                        <div ng-message="errorInputAmount">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>
-                                        <div ng-message="min">{{ 'CARD2CARD.ERRORS.AMOUNT.BIGGER_SUM' | translate }}</div>
-                                        <div ng-message="max">{{ 'CARD2CARD.ERRORS.AMOUNT.SMALLER_SUM' | translate }}</div>
-                                        <div ng-message="errorMax">{{ 'CARD2CARD.ERRORS.AMOUNT.SMALLER_SUM' | translate }}</div>
-                                        <div ng-message="errorMin">{{ 'CARD2CARD.ERRORS.AMOUNT.BIGGER_SUM' | translate }}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="buttons" >
-                            <button ui-sref="app.phone" scroll-to="main" ng-click="onChangeBegin(false)" tabindex="21" type="submit" class="btn btn-warning send-button phone-button-begin">
-                                <span class="text-button">{{'APP.CONTROLS.SEND.BTN_PHONE' | translate}}</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 ">
-                        <div class="row begin-row">
-                            <span class="begin-label-small-line col-sm-5"></span>
-                            <span class="begin-label-small col-sm-2">{{'APP.CONTROLS.BTN_OR' | translate}}</span>
-                            <span class="begin-label-small-line col-sm-5"></span>
-                        </div>
-
-                    </div>
-                    <div class="col-sm-4 cont-begin-input-right">
-                        <span class="begin-label">{{'APP.CONTROLS.BTN_RECEIVE' | translate}}</span>
-                        <div class="buttons" >
-                            <button ui-sref="app.url" scroll-to="main" ng-click="onChangeBegin(false)" tabindex="22" type="submit" class="btn btn-warning send-button buttons-right">
-                                <span class="text-button">{{'APP.CONTROLS.RECEIVE.BTN_URL' | translate}}</span>
-                            </button>
-                        </div>
-                        <div class="buttons" >
-                            <button ui-sref="app.code" scroll-to="main" ng-click="onChangeBegin(false)" tabindex="23" type="submit" class="btn btn-warning send-button buttons-right">
-                                <span class="text-button">{{'APP.CONTROLS.RECEIVE.BTN_CODE' | translate}}</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="crossboard-text" >
-                    <span class="text">{{ 'CARD2CARD.NO_CROSSBOARD_TEXT' | translate }}</span>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+                    <!--</div>-->
+                    <!--<div class="col-sm-4 cont-begin-input-right">-->
+                        <!--<span class="begin-label">{{'APP.CONTROLS.BTN_RECEIVE' | translate}}</span>-->
+                        <!--<div class="buttons" >-->
+                            <!--<button ui-sref="app.url" scroll-to="main" ng-click="onChangeBegin(false)" tabindex="22" type="submit" class="btn btn-warning send-button buttons-right">-->
+                                <!--<span class="text-button">{{'APP.CONTROLS.RECEIVE.BTN_URL' | translate}}</span>-->
+                            <!--</button>-->
+                        <!--</div>-->
+                        <!--<div class="buttons" >-->
+                            <!--<button ui-sref="app.code" scroll-to="main" ng-click="onChangeBegin(false)" tabindex="23" type="submit" class="btn btn-warning send-button buttons-right">-->
+                                <!--<span class="text-button">{{'APP.CONTROLS.RECEIVE.BTN_CODE' | translate}}</span>-->
+                            <!--</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="crossboard-text" >-->
+                    <!--<span class="text">{{ 'CARD2CARD.NO_CROSSBOARD_TEXT' | translate }}</span>-->
+                <!--</div>-->
+            <!--</form>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
 
 
 <div ng-show="!begin">
-    <div class="main-left" ng-class="{'main-left-cross' : crossboard, 'main-left-popup' : popup, 'main-left-cross-popup' : popup && crossboard}"></div>
-    <div class="main-right">
+    <!--<div class="main-left" ng-class="{'main-left-cross' : crossboard, 'main-left-popup' : popup, 'main-left-cross-popup' : popup && crossboard}"></div>-->
+    <!--<div class="main-right">-->
         <div class="state-input" ct-spinner="tariffs_loader || input_loader" ng-click="notcross = false">
-            <div class="menu">
+            <div class="menu__main">
                 <div class="container-fluid">
                     <div class="row col-xs-12 row-menu">
                         <div class="item col-sm-6" ui-sref-active="active">
@@ -161,7 +240,7 @@
                     </div>
                 </div>
             </div>
-            <div class="menu">
+            <div class="menu__main">
                 <div class="container-fluid">
                     <div class="row col-xs-12 row-menu hide-menu">
                         <div class="item col-sm-6" ui-sref-active="active">
@@ -177,12 +256,12 @@
             <form name="c2cForm" ct-payments ng-submit="submit()" autocomplete="off"  ng-class="{'popup-height' : popup}">
 
                 <div class="row">
-                    <div class="crossboard-text" >
-                        <div class='popupCross' ng-show="notcross" >
-                            <i class="fa fa-times icon-close" aria-hidden="true"></i>
-                            {{ 'CARD2CARD.NO_CROSSBOARD_TEXT' | translate }}
-                        </div>
-                    </div>
+                    <!--<div class="crossboard-text" >-->
+                        <!--<div class='popupCross' ng-show="notcross" >-->
+                            <!--<i class="fa fa-times icon-close" aria-hidden="true"></i>-->
+                            <!--{{ 'CARD2CARD.NO_CROSSBOARD_TEXT' | translate }}-->
+                        <!--</div>-->
+                    <!--</div>-->
 
                     <div class="col-sm-6 card source" ng-class="{'cross-card-left' : crossboard}" >
                         <div class="card-title">{{ 'CARD2CARD.SOURCE.TITLE' | translate }}</div>
@@ -197,12 +276,13 @@
                             <input type="text" name="number" class="form-control source-input number-input" ct-tabindex="checkNumber"
                                    tabindex="1"
                                    ng-model="number" required
-                                   ng-change="validCardZone(number, 'source')"
-                                   ng-keyup="validCardZone(number, 'source')"
+
                                    ng-blur="touchNumber=false"
                                    ng-focus="touchNumber=true"
                                    ui-mask="9999 9999 9999 9999" placeholder="____ ____ ____ ____"
                                    ct-payments-format-number ct-payments-validate-number/>
+                            <!--ng-change="validCardZone(number, 'source')"-->
+                            <!--ng-keyup="validCardZone(number, 'source')"-->
                             <input type="text" class="form-control source-input date-month" ct-tabindex="checkMonth"
                                    maxlength="2"
                                    tabindex="2"
@@ -225,6 +305,8 @@
                                    placeholder="{{ 'CARD2CARD.SOURCE.YEAR' | translate }}"
                                    ct-payments-format-expire-year-text/>
                             <!--<div class="clearfix"></div>-->
+
+
                             <!--</div>-->
                             <div class="error-number">
                                 <div ng-messages="c2cForm.number.$error" ng-show="c2cForm.number.$touched">
@@ -284,114 +366,114 @@
                             </div>
                         </div>
 
-                        <div class="row-crossboard" ng-show="crossboard">
-                            <div class="col-xs-6 source-cross-left">
-                                <div class="form-group" >
-                                    <input type="text" name="nameSource" class="form-control input-left" tabindex="6"
-                                           uib-tooltip="{{ 'CARD2CARD.DATA_NAME_TOOLTIP' | translate }}" tooltip-placement="top-left"
-                                           ng-model="nameSource"
-                                           ng-keypress = "getChar($event, 'letters')"
-                                           ng-change="getPaste()"
-                                           placeholder="{{ 'CARD2CARD.DATA_NAME' | translate }}" ng-required="crossboard" ct-input-container/>
-                                    <div class="error-number-cross-source">
-                                        <div ng-messages="c2cForm.nameSource.$error" ng-show="c2cForm.nameSource.$touched">
-                                            <div ng-message="required">{{ 'CARD2CARD.DATA_NAME_ERRORS' | translate }}</div>
-                                            <div ng-message="errorInputCross">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group" >
-
-                                    <input type="text" name="country" class="form-control input-left" tabindex="8"
-                                           uib-tooltip="{{ 'CARD2CARD.DATA_COUNTRY_TOOLTIP' | translate }}" tooltip-placement="top-left"
-                                           ng-model="country"
-                                           value="Ukraine"
-                                           readonly
-                                           placeholder="{{ 'CARD2CARD.DATA_COUNTRY' | translate }} - Ukraine" ct-input-container/>
-                                    <div class="error-number-cross-source">
-                                        <div ng-messages="c2cForm.country.$error" ng-show="c2cForm.country.$touched">
-                                            <div ng-message="required">{{ 'CARD2CARD.DATA_COUNTRY_ERRORS' | translate }}</div>
-                                            <div ng-message="errorInputCross">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>
-                                        </div>
-                                    </div>
-
-                                    <!--<input type="text" name="country" class="form-control data-input" tabindex="11"-->
-                                    <!--uib-tooltip="{{ 'CARD2CARD.DATA_COUNTRY_TOOLTIP' | translate }}" tooltip-placement="top-left"-->
-                                    <!--ng-model="country"-->
-                                    <!--ng-keypress = "getChar($event, 'letters')"-->
-                                    <!--ng-change="getPaste()"-->
-                                    <!--placeholder="{{ 'CARD2CARD.DATA_COUNTRY' | translate }}" ng-required="crossboard" />-->
-                                    <!--<div class="error-number">-->
-                                    <!--<div ng-messages="c2cForm.country.$error" ng-show="c2cForm.country.$touched">-->
-                                    <!--<div ng-message="required">{{ 'CARD2CARD.DATA_COUNTRY_ERRORS' | translate }}</div>-->
-                                    <!--<div ng-message="errorInputCross">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>-->
+                        <!--<div class="row-crossboard" ng-show="crossboard">-->
+                            <!--<div class="col-xs-6 source-cross-left">-->
+                                <!--<div class="form-group" >-->
+                                    <!--<input type="text" name="nameSource" class="form-control input-left" tabindex="6"-->
+                                           <!--uib-tooltip="{{ 'CARD2CARD.DATA_NAME_TOOLTIP' | translate }}" tooltip-placement="top-left"-->
+                                           <!--ng-model="nameSource"-->
+                                           <!--ng-keypress = "getChar($event, 'letters')"-->
+                                           <!--ng-change="getPaste()"-->
+                                           <!--placeholder="{{ 'CARD2CARD.DATA_NAME' | translate }}" ng-required="crossboard" ct-input-container/>-->
+                                    <!--<div class="error-number-cross-source">-->
+                                        <!--<div ng-messages="c2cForm.nameSource.$error" ng-show="c2cForm.nameSource.$touched">-->
+                                            <!--<div ng-message="required">{{ 'CARD2CARD.DATA_NAME_ERRORS' | translate }}</div>-->
+                                            <!--<div ng-message="errorInputCross">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>-->
+                                        <!--</div>-->
                                     <!--</div>-->
+                                <!--</div>-->
+
+                                <!--<div class="form-group" >-->
+
+                                    <!--<input type="text" name="country" class="form-control input-left" tabindex="8"-->
+                                           <!--uib-tooltip="{{ 'CARD2CARD.DATA_COUNTRY_TOOLTIP' | translate }}" tooltip-placement="top-left"-->
+                                           <!--ng-model="country"-->
+                                           <!--value="Ukraine"-->
+                                           <!--readonly-->
+                                           <!--placeholder="{{ 'CARD2CARD.DATA_COUNTRY' | translate }} - Ukraine" ct-input-container/>-->
+                                    <!--<div class="error-number-cross-source">-->
+                                        <!--<div ng-messages="c2cForm.country.$error" ng-show="c2cForm.country.$touched">-->
+                                            <!--<div ng-message="required">{{ 'CARD2CARD.DATA_COUNTRY_ERRORS' | translate }}</div>-->
+                                            <!--<div ng-message="errorInputCross">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>-->
+                                        <!--</div>-->
                                     <!--</div>-->
-                                </div>
 
-                                <div class="form-group" >
-                                    <input type="text" name="street" class="form-control input-left" tabindex="10"
-                                           uib-tooltip="{{ 'CARD2CARD.DATA_STREET_TOOLTIP' | translate }}" tooltip-placement="top-left"
-                                           ng-model="street"
-                                           ng-keypress = "getChar($event, 'street')"
-                                           ng-change="getPaste()"
-                                           placeholder="{{ 'CARD2CARD.DATA_STREET' | translate }}" ng-required="crossboard" ct-input-container/>
-                                    <div class="error-number-cross-source">
-                                        <div ng-messages="c2cForm.street.$error" ng-show="c2cForm.street.$touched">
-                                            <div ng-message="required">{{ 'CARD2CARD.DATA_STREET_ERRORS' | translate }}</div>
-                                            <div ng-message="errorInputCross">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                    <!--&lt;!&ndash;<input type="text" name="country" class="form-control data-input" tabindex="11"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;uib-tooltip="{{ 'CARD2CARD.DATA_COUNTRY_TOOLTIP' | translate }}" tooltip-placement="top-left"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;ng-model="country"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;ng-keypress = "getChar($event, 'letters')"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;ng-change="getPaste()"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;placeholder="{{ 'CARD2CARD.DATA_COUNTRY' | translate }}" ng-required="crossboard" />&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<div class="error-number">&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<div ng-messages="c2cForm.country.$error" ng-show="c2cForm.country.$touched">&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<div ng-message="required">{{ 'CARD2CARD.DATA_COUNTRY_ERRORS' | translate }}</div>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<div ng-message="errorInputCross">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                <!--</div>-->
 
-                            <div class="col-xs-6 source-cross-right">
-                                <div class="form-group" >
-                                    <input type="text" name="surnameSource" class="form-control input-right" tabindex="7"
-                                           uib-tooltip="{{ 'CARD2CARD.DATA_SURNAME_TOOLTIP' | translate }}" tooltip-placement="top-left"
-                                           ng-model="surnameSource"
-                                           ng-keypress = "getChar($event, 'letters')"
-                                           ng-change="getPaste()"
-                                           placeholder="{{ 'CARD2CARD.DATA_SURNAME' | translate }}" ng-required="crossboard" ct-input-container/>
-                                    <div class="error-number-cross-source">
-                                        <div ng-messages="c2cForm.surnameSource.$error" ng-show="c2cForm.surnameSource.$touched">
-                                            <div ng-message="required">{{ 'CARD2CARD.DATA_SURNAME_ERRORS' | translate }}</div>
-                                            <div ng-message="errorInputCross">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group" >
-                                    <input type="text" name="city" class="form-control input-right" tabindex="9"
-                                           uib-tooltip="{{ 'CARD2CARD.DATA_CITY_TOOLTIP' | translate }}" tooltip-placement="top-left"
-                                           ng-model="city"
-                                           ng-keypress = "getChar($event, 'letters')"
-                                           ng-change="getPaste()"
-                                           placeholder="{{ 'CARD2CARD.DATA_CITY' | translate }}" ng-required="crossboard" ct-input-container/>
-                                    <div class="error-number-cross-source">
-                                        <div ng-messages="c2cForm.city.$error" ng-show="c2cForm.city.$touched">
-                                            <div ng-message="required">{{ 'CARD2CARD.DATA_CITY_ERRORS' | translate }}</div>
-                                            <div ng-message="errorInputCross">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group" >
-                                    <input type="text" name="postIndex" class="form-control input-right" tabindex="11"
-                                           uib-tooltip="{{ 'CARD2CARD.DATA_INDEX_TOOLTIP' | translate }}" tooltip-placement="top-left"
-                                           ng-model="postIndex" maxlength=5 minlength=5
-                                           ng-keypress = "getChar($event, 'number')"
-                                           ng-change="getPaste()"
-                                           placeholder="{{ 'CARD2CARD.DATA_INDEX' | translate }}" ng-required="crossboard" ct-input-container/>
-                                    <div class="error-number-cross-source">
-                                        <div ng-messages="c2cForm.postIndex.$error" ng-show="c2cForm.postIndex.$touched">
-                                            <div ng-message="required">{{ 'CARD2CARD.DATA_INDEX_ERRORS' | translate }}</div>
-                                            <div ng-message="errorInputCross">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
+                                <!--<div class="form-group" >-->
+                                    <!--<input type="text" name="street" class="form-control input-left" tabindex="10"-->
+                                           <!--uib-tooltip="{{ 'CARD2CARD.DATA_STREET_TOOLTIP' | translate }}" tooltip-placement="top-left"-->
+                                           <!--ng-model="street"-->
+                                           <!--ng-keypress = "getChar($event, 'street')"-->
+                                           <!--ng-change="getPaste()"-->
+                                           <!--placeholder="{{ 'CARD2CARD.DATA_STREET' | translate }}" ng-required="crossboard" ct-input-container/>-->
+                                    <!--<div class="error-number-cross-source">-->
+                                        <!--<div ng-messages="c2cForm.street.$error" ng-show="c2cForm.street.$touched">-->
+                                            <!--<div ng-message="required">{{ 'CARD2CARD.DATA_STREET_ERRORS' | translate }}</div>-->
+                                            <!--<div ng-message="errorInputCross">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+
+                            <!--<div class="col-xs-6 source-cross-right">-->
+                                <!--<div class="form-group" >-->
+                                    <!--<input type="text" name="surnameSource" class="form-control input-right" tabindex="7"-->
+                                           <!--uib-tooltip="{{ 'CARD2CARD.DATA_SURNAME_TOOLTIP' | translate }}" tooltip-placement="top-left"-->
+                                           <!--ng-model="surnameSource"-->
+                                           <!--ng-keypress = "getChar($event, 'letters')"-->
+                                           <!--ng-change="getPaste()"-->
+                                           <!--placeholder="{{ 'CARD2CARD.DATA_SURNAME' | translate }}" ng-required="crossboard" ct-input-container/>-->
+                                    <!--<div class="error-number-cross-source">-->
+                                        <!--<div ng-messages="c2cForm.surnameSource.$error" ng-show="c2cForm.surnameSource.$touched">-->
+                                            <!--<div ng-message="required">{{ 'CARD2CARD.DATA_SURNAME_ERRORS' | translate }}</div>-->
+                                            <!--<div ng-message="errorInputCross">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="form-group" >-->
+                                    <!--<input type="text" name="city" class="form-control input-right" tabindex="9"-->
+                                           <!--uib-tooltip="{{ 'CARD2CARD.DATA_CITY_TOOLTIP' | translate }}" tooltip-placement="top-left"-->
+                                           <!--ng-model="city"-->
+                                           <!--ng-keypress = "getChar($event, 'letters')"-->
+                                           <!--ng-change="getPaste()"-->
+                                           <!--placeholder="{{ 'CARD2CARD.DATA_CITY' | translate }}" ng-required="crossboard" ct-input-container/>-->
+                                    <!--<div class="error-number-cross-source">-->
+                                        <!--<div ng-messages="c2cForm.city.$error" ng-show="c2cForm.city.$touched">-->
+                                            <!--<div ng-message="required">{{ 'CARD2CARD.DATA_CITY_ERRORS' | translate }}</div>-->
+                                            <!--<div ng-message="errorInputCross">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="form-group" >-->
+                                    <!--<input type="text" name="postIndex" class="form-control input-right" tabindex="11"-->
+                                           <!--uib-tooltip="{{ 'CARD2CARD.DATA_INDEX_TOOLTIP' | translate }}" tooltip-placement="top-left"-->
+                                           <!--ng-model="postIndex" maxlength=5 minlength=5-->
+                                           <!--ng-keypress = "getChar($event, 'number')"-->
+                                           <!--ng-change="getPaste()"-->
+                                           <!--placeholder="{{ 'CARD2CARD.DATA_INDEX' | translate }}" ng-required="crossboard" ct-input-container/>-->
+                                    <!--<div class="error-number-cross-source">-->
+                                        <!--<div ng-messages="c2cForm.postIndex.$error" ng-show="c2cForm.postIndex.$touched">-->
+                                            <!--<div ng-message="required">{{ 'CARD2CARD.DATA_INDEX_ERRORS' | translate }}</div>-->
+                                            <!--<div ng-message="errorInputCross">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="clearfix"></div>-->
+                        <!--</div>-->
                     </div>
                     <!--end of source card-->
 
@@ -404,15 +486,16 @@
                             <input type="text" name="numberTarget" class="form-control"
                                    ct-tabindex="checkTargetNumber"
 
-                                   ng-model="target.card" required tabindex="12"
-                                   ng-change=" validCardZone(target.card, 'target')"
-                                   ng-keyup=" validCardZone(target.card, 'target')"
-                                   ng-paste=" validCardZone(target.card, 'target'); "
+                                   ng-model="target.card" required tabindex="6"
+
 
                                    ng-disabled="numberTargetIsDisabled"
                                    ui-mask="9999 9999 9999 9999" placeholder="____ ____ ____ ____"
                                    ct-payments-format-number
                                    ct-payments-validate-number="numberTargetIsDisabled" />
+                            <!--ng-change=" validCardZone(target.card, 'target')"-->
+                            <!--ng-keyup=" validCardZone(target.card, 'target')"-->
+                            <!--ng-paste=" validCardZone(target.card, 'target'); "-->
                             <div class="error-target">
                                 <div ng-messages="c2cForm.numberTarget.$error" ng-show="c2cForm.numberTarget.$touched">
                                     <div ng-message="required">{{ 'CARD2CARD.ERRORS.TARGET.NUMBER_REQUIRED' | translate }}</div>
@@ -424,67 +507,67 @@
                             <div class="card-title">{{ 'CARD2CARD.TARGET.TITLE' | translate }}</div>
                             <span class="card-logo" ng-class="c2cForm.numberTarget.cardType"></span>
                             <label class="card-label">{{ 'CARD2CARD.TARGET.LABEL.CARD' | translate }}</label>
-                            <input type="text" name="numberTarget" class="form-control" disabled tabindex="12"
+                            <input type="text" name="numberTarget" class="form-control" disabled tabindex="6"
                                    ct-tabindex="checkTargetNumber"
                                    ng-model="transaction.numberTarget"/>
                             <div class="error-target"></div>
                         </div>
 
-                        <div class="row-crossboard" ng-show="crossboard">
-                            <div class=" col-xs-6 target-cross-left">
-                                <div class="form-group" >
-                                    <input type="text" name="nameTarget" class="form-control input-left" tabindex="13"
-                                           uib-tooltip="{{ 'CARD2CARD.DATA_NAME_T_TOOLTIP' | translate }}" tooltip-placement="top-left"
-                                           ng-model="nameTarget"
-                                           ng-keypress = "getChar($event, 'letters')"
-                                           ng-change="getPaste()"
+                        <!--<div class="row-crossboard" ng-show="crossboard">-->
+                            <!--<div class=" col-xs-6 target-cross-left">-->
+                                <!--<div class="form-group" >-->
+                                    <!--<input type="text" name="nameTarget" class="form-control input-left" tabindex="13"-->
+                                           <!--uib-tooltip="{{ 'CARD2CARD.DATA_NAME_T_TOOLTIP' | translate }}" tooltip-placement="top-left"-->
+                                           <!--ng-model="nameTarget"-->
+                                           <!--ng-keypress = "getChar($event, 'letters')"-->
+                                           <!--ng-change="getPaste()"-->
 
-                                           placeholder="{{ 'CARD2CARD.DATA_NAME' | translate }}" ng-required="crossboard" ct-input-container/>
-                                    <div class="error-number">
-                                        <div ng-messages="c2cForm.nameTarget.$error" ng-show="c2cForm.nameTarget.$touched">
-                                            <div ng-message="required">{{ 'CARD2CARD.DATA_NAME_T_ERRORS' | translate }}</div>
-                                            <div ng-message="errorInputCross">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class=" col-xs-6 target-cross-right">
-                                <div class="form-group" >
-                                    <input type="text" name="surnameTarget" class="form-control input-right" tabindex="14"
-                                           uib-tooltip="{{ 'CARD2CARD.DATA_SURNAME_T_TOOLTIP' | translate }}" tooltip-placement="top-left"
-                                           ng-model="surnameTarget"
-                                           ng-keypress = "getChar($event, 'letters')"
-                                           ng-change="getPaste()"
-                                           placeholder="{{ 'CARD2CARD.DATA_SURNAME' | translate }}" ng-required="crossboard" ct-input-container/>
-                                    <div class="error-number">
-                                        <div ng-messages="c2cForm.surnameTarget.$error" ng-show="c2cForm.surnameTarget.$touched">
-                                            <div ng-message="required">{{ 'CARD2CARD.DATA_SURNAME_T_ERRORS' | translate }}</div>
-                                            <div ng-message="errorInputCross">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-
-
-
-                        <div class="buttons-convert-input" ng-show="crossboard">
-                            <label>{{ 'CARD2CARD.AMOUNT.CURRENCY_ALL' | translate }}</label>
-                            <div class="container-convert">
-                                <input class="convert-input" type="radio" name="convert"  ng-click="convertAmount(980)" ng-class="{activeCurrency: currentCurrency == 980}"><span  ng-class="{activeCurrency: currentCurrency == 980}">UAH</span>
-                                <input class="convert-input" type="radio" name="convert" checked ng-click="convertAmount(978)" ng-class="{activeCurrency: currentCurrency == 978}"><span  ng-class="{activeCurrency: currentCurrency == 978}">EUR</span>
-                            </div>
+                                           <!--placeholder="{{ 'CARD2CARD.DATA_NAME' | translate }}" ng-required="crossboard" ct-input-container/>-->
+                                    <!--<div class="error-number">-->
+                                        <!--<div ng-messages="c2cForm.nameTarget.$error" ng-show="c2cForm.nameTarget.$touched">-->
+                                            <!--<div ng-message="required">{{ 'CARD2CARD.DATA_NAME_T_ERRORS' | translate }}</div>-->
+                                            <!--<div ng-message="errorInputCross">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class=" col-xs-6 target-cross-right">-->
+                                <!--<div class="form-group" >-->
+                                    <!--<input type="text" name="surnameTarget" class="form-control input-right" tabindex="14"-->
+                                           <!--uib-tooltip="{{ 'CARD2CARD.DATA_SURNAME_T_TOOLTIP' | translate }}" tooltip-placement="top-left"-->
+                                           <!--ng-model="surnameTarget"-->
+                                           <!--ng-keypress = "getChar($event, 'letters')"-->
+                                           <!--ng-change="getPaste()"-->
+                                           <!--placeholder="{{ 'CARD2CARD.DATA_SURNAME' | translate }}" ng-required="crossboard" ct-input-container/>-->
+                                    <!--<div class="error-number">-->
+                                        <!--<div ng-messages="c2cForm.surnameTarget.$error" ng-show="c2cForm.surnameTarget.$touched">-->
+                                            <!--<div ng-message="required">{{ 'CARD2CARD.DATA_SURNAME_T_ERRORS' | translate }}</div>-->
+                                            <!--<div ng-message="errorInputCross">{{ 'CARD2CARD.DATA_INPUT_ERRORS' | translate }}</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="clearfix"></div>-->
+                        <!--</div>-->
 
 
-                        </div>
+
+                        <!--<div class="buttons-convert-input" ng-show="crossboard">-->
+                            <!--<label>{{ 'CARD2CARD.AMOUNT.CURRENCY_ALL' | translate }}</label>-->
+                            <!--<div class="container-convert">-->
+                                <!--<input class="convert-input" type="radio" name="convert"  ng-click="convertAmount(980)" ng-class="{activeCurrency: currentCurrency == 980}"><span  ng-class="{activeCurrency: currentCurrency == 980}">UAH</span>-->
+                                <!--<input class="convert-input" type="radio" name="convert" checked ng-click="convertAmount(978)" ng-class="{activeCurrency: currentCurrency == 978}"><span  ng-class="{activeCurrency: currentCurrency == 978}">EUR</span>-->
+                            <!--</div>-->
+
+
+                        <!--</div>-->
 
                         <div class="amount-buttons-field-c2c" ng-class="{amountCrossboard: !crossboard}">
                             <label>{{ 'CARD2CARD.AMOUNT.TITLE' | translate }}</label>
                             <div class="row-amount">
                                 <div class="col-xs-4 amount" >
                                     <div class="amount-input-currency" ct-input-container>
-                                        <input type="text" name="amount" class="form-control amount-input-c2c" tabindex="15"
+                                        <input type="text" name="amount" class="form-control amount-input-c2c" tabindex="7"
                                                ng-model="amount" placeholder = "{{!crossboard ? 'CARD2CARD.AMOUNT.RANGE' : (currentCurrency == 980 ? 'CARD2CARD.AMOUNT.RANGE_CROSS' : 'CARD2CARD.AMOUNT.RANGE_EUR') | translate}}"
                                                ng-change="getPaste(); calculate(); validAmount(); setAmount()"
                                                ng-paste="amountPaste(amount)"
@@ -504,10 +587,10 @@
                                 </div>
                                 <div class="col-xs-8 tariffs">
                                     <div class="text-commiss" ng-show="!crossboard">{{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commiss || 0 | currency:currency }}</div>
-                                    <div class="text-commiss" ng-show="crossboard">{{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commissCross/100 || 0 | currency:currency }}</div>
+                                    <!--<div class="text-commiss" ng-show="crossboard">{{ 'CARD2CARD.AMOUNT.COMMISSION' | translate }} {{ commissCross/100 || 0 | currency:currency }}</div>-->
 
                                     <div class="text-bank" ng-class="{'text-bank-active' : !crossboard}">{{ 'CARD2CARD.AMOUNT.UKRAINE_BANK' | translate }} {{+tariffs.percent}}% + {{tariffs.fixCommission / 100 | currency:currency }}</div>
-                                    <div class="text-bank " ng-class="{'text-bank-active' : crossboard}">{{ 'CARD2CARD.AMOUNT.FOREIGN_BANK' | translate }} {{+tariffs.crossPercent}}% min {{tariffs.crossMinCommission / 100 | currency:currency }}</div>
+                                    <!--<div class="text-bank " ng-class="{'text-bank-active' : crossboard}">{{ 'CARD2CARD.AMOUNT.FOREIGN_BANK' | translate }} {{+tariffs.crossPercent}}% min {{tariffs.crossMinCommission / 100 | currency:currency }}</div>-->
 
                                 </div>
                                 <div class="clearfix"></div>
@@ -517,16 +600,16 @@
                         <div class="clearfix"></div>
                         <div class="total-amount">
                             <div class="form-group send">
-                                <div class="text-inform">
-                                    <span class="text-exchange" ng-show="crossboard">{{ 'CARD2CARD.AMOUNT.EXCHANGE' | translate }} {{currencyRate.forward }} <br></span>
-                                    <span class="text-target-amount" ng-show="crossboard ">{{ 'CARD2CARD.AMOUNT.RECIPIENT_SEND' | translate }} {{amountEUR/100 || 0}} {{ 'CARD2CARD.AMOUNT.CURRENCY_EURO' | translate }} <br></span>
-                                </div>
+                                <!--<div class="text-inform">-->
+                                    <!--<span class="text-exchange" ng-show="crossboard">{{ 'CARD2CARD.AMOUNT.EXCHANGE' | translate }} {{currencyRate.forward }} <br></span>-->
+                                    <!--<span class="text-target-amount" ng-show="crossboard ">{{ 'CARD2CARD.AMOUNT.RECIPIENT_SEND' | translate }} {{amountEUR/100 || 0}} {{ 'CARD2CARD.AMOUNT.CURRENCY_EURO' | translate }} <br></span>-->
+                                <!--</div>-->
 
 
 
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" tabindex="16" ng-model="agreed" name="agreed" required>
+                                        <input type="checkbox" tabindex="8" ng-model="agreed" name="agreed" required>
                                         <span translate="CARD2CARD.AGREEMENT" class="text-light-small"></span>
                                     </label>
                                 </div>
@@ -536,10 +619,10 @@
                                     </div>
                                 </div>
                                 <div class="buttons" >
-                                    <button type="submit" class="btn btn-warning send-button" tabindex="17"
+                                    <button type="submit" class="btn btn-warning send-button" tabindex="9"
                                             ng-disabled="c2cForm.$invalid || c2cForm.$pristine">
-                                        <span class="text-bold-big" ng-show="crossboard && !crossboardAllowed">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{totalAmountCrossBeforeCheck/100 || 0 | currency:currency}}</span>
-                                        <span class="text-bold-big" ng-show="crossboard && crossboardAllowed">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{totalAmountCross/100 || 0 | currency:currency}}</span>
+                                        <!--<span class="text-bold-big" ng-show="crossboard && !crossboardAllowed">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{totalAmountCrossBeforeCheck/100 || 0 | currency:currency}}</span>-->
+                                        <!--<span class="text-bold-big" ng-show="crossboard && crossboardAllowed">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{totalAmountCross/100 || 0 | currency:currency}}</span>-->
 
                                         <span class="text-bold-big" ng-show="!crossboard">{{ 'CARD2CARD.AMOUNT.TOTAL' | translate }} {{ total || 0 | currency:currency }}</span>
 
@@ -552,91 +635,91 @@
                     </div>
                     <!--end of target card-->
                     <div class="clearfix"></div>
-                    <div class="crossboard-text" >
-                        <span class="text" translate="CARD2CARD.CROSSBOARD_TEXT" ng-class="{'crossboard-blink' : notcross}"></span>
-                        <span class="text" ng-class="{'crossboard-blink' : notcross}"><a id='1' ng-click="popup=!popup">{{ 'CARD2CARD.CROSSBOARD_TEXT_COUNTRY' | translate }}</a></span>
+                    <!--<div class="crossboard-text" >-->
+                        <!--<span class="text" translate="CARD2CARD.CROSSBOARD_TEXT" ng-class="{'crossboard-blink' : notcross}"></span>-->
+                        <!--<span class="text" ng-class="{'crossboard-blink' : notcross}"><a id='1' ng-click="popup=!popup">{{ 'CARD2CARD.CROSSBOARD_TEXT_COUNTRY' | translate }}</a></span>-->
 
-                        <div class='popup' ng-show="popup">
-                            <div class="text-country">
-                                <table class = "popup-table">
-                                    <tr>
-                                        <td>{{ 'CARD2CARD.CROSSBOARD_TEXT_RUS' | translate }}</td><td><img src="./../images/flagrus.png" width="22px"></td>
-                                        <td class="two-td">{{ 'CARD2CARD.CROSSBOARD_TEXT_GBL' | translate }}</td><td><img src="./../images/flaggbl.png" width="22px"></td>
+                        <!--<div class='popup' ng-show="popup">-->
+                            <!--<div class="text-country">-->
+                                <!--<table class = "popup-table">-->
+                                    <!--<tr>-->
+                                        <!--<td>{{ 'CARD2CARD.CROSSBOARD_TEXT_RUS' | translate }}</td><td><img src="./../images/flagrus.png" width="22px"></td>-->
+                                        <!--<td class="two-td">{{ 'CARD2CARD.CROSSBOARD_TEXT_GBL' | translate }}</td><td><img src="./../images/flaggbl.png" width="22px"></td>-->
 
-                                        <td class="two-td popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_ROM' | translate }}</td><td class="popup-desktop-768"><img src="./../images/flagrom.png" width="22px"></td>
-
-
-                                        <td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_GRZ' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flaggrz.png" width="22px"></td>
-                                        <td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_ROM' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flagrom.png" width="22px"></td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>{{ 'CARD2CARD.CROSSBOARD_TEXT_AUS' | translate }}</td><td><img src="./../images/flagaus.png" width="22px"></td>
-                                        <td class="two-td">{{ 'CARD2CARD.CROSSBOARD_TEXT_HUN' | translate }}</td><td><img src="./../images/flaghun.png" width="22px"></td>
-
-                                        <td class="two-td popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_GRZ' | translate }}</td><td class="popup-desktop-768"><img src="./../images/flaggrz.png" width="22px"></td>
+                                        <!--<td class="two-td popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_ROM' | translate }}</td><td class="popup-desktop-768"><img src="./../images/flagrom.png" width="22px"></td>-->
 
 
-                                        <td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_EST' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flagest.png" width="22px"></td>
-                                        <td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_POL' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flagpol.png" width="22px"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>{{ 'CARD2CARD.CROSSBOARD_TEXT_AZR' | translate }}</td><td><img src="./../images/flagazr.png" width="22px"></td>
-                                        <td class="two-td ">{{ 'CARD2CARD.CROSSBOARD_TEXT_KAZ' | translate }}</td><td><img src="./../images/flagkaz.png" width="22px"></td>
+                                        <!--<td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_GRZ' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flaggrz.png" width="22px"></td>-->
+                                        <!--<td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_ROM' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flagrom.png" width="22px"></td>-->
 
-                                        <td class="two-td popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_POL' | translate }}</td><td class="popup-desktop-768"><img src="./../images/flagpol.png" width="22px"></td>
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                        <!--<td>{{ 'CARD2CARD.CROSSBOARD_TEXT_AUS' | translate }}</td><td><img src="./../images/flagaus.png" width="22px"></td>-->
+                                        <!--<td class="two-td">{{ 'CARD2CARD.CROSSBOARD_TEXT_HUN' | translate }}</td><td><img src="./../images/flaghun.png" width="22px"></td>-->
 
-
-                                        <td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_CZH' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flagczh.png" width="22px"></td>
-                                        <td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_MTN' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flagmtn.png" width="22px"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>{{ 'CARD2CARD.CROSSBOARD_TEXT_BLR' | translate }}</td><td><img src="./../images/flagblr.png" width="22px"></td>
-                                        <td class="two-td">{{ 'CARD2CARD.CROSSBOARD_TEXT_LAT' | translate }}</td><td><img src="./../images/flaglat.png" width="22px"></td>
-
-                                        <td class="two-td popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_EST' | translate }}</td><td class="popup-desktop-768"><img src="./../images/flagest.png" width="22px"></td>
+                                        <!--<td class="two-td popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_GRZ' | translate }}</td><td class="popup-desktop-768"><img src="./../images/flaggrz.png" width="22px"></td>-->
 
 
-                                        <td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_ARM' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flagarm.png" width="22px"></td>
-                                        <td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_MLD' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flagmld.png" width="22px"></td>
-                                    </tr>
-                                    <tr>
-                                        <td >{{ 'CARD2CARD.CROSSBOARD_TEXT_BUL' | translate }}</td><td ><img src="./../images/flagbul.png" width="22px"></td>
-                                        <td  class="two-td">{{ 'CARD2CARD.CROSSBOARD_TEXT_LIT' | translate }}</td><td ><img src="./../images/flaglit.png" width="22px"></td>
+                                        <!--<td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_EST' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flagest.png" width="22px"></td>-->
+                                        <!--<td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_POL' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flagpol.png" width="22px"></td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                        <!--<td>{{ 'CARD2CARD.CROSSBOARD_TEXT_AZR' | translate }}</td><td><img src="./../images/flagazr.png" width="22px"></td>-->
+                                        <!--<td class="two-td ">{{ 'CARD2CARD.CROSSBOARD_TEXT_KAZ' | translate }}</td><td><img src="./../images/flagkaz.png" width="22px"></td>-->
 
-                                        <td class="two-td popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_MTN' | translate }}</td><td class="popup-desktop-768"><img src="./../images/flagmtn.png" width="22px"></td>
-
-
-                                    </tr>
-                                    <tr>
-                                        <td class="popup-mobile popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_ARM' | translate }}</td><td class="popup-mobile popup-desktop-768"><img src="./../images/flagarm.png" width="22px"></td>
-                                        <td class="two-td popup-mobile popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_MLD' | translate }}</td><td class="popup-mobile popup-desktop-768"><img src="./../images/flagmld.png" width="22px"></td>
-
-                                        <td class="two-td popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_CZH' | translate }}</td><td class="popup-desktop-768"><img src="./../images/flagczh.png" width="22px"></td>
+                                        <!--<td class="two-td popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_POL' | translate }}</td><td class="popup-desktop-768"><img src="./../images/flagpol.png" width="22px"></td>-->
 
 
-                                    </tr>
-                                    <tr>
-                                        <td class="popup-mobile">{{ 'CARD2CARD.CROSSBOARD_TEXT_CZH' | translate }}</td><td class="popup-mobile"><img src="./../images/flagczh.png" width="22px"></td>
-                                        <td class="two-td popup-mobile">{{ 'CARD2CARD.CROSSBOARD_TEXT_MTN' | translate }}</td><td class="popup-mobile"><img src="./../images/flagmtn.png" width="22px"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="popup-mobile">{{ 'CARD2CARD.CROSSBOARD_TEXT_EST' | translate }}</td><td class="popup-mobile"><img src="./../images/flagest.png" width="22px"></td>
-                                        <td class="two-td popup-mobile">{{ 'CARD2CARD.CROSSBOARD_TEXT_POL' | translate }}</td><td class="popup-mobile"><img src="./../images/flagpol.png" width="22px"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="popup-mobile">{{ 'CARD2CARD.CROSSBOARD_TEXT_GRZ' | translate }}</td><td class="popup-mobile"><img src="./../images/flaggrz.png" width="22px"></td>
-                                        <td class="two-td popup-mobile">{{ 'CARD2CARD.CROSSBOARD_TEXT_ROM' | translate }}</td><td class="popup-mobile"><img src="./../images/flagrom.png" width="22px"></td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div translate="CARD2CARD.CROSSBOARD_TEXT_COUNTRY_TOOLTIP"></div>
-                        </div>
-                    </div>
+                                        <!--<td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_CZH' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flagczh.png" width="22px"></td>-->
+                                        <!--<td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_MTN' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flagmtn.png" width="22px"></td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                        <!--<td>{{ 'CARD2CARD.CROSSBOARD_TEXT_BLR' | translate }}</td><td><img src="./../images/flagblr.png" width="22px"></td>-->
+                                        <!--<td class="two-td">{{ 'CARD2CARD.CROSSBOARD_TEXT_LAT' | translate }}</td><td><img src="./../images/flaglat.png" width="22px"></td>-->
+
+                                        <!--<td class="two-td popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_EST' | translate }}</td><td class="popup-desktop-768"><img src="./../images/flagest.png" width="22px"></td>-->
+
+
+                                        <!--<td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_ARM' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flagarm.png" width="22px"></td>-->
+                                        <!--<td class="two-td popup-desktop-1200">{{ 'CARD2CARD.CROSSBOARD_TEXT_MLD' | translate }}</td><td class="popup-desktop-1200"><img src="./../images/flagmld.png" width="22px"></td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                        <!--<td >{{ 'CARD2CARD.CROSSBOARD_TEXT_BUL' | translate }}</td><td ><img src="./../images/flagbul.png" width="22px"></td>-->
+                                        <!--<td  class="two-td">{{ 'CARD2CARD.CROSSBOARD_TEXT_LIT' | translate }}</td><td ><img src="./../images/flaglit.png" width="22px"></td>-->
+
+                                        <!--<td class="two-td popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_MTN' | translate }}</td><td class="popup-desktop-768"><img src="./../images/flagmtn.png" width="22px"></td>-->
+
+
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                        <!--<td class="popup-mobile popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_ARM' | translate }}</td><td class="popup-mobile popup-desktop-768"><img src="./../images/flagarm.png" width="22px"></td>-->
+                                        <!--<td class="two-td popup-mobile popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_MLD' | translate }}</td><td class="popup-mobile popup-desktop-768"><img src="./../images/flagmld.png" width="22px"></td>-->
+
+                                        <!--<td class="two-td popup-desktop-768">{{ 'CARD2CARD.CROSSBOARD_TEXT_CZH' | translate }}</td><td class="popup-desktop-768"><img src="./../images/flagczh.png" width="22px"></td>-->
+
+
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                        <!--<td class="popup-mobile">{{ 'CARD2CARD.CROSSBOARD_TEXT_CZH' | translate }}</td><td class="popup-mobile"><img src="./../images/flagczh.png" width="22px"></td>-->
+                                        <!--<td class="two-td popup-mobile">{{ 'CARD2CARD.CROSSBOARD_TEXT_MTN' | translate }}</td><td class="popup-mobile"><img src="./../images/flagmtn.png" width="22px"></td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                        <!--<td class="popup-mobile">{{ 'CARD2CARD.CROSSBOARD_TEXT_EST' | translate }}</td><td class="popup-mobile"><img src="./../images/flagest.png" width="22px"></td>-->
+                                        <!--<td class="two-td popup-mobile">{{ 'CARD2CARD.CROSSBOARD_TEXT_POL' | translate }}</td><td class="popup-mobile"><img src="./../images/flagpol.png" width="22px"></td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                        <!--<td class="popup-mobile">{{ 'CARD2CARD.CROSSBOARD_TEXT_GRZ' | translate }}</td><td class="popup-mobile"><img src="./../images/flaggrz.png" width="22px"></td>-->
+                                        <!--<td class="two-td popup-mobile">{{ 'CARD2CARD.CROSSBOARD_TEXT_ROM' | translate }}</td><td class="popup-mobile"><img src="./../images/flagrom.png" width="22px"></td>-->
+                                    <!--</tr>-->
+                                <!--</table>-->
+                            <!--</div>-->
+                            <!--<div translate="CARD2CARD.CROSSBOARD_TEXT_COUNTRY_TOOLTIP"></div>-->
+                        <!--</div>-->
+                    <!--</div>-->
                 </div>
             </form>
         </div>
-    </div>
+    <!--</div>-->
 </div>
 
 

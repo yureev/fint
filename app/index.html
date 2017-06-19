@@ -2,27 +2,27 @@
     <menu class="menu" id="top">
         <nav class="nav">
             <div class="nav__main">
-                <div class="nav__main__cont" ng-show="!begin">
+                <div class="nav__main__cont">
                     <div class="nav__main__cont__logo">
-                        <a href="" class="nav__main__cont__logo_link">
-                            <img src="./assets/images/logo_fint.png" alt="Fint.online" class="nav__main__cont__logo-img">
+                        <a href="index.html" class="nav__main__cont__logo_link">
+                            <img src="./assets/images/fint_logo_new.png" alt="Fint.online" class="nav__main__cont__logo-img">
                         </a>
                     </div>
-                    <div class="nav__main__cont__item">
+                    <div class="nav__main__cont__item" ng-show="!begin">
                         <a ui-sref="app.card" scroll-to="main" ng-click="nav=0" class="nav__main__cont__item_link" ng-class="{active: $state.includes('app.card') || $state.includes('app.phone')}">{{'APP.CONTROLS.BTN_SEND' | translate}}</a>
                         <div class="nav__main__cont__inside" ng-class="{active: $state.includes('app.card') || $state.includes('app.phone')}">
                             <a ui-sref="app.card" scroll-to="main" ng-click="nav=0" class="nav__main__cont__inside_link"  ng-class="{active: $state.includes('app.card') }">{{'CARD2CARD.CONTROLS.SEND.BTN_CARDTOCARD' | translate}}</a>
                             <a ui-sref="app.phone" scroll-to="main" ng-click="nav=0" class="nav__main__cont__inside_link"  ng-class="{active: $state.includes('app.phone')}">{{'CARD2CARD.CONTROLS.SEND.BTN_PHONE' | translate}}</a>
                         </div>
                     </div>
-                    <div class="nav nav__main__cont__item">
+                    <div class="nav nav__main__cont__item" ng-show="!begin">
                         <a ui-sref="app.url" scroll-to="main" ng-click="nav=0" class="nav__main__cont__item_link" ng-class="{active: $state.includes('app.url') || $state.includes('app.code')}">{{'APP.CONTROLS.BTN_RECEIVE' | translate}}</a>
                         <div class="nav__main__cont__inside" ng-class="{active: $state.includes('app.url') || $state.includes('app.code')}">
                             <a ui-sref="app.url" scroll-to="main" ng-click="nav=0" class="nav__main__cont__inside_link" ng-class="{active: $state.includes('app.url') }">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_URL' | translate}}</a>
                             <a ui-sref="app.code" scroll-to="main" ng-click="nav=0" class="nav__main__cont__inside_link"  ng-class="{active: $state.includes('app.code')}">{{'GET_BY_LINK.CONTROLS.RECEIVE.BTN_CODE' | translate}}</a>
                         </div>
                     </div>
-                    <div class="nav__main__cont_line-up"></div>
+                    <div class="nav__main__cont_line-up" ng-show="!begin"></div>
                 </div>
             </div>
             <div class="nav__second" id="menu-active">
@@ -58,7 +58,7 @@
             </div>
             <div class="nav__social">
                 <div class="nav__social_title">{{ 'APP.CONTACTS.SOCIAL' | translate }}</div>
-                <a href="tel:08000000000" class="nav__social_link"><i class="fa fa-phone" aria-hidden="true"></i></a>
+                <a href="tel:0676181757" class="nav__social_link"><i class="fa fa-phone" aria-hidden="true"></i></a>
                 <a href="mailto:support@fint.online" class="nav__social_link"><i class="fa fa-envelope" aria-hidden="true"></i></a>
                 <!--<a class="nav__social_link"><i class="fa fa-twitter" aria-hidden="true"></i></a>-->
                 <a class="nav__social_link"><i class="fa fa-facebook" aria-hidden="true"></i></a>
@@ -66,8 +66,49 @@
                 <a class="nav__social_link"><i class="fa fa-viber" aria-hidden="true"></i></a>
             </div>
         </div>
-
     </menu>
+
+    <menu class="menu-mobile">
+        <header class="menu-mobile__header">
+            <div class="menu-mobile__header__cont_line" >
+                <div class="menu-mobile__header__item__cont" ng-click="logomenu=!logomenu">
+                    <div class="menu-mobile__header__item__cont_line"></div>
+                    <div class="menu-mobile__header__item__cont_line"></div>
+                    <div class="menu-mobile__header__item__cont_line"></div>
+                </div>
+            </div>
+            <div class="menu-mobile__header__cont_logo">
+                <a href="" class="menu-mobile__header__item__cont__logo_link">
+                    <img src="./assets/images/fint_logo_new.png" alt="Fint.online" class="menu-mobile__header__item__cont__logo-img">
+                </a>
+
+            </div>
+            <div class="menu-mobile__header__cont_lang">
+                <div class="menu-mobile__header__item__lang__translate">
+                    <span class="menu-mobile__header__item__lang__translate_item"><a ng-model="lang" class="menu-mobile__header__item__lang__translate_link" ng-change="onChangeLanguage()" uib-btn-radio="'ua'">UA</a></span>
+                    <span class="menu-mobile__header__item__lang__translate_item"><a ng-model="lang" class="menu-mobile__header__item__lang__translate_link" ng-change="onChangeLanguage()" uib-btn-radio="'ru'">RU</a></span>
+                </div>
+            </div>
+        </header>
+        <nav class="menu-mobile__nav" ng-show="logomenu">
+            <div class="menu-mobile__nav__item">
+                <a class="menu-mobile__nav__item_link" scroll-to="main" ng-click="logomenu=!logomenu">{{ 'APP.MENU.TRANSFERS' | translate }}</a>
+            </div>
+            <div class="menu-mobile__nav__item">
+                <a class="menu-mobile__nav__item_link" scroll-to="services" ng-click="logomenu=!logomenu">{{ 'APP.MENU.ABOUT' | translate }}</a>
+            </div>
+            <div class="menu-mobile__nav__item">
+                <a class="menu-mobile__nav__item_link" scroll-to="tarif" ng-click="logomenu=!logomenu">{{ 'APP.MENU.TARIFFS' | translate }}</a>
+            </div>
+            <div class="menu-mobile__nav__item">
+                <a class="menu-mobile__nav__item_link" scroll-to="qaa" ng-click="logomenu=!logomenu">{{ 'APP.MENU.FAQ' | translate }}</a>
+            </div>
+            <div class="menu-mobile__nav__item">
+                <a class="menu-mobile__nav__item_link" scroll-to="pci-dss" ng-click="logomenu=!logomenu">{{ 'APP.MENU.PCI' | translate }}</a>
+            </div>
+        </nav>
+    </menu>
+
     <div class="container-main" id="main" >
         <div class="row">
             <div class="content" page-height >
@@ -119,6 +160,15 @@
 
     </div>
     <footer class="footer">
+        <div class="footer__social">
+            <div class="footer__social_title">{{ 'APP.CONTACTS.SOCIAL' | translate }}</div>
+            <a href="tel:08000000000" class="footer__social_link"><i class="fa fa-phone" aria-hidden="true"></i></a>
+            <a href="mailto:support@fint.online" class="footer__social_link"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+            <!--<a class="nav__social_link"><i class="fa fa-twitter" aria-hidden="true"></i></a>-->
+            <a class="footer__social_link"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            <a class="footer__social_link"><i class="fa fa-telegram" aria-hidden="true"></i></a>
+            <a class="footer__social_link"><i class="fa fa-viber" aria-hidden="true"></i></a>
+        </div>
         <div class="footer__logo">
             <a href="http://www.visa.com.ua/ua/uk-ua/personal/security/onlineshopping.shtml"  target="_blank" class="footer__logo_link">
                 <img src="./assets/images/vbyvisa_blu.png" alt="visa" class="footer__logo_img">
@@ -126,7 +176,7 @@
             <a href="http://www.visa.com.ua/ua/uk-ua/personal/security/onlineshopping.shtml"  target="_blank" class="footer__logo_link">
                 <img src="./assets/images/visa-direct.svg" alt="visa" class="footer__logo_img">
             </a>
-            <a href="assets/iframes/pci_cert_send.pdf"  target="_blank" class="footer__logo_link">
+            <a href="#" class="footer__logo_link">
                 <img src="./assets/images/credibility_pci-logo.png" alt="visa" class="footer__logo_img">
             </a>
             <a href="http://www.visa.com.ua/ua/uk-ua/personal/security/onlineshopping.shtml"  target="_blank" class="footer__logo_link">
@@ -137,6 +187,7 @@
             </a>
         </div>
     </footer>
+    <div scroll-top></div>
 </div>
 
 

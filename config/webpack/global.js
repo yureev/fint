@@ -149,7 +149,7 @@ module.exports = function (_path) {
             }),
             // create instance for entrypoint index.html building
             new HtmlPlugin({
-                title: '',
+                title: 'FINT.online',
                 chunks: ['application', 'vendors'],
                 filename: 'index.html',
                 template: path.join(_path, 'app', 'assets', 'templates', 'index.html')

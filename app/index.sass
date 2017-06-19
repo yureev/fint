@@ -24,6 +24,7 @@ html
 body
   width: 100%
   height: 100%
+  min-width: 320px
   font-family: 'Roboto', 'Arial', sans-serif
 
 a
@@ -33,11 +34,122 @@ a
   &:hover
     color: #7e7e7c
 
+.buttons
+  button
+    background-color: #c4c6c5
+    font-weight: 600
+    border: solid 2px #c4c6c5
+    color: #000000
+    padding: 0
+
+  .btn[disabled]
+    background-color: #ffffff
+    border: solid 2px #c4c6c5
+    opacity: 1
+    color: #c4c6c5
+
+.btn-warning
+  &:hover
+    color: #fff
+    background-color: #c4c6c5
+    border-color: #c4c6c5
+  &:focus
+    color: #fff
+    background-color: #c4c6c5
+    border-color: #c4c6c5
+  &:active
+    color: #fff
+    background-color: #c4c6c5
+    border-color: #c4c6c5
+  &:visited
+    color: #fff
+    background-color: #c4c6c5
+    border-color: #c4c6c5
+  &:active:focus
+    color: #fff
+    background-color: #c4c6c5
+    border-color: #c4c6c5
+
+.form-control
+  border: 2px solid #c4c6c5
+  text-align: center
+  //color: #c4c6c5
+  font-weight: 600
+
+.menu__main
+  border-bottom: 1px solid #9b9b9b
+
+  .item
+    color: #777777
+    text-transform: uppercase
+    padding-left: 5px
+    a
+      display: inline-block
+      padding: 20px 0
+      color: #777777
+
+    &.active
+      a
+        color: #777777
+        border-bottom: 2px solid #777777
+
+  .content
+    display: block
+    width: 100%
+    background-color: #fff
+
 .app
   min-height: 100%
   background: url("./assets/images/background.png") center no-repeat
   background-size: cover
   position: relative
+
+  .menu-mobile
+    width: 100%
+    text-align: center
+    position: fixed
+    background-color: #f2f0e4
+    z-index: 2
+    padding: 0
+    margin-top: 0
+
+    .menu-mobile__header
+      height: 40px
+      width: 85%
+      min-width: 240px
+      max-width: 400px
+      margin: 5px auto
+      position: relative
+
+
+      .menu-mobile__header__cont_line
+        position: absolute
+        bottom: 10px
+        left: 0
+        .menu-mobile__header__item__cont_line
+          border-top: 3px solid #7e7e7c
+          margin-bottom: 4px
+          width: 30px
+      .menu-mobile__header__cont_logo
+        position: absolute
+        top: 0
+        left: 40px
+        .menu-mobile__header__item__cont__logo-img
+          width: 65px
+      .menu-mobile__header__cont_lang
+        position: absolute
+        bottom: 0
+        right: 5px
+        .menu-mobile__header__item__lang__translate_link
+          font-weight: 600
+          &.active
+            color: #f3d36d
+    .menu-mobile__nav
+      text-align: left
+      width: 85%
+      margin: 0 auto
+      .menu-mobile__nav__item
+        margin-bottom: 10px
 
   .menu
     width: 20%
@@ -86,10 +198,12 @@ a
         &.activeline
           display: inherit
       .nav__second__item_link
+        font-size: 1.15em
         &.activemenu
-          font-size: 1.2em
+          font-size: 1.3em
 
     .nav__lang__translate_link
+      font-weight: 600
       &.active
         color: #f3d36d
 
@@ -107,10 +221,9 @@ a
           margin-right: 10px
 
   .container-main
-    margin-left: 20%
+    min-height: 800px
 
   .container-second
-    margin-left: 20%
 
     p
      text-indent: 10px
@@ -118,7 +231,6 @@ a
       min-height: 800px
       margin-bottom: 30px
       padding: 30px
-
 
       .container-second__tariffs_title, .container-second__questions__section_title, .container-second__services_title, .container-second__questions__pci-dss_title
         font-weight: 600
@@ -130,15 +242,20 @@ a
 
 
   .footer
-    height: 95px
-    margin-left: 20%
+    .footer__social
+      text-align: center
+      margin-bottom: 10px
+      .footer__social_title
+        color: #7e7e7c
+      .footer__social_link
+        margin-right: 10px
+
     .footer__logo
       text-align: center
       .footer__logo_link
         display: inline-block
         text-align: justify
         vertical-align: middle
-        height: 46px
 
         &:after
           content: ''
@@ -748,256 +865,293 @@ a
 //  .images
 //    width: 400px
 //
-//@media(max-width: 767px)
-//
-//  html
-//    font-size: 12px
-//
-//    .top
-//      display: none
-//
-//    .footer-mobile
-//      width: 100%
-//      margin-bottom: 35px
-//      text-align: center
-//
-//      .icon
-//        margin: 0 10px
-//      i
-//        font-size: 2rem
-//        margin-right: 10px
-//        padding-left: 10px
-//
-//    .main
-//      padding-top: 63px
-//
-//    .menu-mobile
-//      position: fixed
-//      background-color: #2980b9
-//      z-index: 2
-//      width: 100%
-//
-//      .menu-mobile-input
-//        width: 300px
-//        margin: 0 auto
-//        padding: 10px 10px 10px 30px
-//
-//        .cont-mobile
-//          float: left
-//
-//          .logo-size
-//            float: left
-//            margin-right: 10px
-//
-//          .logo-img
-//            img
-//              width: 50px
-//
-//          .logo-text
-//            margin-top: 10px
-//            img
-//              width: 100px
-//
-//          .logo-menu
-//            margin-top: 15px
-//
-//            .line-menu
-//              border-top: 3px solid #5fa6cb
-//              margin-bottom: 4px
-//              width: 30px
-//
-//        .cont-mobile-right
-//          //width: 39%
-//
-//          .translate
-//            text-align: right
-//            width: 115%
-//            margin-top: 20px
-//
-//            a
-//              color: #ffffff
-//            .active
-//              color: #1a3654
-//
-//    .menu-mobile-navbar
-//      min-height: 0
-//      margin-bottom: 0
-//      .navbar-collapse
-//        box-shadow: none
-//
-//
-//
-//    .mobile-menu-active
-//      width: 300px
-//      margin: 0 auto
-//      text-align: left
-//      padding-left: 30px
-//      opacity: 1
-//
-//      .nav-justified
-//        margin-bottom: 5px
-//
-//        a
-//          text-decoration: none
-//          color: #cfcfcf
-//
-//
-//    .navigation
-//      width: 50%
-//      .buttons
-//        button
-//          height: 35px
-//
-//      .logo-size
-//        width: 32%
-//
-//    .pci-dss-text-all
-//      margin-left: 10px
-//
-//    .pci-dss
-//      .description
-//        padding-left: 5px
-//
-//      .pci-dss-img
-//        padding-left: 10px
-//
-//
-//    .main-left
-//      display: none
-//
-//    .main-right
-//      width: 300px
-//      margin: 0 auto
-//      float: none
-//
-//    .desc-margin
-//      padding-left: 5px
-//
-//
-//
-//
-//  .rocketchat-widget
-//    right: 0px !important
-//    width: 200px !important
-//    margin-left: 10%
-//
-//
-//@media(min-width: 768px)
-//
-//  html
-//    font-size: 12px
-//
-//    .top
-//      width: 200px
-//      //.nav-justified
-//      //  a
-//      //    font-size: 10px
-//
-//    .footer-mobile
-//      display: none
-//
-//    .main
-//      padding-top: 0
-//
-//    .menu-mobile
-//      display: none
-//
-//    .navigation
-//      width: 100%
-//      .buttons
-//        button
-//          //height: 25px
-//
-//      .logo-size
-//        width: 32%
-//
-//    .pci-dss-text-all
-//      margin-left: 32px
-//
-//    .pci-dss
-//      .pci-dss-img
-//        padding-left: 145px
-//
-//
-//    .main-left
-//      width: 200px
-//
-//    .main-right
-//      width: 553px
-//      float: left
-//
-//    .desc-margin
-//      padding-left: 200px
-//
-//
-//  .rocketchat-widget
-//    right: 100px !important
-//
-//
-//@media(min-width: 1024px)
-//
-//  html
-//    font-size: 14px
-//
-//    .top
-//      width: 240px
-//      //.nav-justified
-//      //  a
-//      //    font-size: 12px
-//
-//    .navigation
-//      //width: 73%
-//
-//      .logo-size
-//        width: 42%
-//
-//
-//      .buttons
-//        button
-//          //height: 35px
-//
-//    .main-left
-//      width: 240px
-//
-//    .main-right
-//      width: 760px
-//
-//    .desc-margin
-//      padding-left: 180px
-//
-//    .pci-dss-text-all
-//      margin-left: 100px
-//
-//    .pci-dss
-//      .pci-dss-img
-//        padding-left: 235px
-//
-//@media(min-width: 1280px)
-//
-//  html
-//    font-size: 16px
-//
-//    .top
-//      width: 320px
-//
-//    .navigation
-//      //width: 100%
-//      .buttons
-//        button
-//          height: 45px
-//
-//    .main-left
-//      width: 320px
-//
-//    .main-right
-//      width: 945px
-//
-//    .desc-margin
-//      padding-left: 320px
-//
-//    .pci-dss-text-all
-//      margin-left: 45px
-//
-//    .pci-dss
-//      .pci-dss-img
-//        padding-left: 200px
+@media(max-width: 767px)
+
+  html
+    font-size: 12px
+
+    .menu
+      display: none
+
+    .menu__main
+      text-align: center
+
+    .container-main
+      margin-left: 0
+      padding-top: 50px
+
+    .container-second
+      margin-left: 0
+
+    .footer
+      margin-left: 0
+      height: 30px
+      .footer__logo_link
+        height: 20px
+
+    .top
+      display: none
+
+    .footer-mobile
+      width: 100%
+      margin-bottom: 35px
+      text-align: center
+
+      .icon
+        margin: 0 10px
+      i
+        font-size: 2rem
+        margin-right: 10px
+        padding-left: 10px
+
+    .main
+      padding-top: 63px
+
+    .menu-mobile
+      //position: fixed
+      //background-color: #2980b9
+      //z-index: 2
+      //width: 100%
+
+      .menu-mobile-input
+        width: 300px
+        margin: 0 auto
+        padding: 10px 10px 10px 30px
+
+        .cont-mobile
+          float: left
+
+          .logo-size
+            float: left
+            margin-right: 10px
+
+          .logo-img
+            img
+              width: 50px
+
+          .logo-text
+            margin-top: 10px
+            img
+              width: 100px
+
+          .logo-menu
+            margin-top: 15px
+
+            .line-menu
+              border-top: 3px solid #5fa6cb
+              margin-bottom: 4px
+              width: 30px
+
+        .cont-mobile-right
+          //width: 39%
+
+          .translate
+            text-align: right
+            width: 115%
+            margin-top: 20px
+
+            a
+              color: #ffffff
+            .active
+              color: #1a3654
+
+    .menu-mobile-navbar
+      min-height: 0
+      margin-bottom: 0
+      .navbar-collapse
+        box-shadow: none
+
+
+
+    .mobile-menu-active
+      width: 300px
+      margin: 0 auto
+      text-align: left
+      padding-left: 30px
+      opacity: 1
+
+      .nav-justified
+        margin-bottom: 5px
+
+        a
+          text-decoration: none
+          color: #cfcfcf
+
+
+    .navigation
+      width: 50%
+      .buttons
+        button
+          height: 35px
+
+      .logo-size
+        width: 32%
+
+    .pci-dss-text-all
+      margin-left: 10px
+
+    .pci-dss
+      .description
+        padding-left: 5px
+
+      .pci-dss-img
+        padding-left: 10px
+
+
+    .main-left
+      display: none
+
+    .main-right
+      width: 300px
+      margin: 0 auto
+      float: none
+
+    .desc-margin
+      padding-left: 5px
+
+
+
+
+  .rocketchat-widget
+    right: 0px !important
+    width: 200px !important
+    margin-left: 10%
+
+
+@media(min-width: 768px)
+
+  html
+    font-size: 12px
+
+    .menu-mobile
+      display: none
+
+    .container-main
+      margin-left: 20%
+
+    .container-second
+      margin-left: 20%
+
+    .footer
+      height: 95px
+      margin-left: 20%
+      .footer__social
+        display: none
+      .footer__logo_link
+        height: 46px
+
+
+    .top
+      width: 200px
+      //.nav-justified
+      //  a
+      //    font-size: 10px
+
+    .footer-mobile
+      display: none
+
+    .main
+      padding-top: 0
+
+    .menu-mobile
+      display: none
+
+    .navigation
+      width: 100%
+      .buttons
+        button
+          //height: 25px
+
+      .logo-size
+        width: 32%
+
+    .pci-dss-text-all
+      margin-left: 32px
+
+    .pci-dss
+      .pci-dss-img
+        padding-left: 145px
+
+
+    .main-left
+      width: 200px
+
+    .main-right
+      width: 553px
+      float: left
+
+    .desc-margin
+      padding-left: 200px
+
+
+  .rocketchat-widget
+    right: 100px !important
+
+
+@media(min-width: 1024px)
+
+  html
+    font-size: 14px
+
+    .top
+      width: 240px
+      //.nav-justified
+      //  a
+      //    font-size: 12px
+
+    .navigation
+      //width: 73%
+
+      .logo-size
+        width: 42%
+
+
+      .buttons
+        button
+          //height: 35px
+
+    .main-left
+      width: 240px
+
+    .main-right
+      width: 760px
+
+    .desc-margin
+      padding-left: 180px
+
+    .pci-dss-text-all
+      margin-left: 100px
+
+    .pci-dss
+      .pci-dss-img
+        padding-left: 235px
+
+@media(min-width: 1280px)
+
+  html
+    font-size: 16px
+
+    .top
+      width: 320px
+
+    .navigation
+      //width: 100%
+      .buttons
+        button
+          height: 45px
+
+    .main-left
+      width: 320px
+
+    .main-right
+      width: 945px
+
+    .desc-margin
+      padding-left: 320px
+
+    .pci-dss-text-all
+      margin-left: 45px
+
+    .pci-dss
+      .pci-dss-img
+        padding-left: 200px
